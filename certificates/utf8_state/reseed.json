@@ -1,0 +1,711 @@
+{
+  "behavior": {
+    "contract": "all x,y in {0,...,255}; one output byte",
+    "exact_finite_equivalence": true,
+    "maturity": "VERIFIED",
+    "reference_sha256": "eaaf55079d4568449435566ed7a1af0b6631f3598c60b49ec0d1ddc0287912a3",
+    "reference_table_path": "artifact/benchmark/reference/utf8_state.bin",
+    "toolchains": [
+      {
+        "assembly_command": [
+          "gcc",
+          "-std=c11",
+          "-O0",
+          "-S",
+          "artifact/benchmark/generated/utf8_state/reseed/kernel.c",
+          "-o",
+          "artifact/results/raw/utf8_state/reseed/gcc_o0.s"
+        ],
+        "assembly_path": "artifact/results/raw/utf8_state/reseed/gcc_o0.s",
+        "assembly_retention": {
+          "method": "immediate-constant presence in emitted assembly; heuristic, not a formal detector",
+          "retained_carrier_ids": [
+            "utf8_state:R:00",
+            "utf8_state:R:01",
+            "utf8_state:R:02",
+            "utf8_state:R:03",
+            "utf8_state:R:04",
+            "utf8_state:R:05",
+            "utf8_state:R:06",
+            "utf8_state:R:07",
+            "utf8_state:R:08",
+            "utf8_state:R:09",
+            "utf8_state:R:10",
+            "utf8_state:R:11",
+            "utf8_state:R:12",
+            "utf8_state:R:13",
+            "utf8_state:R:14",
+            "utf8_state:R:15",
+            "utf8_state:R:16",
+            "utf8_state:R:17",
+            "utf8_state:R:18",
+            "utf8_state:R:19",
+            "utf8_state:R:20",
+            "utf8_state:R:21",
+            "utf8_state:R:22",
+            "utf8_state:R:23",
+            "utf8_state:R:24",
+            "utf8_state:R:25",
+            "utf8_state:R:26",
+            "utf8_state:R:27"
+          ],
+          "retained_count": 28,
+          "retention": 1.0,
+          "source_present_count": 28
+        },
+        "assembly_returncode": 0,
+        "assembly_sha256": "3f40f7c3cfd185ef67bf22efd6bcd2b491b2664e416837567a533c647a0a3eaf",
+        "binary_path": "artifact/results/raw/utf8_state/reseed/gcc_o0",
+        "binary_sha256": "801805829c93806dc0641bc56ff520e08070b2a1d47f203d0f03bf709858709d",
+        "compile_command": [
+          "gcc",
+          "-std=c11",
+          "-Wall",
+          "-Wextra",
+          "-Werror",
+          "-O0",
+          "artifact/benchmark/generated/utf8_state/reseed/kernel.c",
+          "-o",
+          "artifact/results/raw/utf8_state/reseed/gcc_o0"
+        ],
+        "compile_returncode": 0,
+        "compiler": "gcc",
+        "compiler_version": "gcc (Debian 14.2.0-19) 14.2.0",
+        "first_mismatch": null,
+        "matches_reference": true,
+        "optimization": "-O0",
+        "output_path": "artifact/results/raw/utf8_state/reseed/gcc_o0.out",
+        "output_sha256": "eaaf55079d4568449435566ed7a1af0b6631f3598c60b49ec0d1ddc0287912a3",
+        "output_size": 65536,
+        "run_returncode": 0,
+        "status": "EXECUTED",
+        "stderr": ""
+      },
+      {
+        "assembly_command": [
+          "gcc",
+          "-std=c11",
+          "-O2",
+          "-S",
+          "artifact/benchmark/generated/utf8_state/reseed/kernel.c",
+          "-o",
+          "artifact/results/raw/utf8_state/reseed/gcc_o2.s"
+        ],
+        "assembly_path": "artifact/results/raw/utf8_state/reseed/gcc_o2.s",
+        "assembly_retention": {
+          "method": "immediate-constant presence in emitted assembly; heuristic, not a formal detector",
+          "retained_carrier_ids": [],
+          "retained_count": 0,
+          "retention": 0.0,
+          "source_present_count": 28
+        },
+        "assembly_returncode": 0,
+        "assembly_sha256": "0a3d6b075ed84cf8017ef01f90d1a78741507b0040d8cfc4b6f28b0f0a1a406c",
+        "binary_path": "artifact/results/raw/utf8_state/reseed/gcc_o2",
+        "binary_sha256": "273d9f0e1ec8ac98d68248d5615b2d9b29932024f226096a9df4e8cb3126cfbd",
+        "compile_command": [
+          "gcc",
+          "-std=c11",
+          "-Wall",
+          "-Wextra",
+          "-Werror",
+          "-O2",
+          "artifact/benchmark/generated/utf8_state/reseed/kernel.c",
+          "-o",
+          "artifact/results/raw/utf8_state/reseed/gcc_o2"
+        ],
+        "compile_returncode": 0,
+        "compiler": "gcc",
+        "compiler_version": "gcc (Debian 14.2.0-19) 14.2.0",
+        "first_mismatch": null,
+        "matches_reference": true,
+        "optimization": "-O2",
+        "output_path": "artifact/results/raw/utf8_state/reseed/gcc_o2.out",
+        "output_sha256": "eaaf55079d4568449435566ed7a1af0b6631f3598c60b49ec0d1ddc0287912a3",
+        "output_size": 65536,
+        "run_returncode": 0,
+        "status": "EXECUTED",
+        "stderr": ""
+      },
+      {
+        "assembly_command": [
+          "clang",
+          "-std=c11",
+          "-O0",
+          "-S",
+          "artifact/benchmark/generated/utf8_state/reseed/kernel.c",
+          "-o",
+          "artifact/results/raw/utf8_state/reseed/clang_o0.s"
+        ],
+        "assembly_path": "artifact/results/raw/utf8_state/reseed/clang_o0.s",
+        "assembly_retention": {
+          "method": "immediate-constant presence in emitted assembly; heuristic, not a formal detector",
+          "retained_carrier_ids": [
+            "utf8_state:R:00",
+            "utf8_state:R:01",
+            "utf8_state:R:02",
+            "utf8_state:R:03",
+            "utf8_state:R:04",
+            "utf8_state:R:05",
+            "utf8_state:R:06",
+            "utf8_state:R:07",
+            "utf8_state:R:08",
+            "utf8_state:R:09",
+            "utf8_state:R:10",
+            "utf8_state:R:11",
+            "utf8_state:R:12",
+            "utf8_state:R:13",
+            "utf8_state:R:14",
+            "utf8_state:R:15",
+            "utf8_state:R:16",
+            "utf8_state:R:17",
+            "utf8_state:R:18",
+            "utf8_state:R:19",
+            "utf8_state:R:20",
+            "utf8_state:R:21",
+            "utf8_state:R:22",
+            "utf8_state:R:23",
+            "utf8_state:R:24",
+            "utf8_state:R:25",
+            "utf8_state:R:26",
+            "utf8_state:R:27"
+          ],
+          "retained_count": 28,
+          "retention": 1.0,
+          "source_present_count": 28
+        },
+        "assembly_returncode": 0,
+        "assembly_sha256": "c31270b3b4dafbfd22799e4e79739f7d49a118d11ccdec805284b53bc98f2a4b",
+        "binary_path": "artifact/results/raw/utf8_state/reseed/clang_o0",
+        "binary_sha256": "8098b99c7843758d6bf52068ce466706e234a6f665bcb747f409fafacc6d679c",
+        "compile_command": [
+          "clang",
+          "-std=c11",
+          "-Wall",
+          "-Wextra",
+          "-Werror",
+          "-O0",
+          "artifact/benchmark/generated/utf8_state/reseed/kernel.c",
+          "-o",
+          "artifact/results/raw/utf8_state/reseed/clang_o0"
+        ],
+        "compile_returncode": 0,
+        "compiler": "clang",
+        "compiler_version": "clang version 17.0.0 (https://github.com/swiftlang/llvm-project.git 10999b6d034fe318f3d56c83bddb6572593a8bb0)",
+        "first_mismatch": null,
+        "matches_reference": true,
+        "optimization": "-O0",
+        "output_path": "artifact/results/raw/utf8_state/reseed/clang_o0.out",
+        "output_sha256": "eaaf55079d4568449435566ed7a1af0b6631f3598c60b49ec0d1ddc0287912a3",
+        "output_size": 65536,
+        "run_returncode": 0,
+        "status": "EXECUTED",
+        "stderr": ""
+      },
+      {
+        "assembly_command": [
+          "clang",
+          "-std=c11",
+          "-O2",
+          "-S",
+          "artifact/benchmark/generated/utf8_state/reseed/kernel.c",
+          "-o",
+          "artifact/results/raw/utf8_state/reseed/clang_o2.s"
+        ],
+        "assembly_path": "artifact/results/raw/utf8_state/reseed/clang_o2.s",
+        "assembly_retention": {
+          "method": "immediate-constant presence in emitted assembly; heuristic, not a formal detector",
+          "retained_carrier_ids": [],
+          "retained_count": 0,
+          "retention": 0.0,
+          "source_present_count": 28
+        },
+        "assembly_returncode": 0,
+        "assembly_sha256": "45eb571ed0da8ef443358767b68440112be5f71a2b235edc0ba12adf9e3e9b96",
+        "binary_path": "artifact/results/raw/utf8_state/reseed/clang_o2",
+        "binary_sha256": "2d7d1b44fa0f6a7ff638bd1b6f3d833e6289728312fa67fac9999f3797bb1bda",
+        "compile_command": [
+          "clang",
+          "-std=c11",
+          "-Wall",
+          "-Wextra",
+          "-Werror",
+          "-O2",
+          "artifact/benchmark/generated/utf8_state/reseed/kernel.c",
+          "-o",
+          "artifact/results/raw/utf8_state/reseed/clang_o2"
+        ],
+        "compile_returncode": 0,
+        "compiler": "clang",
+        "compiler_version": "clang version 17.0.0 (https://github.com/swiftlang/llvm-project.git 10999b6d034fe318f3d56c83bddb6572593a8bb0)",
+        "first_mismatch": null,
+        "matches_reference": true,
+        "optimization": "-O2",
+        "output_path": "artifact/results/raw/utf8_state/reseed/clang_o2.out",
+        "output_sha256": "eaaf55079d4568449435566ed7a1af0b6631f3598c60b49ec0d1ddc0287912a3",
+        "output_size": 65536,
+        "run_returncode": 0,
+        "status": "EXECUTED",
+        "stderr": ""
+      }
+    ]
+  },
+  "certificate_sha256": "02be8c35a4daca298276af9cc6215e284d2dc7353fe0b0dc1af2ccaea27e4e5d",
+  "chain": {
+    "all_parents_accepted": true,
+    "hash_link_valid": true,
+    "parents": [
+      {
+        "accepted": true,
+        "certificate_sha256": "c4a61a5d9e9d2b2475d71606fe01a0a1713f82a110c77aa33b00e1be1bdf90c9",
+        "decision": "PASS",
+        "hash_link_valid": true,
+        "policy_canonical_sha256": "0966492110b8e74f5606065f6bd654ea17ae2104a5c99306a372b5caa64afb38",
+        "policy_compatible": true,
+        "variant": "dependency_upgrade"
+      }
+    ],
+    "policy_compatible": true,
+    "predecessor_accepted": true,
+    "predecessor_certificate_sha256": "c4a61a5d9e9d2b2475d71606fe01a0a1713f82a110c77aa33b00e1be1bdf90c9",
+    "predecessor_decision": "PASS",
+    "predecessor_policy_canonical_sha256": "0966492110b8e74f5606065f6bd654ea17ae2104a5c99306a372b5caa64afb38"
+  },
+  "kernel": "utf8_state",
+  "manifest": {
+    "canonical_sha256": "e7a4a58a1499206e53649af59b0e5d06a611a4e3295d9b1e7291f62ac8420edf",
+    "file_sha256": "cba54b75758b4bd99afb4c3712ecde413a72fecc272cf1496fb8907b33aa3158",
+    "path": "artifact/benchmark/generated/utf8_state/reseed/watermark_manifest.json"
+  },
+  "parent_variant": "dependency_upgrade",
+  "parent_variants": [
+    "dependency_upgrade"
+  ],
+  "policy": {
+    "canonical_sha256": "0966492110b8e74f5606065f6bd654ea17ae2104a5c99306a372b5caa64afb38",
+    "file_sha256": "efcddf87c5651dbfeb205dac7fefa602a115e89e665b3d6ba45c6afce1f528ba",
+    "path": "artifact/policies/finite/utf8_state.json",
+    "policy_id": "finite:utf8_state:v1"
+  },
+  "relations": {
+    "behavior": {
+      "exact_finite_equivalence": true,
+      "passed": true,
+      "state": "ESTABLISHED_TRUE"
+    },
+    "continuity": {
+      "baseline_count": 28,
+      "mapped_count": 0,
+      "parent_edge_count": 1,
+      "passed": false,
+      "per_parent": [
+        {
+          "baseline_count": 28,
+          "mapped_count": 0,
+          "parent_variant": "dependency_upgrade",
+          "traceability": 0.0
+        }
+      ],
+      "required_count": 26,
+      "state": "ESTABLISHED_FALSE"
+    },
+    "executable_reproduction": {
+      "passed": true,
+      "state": "ESTABLISHED_TRUE"
+    },
+    "integrity": {
+      "passed": true,
+      "state": "ESTABLISHED_TRUE"
+    },
+    "lineage": {
+      "passed": true,
+      "state": "ESTABLISHED_TRUE"
+    },
+    "recovery": {
+      "passed": true,
+      "payload_hex": "06f5",
+      "state": "ESTABLISHED_TRUE",
+      "status": "CERTIFIED_UNIQUE"
+    },
+    "source_conformance": {
+      "passed": true,
+      "state": "ESTABLISHED_TRUE"
+    }
+  },
+  "schema": "tracecert.release.v5",
+  "source": {
+    "parent_sha256": "0fd4685b442960aadb60d814e76e65ab68fe1806c1c58020e8d28a3dd2196f38",
+    "parent_sha256s": [
+      "0fd4685b442960aadb60d814e76e65ab68fe1806c1c58020e8d28a3dd2196f38"
+    ],
+    "path": "artifact/benchmark/generated/utf8_state/reseed/kernel.c",
+    "sha256": "dc475cc6e5357f20a58c4f27382a799f25f6e58a33067378162829ca3a1c87b7"
+  },
+  "variant": "reseed",
+  "verdict": "REJECT",
+  "watermark": {
+    "continuity_status": "CONTINUITY_BELOW_LOCK",
+    "decode": {
+      "blocks": [
+        {
+          "candidate_count": 1,
+          "condition_holds": true,
+          "decoded_bits": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "erasures": 0,
+          "errors": 0,
+          "status": "CERTIFIED_UNIQUE"
+        },
+        {
+          "candidate_count": 1,
+          "condition_holds": true,
+          "decoded_bits": [
+            0,
+            1,
+            1,
+            0
+          ],
+          "erasures": 0,
+          "errors": 0,
+          "status": "CERTIFIED_UNIQUE"
+        },
+        {
+          "candidate_count": 1,
+          "condition_holds": true,
+          "decoded_bits": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "erasures": 0,
+          "errors": 0,
+          "status": "CERTIFIED_UNIQUE"
+        },
+        {
+          "candidate_count": 1,
+          "condition_holds": true,
+          "decoded_bits": [
+            0,
+            1,
+            0,
+            1
+          ],
+          "erasures": 0,
+          "errors": 0,
+          "status": "CERTIFIED_UNIQUE"
+        }
+      ],
+      "payload_hex": "06f5",
+      "status": "CERTIFIED_UNIQUE",
+      "total_erasures": 0,
+      "total_errors": 0
+    },
+    "expected_payload_hex": "06f5",
+    "observed_symbols": "0000000110011011111110100101",
+    "payload_recoverable": true,
+    "provenance": {
+      "aggregation": "single-parent-edge",
+      "baseline_count": 28,
+      "mapped_count": 0,
+      "mappings": [],
+      "traceability": 0.0
+    },
+    "provenance_by_parent": [
+      {
+        "baseline_count": 28,
+        "mapped_count": 0,
+        "mappings": [],
+        "parent_variant": "dependency_upgrade",
+        "traceability": 0.0
+      }
+    ],
+    "source_carriers": [
+      {
+        "carrier_id": "utf8_state:R:00",
+        "constant": 2009576311,
+        "expected_bit": 0,
+        "family": "helper-v2",
+        "line": 14,
+        "observed_bit": 0,
+        "position": 0,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "utf8_state:R:01",
+        "constant": 3653984597,
+        "expected_bit": 0,
+        "family": "helper-v2",
+        "line": 28,
+        "observed_bit": 0,
+        "position": 1,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "utf8_state:R:02",
+        "constant": 1845361561,
+        "expected_bit": 0,
+        "family": "helper-v2",
+        "line": 15,
+        "observed_bit": 0,
+        "position": 2,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "utf8_state:R:03",
+        "constant": 460715319,
+        "expected_bit": 0,
+        "family": "helper-v2",
+        "line": 29,
+        "observed_bit": 0,
+        "position": 3,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "utf8_state:R:04",
+        "constant": 558881185,
+        "expected_bit": 0,
+        "family": "helper-v2",
+        "line": 16,
+        "observed_bit": 0,
+        "position": 4,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "utf8_state:R:05",
+        "constant": 1404005203,
+        "expected_bit": 0,
+        "family": "helper-v2",
+        "line": 30,
+        "observed_bit": 0,
+        "position": 5,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "utf8_state:R:06",
+        "constant": 1711141811,
+        "expected_bit": 0,
+        "family": "helper-v2",
+        "line": 17,
+        "observed_bit": 0,
+        "position": 6,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "utf8_state:R:07",
+        "constant": 2338557189,
+        "expected_bit": 1,
+        "family": "helper-v2",
+        "line": 31,
+        "observed_bit": 1,
+        "position": 7,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "utf8_state:R:08",
+        "constant": 2877138379,
+        "expected_bit": 1,
+        "family": "helper-v2",
+        "line": 18,
+        "observed_bit": 1,
+        "position": 8,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "utf8_state:R:09",
+        "constant": 2046151961,
+        "expected_bit": 0,
+        "family": "helper-v2",
+        "line": 32,
+        "observed_bit": 0,
+        "position": 9,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "utf8_state:R:10",
+        "constant": 4159905783,
+        "expected_bit": 0,
+        "family": "helper-v2",
+        "line": 19,
+        "observed_bit": 0,
+        "position": 10,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "utf8_state:R:11",
+        "constant": 4048748909,
+        "expected_bit": 1,
+        "family": "helper-v2",
+        "line": 33,
+        "observed_bit": 1,
+        "position": 11,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "utf8_state:R:12",
+        "constant": 1126247325,
+        "expected_bit": 1,
+        "family": "helper-v2",
+        "line": 20,
+        "observed_bit": 1,
+        "position": 12,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "utf8_state:R:13",
+        "constant": 1934832087,
+        "expected_bit": 0,
+        "family": "helper-v2",
+        "line": 34,
+        "observed_bit": 0,
+        "position": 13,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "utf8_state:R:14",
+        "constant": 4019936057,
+        "expected_bit": 1,
+        "family": "helper-v2",
+        "line": 21,
+        "observed_bit": 1,
+        "position": 14,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "utf8_state:R:15",
+        "constant": 1169920325,
+        "expected_bit": 1,
+        "family": "helper-v2",
+        "line": 35,
+        "observed_bit": 1,
+        "position": 15,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "utf8_state:R:16",
+        "constant": 1769197981,
+        "expected_bit": 1,
+        "family": "helper-v2",
+        "line": 22,
+        "observed_bit": 1,
+        "position": 16,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "utf8_state:R:17",
+        "constant": 1561589119,
+        "expected_bit": 1,
+        "family": "helper-v2",
+        "line": 36,
+        "observed_bit": 1,
+        "position": 17,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "utf8_state:R:18",
+        "constant": 2918158111,
+        "expected_bit": 1,
+        "family": "helper-v2",
+        "line": 23,
+        "observed_bit": 1,
+        "position": 18,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "utf8_state:R:19",
+        "constant": 2207608117,
+        "expected_bit": 1,
+        "family": "helper-v2",
+        "line": 37,
+        "observed_bit": 1,
+        "position": 19,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "utf8_state:R:20",
+        "constant": 4188350449,
+        "expected_bit": 1,
+        "family": "helper-v2",
+        "line": 24,
+        "observed_bit": 1,
+        "position": 20,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "utf8_state:R:21",
+        "constant": 3823967729,
+        "expected_bit": 0,
+        "family": "helper-v2",
+        "line": 38,
+        "observed_bit": 0,
+        "position": 21,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "utf8_state:R:22",
+        "constant": 1197463389,
+        "expected_bit": 1,
+        "family": "helper-v2",
+        "line": 25,
+        "observed_bit": 1,
+        "position": 22,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "utf8_state:R:23",
+        "constant": 2338140665,
+        "expected_bit": 0,
+        "family": "helper-v2",
+        "line": 39,
+        "observed_bit": 0,
+        "position": 23,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "utf8_state:R:24",
+        "constant": 3340731891,
+        "expected_bit": 0,
+        "family": "helper-v2",
+        "line": 26,
+        "observed_bit": 0,
+        "position": 24,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "utf8_state:R:25",
+        "constant": 3284003831,
+        "expected_bit": 1,
+        "family": "helper-v2",
+        "line": 40,
+        "observed_bit": 1,
+        "position": 25,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "utf8_state:R:26",
+        "constant": 1574820309,
+        "expected_bit": 0,
+        "family": "helper-v2",
+        "line": 27,
+        "observed_bit": 0,
+        "position": 26,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "utf8_state:R:27",
+        "constant": 2545146857,
+        "expected_bit": 1,
+        "family": "helper-v2",
+        "line": 41,
+        "observed_bit": 1,
+        "position": 27,
+        "state": "MATCH"
+      }
+    ],
+    "traceability_threshold": 0.9285714285714286
+  }
+}

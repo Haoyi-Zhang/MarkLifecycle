@@ -1,0 +1,7 @@
+This software is provided "as-is", without any express or implied warranty.
+Permission is granted to anyone to use this software for any purpose,
+including commercial applications, and to alter it and redistribute it freely,
+subject to the zlib license's origin, alteration, and notice conditions.
+
+This concise copy records the zlib grant. The exact upstream notice and source
+blob binding are retained in the project provenance record.

@@ -1,0 +1,711 @@
+{
+  "behavior": {
+    "contract": "all x,y in {0,...,255}; one output byte",
+    "exact_finite_equivalence": true,
+    "maturity": "VERIFIED",
+    "reference_sha256": "c66de56490a7d3a9b2958033c4088ae12fa623e739c66ceea52ae6968146a887",
+    "reference_table_path": "artifact/benchmark/reference/fletcher_step.bin",
+    "toolchains": [
+      {
+        "assembly_command": [
+          "gcc",
+          "-std=c11",
+          "-O0",
+          "-S",
+          "artifact/benchmark/generated/fletcher_step/reseed/kernel.c",
+          "-o",
+          "artifact/results/raw/fletcher_step/reseed/gcc_o0.s"
+        ],
+        "assembly_path": "artifact/results/raw/fletcher_step/reseed/gcc_o0.s",
+        "assembly_retention": {
+          "method": "immediate-constant presence in emitted assembly; heuristic, not a formal detector",
+          "retained_carrier_ids": [
+            "fletcher_step:R:00",
+            "fletcher_step:R:01",
+            "fletcher_step:R:02",
+            "fletcher_step:R:03",
+            "fletcher_step:R:04",
+            "fletcher_step:R:05",
+            "fletcher_step:R:06",
+            "fletcher_step:R:07",
+            "fletcher_step:R:08",
+            "fletcher_step:R:09",
+            "fletcher_step:R:10",
+            "fletcher_step:R:11",
+            "fletcher_step:R:12",
+            "fletcher_step:R:13",
+            "fletcher_step:R:14",
+            "fletcher_step:R:15",
+            "fletcher_step:R:16",
+            "fletcher_step:R:17",
+            "fletcher_step:R:18",
+            "fletcher_step:R:19",
+            "fletcher_step:R:20",
+            "fletcher_step:R:21",
+            "fletcher_step:R:22",
+            "fletcher_step:R:23",
+            "fletcher_step:R:24",
+            "fletcher_step:R:25",
+            "fletcher_step:R:26",
+            "fletcher_step:R:27"
+          ],
+          "retained_count": 28,
+          "retention": 1.0,
+          "source_present_count": 28
+        },
+        "assembly_returncode": 0,
+        "assembly_sha256": "d032f91169ab3407bc28dbe71f807bb8671281b3cde02a0dfb6cd241955bd74b",
+        "binary_path": "artifact/results/raw/fletcher_step/reseed/gcc_o0",
+        "binary_sha256": "b52a6a0626c44195b103e41d0c6afff016e5a72d5f5cba63a17e2acd87533ba9",
+        "compile_command": [
+          "gcc",
+          "-std=c11",
+          "-Wall",
+          "-Wextra",
+          "-Werror",
+          "-O0",
+          "artifact/benchmark/generated/fletcher_step/reseed/kernel.c",
+          "-o",
+          "artifact/results/raw/fletcher_step/reseed/gcc_o0"
+        ],
+        "compile_returncode": 0,
+        "compiler": "gcc",
+        "compiler_version": "gcc (Debian 14.2.0-19) 14.2.0",
+        "first_mismatch": null,
+        "matches_reference": true,
+        "optimization": "-O0",
+        "output_path": "artifact/results/raw/fletcher_step/reseed/gcc_o0.out",
+        "output_sha256": "c66de56490a7d3a9b2958033c4088ae12fa623e739c66ceea52ae6968146a887",
+        "output_size": 65536,
+        "run_returncode": 0,
+        "status": "EXECUTED",
+        "stderr": ""
+      },
+      {
+        "assembly_command": [
+          "gcc",
+          "-std=c11",
+          "-O2",
+          "-S",
+          "artifact/benchmark/generated/fletcher_step/reseed/kernel.c",
+          "-o",
+          "artifact/results/raw/fletcher_step/reseed/gcc_o2.s"
+        ],
+        "assembly_path": "artifact/results/raw/fletcher_step/reseed/gcc_o2.s",
+        "assembly_retention": {
+          "method": "immediate-constant presence in emitted assembly; heuristic, not a formal detector",
+          "retained_carrier_ids": [],
+          "retained_count": 0,
+          "retention": 0.0,
+          "source_present_count": 28
+        },
+        "assembly_returncode": 0,
+        "assembly_sha256": "92bbbb2694541ea4bf46a670f75076b1c252c200706afd8e341ad4d86882b359",
+        "binary_path": "artifact/results/raw/fletcher_step/reseed/gcc_o2",
+        "binary_sha256": "0f7d89182f4a7cf227431b310e91194f15ee3639e9eb03c62b028d0aaafdf118",
+        "compile_command": [
+          "gcc",
+          "-std=c11",
+          "-Wall",
+          "-Wextra",
+          "-Werror",
+          "-O2",
+          "artifact/benchmark/generated/fletcher_step/reseed/kernel.c",
+          "-o",
+          "artifact/results/raw/fletcher_step/reseed/gcc_o2"
+        ],
+        "compile_returncode": 0,
+        "compiler": "gcc",
+        "compiler_version": "gcc (Debian 14.2.0-19) 14.2.0",
+        "first_mismatch": null,
+        "matches_reference": true,
+        "optimization": "-O2",
+        "output_path": "artifact/results/raw/fletcher_step/reseed/gcc_o2.out",
+        "output_sha256": "c66de56490a7d3a9b2958033c4088ae12fa623e739c66ceea52ae6968146a887",
+        "output_size": 65536,
+        "run_returncode": 0,
+        "status": "EXECUTED",
+        "stderr": ""
+      },
+      {
+        "assembly_command": [
+          "clang",
+          "-std=c11",
+          "-O0",
+          "-S",
+          "artifact/benchmark/generated/fletcher_step/reseed/kernel.c",
+          "-o",
+          "artifact/results/raw/fletcher_step/reseed/clang_o0.s"
+        ],
+        "assembly_path": "artifact/results/raw/fletcher_step/reseed/clang_o0.s",
+        "assembly_retention": {
+          "method": "immediate-constant presence in emitted assembly; heuristic, not a formal detector",
+          "retained_carrier_ids": [
+            "fletcher_step:R:00",
+            "fletcher_step:R:01",
+            "fletcher_step:R:02",
+            "fletcher_step:R:03",
+            "fletcher_step:R:04",
+            "fletcher_step:R:05",
+            "fletcher_step:R:06",
+            "fletcher_step:R:07",
+            "fletcher_step:R:08",
+            "fletcher_step:R:09",
+            "fletcher_step:R:10",
+            "fletcher_step:R:11",
+            "fletcher_step:R:12",
+            "fletcher_step:R:13",
+            "fletcher_step:R:14",
+            "fletcher_step:R:15",
+            "fletcher_step:R:16",
+            "fletcher_step:R:17",
+            "fletcher_step:R:18",
+            "fletcher_step:R:19",
+            "fletcher_step:R:20",
+            "fletcher_step:R:21",
+            "fletcher_step:R:22",
+            "fletcher_step:R:23",
+            "fletcher_step:R:24",
+            "fletcher_step:R:25",
+            "fletcher_step:R:26",
+            "fletcher_step:R:27"
+          ],
+          "retained_count": 28,
+          "retention": 1.0,
+          "source_present_count": 28
+        },
+        "assembly_returncode": 0,
+        "assembly_sha256": "99378b49b5297d873336309864ec371477c66b6eea0f4e9fb1e845bac3b42672",
+        "binary_path": "artifact/results/raw/fletcher_step/reseed/clang_o0",
+        "binary_sha256": "259c36c8f7ed438d9e65bf0cbd6c91f0d1df0e6b8b195bb2fc15a0c4e9608c28",
+        "compile_command": [
+          "clang",
+          "-std=c11",
+          "-Wall",
+          "-Wextra",
+          "-Werror",
+          "-O0",
+          "artifact/benchmark/generated/fletcher_step/reseed/kernel.c",
+          "-o",
+          "artifact/results/raw/fletcher_step/reseed/clang_o0"
+        ],
+        "compile_returncode": 0,
+        "compiler": "clang",
+        "compiler_version": "clang version 17.0.0 (https://github.com/swiftlang/llvm-project.git 10999b6d034fe318f3d56c83bddb6572593a8bb0)",
+        "first_mismatch": null,
+        "matches_reference": true,
+        "optimization": "-O0",
+        "output_path": "artifact/results/raw/fletcher_step/reseed/clang_o0.out",
+        "output_sha256": "c66de56490a7d3a9b2958033c4088ae12fa623e739c66ceea52ae6968146a887",
+        "output_size": 65536,
+        "run_returncode": 0,
+        "status": "EXECUTED",
+        "stderr": ""
+      },
+      {
+        "assembly_command": [
+          "clang",
+          "-std=c11",
+          "-O2",
+          "-S",
+          "artifact/benchmark/generated/fletcher_step/reseed/kernel.c",
+          "-o",
+          "artifact/results/raw/fletcher_step/reseed/clang_o2.s"
+        ],
+        "assembly_path": "artifact/results/raw/fletcher_step/reseed/clang_o2.s",
+        "assembly_retention": {
+          "method": "immediate-constant presence in emitted assembly; heuristic, not a formal detector",
+          "retained_carrier_ids": [],
+          "retained_count": 0,
+          "retention": 0.0,
+          "source_present_count": 28
+        },
+        "assembly_returncode": 0,
+        "assembly_sha256": "fb099b2fc5faad87f0b47b299bdc9047a7bb976092ffd0c2fdc51a6730484afe",
+        "binary_path": "artifact/results/raw/fletcher_step/reseed/clang_o2",
+        "binary_sha256": "a01dbc80053316f57510115222e9c1f483b0987cd349e9dd71c82e3c3f9ecc7d",
+        "compile_command": [
+          "clang",
+          "-std=c11",
+          "-Wall",
+          "-Wextra",
+          "-Werror",
+          "-O2",
+          "artifact/benchmark/generated/fletcher_step/reseed/kernel.c",
+          "-o",
+          "artifact/results/raw/fletcher_step/reseed/clang_o2"
+        ],
+        "compile_returncode": 0,
+        "compiler": "clang",
+        "compiler_version": "clang version 17.0.0 (https://github.com/swiftlang/llvm-project.git 10999b6d034fe318f3d56c83bddb6572593a8bb0)",
+        "first_mismatch": null,
+        "matches_reference": true,
+        "optimization": "-O2",
+        "output_path": "artifact/results/raw/fletcher_step/reseed/clang_o2.out",
+        "output_sha256": "c66de56490a7d3a9b2958033c4088ae12fa623e739c66ceea52ae6968146a887",
+        "output_size": 65536,
+        "run_returncode": 0,
+        "status": "EXECUTED",
+        "stderr": ""
+      }
+    ]
+  },
+  "certificate_sha256": "0096b97b6b01fc230345df3f5df2e803024f2eb80fd4c3dbc95421d285ea12f5",
+  "chain": {
+    "all_parents_accepted": true,
+    "hash_link_valid": true,
+    "parents": [
+      {
+        "accepted": true,
+        "certificate_sha256": "7a42c7404662d0d555156e67e15d09617088392c27e9119059e4e441dc651a16",
+        "decision": "PASS",
+        "hash_link_valid": true,
+        "policy_canonical_sha256": "d6e0a1ab996c02662ec943d1260dacd47b964f1d80708b2f2b1677afd812e001",
+        "policy_compatible": true,
+        "variant": "dependency_upgrade"
+      }
+    ],
+    "policy_compatible": true,
+    "predecessor_accepted": true,
+    "predecessor_certificate_sha256": "7a42c7404662d0d555156e67e15d09617088392c27e9119059e4e441dc651a16",
+    "predecessor_decision": "PASS",
+    "predecessor_policy_canonical_sha256": "d6e0a1ab996c02662ec943d1260dacd47b964f1d80708b2f2b1677afd812e001"
+  },
+  "kernel": "fletcher_step",
+  "manifest": {
+    "canonical_sha256": "47415c023f4e6e6060e7e1b88a14cb21745dbe8af7279c98b4efc5038075fca9",
+    "file_sha256": "84e9f0535dd130bb207822161b0f24e02030516251f72dd1ca30140afd578131",
+    "path": "artifact/benchmark/generated/fletcher_step/reseed/watermark_manifest.json"
+  },
+  "parent_variant": "dependency_upgrade",
+  "parent_variants": [
+    "dependency_upgrade"
+  ],
+  "policy": {
+    "canonical_sha256": "d6e0a1ab996c02662ec943d1260dacd47b964f1d80708b2f2b1677afd812e001",
+    "file_sha256": "905789f0cde9f90ffb2fb0b486ac6175c751d538783bc0be5bb219f445e5123e",
+    "path": "artifact/policies/finite/fletcher_step.json",
+    "policy_id": "finite:fletcher_step:v1"
+  },
+  "relations": {
+    "behavior": {
+      "exact_finite_equivalence": true,
+      "passed": true,
+      "state": "ESTABLISHED_TRUE"
+    },
+    "continuity": {
+      "baseline_count": 28,
+      "mapped_count": 0,
+      "parent_edge_count": 1,
+      "passed": false,
+      "per_parent": [
+        {
+          "baseline_count": 28,
+          "mapped_count": 0,
+          "parent_variant": "dependency_upgrade",
+          "traceability": 0.0
+        }
+      ],
+      "required_count": 26,
+      "state": "ESTABLISHED_FALSE"
+    },
+    "executable_reproduction": {
+      "passed": true,
+      "state": "ESTABLISHED_TRUE"
+    },
+    "integrity": {
+      "passed": true,
+      "state": "ESTABLISHED_TRUE"
+    },
+    "lineage": {
+      "passed": true,
+      "state": "ESTABLISHED_TRUE"
+    },
+    "recovery": {
+      "passed": true,
+      "payload_hex": "50b3",
+      "state": "ESTABLISHED_TRUE",
+      "status": "CERTIFIED_UNIQUE"
+    },
+    "source_conformance": {
+      "passed": true,
+      "state": "ESTABLISHED_TRUE"
+    }
+  },
+  "schema": "tracecert.release.v5",
+  "source": {
+    "parent_sha256": "88c0c406b53c7fef3e84557e36012b044ff1985a049a83b67b07bc44f6afcf2c",
+    "parent_sha256s": [
+      "88c0c406b53c7fef3e84557e36012b044ff1985a049a83b67b07bc44f6afcf2c"
+    ],
+    "path": "artifact/benchmark/generated/fletcher_step/reseed/kernel.c",
+    "sha256": "e1011ed54c44832e9893db45b4d6163c739536ae97a33dd169158b77df0bcf30"
+  },
+  "variant": "reseed",
+  "verdict": "REJECT",
+  "watermark": {
+    "continuity_status": "CONTINUITY_BELOW_LOCK",
+    "decode": {
+      "blocks": [
+        {
+          "candidate_count": 1,
+          "condition_holds": true,
+          "decoded_bits": [
+            0,
+            1,
+            0,
+            1
+          ],
+          "erasures": 0,
+          "errors": 0,
+          "status": "CERTIFIED_UNIQUE"
+        },
+        {
+          "candidate_count": 1,
+          "condition_holds": true,
+          "decoded_bits": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "erasures": 0,
+          "errors": 0,
+          "status": "CERTIFIED_UNIQUE"
+        },
+        {
+          "candidate_count": 1,
+          "condition_holds": true,
+          "decoded_bits": [
+            1,
+            0,
+            1,
+            1
+          ],
+          "erasures": 0,
+          "errors": 0,
+          "status": "CERTIFIED_UNIQUE"
+        },
+        {
+          "candidate_count": 1,
+          "condition_holds": true,
+          "decoded_bits": [
+            0,
+            0,
+            1,
+            1
+          ],
+          "erasures": 0,
+          "errors": 0,
+          "status": "CERTIFIED_UNIQUE"
+        }
+      ],
+      "payload_hex": "50b3",
+      "status": "CERTIFIED_UNIQUE",
+      "total_erasures": 0,
+      "total_errors": 0
+    },
+    "expected_payload_hex": "50b3",
+    "observed_symbols": "0100101000000001100111000011",
+    "payload_recoverable": true,
+    "provenance": {
+      "aggregation": "single-parent-edge",
+      "baseline_count": 28,
+      "mapped_count": 0,
+      "mappings": [],
+      "traceability": 0.0
+    },
+    "provenance_by_parent": [
+      {
+        "baseline_count": 28,
+        "mapped_count": 0,
+        "mappings": [],
+        "parent_variant": "dependency_upgrade",
+        "traceability": 0.0
+      }
+    ],
+    "source_carriers": [
+      {
+        "carrier_id": "fletcher_step:R:00",
+        "constant": 3286996761,
+        "expected_bit": 0,
+        "family": "helper-v2",
+        "line": 8,
+        "observed_bit": 0,
+        "position": 0,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "fletcher_step:R:01",
+        "constant": 1838898543,
+        "expected_bit": 1,
+        "family": "helper-v2",
+        "line": 22,
+        "observed_bit": 1,
+        "position": 1,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "fletcher_step:R:02",
+        "constant": 2608180153,
+        "expected_bit": 0,
+        "family": "helper-v2",
+        "line": 9,
+        "observed_bit": 0,
+        "position": 2,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "fletcher_step:R:03",
+        "constant": 2576985005,
+        "expected_bit": 0,
+        "family": "helper-v2",
+        "line": 23,
+        "observed_bit": 0,
+        "position": 3,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "fletcher_step:R:04",
+        "constant": 1438102959,
+        "expected_bit": 1,
+        "family": "helper-v2",
+        "line": 10,
+        "observed_bit": 1,
+        "position": 4,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "fletcher_step:R:05",
+        "constant": 3008738161,
+        "expected_bit": 0,
+        "family": "helper-v2",
+        "line": 24,
+        "observed_bit": 0,
+        "position": 5,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "fletcher_step:R:06",
+        "constant": 602101233,
+        "expected_bit": 1,
+        "family": "helper-v2",
+        "line": 11,
+        "observed_bit": 1,
+        "position": 6,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "fletcher_step:R:07",
+        "constant": 2273945453,
+        "expected_bit": 0,
+        "family": "helper-v2",
+        "line": 25,
+        "observed_bit": 0,
+        "position": 7,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "fletcher_step:R:08",
+        "constant": 1800915869,
+        "expected_bit": 0,
+        "family": "helper-v2",
+        "line": 12,
+        "observed_bit": 0,
+        "position": 8,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "fletcher_step:R:09",
+        "constant": 856669527,
+        "expected_bit": 0,
+        "family": "helper-v2",
+        "line": 26,
+        "observed_bit": 0,
+        "position": 9,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "fletcher_step:R:10",
+        "constant": 3976555497,
+        "expected_bit": 0,
+        "family": "helper-v2",
+        "line": 13,
+        "observed_bit": 0,
+        "position": 10,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "fletcher_step:R:11",
+        "constant": 1130484119,
+        "expected_bit": 0,
+        "family": "helper-v2",
+        "line": 27,
+        "observed_bit": 0,
+        "position": 11,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "fletcher_step:R:12",
+        "constant": 3046359299,
+        "expected_bit": 0,
+        "family": "helper-v2",
+        "line": 14,
+        "observed_bit": 0,
+        "position": 12,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "fletcher_step:R:13",
+        "constant": 1375713247,
+        "expected_bit": 0,
+        "family": "helper-v2",
+        "line": 28,
+        "observed_bit": 0,
+        "position": 13,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "fletcher_step:R:14",
+        "constant": 2778149687,
+        "expected_bit": 0,
+        "family": "helper-v2",
+        "line": 15,
+        "observed_bit": 0,
+        "position": 14,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "fletcher_step:R:15",
+        "constant": 324346361,
+        "expected_bit": 1,
+        "family": "helper-v2",
+        "line": 29,
+        "observed_bit": 1,
+        "position": 15,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "fletcher_step:R:16",
+        "constant": 1235582431,
+        "expected_bit": 1,
+        "family": "helper-v2",
+        "line": 16,
+        "observed_bit": 1,
+        "position": 16,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "fletcher_step:R:17",
+        "constant": 2400973799,
+        "expected_bit": 0,
+        "family": "helper-v2",
+        "line": 30,
+        "observed_bit": 0,
+        "position": 17,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "fletcher_step:R:18",
+        "constant": 3781630795,
+        "expected_bit": 0,
+        "family": "helper-v2",
+        "line": 17,
+        "observed_bit": 0,
+        "position": 18,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "fletcher_step:R:19",
+        "constant": 2207192955,
+        "expected_bit": 1,
+        "family": "helper-v2",
+        "line": 31,
+        "observed_bit": 1,
+        "position": 19,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "fletcher_step:R:20",
+        "constant": 4211434467,
+        "expected_bit": 1,
+        "family": "helper-v2",
+        "line": 18,
+        "observed_bit": 1,
+        "position": 20,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "fletcher_step:R:21",
+        "constant": 767021927,
+        "expected_bit": 1,
+        "family": "helper-v2",
+        "line": 32,
+        "observed_bit": 1,
+        "position": 21,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "fletcher_step:R:22",
+        "constant": 3679813899,
+        "expected_bit": 0,
+        "family": "helper-v2",
+        "line": 19,
+        "observed_bit": 0,
+        "position": 22,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "fletcher_step:R:23",
+        "constant": 2402284357,
+        "expected_bit": 0,
+        "family": "helper-v2",
+        "line": 33,
+        "observed_bit": 0,
+        "position": 23,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "fletcher_step:R:24",
+        "constant": 3107525983,
+        "expected_bit": 0,
+        "family": "helper-v2",
+        "line": 20,
+        "observed_bit": 0,
+        "position": 24,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "fletcher_step:R:25",
+        "constant": 3912338265,
+        "expected_bit": 0,
+        "family": "helper-v2",
+        "line": 34,
+        "observed_bit": 0,
+        "position": 25,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "fletcher_step:R:26",
+        "constant": 2548795255,
+        "expected_bit": 1,
+        "family": "helper-v2",
+        "line": 21,
+        "observed_bit": 1,
+        "position": 26,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "fletcher_step:R:27",
+        "constant": 58414339,
+        "expected_bit": 1,
+        "family": "helper-v2",
+        "line": 35,
+        "observed_bit": 1,
+        "position": 27,
+        "state": "MATCH"
+      }
+    ],
+    "traceability_threshold": 0.9285714285714286
+  }
+}

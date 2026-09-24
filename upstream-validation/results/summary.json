@@ -1,0 +1,26 @@
+{
+  "adapter_before_after_compiler_cells": 8,
+  "adapter_before_after_outputs_equal": true,
+  "adapter_case_count_per_cell": 16,
+  "case_count_per_cell": 24,
+  "case_evaluation_count": 768,
+  "changed_case_ids_any_configuration": [
+    22,
+    23
+  ],
+  "compiler_cell_count": 32,
+  "cross_compiler_and_optimization_stable": true,
+  "default_and_parent_link_configs_equal": true,
+  "exact_source_blob_count": 3,
+  "exact_source_blobs_match": true,
+  "interpretation": "The adapter is equal on its declared sixteen-input contract, while the exact upstream parser exposes any configuration-specific behavior changes outside that contract.",
+  "repository": "zserge/jsmn",
+  "schema": "tse01.upstream-validation-summary",
+  "scope": "Exact jsmn core source comparison at one public maintenance commit; not a whole-repository or seven-project upstream build study.",
+  "strict_changed_case_count": 2,
+  "strict_changed_case_ids": [
+    22,
+    23
+  ],
+  "verdict": "PASS"
+}

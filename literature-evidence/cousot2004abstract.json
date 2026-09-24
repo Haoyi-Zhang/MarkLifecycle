@@ -1,0 +1,12 @@
+{
+  "authors": "Patrick Cousot and Radhia Cousot",
+  "identifier": "10.1145/964001.964016",
+  "key": "cousot2004abstract",
+  "pages": "173--185",
+  "retrieved_at": "2026-07-18T21:32:05+09:00",
+  "supports": "Abstract-interpretation semantics provide a formal perspective on watermark properties and program transformations.",
+  "title": "An Abstract Interpretation-Based Framework for Software Watermarking",
+  "venue": "Proceedings of POPL",
+  "verification_status": "VERIFIED_SCHOLARLY_IDENTIFIER",
+  "year": 2004
+}

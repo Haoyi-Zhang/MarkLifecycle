@@ -1,0 +1,12 @@
+{
+  "authors": "Emerson R. Murphy-Hill and Chris Parnin and Andrew P. Black",
+  "identifier": "10.1109/TSE.2011.41",
+  "key": "murphyhill2012refactor",
+  "pages": "5--18",
+  "retrieved_at": "2026-07-18T21:32:05+09:00",
+  "supports": "Empirical refactoring evidence motivates lifecycle evaluation beyond a single synthetic rewrite.",
+  "title": "How We Refactor, and How We Know It",
+  "venue": "IEEE Transactions on Software Engineering",
+  "verification_status": "VERIFIED_SCHOLARLY_IDENTIFIER",
+  "year": 2012
+}

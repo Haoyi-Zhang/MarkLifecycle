@@ -1,0 +1,12 @@
+{
+  "authors": "Santiago Torres-Arias and Hammad Afzali and Trishank Karthik Kuppusamy and Reza Curtmola and Justin Cappos",
+  "identifier": "USENIX-SECURITY-2019-IN-TOTO",
+  "key": "torresarias2019intoto",
+  "pages": "1393--1410",
+  "retrieved_at": "2026-07-18T21:32:05+09:00",
+  "supports": "Supply-chain link metadata motivates hash-bound predecessor chains and provenance ledgers.",
+  "title": "in-toto: Providing Farm-to-Table Guarantees for Bits and Bytes",
+  "venue": "USENIX Security Symposium",
+  "verification_status": "VERIFIED_SCHOLARLY_IDENTIFIER",
+  "year": 2019
+}

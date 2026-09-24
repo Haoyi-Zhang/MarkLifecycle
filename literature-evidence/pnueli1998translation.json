@@ -1,0 +1,12 @@
+{
+  "authors": "Amir Pnueli and Michael Siegel and Eli Singerman",
+  "identifier": "10.1007/BFb0054170",
+  "key": "pnueli1998translation",
+  "pages": "151--166",
+  "retrieved_at": "2026-07-18T21:32:05+09:00",
+  "supports": "Translation validation motivates validating each realized transformation rather than proving an entire transformer correct.",
+  "title": "Translation Validation",
+  "venue": "TACAS",
+  "verification_status": "VERIFIED_SCHOLARLY_IDENTIFIER",
+  "year": 1998
+}

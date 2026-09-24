@@ -1,0 +1,177 @@
+{
+  "carriers": [
+    {
+      "bit": 0,
+      "carrier_id": "base64_state:B:00",
+      "constant": 2540642707,
+      "position": 0
+    },
+    {
+      "bit": 0,
+      "carrier_id": "base64_state:B:01",
+      "constant": 836893615,
+      "position": 1
+    },
+    {
+      "bit": 1,
+      "carrier_id": "base64_state:B:02",
+      "constant": 4251053923,
+      "position": 2
+    },
+    {
+      "bit": 0,
+      "carrier_id": "base64_state:B:03",
+      "constant": 4246147489,
+      "position": 3
+    },
+    {
+      "bit": 1,
+      "carrier_id": "base64_state:B:04",
+      "constant": 2437916121,
+      "position": 4
+    },
+    {
+      "bit": 1,
+      "carrier_id": "base64_state:B:05",
+      "constant": 1369794969,
+      "position": 5
+    },
+    {
+      "bit": 0,
+      "carrier_id": "base64_state:B:06",
+      "constant": 2874741547,
+      "position": 6
+    },
+    {
+      "bit": 0,
+      "carrier_id": "base64_state:B:07",
+      "constant": 3048203035,
+      "position": 7
+    },
+    {
+      "bit": 1,
+      "carrier_id": "base64_state:B:08",
+      "constant": 3742582569,
+      "position": 8
+    },
+    {
+      "bit": 0,
+      "carrier_id": "base64_state:B:09",
+      "constant": 2710941977,
+      "position": 9
+    },
+    {
+      "bit": 1,
+      "carrier_id": "base64_state:B:10",
+      "constant": 2645124957,
+      "position": 10
+    },
+    {
+      "bit": 0,
+      "carrier_id": "base64_state:B:11",
+      "constant": 2910005191,
+      "position": 11
+    },
+    {
+      "bit": 1,
+      "carrier_id": "base64_state:B:12",
+      "constant": 3851657013,
+      "position": 12
+    },
+    {
+      "bit": 0,
+      "carrier_id": "base64_state:B:13",
+      "constant": 4250005443,
+      "position": 13
+    },
+    {
+      "bit": 0,
+      "carrier_id": "base64_state:B:14",
+      "constant": 2608831957,
+      "position": 14
+    },
+    {
+      "bit": 0,
+      "carrier_id": "base64_state:B:15",
+      "constant": 2138278765,
+      "position": 15
+    },
+    {
+      "bit": 0,
+      "carrier_id": "base64_state:B:16",
+      "constant": 2444749209,
+      "position": 16
+    },
+    {
+      "bit": 0,
+      "carrier_id": "base64_state:B:17",
+      "constant": 2905466745,
+      "position": 17
+    },
+    {
+      "bit": 0,
+      "carrier_id": "base64_state:B:18",
+      "constant": 3309292459,
+      "position": 18
+    },
+    {
+      "bit": 0,
+      "carrier_id": "base64_state:B:19",
+      "constant": 3821224235,
+      "position": 19
+    },
+    {
+      "bit": 0,
+      "carrier_id": "base64_state:B:20",
+      "constant": 1576341773,
+      "position": 20
+    },
+    {
+      "bit": 0,
+      "carrier_id": "base64_state:B:21",
+      "constant": 2576968067,
+      "position": 21
+    },
+    {
+      "bit": 0,
+      "carrier_id": "base64_state:B:22",
+      "constant": 3119344415,
+      "position": 22
+    },
+    {
+      "bit": 1,
+      "carrier_id": "base64_state:B:23",
+      "constant": 2304867591,
+      "position": 23
+    },
+    {
+      "bit": 1,
+      "carrier_id": "base64_state:B:24",
+      "constant": 1330379609,
+      "position": 24
+    },
+    {
+      "bit": 0,
+      "carrier_id": "base64_state:B:25",
+      "constant": 1744525667,
+      "position": 25
+    },
+    {
+      "bit": 0,
+      "carrier_id": "base64_state:B:26",
+      "constant": 2873601485,
+      "position": 26
+    },
+    {
+      "bit": 1,
+      "carrier_id": "base64_state:B:27",
+      "constant": 2305545133,
+      "position": 27
+    }
+  ],
+  "code": "four independent Hamming(7,4) blocks",
+  "kernel": "base64_state",
+  "minimum_distance": 3,
+  "payload_hex": "e209",
+  "schema": "tracecert.watermark-manifest.v1"
+}

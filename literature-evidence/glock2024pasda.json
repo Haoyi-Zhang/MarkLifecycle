@@ -1,0 +1,12 @@
+{
+  "authors": "Johann Glock and Josef Pichler and Martin Pinzger",
+  "identifier": "10.1016/j.jss.2024.112037",
+  "key": "glock2024pasda",
+  "pages": "112037",
+  "retrieved_at": "2026-07-18T21:32:05+09:00",
+  "supports": "PASDA illustrates partition-based semantic differencing with explicit best-effort classification of undecided cases, motivating recorded proof/checker status and timeout semantics.",
+  "title": "PASDA: A Partition-Based Semantic Differencing Approach with Best Effort Classification of Undecided Cases",
+  "venue": "Journal of Systems and Software",
+  "verification_status": "VERIFIED_SCHOLARLY_IDENTIFIER",
+  "year": 2024
+}

@@ -1,0 +1,653 @@
+{
+  "behavior": {
+    "contract": "all x,y in {0,...,255}; one output byte",
+    "exact_finite_equivalence": true,
+    "maturity": "VERIFIED",
+    "reference_sha256": "6eb762a37dca160c3adfc3c9205a94b75ee11cccb6180db1df7c5db522b53f5e",
+    "reference_table_path": "artifact/benchmark/reference/jenkins_step.bin",
+    "toolchains": [
+      {
+        "assembly_command": [
+          "gcc",
+          "-std=c11",
+          "-O0",
+          "-S",
+          "artifact/benchmark/generated/jenkins_step/baseline/kernel.c",
+          "-o",
+          "artifact/results/raw/jenkins_step/baseline/gcc_o0.s"
+        ],
+        "assembly_path": "artifact/results/raw/jenkins_step/baseline/gcc_o0.s",
+        "assembly_retention": {
+          "method": "immediate-constant presence in emitted assembly; heuristic, not a formal detector",
+          "retained_carrier_ids": [],
+          "retained_count": 0,
+          "retention": 0.0,
+          "source_present_count": 28
+        },
+        "assembly_returncode": 0,
+        "assembly_sha256": "3b27e2a2276da02925bee83d0d81024389c59cadcfef701dd1fdd063b72930de",
+        "binary_path": "artifact/results/raw/jenkins_step/baseline/gcc_o0",
+        "binary_sha256": "743f9ace069c3b2d641f339d1c78dec4b9b54e9a0c1df9473a396ea3dee3e508",
+        "compile_command": [
+          "gcc",
+          "-std=c11",
+          "-Wall",
+          "-Wextra",
+          "-Werror",
+          "-O0",
+          "artifact/benchmark/generated/jenkins_step/baseline/kernel.c",
+          "-o",
+          "artifact/results/raw/jenkins_step/baseline/gcc_o0"
+        ],
+        "compile_returncode": 0,
+        "compiler": "gcc",
+        "compiler_version": "gcc (Debian 14.2.0-19) 14.2.0",
+        "first_mismatch": null,
+        "matches_reference": true,
+        "optimization": "-O0",
+        "output_path": "artifact/results/raw/jenkins_step/baseline/gcc_o0.out",
+        "output_sha256": "6eb762a37dca160c3adfc3c9205a94b75ee11cccb6180db1df7c5db522b53f5e",
+        "output_size": 65536,
+        "run_returncode": 0,
+        "status": "EXECUTED",
+        "stderr": ""
+      },
+      {
+        "assembly_command": [
+          "gcc",
+          "-std=c11",
+          "-O2",
+          "-S",
+          "artifact/benchmark/generated/jenkins_step/baseline/kernel.c",
+          "-o",
+          "artifact/results/raw/jenkins_step/baseline/gcc_o2.s"
+        ],
+        "assembly_path": "artifact/results/raw/jenkins_step/baseline/gcc_o2.s",
+        "assembly_retention": {
+          "method": "immediate-constant presence in emitted assembly; heuristic, not a formal detector",
+          "retained_carrier_ids": [],
+          "retained_count": 0,
+          "retention": 0.0,
+          "source_present_count": 28
+        },
+        "assembly_returncode": 0,
+        "assembly_sha256": "c643afe46f5c8add14f2b19f4c8a66f31621777ecb67216ad5fd243fb236c54a",
+        "binary_path": "artifact/results/raw/jenkins_step/baseline/gcc_o2",
+        "binary_sha256": "d1ae08a9810eff60f963e0c9d14c58d54693851cb1e41eae9637b0ccc19dd061",
+        "compile_command": [
+          "gcc",
+          "-std=c11",
+          "-Wall",
+          "-Wextra",
+          "-Werror",
+          "-O2",
+          "artifact/benchmark/generated/jenkins_step/baseline/kernel.c",
+          "-o",
+          "artifact/results/raw/jenkins_step/baseline/gcc_o2"
+        ],
+        "compile_returncode": 0,
+        "compiler": "gcc",
+        "compiler_version": "gcc (Debian 14.2.0-19) 14.2.0",
+        "first_mismatch": null,
+        "matches_reference": true,
+        "optimization": "-O2",
+        "output_path": "artifact/results/raw/jenkins_step/baseline/gcc_o2.out",
+        "output_sha256": "6eb762a37dca160c3adfc3c9205a94b75ee11cccb6180db1df7c5db522b53f5e",
+        "output_size": 65536,
+        "run_returncode": 0,
+        "status": "EXECUTED",
+        "stderr": ""
+      },
+      {
+        "assembly_command": [
+          "clang",
+          "-std=c11",
+          "-O0",
+          "-S",
+          "artifact/benchmark/generated/jenkins_step/baseline/kernel.c",
+          "-o",
+          "artifact/results/raw/jenkins_step/baseline/clang_o0.s"
+        ],
+        "assembly_path": "artifact/results/raw/jenkins_step/baseline/clang_o0.s",
+        "assembly_retention": {
+          "method": "immediate-constant presence in emitted assembly; heuristic, not a formal detector",
+          "retained_carrier_ids": [
+            "jenkins_step:B:00",
+            "jenkins_step:B:01",
+            "jenkins_step:B:02",
+            "jenkins_step:B:03",
+            "jenkins_step:B:04",
+            "jenkins_step:B:05",
+            "jenkins_step:B:06",
+            "jenkins_step:B:07",
+            "jenkins_step:B:08",
+            "jenkins_step:B:09",
+            "jenkins_step:B:10",
+            "jenkins_step:B:11",
+            "jenkins_step:B:12",
+            "jenkins_step:B:13",
+            "jenkins_step:B:14",
+            "jenkins_step:B:15",
+            "jenkins_step:B:16",
+            "jenkins_step:B:17",
+            "jenkins_step:B:18",
+            "jenkins_step:B:19",
+            "jenkins_step:B:20",
+            "jenkins_step:B:21",
+            "jenkins_step:B:22",
+            "jenkins_step:B:23",
+            "jenkins_step:B:24",
+            "jenkins_step:B:25",
+            "jenkins_step:B:26",
+            "jenkins_step:B:27"
+          ],
+          "retained_count": 28,
+          "retention": 1.0,
+          "source_present_count": 28
+        },
+        "assembly_returncode": 0,
+        "assembly_sha256": "aaa8fa806ebe3393f759e21f149c22b46a6c6827226bb34db7a6e3f417a71af5",
+        "binary_path": "artifact/results/raw/jenkins_step/baseline/clang_o0",
+        "binary_sha256": "15938403b3cb1d6f7ad6f3d22faf3cebddd618705998843ee88a9404e5bd7c76",
+        "compile_command": [
+          "clang",
+          "-std=c11",
+          "-Wall",
+          "-Wextra",
+          "-Werror",
+          "-O0",
+          "artifact/benchmark/generated/jenkins_step/baseline/kernel.c",
+          "-o",
+          "artifact/results/raw/jenkins_step/baseline/clang_o0"
+        ],
+        "compile_returncode": 0,
+        "compiler": "clang",
+        "compiler_version": "clang version 17.0.0 (https://github.com/swiftlang/llvm-project.git 10999b6d034fe318f3d56c83bddb6572593a8bb0)",
+        "first_mismatch": null,
+        "matches_reference": true,
+        "optimization": "-O0",
+        "output_path": "artifact/results/raw/jenkins_step/baseline/clang_o0.out",
+        "output_sha256": "6eb762a37dca160c3adfc3c9205a94b75ee11cccb6180db1df7c5db522b53f5e",
+        "output_size": 65536,
+        "run_returncode": 0,
+        "status": "EXECUTED",
+        "stderr": ""
+      },
+      {
+        "assembly_command": [
+          "clang",
+          "-std=c11",
+          "-O2",
+          "-S",
+          "artifact/benchmark/generated/jenkins_step/baseline/kernel.c",
+          "-o",
+          "artifact/results/raw/jenkins_step/baseline/clang_o2.s"
+        ],
+        "assembly_path": "artifact/results/raw/jenkins_step/baseline/clang_o2.s",
+        "assembly_retention": {
+          "method": "immediate-constant presence in emitted assembly; heuristic, not a formal detector",
+          "retained_carrier_ids": [],
+          "retained_count": 0,
+          "retention": 0.0,
+          "source_present_count": 28
+        },
+        "assembly_returncode": 0,
+        "assembly_sha256": "40564cebaca96dff8573f027f0bef066d99f2057585653166e27be06776a1746",
+        "binary_path": "artifact/results/raw/jenkins_step/baseline/clang_o2",
+        "binary_sha256": "dbb0c6592c86b90f8566ed66e58b6ce54d4b2f3023b66e4df84438142b92cbab",
+        "compile_command": [
+          "clang",
+          "-std=c11",
+          "-Wall",
+          "-Wextra",
+          "-Werror",
+          "-O2",
+          "artifact/benchmark/generated/jenkins_step/baseline/kernel.c",
+          "-o",
+          "artifact/results/raw/jenkins_step/baseline/clang_o2"
+        ],
+        "compile_returncode": 0,
+        "compiler": "clang",
+        "compiler_version": "clang version 17.0.0 (https://github.com/swiftlang/llvm-project.git 10999b6d034fe318f3d56c83bddb6572593a8bb0)",
+        "first_mismatch": null,
+        "matches_reference": true,
+        "optimization": "-O2",
+        "output_path": "artifact/results/raw/jenkins_step/baseline/clang_o2.out",
+        "output_sha256": "6eb762a37dca160c3adfc3c9205a94b75ee11cccb6180db1df7c5db522b53f5e",
+        "output_size": 65536,
+        "run_returncode": 0,
+        "status": "EXECUTED",
+        "stderr": ""
+      }
+    ]
+  },
+  "certificate_sha256": "2aec563b0bb28eea9691dde5b15ba8cea0dbc2e3297ab4acb0a64b6b3080e64a",
+  "chain": {
+    "all_parents_accepted": true,
+    "hash_link_valid": true,
+    "parents": [],
+    "policy_compatible": true,
+    "predecessor_accepted": true,
+    "predecessor_certificate_sha256": null,
+    "predecessor_decision": null,
+    "predecessor_policy_canonical_sha256": null
+  },
+  "kernel": "jenkins_step",
+  "manifest": {
+    "canonical_sha256": "a4e6263123d581c7f648840bb2f48c429b6b27cdbdc7bb5b1e146296648d2e8a",
+    "file_sha256": "7e78b68040fae1ba136ea5baccf1efa8eb6cb482d07e752f6d3eeb4cf6100fcb",
+    "path": "artifact/benchmark/generated/jenkins_step/baseline/watermark_manifest.json"
+  },
+  "parent_variant": null,
+  "parent_variants": [],
+  "policy": {
+    "canonical_sha256": "f83b6e41df619dc874cbe16a088adf70430a82b8d268f90750c85c8001ad932d",
+    "file_sha256": "2d60e7541e61dc81ebe58399fd92e4fb139a29be83143667d4b2137af3654899",
+    "path": "artifact/policies/finite/jenkins_step.json",
+    "policy_id": "finite:jenkins_step:v1"
+  },
+  "relations": {
+    "behavior": {
+      "exact_finite_equivalence": true,
+      "passed": true,
+      "state": "ESTABLISHED_TRUE"
+    },
+    "continuity": {
+      "baseline_count": 28,
+      "mapped_count": 28,
+      "parent_edge_count": 0,
+      "passed": true,
+      "per_parent": [],
+      "required_count": 26,
+      "state": "ESTABLISHED_TRUE"
+    },
+    "executable_reproduction": {
+      "passed": true,
+      "state": "ESTABLISHED_TRUE"
+    },
+    "integrity": {
+      "passed": true,
+      "state": "ESTABLISHED_TRUE"
+    },
+    "lineage": {
+      "passed": true,
+      "state": "ESTABLISHED_TRUE"
+    },
+    "recovery": {
+      "passed": true,
+      "payload_hex": "5641",
+      "state": "ESTABLISHED_TRUE",
+      "status": "CERTIFIED_UNIQUE"
+    },
+    "source_conformance": {
+      "passed": true,
+      "state": "ESTABLISHED_TRUE"
+    }
+  },
+  "schema": "tracecert.release.v5",
+  "source": {
+    "parent_sha256": null,
+    "parent_sha256s": [],
+    "path": "artifact/benchmark/generated/jenkins_step/baseline/kernel.c",
+    "sha256": "e89bd598e61f3c7323c4aded5f094cb583e789c6ad8e5b45918b2a796af66a4b"
+  },
+  "variant": "baseline",
+  "verdict": "PASS",
+  "watermark": {
+    "continuity_status": "TRACEABLE_WITHIN_LOCK",
+    "decode": {
+      "blocks": [
+        {
+          "candidate_count": 1,
+          "condition_holds": true,
+          "decoded_bits": [
+            0,
+            1,
+            0,
+            1
+          ],
+          "erasures": 0,
+          "errors": 0,
+          "status": "CERTIFIED_UNIQUE"
+        },
+        {
+          "candidate_count": 1,
+          "condition_holds": true,
+          "decoded_bits": [
+            0,
+            1,
+            1,
+            0
+          ],
+          "erasures": 0,
+          "errors": 0,
+          "status": "CERTIFIED_UNIQUE"
+        },
+        {
+          "candidate_count": 1,
+          "condition_holds": true,
+          "decoded_bits": [
+            0,
+            1,
+            0,
+            0
+          ],
+          "erasures": 0,
+          "errors": 0,
+          "status": "CERTIFIED_UNIQUE"
+        },
+        {
+          "candidate_count": 1,
+          "condition_holds": true,
+          "decoded_bits": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "erasures": 0,
+          "errors": 0,
+          "status": "CERTIFIED_UNIQUE"
+        }
+      ],
+      "payload_hex": "5641",
+      "status": "CERTIFIED_UNIQUE",
+      "total_erasures": 0,
+      "total_errors": 0
+    },
+    "expected_payload_hex": "5641",
+    "observed_symbols": "0100101110011010011001101001",
+    "payload_recoverable": true,
+    "provenance": {
+      "aggregation": "genesis",
+      "baseline_count": 28,
+      "mapped_count": 28,
+      "mappings": [],
+      "traceability": 1.0
+    },
+    "provenance_by_parent": [],
+    "source_carriers": [
+      {
+        "carrier_id": "jenkins_step:B:00",
+        "constant": 3144101285,
+        "expected_bit": 0,
+        "family": "direct-add",
+        "line": 10,
+        "observed_bit": 0,
+        "position": 0,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "jenkins_step:B:01",
+        "constant": 1907312955,
+        "expected_bit": 1,
+        "family": "direct-xor",
+        "line": 11,
+        "observed_bit": 1,
+        "position": 1,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "jenkins_step:B:02",
+        "constant": 1972313595,
+        "expected_bit": 0,
+        "family": "direct-add",
+        "line": 12,
+        "observed_bit": 0,
+        "position": 2,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "jenkins_step:B:03",
+        "constant": 3844829509,
+        "expected_bit": 0,
+        "family": "direct-add",
+        "line": 13,
+        "observed_bit": 0,
+        "position": 3,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "jenkins_step:B:04",
+        "constant": 4114576159,
+        "expected_bit": 1,
+        "family": "direct-xor",
+        "line": 14,
+        "observed_bit": 1,
+        "position": 4,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "jenkins_step:B:05",
+        "constant": 188864409,
+        "expected_bit": 0,
+        "family": "direct-add",
+        "line": 15,
+        "observed_bit": 0,
+        "position": 5,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "jenkins_step:B:06",
+        "constant": 1730107341,
+        "expected_bit": 1,
+        "family": "direct-xor",
+        "line": 16,
+        "observed_bit": 1,
+        "position": 6,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "jenkins_step:B:07",
+        "constant": 3153198995,
+        "expected_bit": 1,
+        "family": "direct-xor",
+        "line": 17,
+        "observed_bit": 1,
+        "position": 7,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "jenkins_step:B:08",
+        "constant": 3609178067,
+        "expected_bit": 1,
+        "family": "direct-xor",
+        "line": 18,
+        "observed_bit": 1,
+        "position": 8,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "jenkins_step:B:09",
+        "constant": 2233596685,
+        "expected_bit": 0,
+        "family": "direct-add",
+        "line": 19,
+        "observed_bit": 0,
+        "position": 9,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "jenkins_step:B:10",
+        "constant": 1334528257,
+        "expected_bit": 0,
+        "family": "direct-add",
+        "line": 20,
+        "observed_bit": 0,
+        "position": 10,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "jenkins_step:B:11",
+        "constant": 1868648363,
+        "expected_bit": 1,
+        "family": "direct-xor",
+        "line": 21,
+        "observed_bit": 1,
+        "position": 11,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "jenkins_step:B:12",
+        "constant": 3207830969,
+        "expected_bit": 1,
+        "family": "direct-xor",
+        "line": 22,
+        "observed_bit": 1,
+        "position": 12,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "jenkins_step:B:13",
+        "constant": 3791518557,
+        "expected_bit": 0,
+        "family": "direct-add",
+        "line": 23,
+        "observed_bit": 0,
+        "position": 13,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "jenkins_step:B:14",
+        "constant": 1328243659,
+        "expected_bit": 1,
+        "family": "direct-xor",
+        "line": 24,
+        "observed_bit": 1,
+        "position": 14,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "jenkins_step:B:15",
+        "constant": 2544997131,
+        "expected_bit": 0,
+        "family": "direct-add",
+        "line": 25,
+        "observed_bit": 0,
+        "position": 15,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "jenkins_step:B:16",
+        "constant": 1364841403,
+        "expected_bit": 0,
+        "family": "direct-add",
+        "line": 26,
+        "observed_bit": 0,
+        "position": 16,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "jenkins_step:B:17",
+        "constant": 763564853,
+        "expected_bit": 1,
+        "family": "direct-xor",
+        "line": 27,
+        "observed_bit": 1,
+        "position": 17,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "jenkins_step:B:18",
+        "constant": 858121545,
+        "expected_bit": 1,
+        "family": "direct-xor",
+        "line": 28,
+        "observed_bit": 1,
+        "position": 18,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "jenkins_step:B:19",
+        "constant": 1441486773,
+        "expected_bit": 0,
+        "family": "direct-add",
+        "line": 29,
+        "observed_bit": 0,
+        "position": 19,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "jenkins_step:B:20",
+        "constant": 3373499903,
+        "expected_bit": 0,
+        "family": "direct-add",
+        "line": 30,
+        "observed_bit": 0,
+        "position": 20,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "jenkins_step:B:21",
+        "constant": 3992009713,
+        "expected_bit": 1,
+        "family": "direct-xor",
+        "line": 31,
+        "observed_bit": 1,
+        "position": 21,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "jenkins_step:B:22",
+        "constant": 789667163,
+        "expected_bit": 1,
+        "family": "direct-xor",
+        "line": 32,
+        "observed_bit": 1,
+        "position": 22,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "jenkins_step:B:23",
+        "constant": 1232328535,
+        "expected_bit": 0,
+        "family": "direct-add",
+        "line": 33,
+        "observed_bit": 0,
+        "position": 23,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "jenkins_step:B:24",
+        "constant": 1699076921,
+        "expected_bit": 1,
+        "family": "direct-xor",
+        "line": 34,
+        "observed_bit": 1,
+        "position": 24,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "jenkins_step:B:25",
+        "constant": 255423947,
+        "expected_bit": 0,
+        "family": "direct-add",
+        "line": 35,
+        "observed_bit": 0,
+        "position": 25,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "jenkins_step:B:26",
+        "constant": 2546798941,
+        "expected_bit": 0,
+        "family": "direct-add",
+        "line": 36,
+        "observed_bit": 0,
+        "position": 26,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "jenkins_step:B:27",
+        "constant": 4055573821,
+        "expected_bit": 1,
+        "family": "direct-xor",
+        "line": 37,
+        "observed_bit": 1,
+        "position": 27,
+        "state": "MATCH"
+      }
+    ],
+    "traceability_threshold": 0.9285714285714286
+  }
+}

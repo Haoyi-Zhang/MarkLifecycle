@@ -1,0 +1,275 @@
+{
+  "domain": {
+    "x": [
+      0,
+      255
+    ],
+    "y": [
+      0,
+      255
+    ]
+  },
+  "kernels": [
+    {
+      "description": "FNV-style byte mixing step",
+      "name": "fnv_step",
+      "payload_hex": "d20f",
+      "reference_sha256": "1c350da5c03f84956e8cac90222ac964eb3ecc7930f7cc20100e63bfb736a140"
+    },
+    {
+      "description": "Jenkins-style reversible mixing step",
+      "name": "jenkins_step",
+      "payload_hex": "5641",
+      "reference_sha256": "6eb762a37dca160c3adfc3c9205a94b75ee11cccb6180db1df7c5db522b53f5e"
+    },
+    {
+      "description": "CRC-8 polynomial update",
+      "name": "crc8_step",
+      "payload_hex": "e801",
+      "reference_sha256": "cce644f78658d160a477e4f22ca1aee276630896d90cec41b818cc0eb485b270"
+    },
+    {
+      "description": "Fletcher-style modular accumulator",
+      "name": "fletcher_step",
+      "payload_hex": "50b3",
+      "reference_sha256": "c66de56490a7d3a9b2958033c4088ae12fa623e739c66ceea52ae6968146a887"
+    },
+    {
+      "description": "Rotate-and-xor mixing kernel",
+      "name": "rotate_mix",
+      "payload_hex": "81ef",
+      "reference_sha256": "2a4cb58a1a9a7ca91d75cd71d4eb556af4f133956aeb23c6f10aa8711c556ca0"
+    },
+    {
+      "description": "Varint continuation-state update",
+      "name": "varint_state",
+      "payload_hex": "7556",
+      "reference_sha256": "d7be560359f1ef9fece372bf945f5cfcfb492aa1ffa158ca18b89f62410a7760"
+    },
+    {
+      "description": "Small JSON tokenizer state transition",
+      "name": "json_state",
+      "payload_hex": "88d4",
+      "reference_sha256": "abf4da61a297e47a26716b66c9111f7f52a8380cdb5b703dff059a5783f67ca2"
+    },
+    {
+      "description": "UTF-8 continuation-state transition",
+      "name": "utf8_state",
+      "payload_hex": "06f5",
+      "reference_sha256": "eaaf55079d4568449435566ed7a1af0b6631f3598c60b49ec0d1ddc0287912a3"
+    },
+    {
+      "description": "Base64 alphabet decoding transition",
+      "name": "base64_state",
+      "payload_hex": "e209",
+      "reference_sha256": "22a180a902687cdd882d23fdce26cf183b5044a039199d1108b5929c1f35e9c1"
+    },
+    {
+      "description": "Luhn checksum digit update",
+      "name": "luhn_state",
+      "payload_hex": "15d5",
+      "reference_sha256": "341fdfe4c5a25356d09d3295f97647188ba779d283bcf8bf4da0c2d071bd5e39"
+    },
+    {
+      "description": "Saturating unsigned-byte addition",
+      "name": "saturating_add",
+      "payload_hex": "5f03",
+      "reference_sha256": "b5911f5013e6f1a21e80fe604d42c8e6ea0b522df50b9dd00f6fb54c5cdd262d"
+    },
+    {
+      "description": "Branch-sensitive byte mixing kernel",
+      "name": "branch_mix",
+      "payload_hex": "2590",
+      "reference_sha256": "808cb4895ed32670f8bab344f9c7116f2ebf9c2ecbcdd8f15095b911a83b24ff"
+    }
+  ],
+  "locked_environment": {
+    "clang": "clang version 17.0.0 (https://github.com/swiftlang/llvm-project.git 10999b6d034fe318f3d56c83bddb6572593a8bb0)",
+    "gcc": "gcc (Debian 14.2.0-19) 14.2.0",
+    "machine": "x86_64",
+    "system": "Linux"
+  },
+  "toolchains": [
+    [
+      "gcc",
+      "-O0"
+    ],
+    [
+      "gcc",
+      "-O2"
+    ],
+    [
+      "clang",
+      "-O0"
+    ],
+    [
+      "clang",
+      "-O2"
+    ]
+  ],
+  "variants": [
+    {
+      "drift": false,
+      "flipped": [],
+      "minify": false,
+      "name": "baseline",
+      "parent": null,
+      "removed": [],
+      "rename": false,
+      "reorder": false,
+      "reseed": false,
+      "style": "direct"
+    },
+    {
+      "drift": false,
+      "flipped": [],
+      "minify": false,
+      "name": "rename",
+      "parent": "baseline",
+      "removed": [],
+      "rename": true,
+      "reorder": false,
+      "reseed": false,
+      "style": "direct"
+    },
+    {
+      "drift": false,
+      "flipped": [],
+      "minify": false,
+      "name": "reorder",
+      "parent": "rename",
+      "removed": [],
+      "rename": true,
+      "reorder": true,
+      "reseed": false,
+      "style": "direct"
+    },
+    {
+      "drift": false,
+      "flipped": [],
+      "minify": false,
+      "name": "extract",
+      "parent": "reorder",
+      "removed": [],
+      "rename": true,
+      "reorder": true,
+      "reseed": false,
+      "style": "helper1"
+    },
+    {
+      "drift": false,
+      "flipped": [],
+      "minify": false,
+      "name": "dependency_upgrade",
+      "parent": "extract",
+      "removed": [],
+      "rename": true,
+      "reorder": true,
+      "reseed": false,
+      "style": "helper2"
+    },
+    {
+      "drift": false,
+      "flipped": [],
+      "minify": true,
+      "name": "format",
+      "parent": "dependency_upgrade",
+      "removed": [],
+      "rename": true,
+      "reorder": true,
+      "reseed": false,
+      "style": "helper2"
+    },
+    {
+      "drift": false,
+      "flipped": [],
+      "minify": false,
+      "name": "erase_tolerable",
+      "parent": "dependency_upgrade",
+      "removed": [
+        0,
+        7
+      ],
+      "rename": true,
+      "reorder": true,
+      "reseed": false,
+      "style": "helper2"
+    },
+    {
+      "drift": false,
+      "flipped": [],
+      "minify": true,
+      "name": "merge_tolerable",
+      "parents": [
+        "format",
+        "erase_tolerable"
+      ],
+      "removed": [
+        0,
+        7
+      ],
+      "rename": true,
+      "reorder": true,
+      "reseed": false,
+      "style": "helper2"
+    },
+    {
+      "drift": false,
+      "flipped": [
+        15,
+        22
+      ],
+      "minify": true,
+      "name": "flip_tolerable",
+      "parent": "merge_tolerable",
+      "removed": [
+        0,
+        7
+      ],
+      "rename": true,
+      "reorder": true,
+      "reseed": false,
+      "style": "helper2"
+    },
+    {
+      "drift": false,
+      "flipped": [
+        1
+      ],
+      "minify": false,
+      "name": "recovery_break",
+      "parent": "dependency_upgrade",
+      "removed": [
+        0
+      ],
+      "rename": true,
+      "reorder": true,
+      "reseed": false,
+      "style": "helper2"
+    },
+    {
+      "drift": false,
+      "flipped": [],
+      "minify": false,
+      "name": "reseed",
+      "parent": "dependency_upgrade",
+      "removed": [],
+      "rename": true,
+      "reorder": true,
+      "reseed": true,
+      "style": "helper2"
+    },
+    {
+      "drift": true,
+      "flipped": [],
+      "minify": false,
+      "name": "behavior_drift",
+      "parent": "dependency_upgrade",
+      "removed": [],
+      "rename": true,
+      "reorder": true,
+      "reseed": false,
+      "style": "helper2"
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "commit": "fdcef3ebf886fa210d14956d3c068a653e76a24e",
+  "driver": {
+    "case_count": 24,
+    "configurations": [
+      "default",
+      "strict",
+      "parent_links",
+      "strict_parent_links"
+    ],
+    "path": "artifact/upstream-validation/src/probe.c",
+    "sha256": "406893ac73b6a8d4e40b0b3e7738953ce8f3152b16ef8e3bc8306ee7e60a1546"
+  },
+  "license": "MIT",
+  "parent": "18e9fe42cbfe21d65076f5c77ae2be379ad1270f",
+  "repository": "zserge/jsmn",
+  "schema": "tse01.upstream-source-manifest",
+  "source_files": [
+    {
+      "bytes": 1630,
+      "expected_git_blob_sha1": "5a5200ee2fb8a7ce6dac7e4864b34eaadb9a917b",
+      "git_blob_sha1": "5a5200ee2fb8a7ce6dac7e4864b34eaadb9a917b",
+      "match": true,
+      "path": "artifact/upstream-validation/sources/jsmn/before/jsmn.h",
+      "sha256": "bc9cdaa56db4a283635bfb8942ba9c326d11bafb21e58fee4f8d1c6b11d8d8dd"
+    },
+    {
+      "bytes": 7851,
+      "expected_git_blob_sha1": "853c3f17ad7a923dc40d61bf435d943547c0ea63",
+      "git_blob_sha1": "853c3f17ad7a923dc40d61bf435d943547c0ea63",
+      "match": true,
+      "path": "artifact/upstream-validation/sources/jsmn/before/jsmn.c",
+      "sha256": "fc4784bcd56d68ed511af4c22219e90c687f5576cec981d86f048347ff936529"
+    },
+    {
+      "bytes": 12023,
+      "expected_git_blob_sha1": "b95368a2061ed52e817f8dbd885d3a1f477efccc",
+      "git_blob_sha1": "b95368a2061ed52e817f8dbd885d3a1f477efccc",
+      "match": true,
+      "path": "artifact/upstream-validation/sources/jsmn/after/jsmn.h",
+      "sha256": "1ed6154dedf009212a08a397e9c4ed50a0ce31d5a8301bb294e137ae3188c13b"
+    }
+  ]
+}

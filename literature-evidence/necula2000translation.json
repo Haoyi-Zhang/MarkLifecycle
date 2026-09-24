@@ -1,0 +1,12 @@
+{
+  "authors": "George C. Necula",
+  "identifier": "10.1145/349299.349314",
+  "key": "necula2000translation",
+  "pages": "83--94",
+  "retrieved_at": "2026-07-18T21:32:05+09:00",
+  "supports": "Per-compilation validation motivates compiler-cell evidence in release certificates.",
+  "title": "Translation Validation for an Optimizing Compiler",
+  "venue": "Proceedings of PLDI",
+  "verification_status": "VERIFIED_SCHOLARLY_IDENTIFIER",
+  "year": 2000
+}

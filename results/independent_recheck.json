@@ -1,0 +1,1310 @@
+{
+  "all_valid": true,
+  "assembly_files_rehashed_and_rescanned": 576,
+  "certificate_count": 144,
+  "checker_independence": "standard-library implementation; imports neither generator nor primary checker",
+  "compiler_cells_rechecked": 576,
+  "compiler_cells_recompiled": 576,
+  "decision_fixtures": [
+    {
+      "decision": "PASS",
+      "name": "all-established",
+      "values": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "decision": "HOLD",
+      "name": "one-unresolved",
+      "values": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        null
+      ]
+    },
+    {
+      "decision": "REJECT",
+      "name": "false-dominates-unresolved",
+      "values": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        null,
+        false
+      ]
+    }
+  ],
+  "decision_fixtures_pass": true,
+  "direct_source_interpretation_test_count": 3,
+  "executables_reexecuted": 576,
+  "executables_rehashed": 576,
+  "findings": [
+    {
+      "errors": [],
+      "kernel": "fnv_step",
+      "valid": true,
+      "variant": "baseline",
+      "verdict": "PASS"
+    },
+    {
+      "errors": [],
+      "kernel": "fnv_step",
+      "valid": true,
+      "variant": "rename",
+      "verdict": "PASS"
+    },
+    {
+      "errors": [],
+      "kernel": "fnv_step",
+      "valid": true,
+      "variant": "reorder",
+      "verdict": "PASS"
+    },
+    {
+      "errors": [],
+      "kernel": "fnv_step",
+      "valid": true,
+      "variant": "extract",
+      "verdict": "PASS"
+    },
+    {
+      "errors": [],
+      "kernel": "fnv_step",
+      "valid": true,
+      "variant": "dependency_upgrade",
+      "verdict": "PASS"
+    },
+    {
+      "errors": [],
+      "kernel": "fnv_step",
+      "valid": true,
+      "variant": "format",
+      "verdict": "PASS"
+    },
+    {
+      "errors": [],
+      "kernel": "fnv_step",
+      "valid": true,
+      "variant": "erase_tolerable",
+      "verdict": "PASS"
+    },
+    {
+      "errors": [],
+      "kernel": "fnv_step",
+      "valid": true,
+      "variant": "merge_tolerable",
+      "verdict": "PASS"
+    },
+    {
+      "errors": [],
+      "kernel": "fnv_step",
+      "valid": true,
+      "variant": "flip_tolerable",
+      "verdict": "PASS"
+    },
+    {
+      "errors": [],
+      "kernel": "fnv_step",
+      "valid": true,
+      "variant": "recovery_break",
+      "verdict": "REJECT"
+    },
+    {
+      "errors": [],
+      "kernel": "fnv_step",
+      "valid": true,
+      "variant": "reseed",
+      "verdict": "REJECT"
+    },
+    {
+      "errors": [],
+      "kernel": "fnv_step",
+      "valid": true,
+      "variant": "behavior_drift",
+      "verdict": "REJECT"
+    },
+    {
+      "errors": [],
+      "kernel": "jenkins_step",
+      "valid": true,
+      "variant": "baseline",
+      "verdict": "PASS"
+    },
+    {
+      "errors": [],
+      "kernel": "jenkins_step",
+      "valid": true,
+      "variant": "rename",
+      "verdict": "PASS"
+    },
+    {
+      "errors": [],
+      "kernel": "jenkins_step",
+      "valid": true,
+      "variant": "reorder",
+      "verdict": "PASS"
+    },
+    {
+      "errors": [],
+      "kernel": "jenkins_step",
+      "valid": true,
+      "variant": "extract",
+      "verdict": "PASS"
+    },
+    {
+      "errors": [],
+      "kernel": "jenkins_step",
+      "valid": true,
+      "variant": "dependency_upgrade",
+      "verdict": "PASS"
+    },
+    {
+      "errors": [],
+      "kernel": "jenkins_step",
+      "valid": true,
+      "variant": "format",
+      "verdict": "PASS"
+    },
+    {
+      "errors": [],
+      "kernel": "jenkins_step",
+      "valid": true,
+      "variant": "erase_tolerable",
+      "verdict": "PASS"
+    },
+    {
+      "errors": [],
+      "kernel": "jenkins_step",
+      "valid": true,
+      "variant": "merge_tolerable",
+      "verdict": "PASS"
+    },
+    {
+      "errors": [],
+      "kernel": "jenkins_step",
+      "valid": true,
+      "variant": "flip_tolerable",
+      "verdict": "PASS"
+    },
+    {
+      "errors": [],
+      "kernel": "jenkins_step",
+      "valid": true,
+      "variant": "recovery_break",
+      "verdict": "REJECT"
+    },
+    {
+      "errors": [],
+      "kernel": "jenkins_step",
+      "valid": true,
+      "variant": "reseed",
+      "verdict": "REJECT"
+    },
+    {
+      "errors": [],
+      "kernel": "jenkins_step",
+      "valid": true,
+      "variant": "behavior_drift",
+      "verdict": "REJECT"
+    },
+    {
+      "errors": [],
+      "kernel": "crc8_step",
+      "valid": true,
+      "variant": "baseline",
+      "verdict": "PASS"
+    },
+    {
+      "errors": [],
+      "kernel": "crc8_step",
+      "valid": true,
+      "variant": "rename",
+      "verdict": "PASS"
+    },
+    {
+      "errors": [],
+      "kernel": "crc8_step",
+      "valid": true,
+      "variant": "reorder",
+      "verdict": "PASS"
+    },
+    {
+      "errors": [],
+      "kernel": "crc8_step",
+      "valid": true,
+      "variant": "extract",
+      "verdict": "PASS"
+    },
+    {
+      "errors": [],
+      "kernel": "crc8_step",
+      "valid": true,
+      "variant": "dependency_upgrade",
+      "verdict": "PASS"
+    },
+    {
+      "errors": [],
+      "kernel": "crc8_step",
+      "valid": true,
+      "variant": "format",
+      "verdict": "PASS"
+    },
+    {
+      "errors": [],
+      "kernel": "crc8_step",
+      "valid": true,
+      "variant": "erase_tolerable",
+      "verdict": "PASS"
+    },
+    {
+      "errors": [],
+      "kernel": "crc8_step",
+      "valid": true,
+      "variant": "merge_tolerable",
+      "verdict": "PASS"
+    },
+    {
+      "errors": [],
+      "kernel": "crc8_step",
+      "valid": true,
+      "variant": "flip_tolerable",
+      "verdict": "PASS"
+    },
+    {
+      "errors": [],
+      "kernel": "crc8_step",
+      "valid": true,
+      "variant": "recovery_break",
+      "verdict": "REJECT"
+    },
+    {
+      "errors": [],
+      "kernel": "crc8_step",
+      "valid": true,
+      "variant": "reseed",
+      "verdict": "REJECT"
+    },
+    {
+      "errors": [],
+      "kernel": "crc8_step",
+      "valid": true,
+      "variant": "behavior_drift",
+      "verdict": "REJECT"
+    },
+    {
+      "errors": [],
+      "kernel": "fletcher_step",
+      "valid": true,
+      "variant": "baseline",
+      "verdict": "PASS"
+    },
+    {
+      "errors": [],
+      "kernel": "fletcher_step",
+      "valid": true,
+      "variant": "rename",
+      "verdict": "PASS"
+    },
+    {
+      "errors": [],
+      "kernel": "fletcher_step",
+      "valid": true,
+      "variant": "reorder",
+      "verdict": "PASS"
+    },
+    {
+      "errors": [],
+      "kernel": "fletcher_step",
+      "valid": true,
+      "variant": "extract",
+      "verdict": "PASS"
+    },
+    {
+      "errors": [],
+      "kernel": "fletcher_step",
+      "valid": true,
+      "variant": "dependency_upgrade",
+      "verdict": "PASS"
+    },
+    {
+      "errors": [],
+      "kernel": "fletcher_step",
+      "valid": true,
+      "variant": "format",
+      "verdict": "PASS"
+    },
+    {
+      "errors": [],
+      "kernel": "fletcher_step",
+      "valid": true,
+      "variant": "erase_tolerable",
+      "verdict": "PASS"
+    },
+    {
+      "errors": [],
+      "kernel": "fletcher_step",
+      "valid": true,
+      "variant": "merge_tolerable",
+      "verdict": "PASS"
+    },
+    {
+      "errors": [],
+      "kernel": "fletcher_step",
+      "valid": true,
+      "variant": "flip_tolerable",
+      "verdict": "PASS"
+    },
+    {
+      "errors": [],
+      "kernel": "fletcher_step",
+      "valid": true,
+      "variant": "recovery_break",
+      "verdict": "REJECT"
+    },
+    {
+      "errors": [],
+      "kernel": "fletcher_step",
+      "valid": true,
+      "variant": "reseed",
+      "verdict": "REJECT"
+    },
+    {
+      "errors": [],
+      "kernel": "fletcher_step",
+      "valid": true,
+      "variant": "behavior_drift",
+      "verdict": "REJECT"
+    },
+    {
+      "errors": [],
+      "kernel": "rotate_mix",
+      "valid": true,
+      "variant": "baseline",
+      "verdict": "PASS"
+    },
+    {
+      "errors": [],
+      "kernel": "rotate_mix",
+      "valid": true,
+      "variant": "rename",
+      "verdict": "PASS"
+    },
+    {
+      "errors": [],
+      "kernel": "rotate_mix",
+      "valid": true,
+      "variant": "reorder",
+      "verdict": "PASS"
+    },
+    {
+      "errors": [],
+      "kernel": "rotate_mix",
+      "valid": true,
+      "variant": "extract",
+      "verdict": "PASS"
+    },
+    {
+      "errors": [],
+      "kernel": "rotate_mix",
+      "valid": true,
+      "variant": "dependency_upgrade",
+      "verdict": "PASS"
+    },
+    {
+      "errors": [],
+      "kernel": "rotate_mix",
+      "valid": true,
+      "variant": "format",
+      "verdict": "PASS"
+    },
+    {
+      "errors": [],
+      "kernel": "rotate_mix",
+      "valid": true,
+      "variant": "erase_tolerable",
+      "verdict": "PASS"
+    },
+    {
+      "errors": [],
+      "kernel": "rotate_mix",
+      "valid": true,
+      "variant": "merge_tolerable",
+      "verdict": "PASS"
+    },
+    {
+      "errors": [],
+      "kernel": "rotate_mix",
+      "valid": true,
+      "variant": "flip_tolerable",
+      "verdict": "PASS"
+    },
+    {
+      "errors": [],
+      "kernel": "rotate_mix",
+      "valid": true,
+      "variant": "recovery_break",
+      "verdict": "REJECT"
+    },
+    {
+      "errors": [],
+      "kernel": "rotate_mix",
+      "valid": true,
+      "variant": "reseed",
+      "verdict": "REJECT"
+    },
+    {
+      "errors": [],
+      "kernel": "rotate_mix",
+      "valid": true,
+      "variant": "behavior_drift",
+      "verdict": "REJECT"
+    },
+    {
+      "errors": [],
+      "kernel": "varint_state",
+      "valid": true,
+      "variant": "baseline",
+      "verdict": "PASS"
+    },
+    {
+      "errors": [],
+      "kernel": "varint_state",
+      "valid": true,
+      "variant": "rename",
+      "verdict": "PASS"
+    },
+    {
+      "errors": [],
+      "kernel": "varint_state",
+      "valid": true,
+      "variant": "reorder",
+      "verdict": "PASS"
+    },
+    {
+      "errors": [],
+      "kernel": "varint_state",
+      "valid": true,
+      "variant": "extract",
+      "verdict": "PASS"
+    },
+    {
+      "errors": [],
+      "kernel": "varint_state",
+      "valid": true,
+      "variant": "dependency_upgrade",
+      "verdict": "PASS"
+    },
+    {
+      "errors": [],
+      "kernel": "varint_state",
+      "valid": true,
+      "variant": "format",
+      "verdict": "PASS"
+    },
+    {
+      "errors": [],
+      "kernel": "varint_state",
+      "valid": true,
+      "variant": "erase_tolerable",
+      "verdict": "PASS"
+    },
+    {
+      "errors": [],
+      "kernel": "varint_state",
+      "valid": true,
+      "variant": "merge_tolerable",
+      "verdict": "PASS"
+    },
+    {
+      "errors": [],
+      "kernel": "varint_state",
+      "valid": true,
+      "variant": "flip_tolerable",
+      "verdict": "PASS"
+    },
+    {
+      "errors": [],
+      "kernel": "varint_state",
+      "valid": true,
+      "variant": "recovery_break",
+      "verdict": "REJECT"
+    },
+    {
+      "errors": [],
+      "kernel": "varint_state",
+      "valid": true,
+      "variant": "reseed",
+      "verdict": "REJECT"
+    },
+    {
+      "errors": [],
+      "kernel": "varint_state",
+      "valid": true,
+      "variant": "behavior_drift",
+      "verdict": "REJECT"
+    },
+    {
+      "errors": [],
+      "kernel": "json_state",
+      "valid": true,
+      "variant": "baseline",
+      "verdict": "PASS"
+    },
+    {
+      "errors": [],
+      "kernel": "json_state",
+      "valid": true,
+      "variant": "rename",
+      "verdict": "PASS"
+    },
+    {
+      "errors": [],
+      "kernel": "json_state",
+      "valid": true,
+      "variant": "reorder",
+      "verdict": "PASS"
+    },
+    {
+      "errors": [],
+      "kernel": "json_state",
+      "valid": true,
+      "variant": "extract",
+      "verdict": "PASS"
+    },
+    {
+      "errors": [],
+      "kernel": "json_state",
+      "valid": true,
+      "variant": "dependency_upgrade",
+      "verdict": "PASS"
+    },
+    {
+      "errors": [],
+      "kernel": "json_state",
+      "valid": true,
+      "variant": "format",
+      "verdict": "PASS"
+    },
+    {
+      "errors": [],
+      "kernel": "json_state",
+      "valid": true,
+      "variant": "erase_tolerable",
+      "verdict": "PASS"
+    },
+    {
+      "errors": [],
+      "kernel": "json_state",
+      "valid": true,
+      "variant": "merge_tolerable",
+      "verdict": "PASS"
+    },
+    {
+      "errors": [],
+      "kernel": "json_state",
+      "valid": true,
+      "variant": "flip_tolerable",
+      "verdict": "PASS"
+    },
+    {
+      "errors": [],
+      "kernel": "json_state",
+      "valid": true,
+      "variant": "recovery_break",
+      "verdict": "REJECT"
+    },
+    {
+      "errors": [],
+      "kernel": "json_state",
+      "valid": true,
+      "variant": "reseed",
+      "verdict": "REJECT"
+    },
+    {
+      "errors": [],
+      "kernel": "json_state",
+      "valid": true,
+      "variant": "behavior_drift",
+      "verdict": "REJECT"
+    },
+    {
+      "errors": [],
+      "kernel": "utf8_state",
+      "valid": true,
+      "variant": "baseline",
+      "verdict": "PASS"
+    },
+    {
+      "errors": [],
+      "kernel": "utf8_state",
+      "valid": true,
+      "variant": "rename",
+      "verdict": "PASS"
+    },
+    {
+      "errors": [],
+      "kernel": "utf8_state",
+      "valid": true,
+      "variant": "reorder",
+      "verdict": "PASS"
+    },
+    {
+      "errors": [],
+      "kernel": "utf8_state",
+      "valid": true,
+      "variant": "extract",
+      "verdict": "PASS"
+    },
+    {
+      "errors": [],
+      "kernel": "utf8_state",
+      "valid": true,
+      "variant": "dependency_upgrade",
+      "verdict": "PASS"
+    },
+    {
+      "errors": [],
+      "kernel": "utf8_state",
+      "valid": true,
+      "variant": "format",
+      "verdict": "PASS"
+    },
+    {
+      "errors": [],
+      "kernel": "utf8_state",
+      "valid": true,
+      "variant": "erase_tolerable",
+      "verdict": "PASS"
+    },
+    {
+      "errors": [],
+      "kernel": "utf8_state",
+      "valid": true,
+      "variant": "merge_tolerable",
+      "verdict": "PASS"
+    },
+    {
+      "errors": [],
+      "kernel": "utf8_state",
+      "valid": true,
+      "variant": "flip_tolerable",
+      "verdict": "PASS"
+    },
+    {
+      "errors": [],
+      "kernel": "utf8_state",
+      "valid": true,
+      "variant": "recovery_break",
+      "verdict": "REJECT"
+    },
+    {
+      "errors": [],
+      "kernel": "utf8_state",
+      "valid": true,
+      "variant": "reseed",
+      "verdict": "REJECT"
+    },
+    {
+      "errors": [],
+      "kernel": "utf8_state",
+      "valid": true,
+      "variant": "behavior_drift",
+      "verdict": "REJECT"
+    },
+    {
+      "errors": [],
+      "kernel": "base64_state",
+      "valid": true,
+      "variant": "baseline",
+      "verdict": "PASS"
+    },
+    {
+      "errors": [],
+      "kernel": "base64_state",
+      "valid": true,
+      "variant": "rename",
+      "verdict": "PASS"
+    },
+    {
+      "errors": [],
+      "kernel": "base64_state",
+      "valid": true,
+      "variant": "reorder",
+      "verdict": "PASS"
+    },
+    {
+      "errors": [],
+      "kernel": "base64_state",
+      "valid": true,
+      "variant": "extract",
+      "verdict": "PASS"
+    },
+    {
+      "errors": [],
+      "kernel": "base64_state",
+      "valid": true,
+      "variant": "dependency_upgrade",
+      "verdict": "PASS"
+    },
+    {
+      "errors": [],
+      "kernel": "base64_state",
+      "valid": true,
+      "variant": "format",
+      "verdict": "PASS"
+    },
+    {
+      "errors": [],
+      "kernel": "base64_state",
+      "valid": true,
+      "variant": "erase_tolerable",
+      "verdict": "PASS"
+    },
+    {
+      "errors": [],
+      "kernel": "base64_state",
+      "valid": true,
+      "variant": "merge_tolerable",
+      "verdict": "PASS"
+    },
+    {
+      "errors": [],
+      "kernel": "base64_state",
+      "valid": true,
+      "variant": "flip_tolerable",
+      "verdict": "PASS"
+    },
+    {
+      "errors": [],
+      "kernel": "base64_state",
+      "valid": true,
+      "variant": "recovery_break",
+      "verdict": "REJECT"
+    },
+    {
+      "errors": [],
+      "kernel": "base64_state",
+      "valid": true,
+      "variant": "reseed",
+      "verdict": "REJECT"
+    },
+    {
+      "errors": [],
+      "kernel": "base64_state",
+      "valid": true,
+      "variant": "behavior_drift",
+      "verdict": "REJECT"
+    },
+    {
+      "errors": [],
+      "kernel": "luhn_state",
+      "valid": true,
+      "variant": "baseline",
+      "verdict": "PASS"
+    },
+    {
+      "errors": [],
+      "kernel": "luhn_state",
+      "valid": true,
+      "variant": "rename",
+      "verdict": "PASS"
+    },
+    {
+      "errors": [],
+      "kernel": "luhn_state",
+      "valid": true,
+      "variant": "reorder",
+      "verdict": "PASS"
+    },
+    {
+      "errors": [],
+      "kernel": "luhn_state",
+      "valid": true,
+      "variant": "extract",
+      "verdict": "PASS"
+    },
+    {
+      "errors": [],
+      "kernel": "luhn_state",
+      "valid": true,
+      "variant": "dependency_upgrade",
+      "verdict": "PASS"
+    },
+    {
+      "errors": [],
+      "kernel": "luhn_state",
+      "valid": true,
+      "variant": "format",
+      "verdict": "PASS"
+    },
+    {
+      "errors": [],
+      "kernel": "luhn_state",
+      "valid": true,
+      "variant": "erase_tolerable",
+      "verdict": "PASS"
+    },
+    {
+      "errors": [],
+      "kernel": "luhn_state",
+      "valid": true,
+      "variant": "merge_tolerable",
+      "verdict": "PASS"
+    },
+    {
+      "errors": [],
+      "kernel": "luhn_state",
+      "valid": true,
+      "variant": "flip_tolerable",
+      "verdict": "PASS"
+    },
+    {
+      "errors": [],
+      "kernel": "luhn_state",
+      "valid": true,
+      "variant": "recovery_break",
+      "verdict": "REJECT"
+    },
+    {
+      "errors": [],
+      "kernel": "luhn_state",
+      "valid": true,
+      "variant": "reseed",
+      "verdict": "REJECT"
+    },
+    {
+      "errors": [],
+      "kernel": "luhn_state",
+      "valid": true,
+      "variant": "behavior_drift",
+      "verdict": "REJECT"
+    },
+    {
+      "errors": [],
+      "kernel": "saturating_add",
+      "valid": true,
+      "variant": "baseline",
+      "verdict": "PASS"
+    },
+    {
+      "errors": [],
+      "kernel": "saturating_add",
+      "valid": true,
+      "variant": "rename",
+      "verdict": "PASS"
+    },
+    {
+      "errors": [],
+      "kernel": "saturating_add",
+      "valid": true,
+      "variant": "reorder",
+      "verdict": "PASS"
+    },
+    {
+      "errors": [],
+      "kernel": "saturating_add",
+      "valid": true,
+      "variant": "extract",
+      "verdict": "PASS"
+    },
+    {
+      "errors": [],
+      "kernel": "saturating_add",
+      "valid": true,
+      "variant": "dependency_upgrade",
+      "verdict": "PASS"
+    },
+    {
+      "errors": [],
+      "kernel": "saturating_add",
+      "valid": true,
+      "variant": "format",
+      "verdict": "PASS"
+    },
+    {
+      "errors": [],
+      "kernel": "saturating_add",
+      "valid": true,
+      "variant": "erase_tolerable",
+      "verdict": "PASS"
+    },
+    {
+      "errors": [],
+      "kernel": "saturating_add",
+      "valid": true,
+      "variant": "merge_tolerable",
+      "verdict": "PASS"
+    },
+    {
+      "errors": [],
+      "kernel": "saturating_add",
+      "valid": true,
+      "variant": "flip_tolerable",
+      "verdict": "PASS"
+    },
+    {
+      "errors": [],
+      "kernel": "saturating_add",
+      "valid": true,
+      "variant": "recovery_break",
+      "verdict": "REJECT"
+    },
+    {
+      "errors": [],
+      "kernel": "saturating_add",
+      "valid": true,
+      "variant": "reseed",
+      "verdict": "REJECT"
+    },
+    {
+      "errors": [],
+      "kernel": "saturating_add",
+      "valid": true,
+      "variant": "behavior_drift",
+      "verdict": "REJECT"
+    },
+    {
+      "errors": [],
+      "kernel": "branch_mix",
+      "valid": true,
+      "variant": "baseline",
+      "verdict": "PASS"
+    },
+    {
+      "errors": [],
+      "kernel": "branch_mix",
+      "valid": true,
+      "variant": "rename",
+      "verdict": "PASS"
+    },
+    {
+      "errors": [],
+      "kernel": "branch_mix",
+      "valid": true,
+      "variant": "reorder",
+      "verdict": "PASS"
+    },
+    {
+      "errors": [],
+      "kernel": "branch_mix",
+      "valid": true,
+      "variant": "extract",
+      "verdict": "PASS"
+    },
+    {
+      "errors": [],
+      "kernel": "branch_mix",
+      "valid": true,
+      "variant": "dependency_upgrade",
+      "verdict": "PASS"
+    },
+    {
+      "errors": [],
+      "kernel": "branch_mix",
+      "valid": true,
+      "variant": "format",
+      "verdict": "PASS"
+    },
+    {
+      "errors": [],
+      "kernel": "branch_mix",
+      "valid": true,
+      "variant": "erase_tolerable",
+      "verdict": "PASS"
+    },
+    {
+      "errors": [],
+      "kernel": "branch_mix",
+      "valid": true,
+      "variant": "merge_tolerable",
+      "verdict": "PASS"
+    },
+    {
+      "errors": [],
+      "kernel": "branch_mix",
+      "valid": true,
+      "variant": "flip_tolerable",
+      "verdict": "PASS"
+    },
+    {
+      "errors": [],
+      "kernel": "branch_mix",
+      "valid": true,
+      "variant": "recovery_break",
+      "verdict": "REJECT"
+    },
+    {
+      "errors": [],
+      "kernel": "branch_mix",
+      "valid": true,
+      "variant": "reseed",
+      "verdict": "REJECT"
+    },
+    {
+      "errors": [],
+      "kernel": "branch_mix",
+      "valid": true,
+      "variant": "behavior_drift",
+      "verdict": "REJECT"
+    }
+  ],
+  "hold_count": 0,
+  "input_evaluations_rechecked": 37748736,
+  "input_evaluations_reexecuted": 37748736,
+  "locked_environment_rechecked": true,
+  "manifest_canonical_forms_rehashed": 144,
+  "manifest_files_rehashed": 144,
+  "multi_parent_releases_rechecked": 12,
+  "parent_decisions_independently_reconstructed": 144,
+  "pass_count": 108,
+  "policy_bridge_errors": [],
+  "policy_bridge_fixture_pass": true,
+  "policy_files_reconstructed": 12,
+  "provenance_mappings_recomputed": 144,
+  "reference_tables_recomputed": 12,
+  "refreshed_binding_test_count": 11,
+  "reject_count": 36,
+  "schema": "tracecert.independent-recheck.v10",
+  "semantic_tamper_test_count": 14,
+  "semantic_tamper_tests": [
+    {
+      "binding_mode": "refreshed_certificate_or_file",
+      "errors": [
+        "certificate does not contain exactly the four locked compiler cells",
+        "exact finite equivalence flag mismatch",
+        "behavior maturity mismatch",
+        "stored relation outcome mismatch: behavior",
+        "stored relation state mismatch: behavior",
+        "stored relation detail mismatch: behavior.exact_finite_equivalence",
+        "stored relation outcome mismatch: executable_reproduction",
+        "stored relation state mismatch: executable_reproduction",
+        "stored relation outcome mismatch: integrity",
+        "stored relation state mismatch: integrity",
+        "typed verdict predicate mismatch",
+        "locked variant outcome mismatch"
+      ],
+      "name": "locked_toolchain_omission",
+      "outer_self_hash_valid": true,
+      "reconstructed_integrity": false,
+      "reconstructed_verdict": "REJECT",
+      "rejected": true
+    },
+    {
+      "binding_mode": "refreshed_certificate_or_file",
+      "errors": [
+        "independent aggregate provenance mismatch",
+        "continuity status mismatch",
+        "typed verdict predicate mismatch"
+      ],
+      "name": "forged_continuity_with_fresh_self_hash",
+      "outer_self_hash_valid": true,
+      "reconstructed_integrity": true,
+      "reconstructed_verdict": "REJECT",
+      "rejected": true
+    },
+    {
+      "binding_mode": "refreshed_certificate_or_file",
+      "errors": [
+        "assembly hash mismatch: gcc -O0",
+        "stored relation outcome mismatch: integrity",
+        "stored relation state mismatch: integrity",
+        "typed verdict predicate mismatch",
+        "locked variant outcome mismatch"
+      ],
+      "name": "forged_assembly_hash_with_fresh_self_hash",
+      "outer_self_hash_valid": true,
+      "reconstructed_integrity": false,
+      "reconstructed_verdict": "REJECT",
+      "rejected": true
+    },
+    {
+      "binding_mode": "refreshed_certificate_or_file",
+      "errors": [
+        "independent aggregate provenance mismatch"
+      ],
+      "name": "forged_mapping_count_with_fresh_self_hash",
+      "outer_self_hash_valid": true,
+      "reconstructed_integrity": true,
+      "reconstructed_verdict": "REJECT",
+      "rejected": true
+    },
+    {
+      "binding_mode": "refreshed_certificate_or_file",
+      "errors": [
+        "binary hash mismatch: gcc -O0",
+        "stored relation outcome mismatch: integrity",
+        "stored relation state mismatch: integrity",
+        "typed verdict predicate mismatch",
+        "locked variant outcome mismatch"
+      ],
+      "name": "forged_binary_hash_with_fresh_self_hash",
+      "outer_self_hash_valid": true,
+      "reconstructed_integrity": false,
+      "reconstructed_verdict": "REJECT",
+      "rejected": true
+    },
+    {
+      "binding_mode": "refreshed_certificate_or_file",
+      "errors": [
+        "manifest file hash mismatch",
+        "stored relation outcome mismatch: integrity",
+        "stored relation state mismatch: integrity",
+        "typed verdict predicate mismatch",
+        "locked variant outcome mismatch"
+      ],
+      "name": "forged_manifest_file_hash_with_fresh_self_hash",
+      "outer_self_hash_valid": true,
+      "reconstructed_integrity": false,
+      "reconstructed_verdict": "REJECT",
+      "rejected": true
+    },
+    {
+      "binding_mode": "refreshed_certificate_or_file",
+      "errors": [
+        "policy content mismatch",
+        "policy expected digest mismatch",
+        "parent-edge set mismatch",
+        "policy compatibility field mismatch",
+        "stored relation outcome mismatch: integrity",
+        "stored relation state mismatch: integrity",
+        "stored relation outcome mismatch: lineage",
+        "stored relation state mismatch: lineage",
+        "typed verdict predicate mismatch",
+        "locked variant outcome mismatch"
+      ],
+      "name": "silent_policy_threshold_change_with_fresh_hashes",
+      "outer_self_hash_valid": true,
+      "reconstructed_integrity": null,
+      "reconstructed_verdict": null,
+      "rejected": true
+    },
+    {
+      "binding_mode": "refreshed_certificate_or_file",
+      "errors": [
+        "parent variant set mismatch",
+        "legacy parent variant mismatch",
+        "legacy parent source hash mismatch",
+        "parent source hash set mismatch",
+        "independent parent-edge provenance mismatch",
+        "independent aggregate provenance mismatch",
+        "parent-edge set mismatch",
+        "legacy predecessor link mismatch",
+        "legacy predecessor policy link mismatch",
+        "legacy predecessor decision mismatch",
+        "legacy predecessor acceptance mismatch",
+        "stored relation detail mismatch: continuity.parent_edge_count",
+        "stored relation detail mismatch: continuity.per_parent",
+        "stored relation outcome mismatch: lineage",
+        "stored relation state mismatch: lineage",
+        "typed verdict predicate mismatch",
+        "locked variant outcome mismatch"
+      ],
+      "name": "merge_second_parent_omission_with_fresh_hashes",
+      "outer_self_hash_valid": true,
+      "reconstructed_integrity": true,
+      "reconstructed_verdict": "REJECT",
+      "rejected": true
+    },
+    {
+      "binding_mode": "refreshed_certificate_or_file",
+      "errors": [
+        "stored relation outcome mismatch: lineage",
+        "stored relation state mismatch: lineage",
+        "typed verdict predicate mismatch",
+        "locked variant outcome mismatch"
+      ],
+      "name": "rejected_predecessor_graft_with_fresh_hashes",
+      "outer_self_hash_valid": true,
+      "rejected": true
+    },
+    {
+      "binding_mode": "refreshed_certificate_or_file",
+      "errors": [
+        "parent-edge set mismatch",
+        "legacy predecessor decision mismatch",
+        "legacy predecessor acceptance mismatch",
+        "all-parent acceptance field mismatch",
+        "stored relation outcome mismatch: lineage",
+        "stored relation state mismatch: lineage",
+        "typed verdict predicate mismatch",
+        "locked variant outcome mismatch"
+      ],
+      "name": "forged_parent_claims_with_fresh_hashes",
+      "outer_self_hash_valid": true,
+      "parent_error_count": 5,
+      "reconstructed_child_verdict": "REJECT",
+      "reconstructed_parent_valid": false,
+      "reconstructed_parent_verdict": "REJECT",
+      "rejected": true
+    },
+    {
+      "binding_mode": "direct_source_interpretation",
+      "errors": [
+        "locked helper body mismatch: tc_add_v2",
+        "locked helper body mismatch: tc_xor_v2"
+      ],
+      "name": "swapped_locked_helper_bodies",
+      "outer_self_hash_valid": null,
+      "rejected": true
+    },
+    {
+      "binding_mode": "direct_source_interpretation",
+      "errors": [
+        "preprocessor directive set mismatch: expected=['#include <stdint.h>', '#include <stdio.h>'] actual=['#include <stdint.h>', '#include <stdio.h>', '#define tc_add_v2(v,k) tc_xor_v2((v),(k))']",
+        "locked helper symbol binding mismatch: tc_add_v2 expected_occurrences=15 actual_occurrences=17",
+        "locked helper symbol binding mismatch: tc_xor_v2 expected_occurrences=15 actual_occurrences=16"
+      ],
+      "name": "helper_macro_alias",
+      "outer_self_hash_valid": null,
+      "rejected": true
+    },
+    {
+      "binding_mode": "direct_source_interpretation",
+      "errors": [
+        "locked helper symbol binding mismatch: tc_add_v2 expected_occurrences=15 actual_occurrences=17",
+        "locked helper symbol binding mismatch: tc_xor_v2 expected_occurrences=15 actual_occurrences=16"
+      ],
+      "name": "helper_function_pointer_shadow",
+      "outer_self_hash_valid": null,
+      "rejected": true
+    },
+    {
+      "binding_mode": "refreshed_certificate_or_file",
+      "errors": [
+        "independent recompilation binary mismatch: gcc -O0",
+        "stored relation outcome mismatch: executable_reproduction",
+        "stored relation state mismatch: executable_reproduction",
+        "typed verdict predicate mismatch",
+        "locked variant outcome mismatch"
+      ],
+      "name": "retained_executable_substitution_with_fresh_hashes",
+      "outer_self_hash_valid": true,
+      "rejected": true
+    }
+  ],
+  "semantic_tamper_tests_pass": true,
+  "structural_errors": [],
+  "tamper_errors": [
+    "certificate self-hash mismatch",
+    "expected payload field mismatch",
+    "stored relation outcome mismatch: executable_reproduction",
+    "stored relation state mismatch: executable_reproduction",
+    "stored relation outcome mismatch: integrity",
+    "stored relation state mismatch: integrity",
+    "typed verdict predicate mismatch",
+    "locked variant outcome mismatch"
+  ],
+  "tamper_rejected": true
+}

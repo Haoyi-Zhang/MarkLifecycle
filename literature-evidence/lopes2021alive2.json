@@ -1,0 +1,12 @@
+{
+  "authors": "Nuno P. Lopes and Juneyoung Lee and Chung-Kil Hur and Zhengyang Liu and John Regehr",
+  "identifier": "10.1145/3453483.3454030",
+  "key": "lopes2021alive2",
+  "pages": "65--79",
+  "retrieved_at": "2026-07-18T21:32:05+09:00",
+  "supports": "Alive2 demonstrates practical bounded translation validation and the importance of stated bounds.",
+  "title": "Alive2: Bounded Translation Validation for LLVM",
+  "venue": "Proceedings of PLDI",
+  "verification_status": "VERIFIED_SCHOLARLY_IDENTIFIER",
+  "year": 2021
+}

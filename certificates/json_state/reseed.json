@@ -1,0 +1,711 @@
+{
+  "behavior": {
+    "contract": "all x,y in {0,...,255}; one output byte",
+    "exact_finite_equivalence": true,
+    "maturity": "VERIFIED",
+    "reference_sha256": "abf4da61a297e47a26716b66c9111f7f52a8380cdb5b703dff059a5783f67ca2",
+    "reference_table_path": "artifact/benchmark/reference/json_state.bin",
+    "toolchains": [
+      {
+        "assembly_command": [
+          "gcc",
+          "-std=c11",
+          "-O0",
+          "-S",
+          "artifact/benchmark/generated/json_state/reseed/kernel.c",
+          "-o",
+          "artifact/results/raw/json_state/reseed/gcc_o0.s"
+        ],
+        "assembly_path": "artifact/results/raw/json_state/reseed/gcc_o0.s",
+        "assembly_retention": {
+          "method": "immediate-constant presence in emitted assembly; heuristic, not a formal detector",
+          "retained_carrier_ids": [
+            "json_state:R:00",
+            "json_state:R:01",
+            "json_state:R:02",
+            "json_state:R:03",
+            "json_state:R:04",
+            "json_state:R:05",
+            "json_state:R:06",
+            "json_state:R:07",
+            "json_state:R:08",
+            "json_state:R:09",
+            "json_state:R:10",
+            "json_state:R:11",
+            "json_state:R:12",
+            "json_state:R:13",
+            "json_state:R:14",
+            "json_state:R:15",
+            "json_state:R:16",
+            "json_state:R:17",
+            "json_state:R:18",
+            "json_state:R:19",
+            "json_state:R:20",
+            "json_state:R:21",
+            "json_state:R:22",
+            "json_state:R:23",
+            "json_state:R:24",
+            "json_state:R:25",
+            "json_state:R:26",
+            "json_state:R:27"
+          ],
+          "retained_count": 28,
+          "retention": 1.0,
+          "source_present_count": 28
+        },
+        "assembly_returncode": 0,
+        "assembly_sha256": "296b14bee3ab928cf34e2c741bc7ce639f6910f43254338319a68e687eba511a",
+        "binary_path": "artifact/results/raw/json_state/reseed/gcc_o0",
+        "binary_sha256": "23b483f151dc7ef1f68d5a565102b341ffd71b103d19ef259fb5f5670007a25d",
+        "compile_command": [
+          "gcc",
+          "-std=c11",
+          "-Wall",
+          "-Wextra",
+          "-Werror",
+          "-O0",
+          "artifact/benchmark/generated/json_state/reseed/kernel.c",
+          "-o",
+          "artifact/results/raw/json_state/reseed/gcc_o0"
+        ],
+        "compile_returncode": 0,
+        "compiler": "gcc",
+        "compiler_version": "gcc (Debian 14.2.0-19) 14.2.0",
+        "first_mismatch": null,
+        "matches_reference": true,
+        "optimization": "-O0",
+        "output_path": "artifact/results/raw/json_state/reseed/gcc_o0.out",
+        "output_sha256": "abf4da61a297e47a26716b66c9111f7f52a8380cdb5b703dff059a5783f67ca2",
+        "output_size": 65536,
+        "run_returncode": 0,
+        "status": "EXECUTED",
+        "stderr": ""
+      },
+      {
+        "assembly_command": [
+          "gcc",
+          "-std=c11",
+          "-O2",
+          "-S",
+          "artifact/benchmark/generated/json_state/reseed/kernel.c",
+          "-o",
+          "artifact/results/raw/json_state/reseed/gcc_o2.s"
+        ],
+        "assembly_path": "artifact/results/raw/json_state/reseed/gcc_o2.s",
+        "assembly_retention": {
+          "method": "immediate-constant presence in emitted assembly; heuristic, not a formal detector",
+          "retained_carrier_ids": [],
+          "retained_count": 0,
+          "retention": 0.0,
+          "source_present_count": 28
+        },
+        "assembly_returncode": 0,
+        "assembly_sha256": "36dbc8e4431e4f1ce0a37df6f83a27dd3948a9f9e4e0ecb465ae73dd0ca6d79c",
+        "binary_path": "artifact/results/raw/json_state/reseed/gcc_o2",
+        "binary_sha256": "5f78de016cf1d86295d5a1a2fd1a4aa42d186e44dc38273f9a738c69d8855a66",
+        "compile_command": [
+          "gcc",
+          "-std=c11",
+          "-Wall",
+          "-Wextra",
+          "-Werror",
+          "-O2",
+          "artifact/benchmark/generated/json_state/reseed/kernel.c",
+          "-o",
+          "artifact/results/raw/json_state/reseed/gcc_o2"
+        ],
+        "compile_returncode": 0,
+        "compiler": "gcc",
+        "compiler_version": "gcc (Debian 14.2.0-19) 14.2.0",
+        "first_mismatch": null,
+        "matches_reference": true,
+        "optimization": "-O2",
+        "output_path": "artifact/results/raw/json_state/reseed/gcc_o2.out",
+        "output_sha256": "abf4da61a297e47a26716b66c9111f7f52a8380cdb5b703dff059a5783f67ca2",
+        "output_size": 65536,
+        "run_returncode": 0,
+        "status": "EXECUTED",
+        "stderr": ""
+      },
+      {
+        "assembly_command": [
+          "clang",
+          "-std=c11",
+          "-O0",
+          "-S",
+          "artifact/benchmark/generated/json_state/reseed/kernel.c",
+          "-o",
+          "artifact/results/raw/json_state/reseed/clang_o0.s"
+        ],
+        "assembly_path": "artifact/results/raw/json_state/reseed/clang_o0.s",
+        "assembly_retention": {
+          "method": "immediate-constant presence in emitted assembly; heuristic, not a formal detector",
+          "retained_carrier_ids": [
+            "json_state:R:00",
+            "json_state:R:01",
+            "json_state:R:02",
+            "json_state:R:03",
+            "json_state:R:04",
+            "json_state:R:05",
+            "json_state:R:06",
+            "json_state:R:07",
+            "json_state:R:08",
+            "json_state:R:09",
+            "json_state:R:10",
+            "json_state:R:11",
+            "json_state:R:12",
+            "json_state:R:13",
+            "json_state:R:14",
+            "json_state:R:15",
+            "json_state:R:16",
+            "json_state:R:17",
+            "json_state:R:18",
+            "json_state:R:19",
+            "json_state:R:20",
+            "json_state:R:21",
+            "json_state:R:22",
+            "json_state:R:23",
+            "json_state:R:24",
+            "json_state:R:25",
+            "json_state:R:26",
+            "json_state:R:27"
+          ],
+          "retained_count": 28,
+          "retention": 1.0,
+          "source_present_count": 28
+        },
+        "assembly_returncode": 0,
+        "assembly_sha256": "2cd93ae7c65b742cbedaa2c36074190507391c88ad5180c1cf6a7d375e28ab28",
+        "binary_path": "artifact/results/raw/json_state/reseed/clang_o0",
+        "binary_sha256": "c1b68a009dd7ce311a929b437eb2e7df7268979f33b812ef05402c7d9a33467e",
+        "compile_command": [
+          "clang",
+          "-std=c11",
+          "-Wall",
+          "-Wextra",
+          "-Werror",
+          "-O0",
+          "artifact/benchmark/generated/json_state/reseed/kernel.c",
+          "-o",
+          "artifact/results/raw/json_state/reseed/clang_o0"
+        ],
+        "compile_returncode": 0,
+        "compiler": "clang",
+        "compiler_version": "clang version 17.0.0 (https://github.com/swiftlang/llvm-project.git 10999b6d034fe318f3d56c83bddb6572593a8bb0)",
+        "first_mismatch": null,
+        "matches_reference": true,
+        "optimization": "-O0",
+        "output_path": "artifact/results/raw/json_state/reseed/clang_o0.out",
+        "output_sha256": "abf4da61a297e47a26716b66c9111f7f52a8380cdb5b703dff059a5783f67ca2",
+        "output_size": 65536,
+        "run_returncode": 0,
+        "status": "EXECUTED",
+        "stderr": ""
+      },
+      {
+        "assembly_command": [
+          "clang",
+          "-std=c11",
+          "-O2",
+          "-S",
+          "artifact/benchmark/generated/json_state/reseed/kernel.c",
+          "-o",
+          "artifact/results/raw/json_state/reseed/clang_o2.s"
+        ],
+        "assembly_path": "artifact/results/raw/json_state/reseed/clang_o2.s",
+        "assembly_retention": {
+          "method": "immediate-constant presence in emitted assembly; heuristic, not a formal detector",
+          "retained_carrier_ids": [],
+          "retained_count": 0,
+          "retention": 0.0,
+          "source_present_count": 28
+        },
+        "assembly_returncode": 0,
+        "assembly_sha256": "df01f7692fe60a28ca07ad471645d2c4871ec29f2efae7bd44c77c540a51b16a",
+        "binary_path": "artifact/results/raw/json_state/reseed/clang_o2",
+        "binary_sha256": "f4018451325a3b9227da32ba7eef35a9b82343b80d092b417865c0fc8c6c61b3",
+        "compile_command": [
+          "clang",
+          "-std=c11",
+          "-Wall",
+          "-Wextra",
+          "-Werror",
+          "-O2",
+          "artifact/benchmark/generated/json_state/reseed/kernel.c",
+          "-o",
+          "artifact/results/raw/json_state/reseed/clang_o2"
+        ],
+        "compile_returncode": 0,
+        "compiler": "clang",
+        "compiler_version": "clang version 17.0.0 (https://github.com/swiftlang/llvm-project.git 10999b6d034fe318f3d56c83bddb6572593a8bb0)",
+        "first_mismatch": null,
+        "matches_reference": true,
+        "optimization": "-O2",
+        "output_path": "artifact/results/raw/json_state/reseed/clang_o2.out",
+        "output_sha256": "abf4da61a297e47a26716b66c9111f7f52a8380cdb5b703dff059a5783f67ca2",
+        "output_size": 65536,
+        "run_returncode": 0,
+        "status": "EXECUTED",
+        "stderr": ""
+      }
+    ]
+  },
+  "certificate_sha256": "5668936344fed954f31de6198937e2c8ba23d161228dd0ada130bd7aff04ba49",
+  "chain": {
+    "all_parents_accepted": true,
+    "hash_link_valid": true,
+    "parents": [
+      {
+        "accepted": true,
+        "certificate_sha256": "2432a43bd82aba74e8e2a0ff8aaaedcd17ccde780f9c5c26e83b719cfb3bf0f2",
+        "decision": "PASS",
+        "hash_link_valid": true,
+        "policy_canonical_sha256": "c00d7bb729effa0e425416e84986f6c2aecb8395c5aeec2573ccb8bcb05e2823",
+        "policy_compatible": true,
+        "variant": "dependency_upgrade"
+      }
+    ],
+    "policy_compatible": true,
+    "predecessor_accepted": true,
+    "predecessor_certificate_sha256": "2432a43bd82aba74e8e2a0ff8aaaedcd17ccde780f9c5c26e83b719cfb3bf0f2",
+    "predecessor_decision": "PASS",
+    "predecessor_policy_canonical_sha256": "c00d7bb729effa0e425416e84986f6c2aecb8395c5aeec2573ccb8bcb05e2823"
+  },
+  "kernel": "json_state",
+  "manifest": {
+    "canonical_sha256": "0a22c115c27d8e1932ebde70bc784e9fd5a6de18ba919592e911566c67fc8012",
+    "file_sha256": "0789803d01ae706727f709e75f1201bf94d8802e4eb25fd84d791820dcb43581",
+    "path": "artifact/benchmark/generated/json_state/reseed/watermark_manifest.json"
+  },
+  "parent_variant": "dependency_upgrade",
+  "parent_variants": [
+    "dependency_upgrade"
+  ],
+  "policy": {
+    "canonical_sha256": "c00d7bb729effa0e425416e84986f6c2aecb8395c5aeec2573ccb8bcb05e2823",
+    "file_sha256": "fa5f148e26c2fb03dbf710623101f86e6eff9c03fe97d37bcb637acdd9b7022a",
+    "path": "artifact/policies/finite/json_state.json",
+    "policy_id": "finite:json_state:v1"
+  },
+  "relations": {
+    "behavior": {
+      "exact_finite_equivalence": true,
+      "passed": true,
+      "state": "ESTABLISHED_TRUE"
+    },
+    "continuity": {
+      "baseline_count": 28,
+      "mapped_count": 0,
+      "parent_edge_count": 1,
+      "passed": false,
+      "per_parent": [
+        {
+          "baseline_count": 28,
+          "mapped_count": 0,
+          "parent_variant": "dependency_upgrade",
+          "traceability": 0.0
+        }
+      ],
+      "required_count": 26,
+      "state": "ESTABLISHED_FALSE"
+    },
+    "executable_reproduction": {
+      "passed": true,
+      "state": "ESTABLISHED_TRUE"
+    },
+    "integrity": {
+      "passed": true,
+      "state": "ESTABLISHED_TRUE"
+    },
+    "lineage": {
+      "passed": true,
+      "state": "ESTABLISHED_TRUE"
+    },
+    "recovery": {
+      "passed": true,
+      "payload_hex": "88d4",
+      "state": "ESTABLISHED_TRUE",
+      "status": "CERTIFIED_UNIQUE"
+    },
+    "source_conformance": {
+      "passed": true,
+      "state": "ESTABLISHED_TRUE"
+    }
+  },
+  "schema": "tracecert.release.v5",
+  "source": {
+    "parent_sha256": "ed613b22a1778d7b3c7ae2c1fa3806fa48296b10d41e85e90c26dc1117fd882e",
+    "parent_sha256s": [
+      "ed613b22a1778d7b3c7ae2c1fa3806fa48296b10d41e85e90c26dc1117fd882e"
+    ],
+    "path": "artifact/benchmark/generated/json_state/reseed/kernel.c",
+    "sha256": "1e4dca2df3e1a7744886abeb08cf3887cd9daf467d2a83d1c3195799010be17e"
+  },
+  "variant": "reseed",
+  "verdict": "REJECT",
+  "watermark": {
+    "continuity_status": "CONTINUITY_BELOW_LOCK",
+    "decode": {
+      "blocks": [
+        {
+          "candidate_count": 1,
+          "condition_holds": true,
+          "decoded_bits": [
+            1,
+            0,
+            0,
+            0
+          ],
+          "erasures": 0,
+          "errors": 0,
+          "status": "CERTIFIED_UNIQUE"
+        },
+        {
+          "candidate_count": 1,
+          "condition_holds": true,
+          "decoded_bits": [
+            1,
+            0,
+            0,
+            0
+          ],
+          "erasures": 0,
+          "errors": 0,
+          "status": "CERTIFIED_UNIQUE"
+        },
+        {
+          "candidate_count": 1,
+          "condition_holds": true,
+          "decoded_bits": [
+            1,
+            1,
+            0,
+            1
+          ],
+          "erasures": 0,
+          "errors": 0,
+          "status": "CERTIFIED_UNIQUE"
+        },
+        {
+          "candidate_count": 1,
+          "condition_holds": true,
+          "decoded_bits": [
+            0,
+            1,
+            0,
+            0
+          ],
+          "erasures": 0,
+          "errors": 0,
+          "status": "CERTIFIED_UNIQUE"
+        }
+      ],
+      "payload_hex": "88d4",
+      "status": "CERTIFIED_UNIQUE",
+      "total_erasures": 0,
+      "total_errors": 0
+    },
+    "expected_payload_hex": "88d4",
+    "observed_symbols": "1110000111000010101011001100",
+    "payload_recoverable": true,
+    "provenance": {
+      "aggregation": "single-parent-edge",
+      "baseline_count": 28,
+      "mapped_count": 0,
+      "mappings": [],
+      "traceability": 0.0
+    },
+    "provenance_by_parent": [
+      {
+        "baseline_count": 28,
+        "mapped_count": 0,
+        "mappings": [],
+        "parent_variant": "dependency_upgrade",
+        "traceability": 0.0
+      }
+    ],
+    "source_carriers": [
+      {
+        "carrier_id": "json_state:R:00",
+        "constant": 1263523751,
+        "expected_bit": 1,
+        "family": "helper-v2",
+        "line": 13,
+        "observed_bit": 1,
+        "position": 0,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "json_state:R:01",
+        "constant": 2649469697,
+        "expected_bit": 1,
+        "family": "helper-v2",
+        "line": 27,
+        "observed_bit": 1,
+        "position": 1,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "json_state:R:02",
+        "constant": 3675354617,
+        "expected_bit": 1,
+        "family": "helper-v2",
+        "line": 14,
+        "observed_bit": 1,
+        "position": 2,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "json_state:R:03",
+        "constant": 2780146469,
+        "expected_bit": 0,
+        "family": "helper-v2",
+        "line": 28,
+        "observed_bit": 0,
+        "position": 3,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "json_state:R:04",
+        "constant": 2703216513,
+        "expected_bit": 0,
+        "family": "helper-v2",
+        "line": 15,
+        "observed_bit": 0,
+        "position": 4,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "json_state:R:05",
+        "constant": 1571106811,
+        "expected_bit": 0,
+        "family": "helper-v2",
+        "line": 29,
+        "observed_bit": 0,
+        "position": 5,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "json_state:R:06",
+        "constant": 3516118827,
+        "expected_bit": 0,
+        "family": "helper-v2",
+        "line": 16,
+        "observed_bit": 0,
+        "position": 6,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "json_state:R:07",
+        "constant": 3180586839,
+        "expected_bit": 1,
+        "family": "helper-v2",
+        "line": 30,
+        "observed_bit": 1,
+        "position": 7,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "json_state:R:08",
+        "constant": 2647475995,
+        "expected_bit": 1,
+        "family": "helper-v2",
+        "line": 17,
+        "observed_bit": 1,
+        "position": 8,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "json_state:R:09",
+        "constant": 1803403243,
+        "expected_bit": 1,
+        "family": "helper-v2",
+        "line": 31,
+        "observed_bit": 1,
+        "position": 9,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "json_state:R:10",
+        "constant": 535784351,
+        "expected_bit": 0,
+        "family": "helper-v2",
+        "line": 18,
+        "observed_bit": 0,
+        "position": 10,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "json_state:R:11",
+        "constant": 865283891,
+        "expected_bit": 0,
+        "family": "helper-v2",
+        "line": 32,
+        "observed_bit": 0,
+        "position": 11,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "json_state:R:12",
+        "constant": 3046059811,
+        "expected_bit": 0,
+        "family": "helper-v2",
+        "line": 19,
+        "observed_bit": 0,
+        "position": 12,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "json_state:R:13",
+        "constant": 2274958793,
+        "expected_bit": 0,
+        "family": "helper-v2",
+        "line": 33,
+        "observed_bit": 0,
+        "position": 13,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "json_state:R:14",
+        "constant": 3207792973,
+        "expected_bit": 1,
+        "family": "helper-v2",
+        "line": 20,
+        "observed_bit": 1,
+        "position": 14,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "json_state:R:15",
+        "constant": 1967606599,
+        "expected_bit": 0,
+        "family": "helper-v2",
+        "line": 34,
+        "observed_bit": 0,
+        "position": 15,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "json_state:R:16",
+        "constant": 2373027077,
+        "expected_bit": 1,
+        "family": "helper-v2",
+        "line": 21,
+        "observed_bit": 1,
+        "position": 16,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "json_state:R:17",
+        "constant": 2010485215,
+        "expected_bit": 0,
+        "family": "helper-v2",
+        "line": 35,
+        "observed_bit": 0,
+        "position": 17,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "json_state:R:18",
+        "constant": 1703260513,
+        "expected_bit": 1,
+        "family": "helper-v2",
+        "line": 22,
+        "observed_bit": 1,
+        "position": 18,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "json_state:R:19",
+        "constant": 3184891845,
+        "expected_bit": 0,
+        "family": "helper-v2",
+        "line": 36,
+        "observed_bit": 0,
+        "position": 19,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "json_state:R:20",
+        "constant": 2343814585,
+        "expected_bit": 1,
+        "family": "helper-v2",
+        "line": 23,
+        "observed_bit": 1,
+        "position": 20,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "json_state:R:21",
+        "constant": 2816730381,
+        "expected_bit": 1,
+        "family": "helper-v2",
+        "line": 37,
+        "observed_bit": 1,
+        "position": 21,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "json_state:R:22",
+        "constant": 1564444989,
+        "expected_bit": 0,
+        "family": "helper-v2",
+        "line": 24,
+        "observed_bit": 0,
+        "position": 22,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "json_state:R:23",
+        "constant": 522654029,
+        "expected_bit": 0,
+        "family": "helper-v2",
+        "line": 38,
+        "observed_bit": 0,
+        "position": 23,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "json_state:R:24",
+        "constant": 3613124381,
+        "expected_bit": 1,
+        "family": "helper-v2",
+        "line": 25,
+        "observed_bit": 1,
+        "position": 24,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "json_state:R:25",
+        "constant": 691362141,
+        "expected_bit": 1,
+        "family": "helper-v2",
+        "line": 39,
+        "observed_bit": 1,
+        "position": 25,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "json_state:R:26",
+        "constant": 1475939283,
+        "expected_bit": 0,
+        "family": "helper-v2",
+        "line": 26,
+        "observed_bit": 0,
+        "position": 26,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "json_state:R:27",
+        "constant": 3785687513,
+        "expected_bit": 0,
+        "family": "helper-v2",
+        "line": 40,
+        "observed_bit": 0,
+        "position": 27,
+        "state": "MATCH"
+      }
+    ],
+    "traceability_threshold": 0.9285714285714286
+  }
+}

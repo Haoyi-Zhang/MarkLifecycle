@@ -1,0 +1,12 @@
+{
+  "authors": "Christian S. Collberg and Clark Thomborson",
+  "identifier": "10.1109/TSE.2002.1027797",
+  "key": "collberg2002tools",
+  "pages": "735--746",
+  "retrieved_at": "2026-07-18T21:32:05+09:00",
+  "supports": "TSE synthesis of watermarking, tamper-proofing, and obfuscation establishes the software-protection context.",
+  "title": "Watermarking, Tamper-Proofing, and Obfuscation\u2014Tools for Software Protection",
+  "venue": "IEEE Transactions on Software Engineering",
+  "verification_status": "VERIFIED_SCHOLARLY_IDENTIFIER",
+  "year": 2002
+}

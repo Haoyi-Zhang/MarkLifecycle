@@ -1,0 +1,5 @@
+compiler,optimization,median_all,median_direct,median_helper,cells
+gcc,-O0,1.0,0.0,1.0,132
+gcc,-O2,0.0,0.0,0.0,132
+clang,-O0,1.0,1.0,1.0,132
+clang,-O2,0.0,0.0,0.0,132

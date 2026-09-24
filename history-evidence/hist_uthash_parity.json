@@ -1,0 +1,22 @@
+{
+  "after_blob": "f42c59b506151eac03829e1981a24959e11e20b5",
+  "before_blob": "713ba2c3600cfd2e5945262359aff4d3e8d72d77",
+  "change_families": [
+    "arithmetic predicate replacement",
+    "semantics-preserving refactoring"
+  ],
+  "commit": "74d55a0e34e96e6a842727333a7d326925ec1c16",
+  "date": "2015-04-05",
+  "id": "HIST_UTHASH_PARITY",
+  "internals_modified": false,
+  "license": "BSD-1-Clause",
+  "matrix_mapping": [
+    "reorder"
+  ],
+  "repository": "troydhanson/uthash",
+  "retrieval_mode": "read-only public repository records at an immutable commit",
+  "retrieved_at": "2026-07-21T10:00:00+09:00",
+  "title": "refactor EVENS with modulo 2",
+  "url": "https://github.com/troydhanson/uthash/commit/74d55a0e34e96e6a842727333a7d326925ec1c16",
+  "use": "Grounds an arithmetic predicate replacement over a fully enumerated unsigned sixteen-bit domain."
+}

@@ -1,0 +1,6 @@
+Copyright (c) 2005-2014, Troy D. Hanson
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that redistributions of source code retain the above copyright notice, this list of conditions and the disclaimer.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES ARE DISCLAIMED.

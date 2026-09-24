@@ -1,0 +1,1129 @@
+{
+  "behavior": {
+    "contract": "all x,y in {0,...,255}; one output byte",
+    "exact_finite_equivalence": false,
+    "maturity": "COUNTEREXAMPLE_FOUND",
+    "reference_sha256": "eaaf55079d4568449435566ed7a1af0b6631f3598c60b49ec0d1ddc0287912a3",
+    "reference_table_path": "artifact/benchmark/reference/utf8_state.bin",
+    "toolchains": [
+      {
+        "assembly_command": [
+          "gcc",
+          "-std=c11",
+          "-O0",
+          "-S",
+          "artifact/benchmark/generated/utf8_state/behavior_drift/kernel.c",
+          "-o",
+          "artifact/results/raw/utf8_state/behavior_drift/gcc_o0.s"
+        ],
+        "assembly_path": "artifact/results/raw/utf8_state/behavior_drift/gcc_o0.s",
+        "assembly_retention": {
+          "method": "immediate-constant presence in emitted assembly; heuristic, not a formal detector",
+          "retained_carrier_ids": [
+            "utf8_state:B:00",
+            "utf8_state:B:01",
+            "utf8_state:B:02",
+            "utf8_state:B:03",
+            "utf8_state:B:04",
+            "utf8_state:B:05",
+            "utf8_state:B:06",
+            "utf8_state:B:07",
+            "utf8_state:B:08",
+            "utf8_state:B:09",
+            "utf8_state:B:10",
+            "utf8_state:B:11",
+            "utf8_state:B:12",
+            "utf8_state:B:13",
+            "utf8_state:B:14",
+            "utf8_state:B:15",
+            "utf8_state:B:16",
+            "utf8_state:B:17",
+            "utf8_state:B:18",
+            "utf8_state:B:19",
+            "utf8_state:B:20",
+            "utf8_state:B:21",
+            "utf8_state:B:22",
+            "utf8_state:B:23",
+            "utf8_state:B:24",
+            "utf8_state:B:25",
+            "utf8_state:B:26",
+            "utf8_state:B:27"
+          ],
+          "retained_count": 28,
+          "retention": 1.0,
+          "source_present_count": 28
+        },
+        "assembly_returncode": 0,
+        "assembly_sha256": "e2700b5c30764c81cc3ff3d6ecb9dce5fd5d61ef31ec39e047fdbeaf8d40e10a",
+        "binary_path": "artifact/results/raw/utf8_state/behavior_drift/gcc_o0",
+        "binary_sha256": "fd54f27ce1652090ba0e3f6cbf285b544337e1efc76f9b5a04684521314dc0be",
+        "compile_command": [
+          "gcc",
+          "-std=c11",
+          "-Wall",
+          "-Wextra",
+          "-Werror",
+          "-O0",
+          "artifact/benchmark/generated/utf8_state/behavior_drift/kernel.c",
+          "-o",
+          "artifact/results/raw/utf8_state/behavior_drift/gcc_o0"
+        ],
+        "compile_returncode": 0,
+        "compiler": "gcc",
+        "compiler_version": "gcc (Debian 14.2.0-19) 14.2.0",
+        "first_mismatch": {
+          "actual": 64,
+          "expected": 65,
+          "index": 17049,
+          "x": 66,
+          "y": 153
+        },
+        "matches_reference": false,
+        "optimization": "-O0",
+        "output_path": "artifact/results/raw/utf8_state/behavior_drift/gcc_o0.out",
+        "output_sha256": "b3ea38f1cc95f5bc28a48744a1fd08532a36a5247ce96545be029fbf01f18bdb",
+        "output_size": 65536,
+        "run_returncode": 0,
+        "status": "EXECUTED",
+        "stderr": ""
+      },
+      {
+        "assembly_command": [
+          "gcc",
+          "-std=c11",
+          "-O2",
+          "-S",
+          "artifact/benchmark/generated/utf8_state/behavior_drift/kernel.c",
+          "-o",
+          "artifact/results/raw/utf8_state/behavior_drift/gcc_o2.s"
+        ],
+        "assembly_path": "artifact/results/raw/utf8_state/behavior_drift/gcc_o2.s",
+        "assembly_retention": {
+          "method": "immediate-constant presence in emitted assembly; heuristic, not a formal detector",
+          "retained_carrier_ids": [],
+          "retained_count": 0,
+          "retention": 0.0,
+          "source_present_count": 28
+        },
+        "assembly_returncode": 0,
+        "assembly_sha256": "51104f635835bb459a70eafcfad38d9fb3248ca6a46bca4527b7ce58f8d890b4",
+        "binary_path": "artifact/results/raw/utf8_state/behavior_drift/gcc_o2",
+        "binary_sha256": "947365ab84b9a0144fcdcacbd70e94fc5e99ef34a979d8953c26da9153b13c7b",
+        "compile_command": [
+          "gcc",
+          "-std=c11",
+          "-Wall",
+          "-Wextra",
+          "-Werror",
+          "-O2",
+          "artifact/benchmark/generated/utf8_state/behavior_drift/kernel.c",
+          "-o",
+          "artifact/results/raw/utf8_state/behavior_drift/gcc_o2"
+        ],
+        "compile_returncode": 0,
+        "compiler": "gcc",
+        "compiler_version": "gcc (Debian 14.2.0-19) 14.2.0",
+        "first_mismatch": {
+          "actual": 64,
+          "expected": 65,
+          "index": 17049,
+          "x": 66,
+          "y": 153
+        },
+        "matches_reference": false,
+        "optimization": "-O2",
+        "output_path": "artifact/results/raw/utf8_state/behavior_drift/gcc_o2.out",
+        "output_sha256": "b3ea38f1cc95f5bc28a48744a1fd08532a36a5247ce96545be029fbf01f18bdb",
+        "output_size": 65536,
+        "run_returncode": 0,
+        "status": "EXECUTED",
+        "stderr": ""
+      },
+      {
+        "assembly_command": [
+          "clang",
+          "-std=c11",
+          "-O0",
+          "-S",
+          "artifact/benchmark/generated/utf8_state/behavior_drift/kernel.c",
+          "-o",
+          "artifact/results/raw/utf8_state/behavior_drift/clang_o0.s"
+        ],
+        "assembly_path": "artifact/results/raw/utf8_state/behavior_drift/clang_o0.s",
+        "assembly_retention": {
+          "method": "immediate-constant presence in emitted assembly; heuristic, not a formal detector",
+          "retained_carrier_ids": [
+            "utf8_state:B:00",
+            "utf8_state:B:01",
+            "utf8_state:B:02",
+            "utf8_state:B:03",
+            "utf8_state:B:04",
+            "utf8_state:B:05",
+            "utf8_state:B:06",
+            "utf8_state:B:07",
+            "utf8_state:B:08",
+            "utf8_state:B:09",
+            "utf8_state:B:10",
+            "utf8_state:B:11",
+            "utf8_state:B:12",
+            "utf8_state:B:13",
+            "utf8_state:B:14",
+            "utf8_state:B:15",
+            "utf8_state:B:16",
+            "utf8_state:B:17",
+            "utf8_state:B:18",
+            "utf8_state:B:19",
+            "utf8_state:B:20",
+            "utf8_state:B:21",
+            "utf8_state:B:22",
+            "utf8_state:B:23",
+            "utf8_state:B:24",
+            "utf8_state:B:25",
+            "utf8_state:B:26",
+            "utf8_state:B:27"
+          ],
+          "retained_count": 28,
+          "retention": 1.0,
+          "source_present_count": 28
+        },
+        "assembly_returncode": 0,
+        "assembly_sha256": "b20720fb8b6de31359b7fafd3d04895cdbea6d586aec42151d4f8852fdab8ea6",
+        "binary_path": "artifact/results/raw/utf8_state/behavior_drift/clang_o0",
+        "binary_sha256": "35534f6b743ad4a5f2caeeb8e5509368199b49fa0c2cb55b000f19b98706b372",
+        "compile_command": [
+          "clang",
+          "-std=c11",
+          "-Wall",
+          "-Wextra",
+          "-Werror",
+          "-O0",
+          "artifact/benchmark/generated/utf8_state/behavior_drift/kernel.c",
+          "-o",
+          "artifact/results/raw/utf8_state/behavior_drift/clang_o0"
+        ],
+        "compile_returncode": 0,
+        "compiler": "clang",
+        "compiler_version": "clang version 17.0.0 (https://github.com/swiftlang/llvm-project.git 10999b6d034fe318f3d56c83bddb6572593a8bb0)",
+        "first_mismatch": {
+          "actual": 64,
+          "expected": 65,
+          "index": 17049,
+          "x": 66,
+          "y": 153
+        },
+        "matches_reference": false,
+        "optimization": "-O0",
+        "output_path": "artifact/results/raw/utf8_state/behavior_drift/clang_o0.out",
+        "output_sha256": "b3ea38f1cc95f5bc28a48744a1fd08532a36a5247ce96545be029fbf01f18bdb",
+        "output_size": 65536,
+        "run_returncode": 0,
+        "status": "EXECUTED",
+        "stderr": ""
+      },
+      {
+        "assembly_command": [
+          "clang",
+          "-std=c11",
+          "-O2",
+          "-S",
+          "artifact/benchmark/generated/utf8_state/behavior_drift/kernel.c",
+          "-o",
+          "artifact/results/raw/utf8_state/behavior_drift/clang_o2.s"
+        ],
+        "assembly_path": "artifact/results/raw/utf8_state/behavior_drift/clang_o2.s",
+        "assembly_retention": {
+          "method": "immediate-constant presence in emitted assembly; heuristic, not a formal detector",
+          "retained_carrier_ids": [],
+          "retained_count": 0,
+          "retention": 0.0,
+          "source_present_count": 28
+        },
+        "assembly_returncode": 0,
+        "assembly_sha256": "4080f05b5ed22f9148a8556016ef8154a6034392155d890a3bda78647c8e3997",
+        "binary_path": "artifact/results/raw/utf8_state/behavior_drift/clang_o2",
+        "binary_sha256": "f14467b041edb3430ae08955aa3094e2a52a0846a33343bc510fe19606b37432",
+        "compile_command": [
+          "clang",
+          "-std=c11",
+          "-Wall",
+          "-Wextra",
+          "-Werror",
+          "-O2",
+          "artifact/benchmark/generated/utf8_state/behavior_drift/kernel.c",
+          "-o",
+          "artifact/results/raw/utf8_state/behavior_drift/clang_o2"
+        ],
+        "compile_returncode": 0,
+        "compiler": "clang",
+        "compiler_version": "clang version 17.0.0 (https://github.com/swiftlang/llvm-project.git 10999b6d034fe318f3d56c83bddb6572593a8bb0)",
+        "first_mismatch": {
+          "actual": 64,
+          "expected": 65,
+          "index": 17049,
+          "x": 66,
+          "y": 153
+        },
+        "matches_reference": false,
+        "optimization": "-O2",
+        "output_path": "artifact/results/raw/utf8_state/behavior_drift/clang_o2.out",
+        "output_sha256": "b3ea38f1cc95f5bc28a48744a1fd08532a36a5247ce96545be029fbf01f18bdb",
+        "output_size": 65536,
+        "run_returncode": 0,
+        "status": "EXECUTED",
+        "stderr": ""
+      }
+    ]
+  },
+  "certificate_sha256": "bfe1694bc2e3d8e3eebd7efbbab2fdf3966223d4aa683d53aed7c1b9243a982c",
+  "chain": {
+    "all_parents_accepted": true,
+    "hash_link_valid": true,
+    "parents": [
+      {
+        "accepted": true,
+        "certificate_sha256": "c4a61a5d9e9d2b2475d71606fe01a0a1713f82a110c77aa33b00e1be1bdf90c9",
+        "decision": "PASS",
+        "hash_link_valid": true,
+        "policy_canonical_sha256": "0966492110b8e74f5606065f6bd654ea17ae2104a5c99306a372b5caa64afb38",
+        "policy_compatible": true,
+        "variant": "dependency_upgrade"
+      }
+    ],
+    "policy_compatible": true,
+    "predecessor_accepted": true,
+    "predecessor_certificate_sha256": "c4a61a5d9e9d2b2475d71606fe01a0a1713f82a110c77aa33b00e1be1bdf90c9",
+    "predecessor_decision": "PASS",
+    "predecessor_policy_canonical_sha256": "0966492110b8e74f5606065f6bd654ea17ae2104a5c99306a372b5caa64afb38"
+  },
+  "kernel": "utf8_state",
+  "manifest": {
+    "canonical_sha256": "2764f191a82024cbd60c33a89478ba3899a3bc87894bce8d342bc282a35b03b9",
+    "file_sha256": "af03c0d2a0ed0a91743ecd5efa742d1fe42ad46b0a879f681fe05a11e0e4abcb",
+    "path": "artifact/benchmark/generated/utf8_state/behavior_drift/watermark_manifest.json"
+  },
+  "parent_variant": "dependency_upgrade",
+  "parent_variants": [
+    "dependency_upgrade"
+  ],
+  "policy": {
+    "canonical_sha256": "0966492110b8e74f5606065f6bd654ea17ae2104a5c99306a372b5caa64afb38",
+    "file_sha256": "efcddf87c5651dbfeb205dac7fefa602a115e89e665b3d6ba45c6afce1f528ba",
+    "path": "artifact/policies/finite/utf8_state.json",
+    "policy_id": "finite:utf8_state:v1"
+  },
+  "relations": {
+    "behavior": {
+      "exact_finite_equivalence": false,
+      "passed": false,
+      "state": "ESTABLISHED_FALSE"
+    },
+    "continuity": {
+      "baseline_count": 28,
+      "mapped_count": 28,
+      "parent_edge_count": 1,
+      "passed": true,
+      "per_parent": [
+        {
+          "baseline_count": 28,
+          "mapped_count": 28,
+          "parent_variant": "dependency_upgrade",
+          "traceability": 1.0
+        }
+      ],
+      "required_count": 26,
+      "state": "ESTABLISHED_TRUE"
+    },
+    "executable_reproduction": {
+      "passed": true,
+      "state": "ESTABLISHED_TRUE"
+    },
+    "integrity": {
+      "passed": true,
+      "state": "ESTABLISHED_TRUE"
+    },
+    "lineage": {
+      "passed": true,
+      "state": "ESTABLISHED_TRUE"
+    },
+    "recovery": {
+      "passed": true,
+      "payload_hex": "06f5",
+      "state": "ESTABLISHED_TRUE",
+      "status": "CERTIFIED_UNIQUE"
+    },
+    "source_conformance": {
+      "passed": true,
+      "state": "ESTABLISHED_TRUE"
+    }
+  },
+  "schema": "tracecert.release.v5",
+  "source": {
+    "parent_sha256": "0fd4685b442960aadb60d814e76e65ab68fe1806c1c58020e8d28a3dd2196f38",
+    "parent_sha256s": [
+      "0fd4685b442960aadb60d814e76e65ab68fe1806c1c58020e8d28a3dd2196f38"
+    ],
+    "path": "artifact/benchmark/generated/utf8_state/behavior_drift/kernel.c",
+    "sha256": "adfabde4d9d625ae1cdcb4c9e27e28aaec2cd0283617720c8ba267d6f55826bf"
+  },
+  "variant": "behavior_drift",
+  "verdict": "REJECT",
+  "watermark": {
+    "continuity_status": "TRACEABLE_WITHIN_LOCK",
+    "decode": {
+      "blocks": [
+        {
+          "candidate_count": 1,
+          "condition_holds": true,
+          "decoded_bits": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "erasures": 0,
+          "errors": 0,
+          "status": "CERTIFIED_UNIQUE"
+        },
+        {
+          "candidate_count": 1,
+          "condition_holds": true,
+          "decoded_bits": [
+            0,
+            1,
+            1,
+            0
+          ],
+          "erasures": 0,
+          "errors": 0,
+          "status": "CERTIFIED_UNIQUE"
+        },
+        {
+          "candidate_count": 1,
+          "condition_holds": true,
+          "decoded_bits": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "erasures": 0,
+          "errors": 0,
+          "status": "CERTIFIED_UNIQUE"
+        },
+        {
+          "candidate_count": 1,
+          "condition_holds": true,
+          "decoded_bits": [
+            0,
+            1,
+            0,
+            1
+          ],
+          "erasures": 0,
+          "errors": 0,
+          "status": "CERTIFIED_UNIQUE"
+        }
+      ],
+      "payload_hex": "06f5",
+      "status": "CERTIFIED_UNIQUE",
+      "total_erasures": 0,
+      "total_errors": 0
+    },
+    "expected_payload_hex": "06f5",
+    "observed_symbols": "0000000110011011111110100101",
+    "payload_recoverable": true,
+    "provenance": {
+      "aggregation": "single-parent-edge",
+      "baseline_count": 28,
+      "mapped_count": 28,
+      "mappings": [
+        {
+          "bit_changed": false,
+          "carrier_id": "utf8_state:B:00",
+          "child_line": 15,
+          "child_position": 0,
+          "parent_position": 0
+        },
+        {
+          "bit_changed": false,
+          "carrier_id": "utf8_state:B:01",
+          "child_line": 29,
+          "child_position": 1,
+          "parent_position": 1
+        },
+        {
+          "bit_changed": false,
+          "carrier_id": "utf8_state:B:02",
+          "child_line": 16,
+          "child_position": 2,
+          "parent_position": 2
+        },
+        {
+          "bit_changed": false,
+          "carrier_id": "utf8_state:B:03",
+          "child_line": 30,
+          "child_position": 3,
+          "parent_position": 3
+        },
+        {
+          "bit_changed": false,
+          "carrier_id": "utf8_state:B:04",
+          "child_line": 17,
+          "child_position": 4,
+          "parent_position": 4
+        },
+        {
+          "bit_changed": false,
+          "carrier_id": "utf8_state:B:05",
+          "child_line": 31,
+          "child_position": 5,
+          "parent_position": 5
+        },
+        {
+          "bit_changed": false,
+          "carrier_id": "utf8_state:B:06",
+          "child_line": 18,
+          "child_position": 6,
+          "parent_position": 6
+        },
+        {
+          "bit_changed": false,
+          "carrier_id": "utf8_state:B:07",
+          "child_line": 32,
+          "child_position": 7,
+          "parent_position": 7
+        },
+        {
+          "bit_changed": false,
+          "carrier_id": "utf8_state:B:08",
+          "child_line": 19,
+          "child_position": 8,
+          "parent_position": 8
+        },
+        {
+          "bit_changed": false,
+          "carrier_id": "utf8_state:B:09",
+          "child_line": 33,
+          "child_position": 9,
+          "parent_position": 9
+        },
+        {
+          "bit_changed": false,
+          "carrier_id": "utf8_state:B:10",
+          "child_line": 20,
+          "child_position": 10,
+          "parent_position": 10
+        },
+        {
+          "bit_changed": false,
+          "carrier_id": "utf8_state:B:11",
+          "child_line": 34,
+          "child_position": 11,
+          "parent_position": 11
+        },
+        {
+          "bit_changed": false,
+          "carrier_id": "utf8_state:B:12",
+          "child_line": 21,
+          "child_position": 12,
+          "parent_position": 12
+        },
+        {
+          "bit_changed": false,
+          "carrier_id": "utf8_state:B:13",
+          "child_line": 35,
+          "child_position": 13,
+          "parent_position": 13
+        },
+        {
+          "bit_changed": false,
+          "carrier_id": "utf8_state:B:14",
+          "child_line": 22,
+          "child_position": 14,
+          "parent_position": 14
+        },
+        {
+          "bit_changed": false,
+          "carrier_id": "utf8_state:B:15",
+          "child_line": 36,
+          "child_position": 15,
+          "parent_position": 15
+        },
+        {
+          "bit_changed": false,
+          "carrier_id": "utf8_state:B:16",
+          "child_line": 23,
+          "child_position": 16,
+          "parent_position": 16
+        },
+        {
+          "bit_changed": false,
+          "carrier_id": "utf8_state:B:17",
+          "child_line": 37,
+          "child_position": 17,
+          "parent_position": 17
+        },
+        {
+          "bit_changed": false,
+          "carrier_id": "utf8_state:B:18",
+          "child_line": 24,
+          "child_position": 18,
+          "parent_position": 18
+        },
+        {
+          "bit_changed": false,
+          "carrier_id": "utf8_state:B:19",
+          "child_line": 38,
+          "child_position": 19,
+          "parent_position": 19
+        },
+        {
+          "bit_changed": false,
+          "carrier_id": "utf8_state:B:20",
+          "child_line": 25,
+          "child_position": 20,
+          "parent_position": 20
+        },
+        {
+          "bit_changed": false,
+          "carrier_id": "utf8_state:B:21",
+          "child_line": 39,
+          "child_position": 21,
+          "parent_position": 21
+        },
+        {
+          "bit_changed": false,
+          "carrier_id": "utf8_state:B:22",
+          "child_line": 26,
+          "child_position": 22,
+          "parent_position": 22
+        },
+        {
+          "bit_changed": false,
+          "carrier_id": "utf8_state:B:23",
+          "child_line": 40,
+          "child_position": 23,
+          "parent_position": 23
+        },
+        {
+          "bit_changed": false,
+          "carrier_id": "utf8_state:B:24",
+          "child_line": 27,
+          "child_position": 24,
+          "parent_position": 24
+        },
+        {
+          "bit_changed": false,
+          "carrier_id": "utf8_state:B:25",
+          "child_line": 41,
+          "child_position": 25,
+          "parent_position": 25
+        },
+        {
+          "bit_changed": false,
+          "carrier_id": "utf8_state:B:26",
+          "child_line": 28,
+          "child_position": 26,
+          "parent_position": 26
+        },
+        {
+          "bit_changed": false,
+          "carrier_id": "utf8_state:B:27",
+          "child_line": 42,
+          "child_position": 27,
+          "parent_position": 27
+        }
+      ],
+      "traceability": 1.0
+    },
+    "provenance_by_parent": [
+      {
+        "baseline_count": 28,
+        "mapped_count": 28,
+        "mappings": [
+          {
+            "bit_changed": false,
+            "carrier_id": "utf8_state:B:00",
+            "child_line": 15,
+            "child_position": 0,
+            "parent_position": 0
+          },
+          {
+            "bit_changed": false,
+            "carrier_id": "utf8_state:B:01",
+            "child_line": 29,
+            "child_position": 1,
+            "parent_position": 1
+          },
+          {
+            "bit_changed": false,
+            "carrier_id": "utf8_state:B:02",
+            "child_line": 16,
+            "child_position": 2,
+            "parent_position": 2
+          },
+          {
+            "bit_changed": false,
+            "carrier_id": "utf8_state:B:03",
+            "child_line": 30,
+            "child_position": 3,
+            "parent_position": 3
+          },
+          {
+            "bit_changed": false,
+            "carrier_id": "utf8_state:B:04",
+            "child_line": 17,
+            "child_position": 4,
+            "parent_position": 4
+          },
+          {
+            "bit_changed": false,
+            "carrier_id": "utf8_state:B:05",
+            "child_line": 31,
+            "child_position": 5,
+            "parent_position": 5
+          },
+          {
+            "bit_changed": false,
+            "carrier_id": "utf8_state:B:06",
+            "child_line": 18,
+            "child_position": 6,
+            "parent_position": 6
+          },
+          {
+            "bit_changed": false,
+            "carrier_id": "utf8_state:B:07",
+            "child_line": 32,
+            "child_position": 7,
+            "parent_position": 7
+          },
+          {
+            "bit_changed": false,
+            "carrier_id": "utf8_state:B:08",
+            "child_line": 19,
+            "child_position": 8,
+            "parent_position": 8
+          },
+          {
+            "bit_changed": false,
+            "carrier_id": "utf8_state:B:09",
+            "child_line": 33,
+            "child_position": 9,
+            "parent_position": 9
+          },
+          {
+            "bit_changed": false,
+            "carrier_id": "utf8_state:B:10",
+            "child_line": 20,
+            "child_position": 10,
+            "parent_position": 10
+          },
+          {
+            "bit_changed": false,
+            "carrier_id": "utf8_state:B:11",
+            "child_line": 34,
+            "child_position": 11,
+            "parent_position": 11
+          },
+          {
+            "bit_changed": false,
+            "carrier_id": "utf8_state:B:12",
+            "child_line": 21,
+            "child_position": 12,
+            "parent_position": 12
+          },
+          {
+            "bit_changed": false,
+            "carrier_id": "utf8_state:B:13",
+            "child_line": 35,
+            "child_position": 13,
+            "parent_position": 13
+          },
+          {
+            "bit_changed": false,
+            "carrier_id": "utf8_state:B:14",
+            "child_line": 22,
+            "child_position": 14,
+            "parent_position": 14
+          },
+          {
+            "bit_changed": false,
+            "carrier_id": "utf8_state:B:15",
+            "child_line": 36,
+            "child_position": 15,
+            "parent_position": 15
+          },
+          {
+            "bit_changed": false,
+            "carrier_id": "utf8_state:B:16",
+            "child_line": 23,
+            "child_position": 16,
+            "parent_position": 16
+          },
+          {
+            "bit_changed": false,
+            "carrier_id": "utf8_state:B:17",
+            "child_line": 37,
+            "child_position": 17,
+            "parent_position": 17
+          },
+          {
+            "bit_changed": false,
+            "carrier_id": "utf8_state:B:18",
+            "child_line": 24,
+            "child_position": 18,
+            "parent_position": 18
+          },
+          {
+            "bit_changed": false,
+            "carrier_id": "utf8_state:B:19",
+            "child_line": 38,
+            "child_position": 19,
+            "parent_position": 19
+          },
+          {
+            "bit_changed": false,
+            "carrier_id": "utf8_state:B:20",
+            "child_line": 25,
+            "child_position": 20,
+            "parent_position": 20
+          },
+          {
+            "bit_changed": false,
+            "carrier_id": "utf8_state:B:21",
+            "child_line": 39,
+            "child_position": 21,
+            "parent_position": 21
+          },
+          {
+            "bit_changed": false,
+            "carrier_id": "utf8_state:B:22",
+            "child_line": 26,
+            "child_position": 22,
+            "parent_position": 22
+          },
+          {
+            "bit_changed": false,
+            "carrier_id": "utf8_state:B:23",
+            "child_line": 40,
+            "child_position": 23,
+            "parent_position": 23
+          },
+          {
+            "bit_changed": false,
+            "carrier_id": "utf8_state:B:24",
+            "child_line": 27,
+            "child_position": 24,
+            "parent_position": 24
+          },
+          {
+            "bit_changed": false,
+            "carrier_id": "utf8_state:B:25",
+            "child_line": 41,
+            "child_position": 25,
+            "parent_position": 25
+          },
+          {
+            "bit_changed": false,
+            "carrier_id": "utf8_state:B:26",
+            "child_line": 28,
+            "child_position": 26,
+            "parent_position": 26
+          },
+          {
+            "bit_changed": false,
+            "carrier_id": "utf8_state:B:27",
+            "child_line": 42,
+            "child_position": 27,
+            "parent_position": 27
+          }
+        ],
+        "parent_variant": "dependency_upgrade",
+        "traceability": 1.0
+      }
+    ],
+    "source_carriers": [
+      {
+        "carrier_id": "utf8_state:B:00",
+        "constant": 3810918265,
+        "expected_bit": 0,
+        "family": "helper-v2",
+        "line": 15,
+        "observed_bit": 0,
+        "position": 0,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "utf8_state:B:01",
+        "constant": 3312142617,
+        "expected_bit": 0,
+        "family": "helper-v2",
+        "line": 29,
+        "observed_bit": 0,
+        "position": 1,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "utf8_state:B:02",
+        "constant": 1438507827,
+        "expected_bit": 0,
+        "family": "helper-v2",
+        "line": 16,
+        "observed_bit": 0,
+        "position": 2,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "utf8_state:B:03",
+        "constant": 556369821,
+        "expected_bit": 0,
+        "family": "helper-v2",
+        "line": 30,
+        "observed_bit": 0,
+        "position": 3,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "utf8_state:B:04",
+        "constant": 4252354851,
+        "expected_bit": 0,
+        "family": "helper-v2",
+        "line": 17,
+        "observed_bit": 0,
+        "position": 4,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "utf8_state:B:05",
+        "constant": 2882505029,
+        "expected_bit": 0,
+        "family": "helper-v2",
+        "line": 31,
+        "observed_bit": 0,
+        "position": 5,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "utf8_state:B:06",
+        "constant": 2413804825,
+        "expected_bit": 0,
+        "family": "helper-v2",
+        "line": 18,
+        "observed_bit": 0,
+        "position": 6,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "utf8_state:B:07",
+        "constant": 2134875479,
+        "expected_bit": 1,
+        "family": "helper-v2",
+        "line": 32,
+        "observed_bit": 1,
+        "position": 7,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "utf8_state:B:08",
+        "constant": 2881948573,
+        "expected_bit": 1,
+        "family": "helper-v2",
+        "line": 19,
+        "observed_bit": 1,
+        "position": 8,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "utf8_state:B:09",
+        "constant": 1777458119,
+        "expected_bit": 0,
+        "family": "helper-v2",
+        "line": 33,
+        "observed_bit": 0,
+        "position": 9,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "utf8_state:B:10",
+        "constant": 2309192025,
+        "expected_bit": 0,
+        "family": "helper-v2",
+        "line": 20,
+        "observed_bit": 0,
+        "position": 10,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "utf8_state:B:11",
+        "constant": 460271051,
+        "expected_bit": 1,
+        "family": "helper-v2",
+        "line": 34,
+        "observed_bit": 1,
+        "position": 11,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "utf8_state:B:12",
+        "constant": 3648351123,
+        "expected_bit": 1,
+        "family": "helper-v2",
+        "line": 21,
+        "observed_bit": 1,
+        "position": 12,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "utf8_state:B:13",
+        "constant": 3212017021,
+        "expected_bit": 0,
+        "family": "helper-v2",
+        "line": 35,
+        "observed_bit": 0,
+        "position": 13,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "utf8_state:B:14",
+        "constant": 766090119,
+        "expected_bit": 1,
+        "family": "helper-v2",
+        "line": 22,
+        "observed_bit": 1,
+        "position": 14,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "utf8_state:B:15",
+        "constant": 3476290367,
+        "expected_bit": 1,
+        "family": "helper-v2",
+        "line": 36,
+        "observed_bit": 1,
+        "position": 15,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "utf8_state:B:16",
+        "constant": 697422683,
+        "expected_bit": 1,
+        "family": "helper-v2",
+        "line": 23,
+        "observed_bit": 1,
+        "position": 16,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "utf8_state:B:17",
+        "constant": 3742600103,
+        "expected_bit": 1,
+        "family": "helper-v2",
+        "line": 37,
+        "observed_bit": 1,
+        "position": 17,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "utf8_state:B:18",
+        "constant": 3080671099,
+        "expected_bit": 1,
+        "family": "helper-v2",
+        "line": 24,
+        "observed_bit": 1,
+        "position": 18,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "utf8_state:B:19",
+        "constant": 3607298877,
+        "expected_bit": 1,
+        "family": "helper-v2",
+        "line": 38,
+        "observed_bit": 1,
+        "position": 19,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "utf8_state:B:20",
+        "constant": 3372981235,
+        "expected_bit": 1,
+        "family": "helper-v2",
+        "line": 25,
+        "observed_bit": 1,
+        "position": 20,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "utf8_state:B:21",
+        "constant": 4151294843,
+        "expected_bit": 0,
+        "family": "helper-v2",
+        "line": 39,
+        "observed_bit": 0,
+        "position": 21,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "utf8_state:B:22",
+        "constant": 3307983861,
+        "expected_bit": 1,
+        "family": "helper-v2",
+        "line": 26,
+        "observed_bit": 1,
+        "position": 22,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "utf8_state:B:23",
+        "constant": 4018214799,
+        "expected_bit": 0,
+        "family": "helper-v2",
+        "line": 40,
+        "observed_bit": 0,
+        "position": 23,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "utf8_state:B:24",
+        "constant": 2607886605,
+        "expected_bit": 0,
+        "family": "helper-v2",
+        "line": 27,
+        "observed_bit": 0,
+        "position": 24,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "utf8_state:B:25",
+        "constant": 2845123499,
+        "expected_bit": 1,
+        "family": "helper-v2",
+        "line": 41,
+        "observed_bit": 1,
+        "position": 25,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "utf8_state:B:26",
+        "constant": 694494155,
+        "expected_bit": 0,
+        "family": "helper-v2",
+        "line": 28,
+        "observed_bit": 0,
+        "position": 26,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "utf8_state:B:27",
+        "constant": 2166615343,
+        "expected_bit": 1,
+        "family": "helper-v2",
+        "line": 42,
+        "observed_bit": 1,
+        "position": 27,
+        "state": "MATCH"
+      }
+    ],
+    "traceability_threshold": 0.9285714285714286
+  }
+}

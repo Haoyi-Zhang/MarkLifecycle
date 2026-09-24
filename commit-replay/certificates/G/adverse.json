@@ -1,0 +1,169 @@
+{
+  "certificate_sha256": "92474854da6166ad1a6d0e64a841ead4b7ae99b39523666939b91c5444c68284",
+  "compiler_cells": [
+    {
+      "assembly": "artifact/commit-replay/build/G/adverse/gcc_O0/adapter.s",
+      "assembly_sha256": "aa03daf3f4802f3353c5813c5a491474078b54942cfb810f451622272d1ecdb4",
+      "compiler": "gcc",
+      "executable": "artifact/commit-replay/build/G/adverse/gcc_O0/adapter",
+      "executable_sha256": "9a170ea1434a08431eee7f4c9daa711edf3205a4b8b7767950ad6474cf81276e",
+      "optimization": "-O0",
+      "output": "artifact/commit-replay/build/G/adverse/gcc_O0/stdout.bin",
+      "output_sha256": "0b1bc4208dd7f3a8249804514cb01d457207656dd6acb695c816cfb3e2898e17",
+      "source_sha256": "af497ee548817efa71bd1f426414ca41bb7b16165ad95f664c660cd56f54fbc9"
+    },
+    {
+      "assembly": "artifact/commit-replay/build/G/adverse/gcc_O2/adapter.s",
+      "assembly_sha256": "e3442f58577026a80691638d38a79ddd61fedcfd64ba896c85aa85204b714dc0",
+      "compiler": "gcc",
+      "executable": "artifact/commit-replay/build/G/adverse/gcc_O2/adapter",
+      "executable_sha256": "3b256f0f33fb6f782eac017eb2e6f93d56083736de5e2f4b3e432f39871a4d8e",
+      "optimization": "-O2",
+      "output": "artifact/commit-replay/build/G/adverse/gcc_O2/stdout.bin",
+      "output_sha256": "0b1bc4208dd7f3a8249804514cb01d457207656dd6acb695c816cfb3e2898e17",
+      "source_sha256": "af497ee548817efa71bd1f426414ca41bb7b16165ad95f664c660cd56f54fbc9"
+    },
+    {
+      "assembly": "artifact/commit-replay/build/G/adverse/clang_O0/adapter.s",
+      "assembly_sha256": "dc229d5c0b773461730322055f18c0dc1d095015525124dcb120aac3f10b239f",
+      "compiler": "clang",
+      "executable": "artifact/commit-replay/build/G/adverse/clang_O0/adapter",
+      "executable_sha256": "a4f79177f47ed56cc23404a52dc7910a7557cd7d95b2bcb8f8a0b1d8fba5af97",
+      "optimization": "-O0",
+      "output": "artifact/commit-replay/build/G/adverse/clang_O0/stdout.bin",
+      "output_sha256": "0b1bc4208dd7f3a8249804514cb01d457207656dd6acb695c816cfb3e2898e17",
+      "source_sha256": "af497ee548817efa71bd1f426414ca41bb7b16165ad95f664c660cd56f54fbc9"
+    },
+    {
+      "assembly": "artifact/commit-replay/build/G/adverse/clang_O2/adapter.s",
+      "assembly_sha256": "28e7079127f3d3f5bdc19a07ef7a46c333095dc0a7e29039928b4bae32b69cd6",
+      "compiler": "clang",
+      "executable": "artifact/commit-replay/build/G/adverse/clang_O2/adapter",
+      "executable_sha256": "32eaef51286679a8e7fe00ff4df240dcefd6cf643551590511763dc81680f90e",
+      "optimization": "-O2",
+      "output": "artifact/commit-replay/build/G/adverse/clang_O2/stdout.bin",
+      "output_sha256": "0b1bc4208dd7f3a8249804514cb01d457207656dd6acb695c816cfb3e2898e17",
+      "source_sha256": "af497ee548817efa71bd1f426414ca41bb7b16165ad95f664c660cd56f54fbc9"
+    }
+  ],
+  "expected_class": "adverse",
+  "immutable_change": "74d55a0e34e96e6a842727333a7d326925ec1c16",
+  "integrity_object": "artifact/commit-replay/integrity-objects/G/adverse.bin",
+  "integrity_object_sha256": "a49a07ae5707ceb7260e42da427dac1c95482cffe6e840fcb40286d57ebf35d4",
+  "manifest": "artifact/commit-replay/manifests/G/adverse.json",
+  "manifest_sha256": "07b0a1d9c623e8be7324afd07edb1d0c491246de65b9368b24c7dad8fc65c2cf",
+  "parent_accepted": true,
+  "parent_certificate_sha256": "9808ca9bb34d5fb640dde43c6102dbee6d1c50e48ca8b741d56f19924c3d0300",
+  "parent_decision": "PASS",
+  "parent_policy_canonical_sha256": "411a4139d7a534cef33662fe7c24d8621f274b4263a19cd6fb6f903b523705fb",
+  "parent_version": "after",
+  "policy": {
+    "canonical_sha256": "411a4139d7a534cef33662fe7c24d8621f274b4263a19cd6fb6f903b523705fb",
+    "file_sha256": "08275845d4ccface9c2be838216476e149a7e6347b91a317de03c53a23e2b632",
+    "path": "artifact/commit-replay/policies/G.json",
+    "policy_id": "project:G:v1"
+  },
+  "policy_compatible": true,
+  "project": "G",
+  "reference": "artifact/commit-replay/reference/project-G.bin",
+  "reference_sha256": "0b1bc4208dd7f3a8249804514cb01d457207656dd6acb695c816cfb3e2898e17",
+  "relations": {
+    "behavior": {
+      "case_count_per_cell": 65536,
+      "passed": true,
+      "state": "ESTABLISHED_TRUE"
+    },
+    "continuity": {
+      "passed": true,
+      "preserved": 28,
+      "required": 26,
+      "state": "ESTABLISHED_TRUE",
+      "status": "MEASURED"
+    },
+    "executable_reproduction": {
+      "passed": true,
+      "state": "ESTABLISHED_TRUE"
+    },
+    "integrity": {
+      "actual_sha256": "a49a07ae5707ceb7260e42da427dac1c95482cffe6e840fcb40286d57ebf35d4",
+      "expected_sha256": "a49a07ae5707ceb7260e42da427dac1c95482cffe6e840fcb40286d57ebf35d4",
+      "object": "artifact/commit-replay/integrity-objects/G/adverse.bin",
+      "passed": true,
+      "state": "ESTABLISHED_TRUE"
+    },
+    "lineage": {
+      "passed": false,
+      "state": "ESTABLISHED_FALSE"
+    },
+    "recovery": {
+      "blocks": [
+        {
+          "candidate_count": 1,
+          "condition_holds": true,
+          "decoded_bits": [
+            1,
+            0,
+            1,
+            1
+          ],
+          "erasures": 0,
+          "errors": 0,
+          "status": "CERTIFIED_UNIQUE"
+        },
+        {
+          "candidate_count": 1,
+          "condition_holds": true,
+          "decoded_bits": [
+            0,
+            1,
+            0,
+            1
+          ],
+          "erasures": 0,
+          "errors": 0,
+          "status": "CERTIFIED_UNIQUE"
+        },
+        {
+          "candidate_count": 1,
+          "condition_holds": true,
+          "decoded_bits": [
+            0,
+            1,
+            0,
+            1
+          ],
+          "erasures": 0,
+          "errors": 0,
+          "status": "CERTIFIED_UNIQUE"
+        },
+        {
+          "candidate_count": 1,
+          "condition_holds": true,
+          "decoded_bits": [
+            0,
+            1,
+            1,
+            1
+          ],
+          "erasures": 0,
+          "errors": 0,
+          "status": "CERTIFIED_UNIQUE"
+        }
+      ],
+      "passed": true,
+      "payload_hex": "b557",
+      "state": "ESTABLISHED_TRUE",
+      "status": "CERTIFIED_UNIQUE"
+    },
+    "source_conformance": {
+      "errors": [],
+      "passed": true,
+      "state": "ESTABLISHED_TRUE"
+    }
+  },
+  "schema": "tse01.commit-replay.certificate.v3",
+  "source": "artifact/commit-replay/sources/G/adverse.c",
+  "source_sha256": "af497ee548817efa71bd1f426414ca41bb7b16165ad95f664c660cd56f54fbc9",
+  "verdict": "REJECT",
+  "version": "adverse"
+}

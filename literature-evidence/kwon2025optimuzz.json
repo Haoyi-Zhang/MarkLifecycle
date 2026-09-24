@@ -1,0 +1,12 @@
+{
+  "authors": "Jaeseong Kwon and Bongjun Jang and Juneyoung Lee and Kihong Heo",
+  "identifier": "10.1145/3729275",
+  "key": "kwon2025optimuzz",
+  "pages": "627--650",
+  "retrieved_at": "2026-07-18T21:32:05+09:00",
+  "supports": "Continuous translation validation motivates recurrent compiler checks as compilers evolve.",
+  "title": "Optimization-Directed Compiler Fuzzing for Continuous Translation Validation",
+  "venue": "Proceedings of the ACM on Programming Languages",
+  "verification_status": "VERIFIED_SCHOLARLY_IDENTIFIER",
+  "year": 2025
+}

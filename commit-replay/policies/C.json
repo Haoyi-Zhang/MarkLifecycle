@@ -1,0 +1,101 @@
+{
+  "behavior": {
+    "case_count": 144,
+    "contract_id": "project-C-bounded-adapter-v1",
+    "reference_semantics": "independent-deterministic-enumeration-v1"
+  },
+  "canonicalization": {
+    "certificate": "sorted-key-ascii-json-v1",
+    "policy": "sorted-key-ascii-json-v1"
+  },
+  "compiler_cells": [
+    {
+      "assembly_method": "objdump-d-w",
+      "compile_flags": [
+        "-std=gnu11",
+        "-fno-ident",
+        "-fno-asynchronous-unwind-tables",
+        "-fno-unwind-tables",
+        "-Wl,--build-id=none"
+      ],
+      "compiler": "gcc",
+      "optimization": "-O0",
+      "version": "gcc (Debian 14.2.0-19) 14.2.0"
+    },
+    {
+      "assembly_method": "objdump-d-w",
+      "compile_flags": [
+        "-std=gnu11",
+        "-fno-ident",
+        "-fno-asynchronous-unwind-tables",
+        "-fno-unwind-tables",
+        "-Wl,--build-id=none"
+      ],
+      "compiler": "gcc",
+      "optimization": "-O2",
+      "version": "gcc (Debian 14.2.0-19) 14.2.0"
+    },
+    {
+      "assembly_method": "objdump-d-w",
+      "compile_flags": [
+        "-std=gnu11",
+        "-fno-ident",
+        "-fno-asynchronous-unwind-tables",
+        "-fno-unwind-tables",
+        "-Wl,--build-id=none"
+      ],
+      "compiler": "clang",
+      "optimization": "-O0",
+      "version": "clang version 17.0.0 (https://github.com/swiftlang/llvm-project.git 10999b6d034fe318f3d56c83bddb6572593a8bb0)"
+    },
+    {
+      "assembly_method": "objdump-d-w",
+      "compile_flags": [
+        "-std=gnu11",
+        "-fno-ident",
+        "-fno-asynchronous-unwind-tables",
+        "-fno-unwind-tables",
+        "-Wl,--build-id=none"
+      ],
+      "compiler": "clang",
+      "optimization": "-O2",
+      "version": "clang version 17.0.0 (https://github.com/swiftlang/llvm-project.git 10999b6d034fe318f3d56c83bddb6572593a8bb0)"
+    }
+  ],
+  "continuity": {
+    "baseline_count": 28,
+    "required_count": 26,
+    "scope": "immediate-predecessor-issued-identities"
+  },
+  "decision": {
+    "hold": "no-false-and-at-least-one-unresolved",
+    "pass": "all-relations-established-true",
+    "reject": "any-relation-established-false",
+    "rule": "false-dominates-unresolved-conjunction-v1"
+  },
+  "evidence_inventory": [
+    "behavior",
+    "recovery",
+    "continuity",
+    "source_conformance",
+    "executable_reproduction",
+    "integrity",
+    "lineage"
+  ],
+  "layer": "commit-derived-routine-replay",
+  "policy_id": "project:C:v1",
+  "schema": "tracecert.policy.v1",
+  "source_profiles": {
+    "accepted": [
+      "wm-helper-v1",
+      "wm-helper-v2"
+    ],
+    "inventory_rule": "exact-issued-carrier-accounting"
+  },
+  "watermark": {
+    "code": "four-independent-Hamming-7-4-blocks",
+    "minimum_distance": 3,
+    "payload_bits": 16,
+    "unique_recovery_condition": "2e+s<3-per-block"
+  }
+}

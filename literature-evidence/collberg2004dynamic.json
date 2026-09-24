@@ -1,0 +1,12 @@
+{
+  "authors": "Christian S. Collberg and Edward Carter and Saumya K. Debray and Andrew Huntwork and John D. Kececioglu and Cullen Linn and Michael Stepp",
+  "identifier": "10.1145/996893.996856",
+  "key": "collberg2004dynamic",
+  "pages": "107--118",
+  "retrieved_at": "2026-07-18T21:32:05+09:00",
+  "supports": "Dynamic path-based encoding demonstrates structured watermark carriers whose recoverability can be disrupted by transformations.",
+  "title": "Dynamic Path-Based Software Watermarking",
+  "venue": "Proceedings of PLDI",
+  "verification_status": "VERIFIED_SCHOLARLY_IDENTIFIER",
+  "year": 2004
+}

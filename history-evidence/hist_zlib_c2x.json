@@ -1,0 +1,24 @@
+{
+  "change_families": [
+    "language-standard migration",
+    "compiler-warning adaptation",
+    "signature modernization",
+    "large-scale syntax change"
+  ],
+  "commit": "e9d5486e6635141f589e110fd789648aa08e9544",
+  "date": "2023-01-18",
+  "id": "HIST_ZLIB_C2X",
+  "internals_modified": false,
+  "license": "Zlib",
+  "matrix_mapping": [
+    "dependency_upgrade",
+    "compiler_replacement",
+    "format"
+  ],
+  "repository": "madler/zlib",
+  "retrieval_mode": "read-only public repository records at an immutable commit",
+  "retrieved_at": "2026-07-18T21:32:05+09:00",
+  "title": "Remove K&R function definitions from zlib",
+  "url": "https://github.com/madler/zlib/commit/e9d5486e6635141f589e110fd789648aa08e9544",
+  "use": "Grounds cross-version compiler and language migration as a lifecycle event rather than a one-shot watermark attack."
+}

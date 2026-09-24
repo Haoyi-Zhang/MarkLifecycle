@@ -1,0 +1,12 @@
+{
+  "authors": "Robert A. van Engelen and David B. Whalley and Xin Yuan",
+  "identifier": "10.1016/j.scico.2004.03.008",
+  "key": "vanengelen2004automatic",
+  "pages": "257--280",
+  "retrieved_at": "2026-07-18T21:32:05+09:00",
+  "supports": "Low-level transformation validation reinforces explicit transformation-specific correctness evidence.",
+  "title": "Automatic Validation of Code-Improving Transformations on Low-Level Program Representations",
+  "venue": "Science of Computer Programming",
+  "verification_status": "VERIFIED_SCHOLARLY_IDENTIFIER",
+  "year": 2004
+}

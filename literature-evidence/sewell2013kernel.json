@@ -1,0 +1,12 @@
+{
+  "authors": "Thomas Sewell and Magnus O. Myreen and Gerwin Klein",
+  "identifier": "10.1145/2499370.2462183",
+  "key": "sewell2013kernel",
+  "pages": "471--482",
+  "retrieved_at": "2026-07-18T21:32:05+09:00",
+  "supports": "System-scale translation validation illustrates the value of connecting source claims to compiled artifacts.",
+  "title": "Translation Validation for a Verified OS Kernel",
+  "venue": "Proceedings of PLDI",
+  "verification_status": "VERIFIED_SCHOLARLY_IDENTIFIER",
+  "year": 2013
+}

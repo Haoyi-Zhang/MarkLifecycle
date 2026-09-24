@@ -1,0 +1,12 @@
+{
+  "authors": "Danilo Silva and Jo\u00e3o Paulo da Silva and Gustavo Jansen de Souza Santos and Ricardo Terra and Marco T\u00falio Valente",
+  "identifier": "10.1109/TSE.2020.2968072",
+  "key": "silva2021refdiff",
+  "pages": "2786--2802",
+  "retrieved_at": "2026-07-18T21:32:05+09:00",
+  "supports": "Refactoring detection across languages motivates explicit carrier identity and release-to-release mapping.",
+  "title": "RefDiff 2.0: A Multi-Language Refactoring Detection Tool",
+  "venue": "IEEE Transactions on Software Engineering",
+  "verification_status": "VERIFIED_SCHOLARLY_IDENTIFIER",
+  "year": 2021
+}

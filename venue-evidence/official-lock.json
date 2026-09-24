@@ -1,0 +1,335 @@
+{
+  "automated_content_policy_classification": "PERMITTED_DISCLOSE",
+  "category": "Regular research article",
+  "counted_matter": [
+    "abstract",
+    "body",
+    "references",
+    "acknowledgments",
+    "author biographies",
+    "inline appendix if present"
+  ],
+  "facts": [
+    {
+      "cycle": "standing",
+      "evidence_path": "artifact/venue-evidence/official-extracts/tse_scope.txt",
+      "evidence_sha256": "bf65f02972ffd30a7150d2e0f4a9d212e9df1911668d47658799838d18d3c584",
+      "fact_id": "TSE_SCOPE",
+      "locator": "About TSE and Scope of Interest",
+      "page_sha256": null,
+      "page_sha256_status": "NOT_AVAILABLE_FROM_READ_ONLY_WEB_VIEW",
+      "paraphrase": "TSE seeks well-defined theoretical results and empirical studies with potential impact on software construction, analysis, or management.",
+      "retrieval_time_timezone": "2026-07-18T21:32:05+09:00",
+      "source_priority": "OFFICIAL_VENUE",
+      "status": "FINAL",
+      "title": "Call for Papers: IEEE Transactions on Software Engineering",
+      "url": "https://www.computer.org/digital-library/journals/ts/cfp-ieee-transactions-on-software-engineering"
+    },
+    {
+      "cycle": "standing",
+      "evidence_path": "artifact/venue-evidence/official-extracts/journal_template_required.txt",
+      "evidence_sha256": "0ade33c6d0031f058f40c1882d5ccf58407c5c40f1fa7c2e9ac7a9e3ae09344c",
+      "fact_id": "JOURNAL_TEMPLATE_REQUIRED",
+      "locator": "Preparing Your Paper / Manuscript Files",
+      "page_sha256": null,
+      "page_sha256_status": "NOT_AVAILABLE_FROM_READ_ONLY_WEB_VIEW",
+      "paraphrase": "IEEE Computer Society journal submissions must use an article template; LaTeX is accepted.",
+      "retrieval_time_timezone": "2026-07-18T21:32:05+09:00",
+      "source_priority": "OFFICIAL_PUBLISHER",
+      "status": "FINAL",
+      "title": "How to Get Published: Author Guidelines for IEEE Computer Society Publications",
+      "url": "https://www.computer.org/publications/author-resources"
+    },
+    {
+      "cycle": "standing",
+      "evidence_path": "artifact/venue-evidence/official-extracts/regular_page_baseline.txt",
+      "evidence_sha256": "ee9d97071f34c1b0314e7bd57ab90ab7b494545b2a38d01ad32c955dc3e2cf21",
+      "fact_id": "REGULAR_PAGE_BASELINE",
+      "locator": "Length and Reference Limits / regular Transactions papers",
+      "page_sha256": null,
+      "page_sha256_status": "NOT_AVAILABLE_FROM_READ_ONLY_WEB_VIEW",
+      "paraphrase": "The regular Transactions paper baseline is twelve formatted pages, including the abstract, references, and author biographies; journal-specific submission limits must still be checked.",
+      "retrieval_time_timezone": "2026-07-18T21:32:05+09:00",
+      "source_priority": "OFFICIAL_PUBLISHER",
+      "status": "FINAL",
+      "title": "How to Get Published: Author Guidelines for IEEE Computer Society Publications",
+      "url": "https://www.computer.org/publications/author-resources"
+    },
+    {
+      "cycle": "standing",
+      "evidence_path": "artifact/venue-evidence/official-extracts/abstract_length.txt",
+      "evidence_sha256": "d76db77c084f455a7bd32029c19f52fdf0a0c25e676818369aeef128427829cd",
+      "fact_id": "ABSTRACT_LENGTH",
+      "locator": "Length and Reference Limits / journal abstracts",
+      "page_sha256": null,
+      "page_sha256_status": "NOT_AVAILABLE_FROM_READ_ONLY_WEB_VIEW",
+      "paraphrase": "Regular and special-issue journal paper abstracts must contain 100 to 200 words and omit citations and mathematical expressions.",
+      "retrieval_time_timezone": "2026-07-18T21:32:05+09:00",
+      "source_priority": "OFFICIAL_PUBLISHER",
+      "status": "FINAL",
+      "title": "How to Get Published: Author Guidelines for IEEE Computer Society Publications",
+      "url": "https://www.computer.org/publications/author-resources"
+    },
+    {
+      "cycle": "standing",
+      "evidence_path": "artifact/venue-evidence/official-extracts/supplement_separate.txt",
+      "evidence_sha256": "bd83021c3bec6fd9baf586ad1e1393fe5cf0570bce3188a4f3cbca9f8b6bbeb8",
+      "fact_id": "SUPPLEMENT_SEPARATE",
+      "locator": "Supplemental Materials",
+      "page_sha256": null,
+      "page_sha256_status": "NOT_AVAILABLE_FROM_READ_ONLY_WEB_VIEW",
+      "paraphrase": "Supplemental material is submitted as separate files, not inside the main manuscript PDF; journal appendices are treated as supplemental material.",
+      "retrieval_time_timezone": "2026-07-18T21:32:05+09:00",
+      "source_priority": "OFFICIAL_PUBLISHER",
+      "status": "FINAL",
+      "title": "How to Get Published: Author Guidelines for IEEE Computer Society Publications",
+      "url": "https://www.computer.org/publications/author-resources"
+    },
+    {
+      "cycle": "standing",
+      "evidence_path": "artifact/venue-evidence/official-extracts/review_model.txt",
+      "evidence_sha256": "239957117ce05a40a93a29b3ecb0c9a5849a65bfa5faecb0445778e2cee2d3d5",
+      "fact_id": "REVIEW_MODEL",
+      "locator": "Double-Anonymous Review",
+      "page_sha256": null,
+      "page_sha256_status": "NOT_AVAILABLE_FROM_READ_ONLY_WEB_VIEW",
+      "paraphrase": "TSE does not offer the optional double-anonymous review route, so the standing review model is single-anonymous.",
+      "retrieval_time_timezone": "2026-07-18T21:32:05+09:00",
+      "source_priority": "OFFICIAL_PUBLISHER",
+      "status": "FINAL",
+      "title": "How to Get Published: Author Guidelines for IEEE Computer Society Publications",
+      "url": "https://www.computer.org/publications/author-resources"
+    },
+    {
+      "cycle": "standing",
+      "evidence_path": "artifact/venue-evidence/official-extracts/automated_content_disclosure.txt",
+      "evidence_sha256": "1ef421ab908433dd592f2a897aeaf045922c75f0181c050a53c49936b27f6d7d",
+      "fact_id": "AUTOMATED_CONTENT_DISCLOSURE",
+      "locator": "Automated-content policy / author use",
+      "page_sha256": null,
+      "page_sha256_status": "NOT_AVAILABLE_FROM_READ_ONLY_WEB_VIEW",
+      "paraphrase": "Generated or automated article content may trigger a disclosure obligation; the applicable policy, affected sections, and extent of use must be reviewed truthfully before any external submission.",
+      "retrieval_time_timezone": "2026-07-18T21:32:05+09:00",
+      "source_priority": "OFFICIAL_IEEE",
+      "status": "FINAL",
+      "title": "Submission and Peer Review Policies",
+      "url": "https://journals.ieeeauthorcenter.ieee.org/become-an-ieee-journal-author/publishing-ethics/guidelines-and-policies/submission-and-peer-review-policies/"
+    },
+    {
+      "cycle": "standing",
+      "evidence_path": "artifact/venue-evidence/official-extracts/reference_order.txt",
+      "evidence_sha256": "b3149824129e39b9e6e4e6edb8e3a967fd527f0d5a446f85d80b750c8ae7bc6f",
+      "fact_id": "REFERENCE_APPEARANCE_ORDER",
+      "locator": "Formatting References",
+      "page_sha256": null,
+      "page_sha256_status": "NOT_AVAILABLE_FROM_READ_ONLY_WEB_VIEW",
+      "paraphrase": "IEEE Computer Society journal references are numbered and listed in the order in which they first appear in the manuscript body.",
+      "retrieval_time_timezone": "2026-07-24T00:00:00Z",
+      "source_priority": "OFFICIAL_PUBLISHER",
+      "status": "FINAL",
+      "title": "How to Get Published: Author Guidelines for IEEE Computer Society Publications",
+      "url": "https://www.computer.org/publications/author-resources"
+    },
+    {
+      "cycle": "standing",
+      "evidence_path": "artifact/venue-evidence/official-extracts/manuscript_files.txt",
+      "evidence_sha256": "5a80b77a021f45db5d233761ba81ee534131b756926324dc6af86bd78104a379",
+      "fact_id": "INITIAL_MANUSCRIPT_FILES",
+      "locator": "Preparing Your Paper / Manuscript Files",
+      "page_sha256": null,
+      "page_sha256_status": "NOT_AVAILABLE_FROM_READ_ONLY_WEB_VIEW",
+      "paraphrase": "IEEE Computer Society journal submissions require an article template. Word, plain-text, and LaTeX manuscript files are accepted and converted to PDF by the submission system.",
+      "retrieval_time_timezone": "2026-07-24T00:00:00Z",
+      "source_priority": "OFFICIAL_PUBLISHER",
+      "status": "FINAL",
+      "title": "How to Get Published: Author Guidelines for IEEE Computer Society Publications",
+      "url": "https://www.computer.org/publications/author-resources"
+    },
+    {
+      "cycle": "standing",
+      "evidence_path": "artifact/venue-evidence/official-extracts/author_metadata.txt",
+      "evidence_sha256": "8ddc3bced3bca80360f7332f170868a54a41a63e7f00ff98e8bb8742205d77d6",
+      "fact_id": "AUTHOR_METADATA_REQUIRED",
+      "internal_status": "The manuscript lists Haoyi Zhang, TianFeng Liang, Md Maruf Hasan, and Huaijin Ran in the frozen order; the first three authors are affiliated with Xi'an Jiaotong-Liverpool University, Suzhou 215123, China; Huaijin Ran is affiliated with Nanyang Technological University, Singapore 639798, Singapore and is the corresponding author; all four user-supplied ORCIDs are bound and pass format/check-digit validation.",
+      "locator": "First Footnote; About ORCID; submission checklist",
+      "page_sha256": null,
+      "page_sha256_status": "NOT_AVAILABLE_FROM_READ_ONLY_WEB_VIEW",
+      "paraphrase": "IEEE journal manuscripts identify the corresponding author in the first unnumbered footnote and then list affiliations with institution, city, postal code, country, and the corresponding author's e-mail; IEEE journals require ORCID for all authors at submission.",
+      "retrieval_time_timezone": "2026-07-25T00:00:00Z",
+      "source_priority": "OFFICIAL_PUBLISHER",
+      "status": "FINAL",
+      "title": "Structure Your Article; Tools for IEEE Authors; Checklist for Submitting Your Article for Peer Review",
+      "url": "https://journals.ieeeauthorcenter.ieee.org/create-your-ieee-journal-article/create-the-text-of-your-article/structure-your-article/"
+    },
+    {
+      "cycle": "standing",
+      "evidence_path": "artifact/venue-evidence/official-extracts/xjtlu_address.txt",
+      "evidence_sha256": "9ea02ff838c844dbbff92fe389056be6026202b176c659fb426763ebd5ac67ff",
+      "fact_id": "XJTLU_AFFILIATION_ADDRESS",
+      "locator": "Contact Us / Xi'an Jiaotong-Liverpool University",
+      "page_sha256": null,
+      "page_sha256_status": "NOT_AVAILABLE_FROM_READ_ONLY_WEB_VIEW",
+      "paraphrase": "The university's official contact page gives Suzhou, China, postal code 215123 for Xi'an Jiaotong-Liverpool University.",
+      "retrieval_time_timezone": "2026-07-25T00:00:00Z",
+      "source_priority": "OFFICIAL_INSTITUTION",
+      "status": "FINAL",
+      "title": "Contact Us - Xi'an Jiaotong-Liverpool University",
+      "url": "https://www.xjtlu.edu.cn/en/about/contact"
+    },
+    {
+      "cycle": "standing",
+      "evidence_path": "artifact/venue-evidence/official-extracts/ntu_address.txt",
+      "evidence_sha256": "3f288239432b7b11e9cf90206b9a7a842a136d013024dfbe80f6ee12c10cc45d",
+      "fact_id": "NTU_AFFILIATION_ADDRESS",
+      "locator": "Contact Us / Nanyang Technological University",
+      "page_sha256": null,
+      "page_sha256_status": "NOT_AVAILABLE_FROM_READ_ONLY_WEB_VIEW",
+      "paraphrase": "Nanyang Technological University's official contact page lists Singapore postal code 639798 for the university's main address.",
+      "retrieval_time_timezone": "2026-07-27T00:00:00+09:00",
+      "source_priority": "OFFICIAL_INSTITUTION",
+      "status": "FINAL",
+      "title": "Contact Us - Nanyang Technological University",
+      "url": "https://www.ntu.edu.sg/about-us/contact-us"
+    },
+    {
+      "cycle": "standing",
+      "evidence_path": "artifact/venue-evidence/official-extracts/initial_submission_template_mode.txt",
+      "evidence_sha256": "d58b7daf387035c4537e6dd3ed6a5bee98abe834d8702497c1d6d4856adef7b3",
+      "fact_id": "INITIAL_SUBMISSION_TEMPLATE_MODE",
+      "locator": "Preparing Your Paper / Manuscript Files; Length and Reference Limits",
+      "page_sha256": null,
+      "page_sha256_status": "NOT_AVAILABLE_FROM_READ_ONLY_WEB_VIEW",
+      "paraphrase": "IEEE Computer Society journal submissions use an article template. The template is an author review manuscript rather than the publisher final layout, and double-column manuscripts translate more readily into production.",
+      "retrieval_time_timezone": "2026-07-27T00:00:00Z",
+      "source_priority": "OFFICIAL_PUBLISHER",
+      "status": "FINAL",
+      "title": "How to Get Published: Author Guidelines for IEEE Computer Society Publications",
+      "url": "https://www.computer.org/publications/author-resources"
+    }
+  ],
+  "hold_reasons": [
+    "Four author identities, two institutionally verified affiliations, contact details, a corresponding author, and all four checksum-valid ORCIDs are bound. The authors declare no external funding, no prior-publication obligation, and no concurrent submission. Author contribution/conflict, organizational-unit confirmation, institutional approvals, truthful generated-content disclosure, and live portal fields remain unresolved for submission.",
+    "Raw official page bytes were unavailable through the read-only web interface, so official page SHA-256 values could not be recorded.",
+    "No submission action or portal verification was performed.",
+    "The manuscript uses the supplied IEEEtran letterpaper journal author template and contains fourteen pages under the user-locked internal contract. Accessible official Computer Society guidance establishes a twelve-page MOPC threshold and says submission limits may differ, but an explicit live TSE initial-submission hard cap was not verified; recheck the portal before upload."
+  ],
+  "limit_kind": "NONE",
+  "limit_number": null,
+  "operational_fields": {
+    "anonymity": {
+      "status": "FINAL",
+      "value": "SINGLE_ANONYMOUS"
+    },
+    "appendix": {
+      "status": "FINAL_FOR_CURRENT_ORIENTATION",
+      "value": "treated as separate supplemental material for this route"
+    },
+    "artifact_evaluation": {
+      "status": "UNCLEAR_NOT_VERIFIED",
+      "value": null
+    },
+    "author_list_freeze": {
+      "status": "UNCLEAR_NOT_VERIFIED",
+      "value": null
+    },
+    "automated_content_policy": {
+      "status": "FINAL_FOR_RETRIEVED_STANDING_POLICY",
+      "value": "PERMITTED_DISCLOSE"
+    },
+    "code_data_repository": {
+      "status": "PROVISIONAL",
+      "value": "allowed in principle; exact future portal or repository route not verified"
+    },
+    "conflicts_of_interest": {
+      "status": "UNCLEAR_NOT_VERIFIED",
+      "value": null
+    },
+    "data_availability": {
+      "status": "FINAL_FOR_INTERNAL_HANDOFF",
+      "value": "internal deterministic artifact and raw results included"
+    },
+    "deadlines": {
+      "abstract_metadata": null,
+      "artifact": null,
+      "final": null,
+      "paper": null,
+      "rebuttal": null,
+      "status": "NOT_APPLICABLE_TO_STANDING_JOURNAL_ROUTE_AND_NOT_PORTAL_VERIFIED",
+      "supplement": null,
+      "timezone": null
+    },
+    "ethics_safety_human_subjects": {
+      "status": "FINAL_FOR_STUDY_SCOPE_PROVISIONAL_FOR_SUBMISSION_TEXT",
+      "value": "no human participants, private data, or human-produced evidence in this study; submission wording requires a future live check"
+    },
+    "initial_submission_page_limit": {
+      "status": "NOT_EXPLICITLY_VERIFIED_FROM_ACCESSIBLE_OFFICIAL_TSE_PAGE",
+      "value": null
+    },
+    "mandatory_overlength_threshold": {
+      "status": "FINAL_FOR_RETRIEVED_STANDING_POLICY",
+      "value": "12 formatted pages for a regular Transactions paper after final editing/layout; submission limits may differ"
+    },
+    "preprints": {
+      "status": "UNCLEAR_NOT_VERIFIED",
+      "value": null
+    },
+    "required_sections_checklists_declarations": {
+      "status": "UNCLEAR_NOT_VERIFIED",
+      "value": null
+    },
+    "self_citation": {
+      "status": "UNCLEAR_NOT_VERIFIED",
+      "value": null
+    },
+    "submission_metadata": {
+      "status": "UNCLEAR_NOT_VERIFIED",
+      "value": null
+    },
+    "supplement": {
+      "status": "FINAL_FOR_CURRENT_ORIENTATION",
+      "value": "separate files allowed and reviewed when submitted"
+    },
+    "template_mode_and_version": {
+      "status": "FINAL_FROM_SUPPLIED_CLASS_AND_OFFICIAL_GENERAL_GUIDANCE",
+      "value": "IEEEtran 2015/08/26 V1.8b, letterpaper journal mode; initial peer-review manuscript, not IEEE final production layout"
+    }
+  },
+  "project_manuscript_contract": {
+    "counted_matter": [
+      "abstract",
+      "body",
+      "references",
+      "acknowledgments if present",
+      "author biographies if present",
+      "all other article matter"
+    ],
+    "current_supplement_status": "NOT_USED",
+    "essential_material_location": "NORMAL_SECTIONS_OF_MAIN_PDF",
+    "inline_appendix": "FORBIDDEN",
+    "required_total_formatted_pages": 14,
+    "separate_supplement": "ALLOWED_ONLY_FOR_GENUINELY_NONCRITICAL_SUPPORT",
+    "source": "USER_CORRECTION_2026-07-18"
+  },
+  "retrieved_at": "2026-07-27T00:00:00Z",
+  "review_model": "SINGLE_ANONYMOUS",
+  "schema": "tse01.official-lock.v1",
+  "scope": "software engineering; software evolution; validation; maintenance methods and tools",
+  "submission_policy_status": "SUBMISSION_POLICY_HOLD",
+  "supplement": {
+    "allowed": true,
+    "appendix_treatment": "journal appendices are supplemental material",
+    "page_treatment": "not part of main formatted-page baseline",
+    "reviewer_status": "SUBMITTED_FOR_REVIEW_WHEN USED",
+    "separate_file": true
+  },
+  "template": {
+    "bibliography_style_path": "paper/IEEEtranS.bst",
+    "bibliography_style_sha256": "fca86cd4f041a5c5326295fa04dcce56eaf2c8a4bf3219549401235502f24c25",
+    "class_path": "paper/IEEEtran.cls",
+    "class_sha256": "c972aca108fda004c3514d63658e02816da2e54d9a1451e870b9bd970e003f55",
+    "input": "USER_SUPPLIED_AUTHENTIC_OFFICIAL_TEMPLATE",
+    "modified": false
+  },
+  "venue": "IEEE Transactions on Software Engineering"
+}

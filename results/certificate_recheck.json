@@ -1,0 +1,869 @@
+{
+  "all_valid": true,
+  "receipts": [
+    {
+      "errors": [],
+      "kernel": "fnv_step",
+      "valid": true,
+      "variant": "baseline"
+    },
+    {
+      "errors": [],
+      "kernel": "fnv_step",
+      "valid": true,
+      "variant": "rename"
+    },
+    {
+      "errors": [],
+      "kernel": "fnv_step",
+      "valid": true,
+      "variant": "reorder"
+    },
+    {
+      "errors": [],
+      "kernel": "fnv_step",
+      "valid": true,
+      "variant": "extract"
+    },
+    {
+      "errors": [],
+      "kernel": "fnv_step",
+      "valid": true,
+      "variant": "dependency_upgrade"
+    },
+    {
+      "errors": [],
+      "kernel": "fnv_step",
+      "valid": true,
+      "variant": "format"
+    },
+    {
+      "errors": [],
+      "kernel": "fnv_step",
+      "valid": true,
+      "variant": "erase_tolerable"
+    },
+    {
+      "errors": [],
+      "kernel": "fnv_step",
+      "valid": true,
+      "variant": "merge_tolerable"
+    },
+    {
+      "errors": [],
+      "kernel": "fnv_step",
+      "valid": true,
+      "variant": "flip_tolerable"
+    },
+    {
+      "errors": [],
+      "kernel": "fnv_step",
+      "valid": true,
+      "variant": "recovery_break"
+    },
+    {
+      "errors": [],
+      "kernel": "fnv_step",
+      "valid": true,
+      "variant": "reseed"
+    },
+    {
+      "errors": [],
+      "kernel": "fnv_step",
+      "valid": true,
+      "variant": "behavior_drift"
+    },
+    {
+      "errors": [],
+      "kernel": "jenkins_step",
+      "valid": true,
+      "variant": "baseline"
+    },
+    {
+      "errors": [],
+      "kernel": "jenkins_step",
+      "valid": true,
+      "variant": "rename"
+    },
+    {
+      "errors": [],
+      "kernel": "jenkins_step",
+      "valid": true,
+      "variant": "reorder"
+    },
+    {
+      "errors": [],
+      "kernel": "jenkins_step",
+      "valid": true,
+      "variant": "extract"
+    },
+    {
+      "errors": [],
+      "kernel": "jenkins_step",
+      "valid": true,
+      "variant": "dependency_upgrade"
+    },
+    {
+      "errors": [],
+      "kernel": "jenkins_step",
+      "valid": true,
+      "variant": "format"
+    },
+    {
+      "errors": [],
+      "kernel": "jenkins_step",
+      "valid": true,
+      "variant": "erase_tolerable"
+    },
+    {
+      "errors": [],
+      "kernel": "jenkins_step",
+      "valid": true,
+      "variant": "merge_tolerable"
+    },
+    {
+      "errors": [],
+      "kernel": "jenkins_step",
+      "valid": true,
+      "variant": "flip_tolerable"
+    },
+    {
+      "errors": [],
+      "kernel": "jenkins_step",
+      "valid": true,
+      "variant": "recovery_break"
+    },
+    {
+      "errors": [],
+      "kernel": "jenkins_step",
+      "valid": true,
+      "variant": "reseed"
+    },
+    {
+      "errors": [],
+      "kernel": "jenkins_step",
+      "valid": true,
+      "variant": "behavior_drift"
+    },
+    {
+      "errors": [],
+      "kernel": "crc8_step",
+      "valid": true,
+      "variant": "baseline"
+    },
+    {
+      "errors": [],
+      "kernel": "crc8_step",
+      "valid": true,
+      "variant": "rename"
+    },
+    {
+      "errors": [],
+      "kernel": "crc8_step",
+      "valid": true,
+      "variant": "reorder"
+    },
+    {
+      "errors": [],
+      "kernel": "crc8_step",
+      "valid": true,
+      "variant": "extract"
+    },
+    {
+      "errors": [],
+      "kernel": "crc8_step",
+      "valid": true,
+      "variant": "dependency_upgrade"
+    },
+    {
+      "errors": [],
+      "kernel": "crc8_step",
+      "valid": true,
+      "variant": "format"
+    },
+    {
+      "errors": [],
+      "kernel": "crc8_step",
+      "valid": true,
+      "variant": "erase_tolerable"
+    },
+    {
+      "errors": [],
+      "kernel": "crc8_step",
+      "valid": true,
+      "variant": "merge_tolerable"
+    },
+    {
+      "errors": [],
+      "kernel": "crc8_step",
+      "valid": true,
+      "variant": "flip_tolerable"
+    },
+    {
+      "errors": [],
+      "kernel": "crc8_step",
+      "valid": true,
+      "variant": "recovery_break"
+    },
+    {
+      "errors": [],
+      "kernel": "crc8_step",
+      "valid": true,
+      "variant": "reseed"
+    },
+    {
+      "errors": [],
+      "kernel": "crc8_step",
+      "valid": true,
+      "variant": "behavior_drift"
+    },
+    {
+      "errors": [],
+      "kernel": "fletcher_step",
+      "valid": true,
+      "variant": "baseline"
+    },
+    {
+      "errors": [],
+      "kernel": "fletcher_step",
+      "valid": true,
+      "variant": "rename"
+    },
+    {
+      "errors": [],
+      "kernel": "fletcher_step",
+      "valid": true,
+      "variant": "reorder"
+    },
+    {
+      "errors": [],
+      "kernel": "fletcher_step",
+      "valid": true,
+      "variant": "extract"
+    },
+    {
+      "errors": [],
+      "kernel": "fletcher_step",
+      "valid": true,
+      "variant": "dependency_upgrade"
+    },
+    {
+      "errors": [],
+      "kernel": "fletcher_step",
+      "valid": true,
+      "variant": "format"
+    },
+    {
+      "errors": [],
+      "kernel": "fletcher_step",
+      "valid": true,
+      "variant": "erase_tolerable"
+    },
+    {
+      "errors": [],
+      "kernel": "fletcher_step",
+      "valid": true,
+      "variant": "merge_tolerable"
+    },
+    {
+      "errors": [],
+      "kernel": "fletcher_step",
+      "valid": true,
+      "variant": "flip_tolerable"
+    },
+    {
+      "errors": [],
+      "kernel": "fletcher_step",
+      "valid": true,
+      "variant": "recovery_break"
+    },
+    {
+      "errors": [],
+      "kernel": "fletcher_step",
+      "valid": true,
+      "variant": "reseed"
+    },
+    {
+      "errors": [],
+      "kernel": "fletcher_step",
+      "valid": true,
+      "variant": "behavior_drift"
+    },
+    {
+      "errors": [],
+      "kernel": "rotate_mix",
+      "valid": true,
+      "variant": "baseline"
+    },
+    {
+      "errors": [],
+      "kernel": "rotate_mix",
+      "valid": true,
+      "variant": "rename"
+    },
+    {
+      "errors": [],
+      "kernel": "rotate_mix",
+      "valid": true,
+      "variant": "reorder"
+    },
+    {
+      "errors": [],
+      "kernel": "rotate_mix",
+      "valid": true,
+      "variant": "extract"
+    },
+    {
+      "errors": [],
+      "kernel": "rotate_mix",
+      "valid": true,
+      "variant": "dependency_upgrade"
+    },
+    {
+      "errors": [],
+      "kernel": "rotate_mix",
+      "valid": true,
+      "variant": "format"
+    },
+    {
+      "errors": [],
+      "kernel": "rotate_mix",
+      "valid": true,
+      "variant": "erase_tolerable"
+    },
+    {
+      "errors": [],
+      "kernel": "rotate_mix",
+      "valid": true,
+      "variant": "merge_tolerable"
+    },
+    {
+      "errors": [],
+      "kernel": "rotate_mix",
+      "valid": true,
+      "variant": "flip_tolerable"
+    },
+    {
+      "errors": [],
+      "kernel": "rotate_mix",
+      "valid": true,
+      "variant": "recovery_break"
+    },
+    {
+      "errors": [],
+      "kernel": "rotate_mix",
+      "valid": true,
+      "variant": "reseed"
+    },
+    {
+      "errors": [],
+      "kernel": "rotate_mix",
+      "valid": true,
+      "variant": "behavior_drift"
+    },
+    {
+      "errors": [],
+      "kernel": "varint_state",
+      "valid": true,
+      "variant": "baseline"
+    },
+    {
+      "errors": [],
+      "kernel": "varint_state",
+      "valid": true,
+      "variant": "rename"
+    },
+    {
+      "errors": [],
+      "kernel": "varint_state",
+      "valid": true,
+      "variant": "reorder"
+    },
+    {
+      "errors": [],
+      "kernel": "varint_state",
+      "valid": true,
+      "variant": "extract"
+    },
+    {
+      "errors": [],
+      "kernel": "varint_state",
+      "valid": true,
+      "variant": "dependency_upgrade"
+    },
+    {
+      "errors": [],
+      "kernel": "varint_state",
+      "valid": true,
+      "variant": "format"
+    },
+    {
+      "errors": [],
+      "kernel": "varint_state",
+      "valid": true,
+      "variant": "erase_tolerable"
+    },
+    {
+      "errors": [],
+      "kernel": "varint_state",
+      "valid": true,
+      "variant": "merge_tolerable"
+    },
+    {
+      "errors": [],
+      "kernel": "varint_state",
+      "valid": true,
+      "variant": "flip_tolerable"
+    },
+    {
+      "errors": [],
+      "kernel": "varint_state",
+      "valid": true,
+      "variant": "recovery_break"
+    },
+    {
+      "errors": [],
+      "kernel": "varint_state",
+      "valid": true,
+      "variant": "reseed"
+    },
+    {
+      "errors": [],
+      "kernel": "varint_state",
+      "valid": true,
+      "variant": "behavior_drift"
+    },
+    {
+      "errors": [],
+      "kernel": "json_state",
+      "valid": true,
+      "variant": "baseline"
+    },
+    {
+      "errors": [],
+      "kernel": "json_state",
+      "valid": true,
+      "variant": "rename"
+    },
+    {
+      "errors": [],
+      "kernel": "json_state",
+      "valid": true,
+      "variant": "reorder"
+    },
+    {
+      "errors": [],
+      "kernel": "json_state",
+      "valid": true,
+      "variant": "extract"
+    },
+    {
+      "errors": [],
+      "kernel": "json_state",
+      "valid": true,
+      "variant": "dependency_upgrade"
+    },
+    {
+      "errors": [],
+      "kernel": "json_state",
+      "valid": true,
+      "variant": "format"
+    },
+    {
+      "errors": [],
+      "kernel": "json_state",
+      "valid": true,
+      "variant": "erase_tolerable"
+    },
+    {
+      "errors": [],
+      "kernel": "json_state",
+      "valid": true,
+      "variant": "merge_tolerable"
+    },
+    {
+      "errors": [],
+      "kernel": "json_state",
+      "valid": true,
+      "variant": "flip_tolerable"
+    },
+    {
+      "errors": [],
+      "kernel": "json_state",
+      "valid": true,
+      "variant": "recovery_break"
+    },
+    {
+      "errors": [],
+      "kernel": "json_state",
+      "valid": true,
+      "variant": "reseed"
+    },
+    {
+      "errors": [],
+      "kernel": "json_state",
+      "valid": true,
+      "variant": "behavior_drift"
+    },
+    {
+      "errors": [],
+      "kernel": "utf8_state",
+      "valid": true,
+      "variant": "baseline"
+    },
+    {
+      "errors": [],
+      "kernel": "utf8_state",
+      "valid": true,
+      "variant": "rename"
+    },
+    {
+      "errors": [],
+      "kernel": "utf8_state",
+      "valid": true,
+      "variant": "reorder"
+    },
+    {
+      "errors": [],
+      "kernel": "utf8_state",
+      "valid": true,
+      "variant": "extract"
+    },
+    {
+      "errors": [],
+      "kernel": "utf8_state",
+      "valid": true,
+      "variant": "dependency_upgrade"
+    },
+    {
+      "errors": [],
+      "kernel": "utf8_state",
+      "valid": true,
+      "variant": "format"
+    },
+    {
+      "errors": [],
+      "kernel": "utf8_state",
+      "valid": true,
+      "variant": "erase_tolerable"
+    },
+    {
+      "errors": [],
+      "kernel": "utf8_state",
+      "valid": true,
+      "variant": "merge_tolerable"
+    },
+    {
+      "errors": [],
+      "kernel": "utf8_state",
+      "valid": true,
+      "variant": "flip_tolerable"
+    },
+    {
+      "errors": [],
+      "kernel": "utf8_state",
+      "valid": true,
+      "variant": "recovery_break"
+    },
+    {
+      "errors": [],
+      "kernel": "utf8_state",
+      "valid": true,
+      "variant": "reseed"
+    },
+    {
+      "errors": [],
+      "kernel": "utf8_state",
+      "valid": true,
+      "variant": "behavior_drift"
+    },
+    {
+      "errors": [],
+      "kernel": "base64_state",
+      "valid": true,
+      "variant": "baseline"
+    },
+    {
+      "errors": [],
+      "kernel": "base64_state",
+      "valid": true,
+      "variant": "rename"
+    },
+    {
+      "errors": [],
+      "kernel": "base64_state",
+      "valid": true,
+      "variant": "reorder"
+    },
+    {
+      "errors": [],
+      "kernel": "base64_state",
+      "valid": true,
+      "variant": "extract"
+    },
+    {
+      "errors": [],
+      "kernel": "base64_state",
+      "valid": true,
+      "variant": "dependency_upgrade"
+    },
+    {
+      "errors": [],
+      "kernel": "base64_state",
+      "valid": true,
+      "variant": "format"
+    },
+    {
+      "errors": [],
+      "kernel": "base64_state",
+      "valid": true,
+      "variant": "erase_tolerable"
+    },
+    {
+      "errors": [],
+      "kernel": "base64_state",
+      "valid": true,
+      "variant": "merge_tolerable"
+    },
+    {
+      "errors": [],
+      "kernel": "base64_state",
+      "valid": true,
+      "variant": "flip_tolerable"
+    },
+    {
+      "errors": [],
+      "kernel": "base64_state",
+      "valid": true,
+      "variant": "recovery_break"
+    },
+    {
+      "errors": [],
+      "kernel": "base64_state",
+      "valid": true,
+      "variant": "reseed"
+    },
+    {
+      "errors": [],
+      "kernel": "base64_state",
+      "valid": true,
+      "variant": "behavior_drift"
+    },
+    {
+      "errors": [],
+      "kernel": "luhn_state",
+      "valid": true,
+      "variant": "baseline"
+    },
+    {
+      "errors": [],
+      "kernel": "luhn_state",
+      "valid": true,
+      "variant": "rename"
+    },
+    {
+      "errors": [],
+      "kernel": "luhn_state",
+      "valid": true,
+      "variant": "reorder"
+    },
+    {
+      "errors": [],
+      "kernel": "luhn_state",
+      "valid": true,
+      "variant": "extract"
+    },
+    {
+      "errors": [],
+      "kernel": "luhn_state",
+      "valid": true,
+      "variant": "dependency_upgrade"
+    },
+    {
+      "errors": [],
+      "kernel": "luhn_state",
+      "valid": true,
+      "variant": "format"
+    },
+    {
+      "errors": [],
+      "kernel": "luhn_state",
+      "valid": true,
+      "variant": "erase_tolerable"
+    },
+    {
+      "errors": [],
+      "kernel": "luhn_state",
+      "valid": true,
+      "variant": "merge_tolerable"
+    },
+    {
+      "errors": [],
+      "kernel": "luhn_state",
+      "valid": true,
+      "variant": "flip_tolerable"
+    },
+    {
+      "errors": [],
+      "kernel": "luhn_state",
+      "valid": true,
+      "variant": "recovery_break"
+    },
+    {
+      "errors": [],
+      "kernel": "luhn_state",
+      "valid": true,
+      "variant": "reseed"
+    },
+    {
+      "errors": [],
+      "kernel": "luhn_state",
+      "valid": true,
+      "variant": "behavior_drift"
+    },
+    {
+      "errors": [],
+      "kernel": "saturating_add",
+      "valid": true,
+      "variant": "baseline"
+    },
+    {
+      "errors": [],
+      "kernel": "saturating_add",
+      "valid": true,
+      "variant": "rename"
+    },
+    {
+      "errors": [],
+      "kernel": "saturating_add",
+      "valid": true,
+      "variant": "reorder"
+    },
+    {
+      "errors": [],
+      "kernel": "saturating_add",
+      "valid": true,
+      "variant": "extract"
+    },
+    {
+      "errors": [],
+      "kernel": "saturating_add",
+      "valid": true,
+      "variant": "dependency_upgrade"
+    },
+    {
+      "errors": [],
+      "kernel": "saturating_add",
+      "valid": true,
+      "variant": "format"
+    },
+    {
+      "errors": [],
+      "kernel": "saturating_add",
+      "valid": true,
+      "variant": "erase_tolerable"
+    },
+    {
+      "errors": [],
+      "kernel": "saturating_add",
+      "valid": true,
+      "variant": "merge_tolerable"
+    },
+    {
+      "errors": [],
+      "kernel": "saturating_add",
+      "valid": true,
+      "variant": "flip_tolerable"
+    },
+    {
+      "errors": [],
+      "kernel": "saturating_add",
+      "valid": true,
+      "variant": "recovery_break"
+    },
+    {
+      "errors": [],
+      "kernel": "saturating_add",
+      "valid": true,
+      "variant": "reseed"
+    },
+    {
+      "errors": [],
+      "kernel": "saturating_add",
+      "valid": true,
+      "variant": "behavior_drift"
+    },
+    {
+      "errors": [],
+      "kernel": "branch_mix",
+      "valid": true,
+      "variant": "baseline"
+    },
+    {
+      "errors": [],
+      "kernel": "branch_mix",
+      "valid": true,
+      "variant": "rename"
+    },
+    {
+      "errors": [],
+      "kernel": "branch_mix",
+      "valid": true,
+      "variant": "reorder"
+    },
+    {
+      "errors": [],
+      "kernel": "branch_mix",
+      "valid": true,
+      "variant": "extract"
+    },
+    {
+      "errors": [],
+      "kernel": "branch_mix",
+      "valid": true,
+      "variant": "dependency_upgrade"
+    },
+    {
+      "errors": [],
+      "kernel": "branch_mix",
+      "valid": true,
+      "variant": "format"
+    },
+    {
+      "errors": [],
+      "kernel": "branch_mix",
+      "valid": true,
+      "variant": "erase_tolerable"
+    },
+    {
+      "errors": [],
+      "kernel": "branch_mix",
+      "valid": true,
+      "variant": "merge_tolerable"
+    },
+    {
+      "errors": [],
+      "kernel": "branch_mix",
+      "valid": true,
+      "variant": "flip_tolerable"
+    },
+    {
+      "errors": [],
+      "kernel": "branch_mix",
+      "valid": true,
+      "variant": "recovery_break"
+    },
+    {
+      "errors": [],
+      "kernel": "branch_mix",
+      "valid": true,
+      "variant": "reseed"
+    },
+    {
+      "errors": [],
+      "kernel": "branch_mix",
+      "valid": true,
+      "variant": "behavior_drift"
+    }
+  ]
+}

@@ -1,0 +1,169 @@
+{
+  "certificate_sha256": "391d9d57129ebcd3ea08442240dcf51abf34a73baef08c8b7708802098e00e4f",
+  "compiler_cells": [
+    {
+      "assembly": "artifact/commit-replay/build/D/before/gcc_O0/adapter.s",
+      "assembly_sha256": "de2cd3dfc99553fb891c053d261b6b590c7ed9b263345dcd5f615e2d62a6fa59",
+      "compiler": "gcc",
+      "executable": "artifact/commit-replay/build/D/before/gcc_O0/adapter",
+      "executable_sha256": "ed64afca750d669498ee035364dcab27a64f7bbde9052c05689bad9db747a220",
+      "optimization": "-O0",
+      "output": "artifact/commit-replay/build/D/before/gcc_O0/stdout.bin",
+      "output_sha256": "2bcf65682844b1ecf789a684b82876e1699bde42aa3a2ff22e34718c4b0c0286",
+      "source_sha256": "7c5da89fff781c0d7728ab4160cde0160af3a618a27b3074c6eb47d63b34a6f4"
+    },
+    {
+      "assembly": "artifact/commit-replay/build/D/before/gcc_O2/adapter.s",
+      "assembly_sha256": "358c365ed6ab8690c32bc28b90878ffe648316fbd18cb16f10c57e9ba77b089f",
+      "compiler": "gcc",
+      "executable": "artifact/commit-replay/build/D/before/gcc_O2/adapter",
+      "executable_sha256": "e5bcdd8998a2adb135445da98ce19ec5577229ab7cd189f4cff519891d102a1e",
+      "optimization": "-O2",
+      "output": "artifact/commit-replay/build/D/before/gcc_O2/stdout.bin",
+      "output_sha256": "2bcf65682844b1ecf789a684b82876e1699bde42aa3a2ff22e34718c4b0c0286",
+      "source_sha256": "7c5da89fff781c0d7728ab4160cde0160af3a618a27b3074c6eb47d63b34a6f4"
+    },
+    {
+      "assembly": "artifact/commit-replay/build/D/before/clang_O0/adapter.s",
+      "assembly_sha256": "ff8b13e8fd3fd4673ab94eaea043d861c0a7d7cadcb0cf9006408a50b36df297",
+      "compiler": "clang",
+      "executable": "artifact/commit-replay/build/D/before/clang_O0/adapter",
+      "executable_sha256": "e388839daefeb889604878077b57550739ebad75b88e34f74b94355b926c2d69",
+      "optimization": "-O0",
+      "output": "artifact/commit-replay/build/D/before/clang_O0/stdout.bin",
+      "output_sha256": "2bcf65682844b1ecf789a684b82876e1699bde42aa3a2ff22e34718c4b0c0286",
+      "source_sha256": "7c5da89fff781c0d7728ab4160cde0160af3a618a27b3074c6eb47d63b34a6f4"
+    },
+    {
+      "assembly": "artifact/commit-replay/build/D/before/clang_O2/adapter.s",
+      "assembly_sha256": "c4011e88828de89584a07df6143a85f7d14cec27392a00b36c2efe384d5d98da",
+      "compiler": "clang",
+      "executable": "artifact/commit-replay/build/D/before/clang_O2/adapter",
+      "executable_sha256": "dbe50f9dd1c3ae12054a9ad91168aa8a9436aaf9fe7077c63a0918164fd6add6",
+      "optimization": "-O2",
+      "output": "artifact/commit-replay/build/D/before/clang_O2/stdout.bin",
+      "output_sha256": "2bcf65682844b1ecf789a684b82876e1699bde42aa3a2ff22e34718c4b0c0286",
+      "source_sha256": "7c5da89fff781c0d7728ab4160cde0160af3a618a27b3074c6eb47d63b34a6f4"
+    }
+  ],
+  "expected_class": "intended",
+  "immutable_change": "9d63e760141b5c416a65ee0de9f67d684795ee49",
+  "integrity_object": "artifact/commit-replay/integrity-objects/D/before.bin",
+  "integrity_object_sha256": "4015fce5499bbeba7cddbf8ac223f654d1375655e7eadb2d4bee639b3abf8b8d",
+  "manifest": "artifact/commit-replay/manifests/D/before.json",
+  "manifest_sha256": "761dd9e0936421bef93c18d68d17525c733e91951c78e28fedb7374cd0c76c31",
+  "parent_accepted": true,
+  "parent_certificate_sha256": null,
+  "parent_decision": null,
+  "parent_policy_canonical_sha256": null,
+  "parent_version": null,
+  "policy": {
+    "canonical_sha256": "128cb5fdf9c0115453e0b0e9f70e1801969fcd2978a9eb3407a9b57815b1234e",
+    "file_sha256": "44d2be0e1ba08caed4b81cada65298f4719649e38054a9d4bea58c911731b5af",
+    "path": "artifact/commit-replay/policies/D.json",
+    "policy_id": "project:D:v1"
+  },
+  "policy_compatible": true,
+  "project": "D",
+  "reference": "artifact/commit-replay/reference/project-D.bin",
+  "reference_sha256": "2bcf65682844b1ecf789a684b82876e1699bde42aa3a2ff22e34718c4b0c0286",
+  "relations": {
+    "behavior": {
+      "case_count_per_cell": 65,
+      "passed": true,
+      "state": "ESTABLISHED_TRUE"
+    },
+    "continuity": {
+      "passed": true,
+      "preserved": 28,
+      "required": 26,
+      "state": "ESTABLISHED_TRUE",
+      "status": "GENESIS"
+    },
+    "executable_reproduction": {
+      "passed": true,
+      "state": "ESTABLISHED_TRUE"
+    },
+    "integrity": {
+      "actual_sha256": "4015fce5499bbeba7cddbf8ac223f654d1375655e7eadb2d4bee639b3abf8b8d",
+      "expected_sha256": "4015fce5499bbeba7cddbf8ac223f654d1375655e7eadb2d4bee639b3abf8b8d",
+      "object": "artifact/commit-replay/integrity-objects/D/before.bin",
+      "passed": true,
+      "state": "ESTABLISHED_TRUE"
+    },
+    "lineage": {
+      "passed": true,
+      "state": "ESTABLISHED_TRUE"
+    },
+    "recovery": {
+      "blocks": [
+        {
+          "candidate_count": 1,
+          "condition_holds": true,
+          "decoded_bits": [
+            0,
+            0,
+            1,
+            0
+          ],
+          "erasures": 0,
+          "errors": 0,
+          "status": "CERTIFIED_UNIQUE"
+        },
+        {
+          "candidate_count": 1,
+          "condition_holds": true,
+          "decoded_bits": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "erasures": 0,
+          "errors": 0,
+          "status": "CERTIFIED_UNIQUE"
+        },
+        {
+          "candidate_count": 1,
+          "condition_holds": true,
+          "decoded_bits": [
+            1,
+            0,
+            1,
+            0
+          ],
+          "erasures": 0,
+          "errors": 0,
+          "status": "CERTIFIED_UNIQUE"
+        },
+        {
+          "candidate_count": 1,
+          "condition_holds": true,
+          "decoded_bits": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "erasures": 0,
+          "errors": 0,
+          "status": "CERTIFIED_UNIQUE"
+        }
+      ],
+      "passed": true,
+      "payload_hex": "20ae",
+      "state": "ESTABLISHED_TRUE",
+      "status": "CERTIFIED_UNIQUE"
+    },
+    "source_conformance": {
+      "errors": [],
+      "passed": true,
+      "state": "ESTABLISHED_TRUE"
+    }
+  },
+  "schema": "tse01.commit-replay.certificate.v3",
+  "source": "artifact/commit-replay/sources/D/before.c",
+  "source_sha256": "7c5da89fff781c0d7728ab4160cde0160af3a618a27b3074c6eb47d63b34a6f4",
+  "verdict": "PASS",
+  "version": "before"
+}

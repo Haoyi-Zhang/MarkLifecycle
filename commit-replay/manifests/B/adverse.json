@@ -1,0 +1,181 @@
+{
+  "carriers": [
+    {
+      "carrier_id": "project-B:R:00",
+      "constant": 1191544183,
+      "expected_bit": 0,
+      "position": 0
+    },
+    {
+      "carrier_id": "project-B:R:01",
+      "constant": 4147079085,
+      "expected_bit": 0,
+      "position": 1
+    },
+    {
+      "carrier_id": "project-B:R:02",
+      "constant": 4012861275,
+      "expected_bit": 1,
+      "position": 2
+    },
+    {
+      "carrier_id": "project-B:R:03",
+      "constant": 4154544489,
+      "expected_bit": 1,
+      "position": 3
+    },
+    {
+      "carrier_id": "project-B:R:04",
+      "constant": 1740231501,
+      "expected_bit": 0,
+      "position": 4
+    },
+    {
+      "carrier_id": "project-B:R:05",
+      "constant": 972228891,
+      "expected_bit": 0,
+      "position": 5
+    },
+    {
+      "carrier_id": "project-B:R:06",
+      "constant": 2008404915,
+      "expected_bit": 1,
+      "position": 6
+    },
+    {
+      "carrier_id": "project-B:R:07",
+      "constant": 2776473371,
+      "expected_bit": 0,
+      "position": 7
+    },
+    {
+      "carrier_id": "project-B:R:08",
+      "constant": 520960965,
+      "expected_bit": 1,
+      "position": 8
+    },
+    {
+      "carrier_id": "project-B:R:09",
+      "constant": 2097413597,
+      "expected_bit": 1,
+      "position": 9
+    },
+    {
+      "carrier_id": "project-B:R:10",
+      "constant": 3575881507,
+      "expected_bit": 0,
+      "position": 10
+    },
+    {
+      "carrier_id": "project-B:R:11",
+      "constant": 3616252855,
+      "expected_bit": 0,
+      "position": 11
+    },
+    {
+      "carrier_id": "project-B:R:12",
+      "constant": 3382284761,
+      "expected_bit": 1,
+      "position": 12
+    },
+    {
+      "carrier_id": "project-B:R:13",
+      "constant": 1830388581,
+      "expected_bit": 1,
+      "position": 13
+    },
+    {
+      "carrier_id": "project-B:R:14",
+      "constant": 2368679411,
+      "expected_bit": 0,
+      "position": 14
+    },
+    {
+      "carrier_id": "project-B:R:15",
+      "constant": 2368291701,
+      "expected_bit": 1,
+      "position": 15
+    },
+    {
+      "carrier_id": "project-B:R:16",
+      "constant": 3919390207,
+      "expected_bit": 0,
+      "position": 16
+    },
+    {
+      "carrier_id": "project-B:R:17",
+      "constant": 2074543441,
+      "expected_bit": 1,
+      "position": 17
+    },
+    {
+      "carrier_id": "project-B:R:18",
+      "constant": 3045794733,
+      "expected_bit": 0,
+      "position": 18
+    },
+    {
+      "carrier_id": "project-B:R:19",
+      "constant": 2846344027,
+      "expected_bit": 1,
+      "position": 19
+    },
+    {
+      "carrier_id": "project-B:R:20",
+      "constant": 3650589479,
+      "expected_bit": 0,
+      "position": 20
+    },
+    {
+      "carrier_id": "project-B:R:21",
+      "constant": 3306759469,
+      "expected_bit": 0,
+      "position": 21
+    },
+    {
+      "carrier_id": "project-B:R:22",
+      "constant": 1899048747,
+      "expected_bit": 0,
+      "position": 22
+    },
+    {
+      "carrier_id": "project-B:R:23",
+      "constant": 768835375,
+      "expected_bit": 1,
+      "position": 23
+    },
+    {
+      "carrier_id": "project-B:R:24",
+      "constant": 2145209847,
+      "expected_bit": 1,
+      "position": 24
+    },
+    {
+      "carrier_id": "project-B:R:25",
+      "constant": 1240048397,
+      "expected_bit": 0,
+      "position": 25
+    },
+    {
+      "carrier_id": "project-B:R:26",
+      "constant": 3757695909,
+      "expected_bit": 0,
+      "position": 26
+    },
+    {
+      "carrier_id": "project-B:R:27",
+      "constant": 1628156877,
+      "expected_bit": 1,
+      "position": 27
+    }
+  ],
+  "code": "four independent Hamming(7,4) blocks",
+  "continuity_threshold": 26,
+  "minimum_distance": 3,
+  "parent": "after",
+  "payload_hex": "9b29",
+  "project": "B",
+  "schema": "tse01.commit-replay.manifest.v1",
+  "source_profile": "wm-helper-v2",
+  "version": "adverse"
+}

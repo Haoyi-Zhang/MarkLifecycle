@@ -1,0 +1,1097 @@
+{
+  "behavior": {
+    "contract": "all x,y in {0,...,255}; one output byte",
+    "exact_finite_equivalence": true,
+    "maturity": "VERIFIED",
+    "reference_sha256": "eaaf55079d4568449435566ed7a1af0b6631f3598c60b49ec0d1ddc0287912a3",
+    "reference_table_path": "artifact/benchmark/reference/utf8_state.bin",
+    "toolchains": [
+      {
+        "assembly_command": [
+          "gcc",
+          "-std=c11",
+          "-O0",
+          "-S",
+          "artifact/benchmark/generated/utf8_state/merge_tolerable/kernel.c",
+          "-o",
+          "artifact/results/raw/utf8_state/merge_tolerable/gcc_o0.s"
+        ],
+        "assembly_path": "artifact/results/raw/utf8_state/merge_tolerable/gcc_o0.s",
+        "assembly_retention": {
+          "method": "immediate-constant presence in emitted assembly; heuristic, not a formal detector",
+          "retained_carrier_ids": [
+            "utf8_state:B:01",
+            "utf8_state:B:02",
+            "utf8_state:B:03",
+            "utf8_state:B:04",
+            "utf8_state:B:05",
+            "utf8_state:B:06",
+            "utf8_state:B:08",
+            "utf8_state:B:09",
+            "utf8_state:B:10",
+            "utf8_state:B:11",
+            "utf8_state:B:12",
+            "utf8_state:B:13",
+            "utf8_state:B:14",
+            "utf8_state:B:15",
+            "utf8_state:B:16",
+            "utf8_state:B:17",
+            "utf8_state:B:18",
+            "utf8_state:B:19",
+            "utf8_state:B:20",
+            "utf8_state:B:21",
+            "utf8_state:B:22",
+            "utf8_state:B:23",
+            "utf8_state:B:24",
+            "utf8_state:B:25",
+            "utf8_state:B:26",
+            "utf8_state:B:27"
+          ],
+          "retained_count": 26,
+          "retention": 1.0,
+          "source_present_count": 26
+        },
+        "assembly_returncode": 0,
+        "assembly_sha256": "a6c0c3b204acf9db34f2ba48828079db3485862206fb0e342f9afd1146e6bafc",
+        "binary_path": "artifact/results/raw/utf8_state/merge_tolerable/gcc_o0",
+        "binary_sha256": "cb636712b7ab6da5974bf84b50f502d6fb4a96235ea92beb9a105ce50c1c726e",
+        "compile_command": [
+          "gcc",
+          "-std=c11",
+          "-Wall",
+          "-Wextra",
+          "-Werror",
+          "-O0",
+          "artifact/benchmark/generated/utf8_state/merge_tolerable/kernel.c",
+          "-o",
+          "artifact/results/raw/utf8_state/merge_tolerable/gcc_o0"
+        ],
+        "compile_returncode": 0,
+        "compiler": "gcc",
+        "compiler_version": "gcc (Debian 14.2.0-19) 14.2.0",
+        "first_mismatch": null,
+        "matches_reference": true,
+        "optimization": "-O0",
+        "output_path": "artifact/results/raw/utf8_state/merge_tolerable/gcc_o0.out",
+        "output_sha256": "eaaf55079d4568449435566ed7a1af0b6631f3598c60b49ec0d1ddc0287912a3",
+        "output_size": 65536,
+        "run_returncode": 0,
+        "status": "EXECUTED",
+        "stderr": ""
+      },
+      {
+        "assembly_command": [
+          "gcc",
+          "-std=c11",
+          "-O2",
+          "-S",
+          "artifact/benchmark/generated/utf8_state/merge_tolerable/kernel.c",
+          "-o",
+          "artifact/results/raw/utf8_state/merge_tolerable/gcc_o2.s"
+        ],
+        "assembly_path": "artifact/results/raw/utf8_state/merge_tolerable/gcc_o2.s",
+        "assembly_retention": {
+          "method": "immediate-constant presence in emitted assembly; heuristic, not a formal detector",
+          "retained_carrier_ids": [],
+          "retained_count": 0,
+          "retention": 0.0,
+          "source_present_count": 26
+        },
+        "assembly_returncode": 0,
+        "assembly_sha256": "796ceea42f95a5306b8fde2cc612fc031803770e2b575b44304c00576c30134f",
+        "binary_path": "artifact/results/raw/utf8_state/merge_tolerable/gcc_o2",
+        "binary_sha256": "04ebc45004f121cab8f13c976bc3edaf050346104d7f6d055e2d30a911982448",
+        "compile_command": [
+          "gcc",
+          "-std=c11",
+          "-Wall",
+          "-Wextra",
+          "-Werror",
+          "-O2",
+          "artifact/benchmark/generated/utf8_state/merge_tolerable/kernel.c",
+          "-o",
+          "artifact/results/raw/utf8_state/merge_tolerable/gcc_o2"
+        ],
+        "compile_returncode": 0,
+        "compiler": "gcc",
+        "compiler_version": "gcc (Debian 14.2.0-19) 14.2.0",
+        "first_mismatch": null,
+        "matches_reference": true,
+        "optimization": "-O2",
+        "output_path": "artifact/results/raw/utf8_state/merge_tolerable/gcc_o2.out",
+        "output_sha256": "eaaf55079d4568449435566ed7a1af0b6631f3598c60b49ec0d1ddc0287912a3",
+        "output_size": 65536,
+        "run_returncode": 0,
+        "status": "EXECUTED",
+        "stderr": ""
+      },
+      {
+        "assembly_command": [
+          "clang",
+          "-std=c11",
+          "-O0",
+          "-S",
+          "artifact/benchmark/generated/utf8_state/merge_tolerable/kernel.c",
+          "-o",
+          "artifact/results/raw/utf8_state/merge_tolerable/clang_o0.s"
+        ],
+        "assembly_path": "artifact/results/raw/utf8_state/merge_tolerable/clang_o0.s",
+        "assembly_retention": {
+          "method": "immediate-constant presence in emitted assembly; heuristic, not a formal detector",
+          "retained_carrier_ids": [
+            "utf8_state:B:01",
+            "utf8_state:B:02",
+            "utf8_state:B:03",
+            "utf8_state:B:04",
+            "utf8_state:B:05",
+            "utf8_state:B:06",
+            "utf8_state:B:08",
+            "utf8_state:B:09",
+            "utf8_state:B:10",
+            "utf8_state:B:11",
+            "utf8_state:B:12",
+            "utf8_state:B:13",
+            "utf8_state:B:14",
+            "utf8_state:B:15",
+            "utf8_state:B:16",
+            "utf8_state:B:17",
+            "utf8_state:B:18",
+            "utf8_state:B:19",
+            "utf8_state:B:20",
+            "utf8_state:B:21",
+            "utf8_state:B:22",
+            "utf8_state:B:23",
+            "utf8_state:B:24",
+            "utf8_state:B:25",
+            "utf8_state:B:26",
+            "utf8_state:B:27"
+          ],
+          "retained_count": 26,
+          "retention": 1.0,
+          "source_present_count": 26
+        },
+        "assembly_returncode": 0,
+        "assembly_sha256": "b8a5990647d3021b3c172ad2b6f90fbfad30ea08de8f94bcff32a12b34b2b456",
+        "binary_path": "artifact/results/raw/utf8_state/merge_tolerable/clang_o0",
+        "binary_sha256": "82f0f9c95932a100875ce7c6dc5ca3c1f57be8d7f8454855e1083c0a4229623c",
+        "compile_command": [
+          "clang",
+          "-std=c11",
+          "-Wall",
+          "-Wextra",
+          "-Werror",
+          "-O0",
+          "artifact/benchmark/generated/utf8_state/merge_tolerable/kernel.c",
+          "-o",
+          "artifact/results/raw/utf8_state/merge_tolerable/clang_o0"
+        ],
+        "compile_returncode": 0,
+        "compiler": "clang",
+        "compiler_version": "clang version 17.0.0 (https://github.com/swiftlang/llvm-project.git 10999b6d034fe318f3d56c83bddb6572593a8bb0)",
+        "first_mismatch": null,
+        "matches_reference": true,
+        "optimization": "-O0",
+        "output_path": "artifact/results/raw/utf8_state/merge_tolerable/clang_o0.out",
+        "output_sha256": "eaaf55079d4568449435566ed7a1af0b6631f3598c60b49ec0d1ddc0287912a3",
+        "output_size": 65536,
+        "run_returncode": 0,
+        "status": "EXECUTED",
+        "stderr": ""
+      },
+      {
+        "assembly_command": [
+          "clang",
+          "-std=c11",
+          "-O2",
+          "-S",
+          "artifact/benchmark/generated/utf8_state/merge_tolerable/kernel.c",
+          "-o",
+          "artifact/results/raw/utf8_state/merge_tolerable/clang_o2.s"
+        ],
+        "assembly_path": "artifact/results/raw/utf8_state/merge_tolerable/clang_o2.s",
+        "assembly_retention": {
+          "method": "immediate-constant presence in emitted assembly; heuristic, not a formal detector",
+          "retained_carrier_ids": [],
+          "retained_count": 0,
+          "retention": 0.0,
+          "source_present_count": 26
+        },
+        "assembly_returncode": 0,
+        "assembly_sha256": "45eb571ed0da8ef443358767b68440112be5f71a2b235edc0ba12adf9e3e9b96",
+        "binary_path": "artifact/results/raw/utf8_state/merge_tolerable/clang_o2",
+        "binary_sha256": "2d7d1b44fa0f6a7ff638bd1b6f3d833e6289728312fa67fac9999f3797bb1bda",
+        "compile_command": [
+          "clang",
+          "-std=c11",
+          "-Wall",
+          "-Wextra",
+          "-Werror",
+          "-O2",
+          "artifact/benchmark/generated/utf8_state/merge_tolerable/kernel.c",
+          "-o",
+          "artifact/results/raw/utf8_state/merge_tolerable/clang_o2"
+        ],
+        "compile_returncode": 0,
+        "compiler": "clang",
+        "compiler_version": "clang version 17.0.0 (https://github.com/swiftlang/llvm-project.git 10999b6d034fe318f3d56c83bddb6572593a8bb0)",
+        "first_mismatch": null,
+        "matches_reference": true,
+        "optimization": "-O2",
+        "output_path": "artifact/results/raw/utf8_state/merge_tolerable/clang_o2.out",
+        "output_sha256": "eaaf55079d4568449435566ed7a1af0b6631f3598c60b49ec0d1ddc0287912a3",
+        "output_size": 65536,
+        "run_returncode": 0,
+        "status": "EXECUTED",
+        "stderr": ""
+      }
+    ]
+  },
+  "certificate_sha256": "c6a24b6d054d1e8f9779c00314bdce0d241cdee303e4565332fce274d8efe4c6",
+  "chain": {
+    "all_parents_accepted": true,
+    "hash_link_valid": true,
+    "parents": [
+      {
+        "accepted": true,
+        "certificate_sha256": "3203d6fa10fa763e38e896ef90e61dddb9e38b1f9ffe369b46a6164d0940deb5",
+        "decision": "PASS",
+        "hash_link_valid": true,
+        "policy_canonical_sha256": "0966492110b8e74f5606065f6bd654ea17ae2104a5c99306a372b5caa64afb38",
+        "policy_compatible": true,
+        "variant": "format"
+      },
+      {
+        "accepted": true,
+        "certificate_sha256": "1f6e5156ac5f60ff8d0a2337d6b783330e3507f15a0a19dc18bd00ce9257e4c6",
+        "decision": "PASS",
+        "hash_link_valid": true,
+        "policy_canonical_sha256": "0966492110b8e74f5606065f6bd654ea17ae2104a5c99306a372b5caa64afb38",
+        "policy_compatible": true,
+        "variant": "erase_tolerable"
+      }
+    ],
+    "policy_compatible": true,
+    "predecessor_accepted": null,
+    "predecessor_certificate_sha256": null,
+    "predecessor_decision": null,
+    "predecessor_policy_canonical_sha256": null
+  },
+  "kernel": "utf8_state",
+  "manifest": {
+    "canonical_sha256": "2764f191a82024cbd60c33a89478ba3899a3bc87894bce8d342bc282a35b03b9",
+    "file_sha256": "af03c0d2a0ed0a91743ecd5efa742d1fe42ad46b0a879f681fe05a11e0e4abcb",
+    "path": "artifact/benchmark/generated/utf8_state/merge_tolerable/watermark_manifest.json"
+  },
+  "parent_variant": null,
+  "parent_variants": [
+    "format",
+    "erase_tolerable"
+  ],
+  "policy": {
+    "canonical_sha256": "0966492110b8e74f5606065f6bd654ea17ae2104a5c99306a372b5caa64afb38",
+    "file_sha256": "efcddf87c5651dbfeb205dac7fefa602a115e89e665b3d6ba45c6afce1f528ba",
+    "path": "artifact/policies/finite/utf8_state.json",
+    "policy_id": "finite:utf8_state:v1"
+  },
+  "relations": {
+    "behavior": {
+      "exact_finite_equivalence": true,
+      "passed": true,
+      "state": "ESTABLISHED_TRUE"
+    },
+    "continuity": {
+      "baseline_count": 28,
+      "mapped_count": 26,
+      "parent_edge_count": 2,
+      "passed": true,
+      "per_parent": [
+        {
+          "baseline_count": 28,
+          "mapped_count": 26,
+          "parent_variant": "format",
+          "traceability": 0.9285714285714286
+        },
+        {
+          "baseline_count": 28,
+          "mapped_count": 26,
+          "parent_variant": "erase_tolerable",
+          "traceability": 0.9285714285714286
+        }
+      ],
+      "required_count": 26,
+      "state": "ESTABLISHED_TRUE"
+    },
+    "executable_reproduction": {
+      "passed": true,
+      "state": "ESTABLISHED_TRUE"
+    },
+    "integrity": {
+      "passed": true,
+      "state": "ESTABLISHED_TRUE"
+    },
+    "lineage": {
+      "passed": true,
+      "state": "ESTABLISHED_TRUE"
+    },
+    "recovery": {
+      "passed": true,
+      "payload_hex": "06f5",
+      "state": "ESTABLISHED_TRUE",
+      "status": "CERTIFIED_UNIQUE"
+    },
+    "source_conformance": {
+      "passed": true,
+      "state": "ESTABLISHED_TRUE"
+    }
+  },
+  "schema": "tracecert.release.v5",
+  "source": {
+    "parent_sha256": null,
+    "parent_sha256s": [
+      "6f9b1f866dfeebff2e460694ba227b149d35aae9b71730ac6273f09f78d5e1fe",
+      "0581de48df5de70f71d0c168fa5bce22e18c751ccc374f5961cc17ca98f37a21"
+    ],
+    "path": "artifact/benchmark/generated/utf8_state/merge_tolerable/kernel.c",
+    "sha256": "59e83fc6e0366f118962104635451a5b83590eab6d77cd3191c41f349938beb4"
+  },
+  "variant": "merge_tolerable",
+  "verdict": "PASS",
+  "watermark": {
+    "continuity_status": "TRACEABLE_WITHIN_LOCK",
+    "decode": {
+      "blocks": [
+        {
+          "candidate_count": 1,
+          "condition_holds": true,
+          "decoded_bits": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "erasures": 1,
+          "errors": 0,
+          "status": "CERTIFIED_UNIQUE"
+        },
+        {
+          "candidate_count": 1,
+          "condition_holds": true,
+          "decoded_bits": [
+            0,
+            1,
+            1,
+            0
+          ],
+          "erasures": 1,
+          "errors": 0,
+          "status": "CERTIFIED_UNIQUE"
+        },
+        {
+          "candidate_count": 1,
+          "condition_holds": true,
+          "decoded_bits": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "erasures": 0,
+          "errors": 0,
+          "status": "CERTIFIED_UNIQUE"
+        },
+        {
+          "candidate_count": 1,
+          "condition_holds": true,
+          "decoded_bits": [
+            0,
+            1,
+            0,
+            1
+          ],
+          "erasures": 0,
+          "errors": 0,
+          "status": "CERTIFIED_UNIQUE"
+        }
+      ],
+      "payload_hex": "06f5",
+      "status": "CERTIFIED_UNIQUE",
+      "total_erasures": 2,
+      "total_errors": 0
+    },
+    "expected_payload_hex": "06f5",
+    "observed_symbols": "?000000?10011011111110100101",
+    "payload_recoverable": true,
+    "provenance": {
+      "aggregation": "minimum-over-parent-edges",
+      "baseline_count": 28,
+      "mapped_count": 26,
+      "mappings": [],
+      "traceability": 0.9285714285714286
+    },
+    "provenance_by_parent": [
+      {
+        "baseline_count": 28,
+        "mapped_count": 26,
+        "mappings": [
+          {
+            "bit_changed": false,
+            "carrier_id": "utf8_state:B:01",
+            "child_line": 3,
+            "child_position": 1,
+            "parent_position": 1
+          },
+          {
+            "bit_changed": false,
+            "carrier_id": "utf8_state:B:02",
+            "child_line": 3,
+            "child_position": 2,
+            "parent_position": 2
+          },
+          {
+            "bit_changed": false,
+            "carrier_id": "utf8_state:B:03",
+            "child_line": 3,
+            "child_position": 3,
+            "parent_position": 3
+          },
+          {
+            "bit_changed": false,
+            "carrier_id": "utf8_state:B:04",
+            "child_line": 3,
+            "child_position": 4,
+            "parent_position": 4
+          },
+          {
+            "bit_changed": false,
+            "carrier_id": "utf8_state:B:05",
+            "child_line": 3,
+            "child_position": 5,
+            "parent_position": 5
+          },
+          {
+            "bit_changed": false,
+            "carrier_id": "utf8_state:B:06",
+            "child_line": 3,
+            "child_position": 6,
+            "parent_position": 6
+          },
+          {
+            "bit_changed": false,
+            "carrier_id": "utf8_state:B:08",
+            "child_line": 3,
+            "child_position": 8,
+            "parent_position": 8
+          },
+          {
+            "bit_changed": false,
+            "carrier_id": "utf8_state:B:09",
+            "child_line": 3,
+            "child_position": 9,
+            "parent_position": 9
+          },
+          {
+            "bit_changed": false,
+            "carrier_id": "utf8_state:B:10",
+            "child_line": 3,
+            "child_position": 10,
+            "parent_position": 10
+          },
+          {
+            "bit_changed": false,
+            "carrier_id": "utf8_state:B:11",
+            "child_line": 3,
+            "child_position": 11,
+            "parent_position": 11
+          },
+          {
+            "bit_changed": false,
+            "carrier_id": "utf8_state:B:12",
+            "child_line": 3,
+            "child_position": 12,
+            "parent_position": 12
+          },
+          {
+            "bit_changed": false,
+            "carrier_id": "utf8_state:B:13",
+            "child_line": 3,
+            "child_position": 13,
+            "parent_position": 13
+          },
+          {
+            "bit_changed": false,
+            "carrier_id": "utf8_state:B:14",
+            "child_line": 3,
+            "child_position": 14,
+            "parent_position": 14
+          },
+          {
+            "bit_changed": false,
+            "carrier_id": "utf8_state:B:15",
+            "child_line": 3,
+            "child_position": 15,
+            "parent_position": 15
+          },
+          {
+            "bit_changed": false,
+            "carrier_id": "utf8_state:B:16",
+            "child_line": 3,
+            "child_position": 16,
+            "parent_position": 16
+          },
+          {
+            "bit_changed": false,
+            "carrier_id": "utf8_state:B:17",
+            "child_line": 3,
+            "child_position": 17,
+            "parent_position": 17
+          },
+          {
+            "bit_changed": false,
+            "carrier_id": "utf8_state:B:18",
+            "child_line": 3,
+            "child_position": 18,
+            "parent_position": 18
+          },
+          {
+            "bit_changed": false,
+            "carrier_id": "utf8_state:B:19",
+            "child_line": 3,
+            "child_position": 19,
+            "parent_position": 19
+          },
+          {
+            "bit_changed": false,
+            "carrier_id": "utf8_state:B:20",
+            "child_line": 3,
+            "child_position": 20,
+            "parent_position": 20
+          },
+          {
+            "bit_changed": false,
+            "carrier_id": "utf8_state:B:21",
+            "child_line": 3,
+            "child_position": 21,
+            "parent_position": 21
+          },
+          {
+            "bit_changed": false,
+            "carrier_id": "utf8_state:B:22",
+            "child_line": 3,
+            "child_position": 22,
+            "parent_position": 22
+          },
+          {
+            "bit_changed": false,
+            "carrier_id": "utf8_state:B:23",
+            "child_line": 3,
+            "child_position": 23,
+            "parent_position": 23
+          },
+          {
+            "bit_changed": false,
+            "carrier_id": "utf8_state:B:24",
+            "child_line": 3,
+            "child_position": 24,
+            "parent_position": 24
+          },
+          {
+            "bit_changed": false,
+            "carrier_id": "utf8_state:B:25",
+            "child_line": 3,
+            "child_position": 25,
+            "parent_position": 25
+          },
+          {
+            "bit_changed": false,
+            "carrier_id": "utf8_state:B:26",
+            "child_line": 3,
+            "child_position": 26,
+            "parent_position": 26
+          },
+          {
+            "bit_changed": false,
+            "carrier_id": "utf8_state:B:27",
+            "child_line": 3,
+            "child_position": 27,
+            "parent_position": 27
+          }
+        ],
+        "parent_variant": "format",
+        "traceability": 0.9285714285714286
+      },
+      {
+        "baseline_count": 28,
+        "mapped_count": 26,
+        "mappings": [
+          {
+            "bit_changed": false,
+            "carrier_id": "utf8_state:B:01",
+            "child_line": 3,
+            "child_position": 1,
+            "parent_position": 1
+          },
+          {
+            "bit_changed": false,
+            "carrier_id": "utf8_state:B:02",
+            "child_line": 3,
+            "child_position": 2,
+            "parent_position": 2
+          },
+          {
+            "bit_changed": false,
+            "carrier_id": "utf8_state:B:03",
+            "child_line": 3,
+            "child_position": 3,
+            "parent_position": 3
+          },
+          {
+            "bit_changed": false,
+            "carrier_id": "utf8_state:B:04",
+            "child_line": 3,
+            "child_position": 4,
+            "parent_position": 4
+          },
+          {
+            "bit_changed": false,
+            "carrier_id": "utf8_state:B:05",
+            "child_line": 3,
+            "child_position": 5,
+            "parent_position": 5
+          },
+          {
+            "bit_changed": false,
+            "carrier_id": "utf8_state:B:06",
+            "child_line": 3,
+            "child_position": 6,
+            "parent_position": 6
+          },
+          {
+            "bit_changed": false,
+            "carrier_id": "utf8_state:B:08",
+            "child_line": 3,
+            "child_position": 8,
+            "parent_position": 8
+          },
+          {
+            "bit_changed": false,
+            "carrier_id": "utf8_state:B:09",
+            "child_line": 3,
+            "child_position": 9,
+            "parent_position": 9
+          },
+          {
+            "bit_changed": false,
+            "carrier_id": "utf8_state:B:10",
+            "child_line": 3,
+            "child_position": 10,
+            "parent_position": 10
+          },
+          {
+            "bit_changed": false,
+            "carrier_id": "utf8_state:B:11",
+            "child_line": 3,
+            "child_position": 11,
+            "parent_position": 11
+          },
+          {
+            "bit_changed": false,
+            "carrier_id": "utf8_state:B:12",
+            "child_line": 3,
+            "child_position": 12,
+            "parent_position": 12
+          },
+          {
+            "bit_changed": false,
+            "carrier_id": "utf8_state:B:13",
+            "child_line": 3,
+            "child_position": 13,
+            "parent_position": 13
+          },
+          {
+            "bit_changed": false,
+            "carrier_id": "utf8_state:B:14",
+            "child_line": 3,
+            "child_position": 14,
+            "parent_position": 14
+          },
+          {
+            "bit_changed": false,
+            "carrier_id": "utf8_state:B:15",
+            "child_line": 3,
+            "child_position": 15,
+            "parent_position": 15
+          },
+          {
+            "bit_changed": false,
+            "carrier_id": "utf8_state:B:16",
+            "child_line": 3,
+            "child_position": 16,
+            "parent_position": 16
+          },
+          {
+            "bit_changed": false,
+            "carrier_id": "utf8_state:B:17",
+            "child_line": 3,
+            "child_position": 17,
+            "parent_position": 17
+          },
+          {
+            "bit_changed": false,
+            "carrier_id": "utf8_state:B:18",
+            "child_line": 3,
+            "child_position": 18,
+            "parent_position": 18
+          },
+          {
+            "bit_changed": false,
+            "carrier_id": "utf8_state:B:19",
+            "child_line": 3,
+            "child_position": 19,
+            "parent_position": 19
+          },
+          {
+            "bit_changed": false,
+            "carrier_id": "utf8_state:B:20",
+            "child_line": 3,
+            "child_position": 20,
+            "parent_position": 20
+          },
+          {
+            "bit_changed": false,
+            "carrier_id": "utf8_state:B:21",
+            "child_line": 3,
+            "child_position": 21,
+            "parent_position": 21
+          },
+          {
+            "bit_changed": false,
+            "carrier_id": "utf8_state:B:22",
+            "child_line": 3,
+            "child_position": 22,
+            "parent_position": 22
+          },
+          {
+            "bit_changed": false,
+            "carrier_id": "utf8_state:B:23",
+            "child_line": 3,
+            "child_position": 23,
+            "parent_position": 23
+          },
+          {
+            "bit_changed": false,
+            "carrier_id": "utf8_state:B:24",
+            "child_line": 3,
+            "child_position": 24,
+            "parent_position": 24
+          },
+          {
+            "bit_changed": false,
+            "carrier_id": "utf8_state:B:25",
+            "child_line": 3,
+            "child_position": 25,
+            "parent_position": 25
+          },
+          {
+            "bit_changed": false,
+            "carrier_id": "utf8_state:B:26",
+            "child_line": 3,
+            "child_position": 26,
+            "parent_position": 26
+          },
+          {
+            "bit_changed": false,
+            "carrier_id": "utf8_state:B:27",
+            "child_line": 3,
+            "child_position": 27,
+            "parent_position": 27
+          }
+        ],
+        "parent_variant": "erase_tolerable",
+        "traceability": 0.9285714285714286
+      }
+    ],
+    "source_carriers": [
+      {
+        "carrier_id": "utf8_state:B:00",
+        "constant": 3810918265,
+        "expected_bit": 0,
+        "family": null,
+        "line": null,
+        "observed_bit": null,
+        "position": 0,
+        "state": "ERASURE"
+      },
+      {
+        "carrier_id": "utf8_state:B:01",
+        "constant": 3312142617,
+        "expected_bit": 0,
+        "family": "helper-v2",
+        "line": 3,
+        "observed_bit": 0,
+        "position": 1,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "utf8_state:B:02",
+        "constant": 1438507827,
+        "expected_bit": 0,
+        "family": "helper-v2",
+        "line": 3,
+        "observed_bit": 0,
+        "position": 2,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "utf8_state:B:03",
+        "constant": 556369821,
+        "expected_bit": 0,
+        "family": "helper-v2",
+        "line": 3,
+        "observed_bit": 0,
+        "position": 3,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "utf8_state:B:04",
+        "constant": 4252354851,
+        "expected_bit": 0,
+        "family": "helper-v2",
+        "line": 3,
+        "observed_bit": 0,
+        "position": 4,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "utf8_state:B:05",
+        "constant": 2882505029,
+        "expected_bit": 0,
+        "family": "helper-v2",
+        "line": 3,
+        "observed_bit": 0,
+        "position": 5,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "utf8_state:B:06",
+        "constant": 2413804825,
+        "expected_bit": 0,
+        "family": "helper-v2",
+        "line": 3,
+        "observed_bit": 0,
+        "position": 6,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "utf8_state:B:07",
+        "constant": 2134875479,
+        "expected_bit": 1,
+        "family": null,
+        "line": null,
+        "observed_bit": null,
+        "position": 7,
+        "state": "ERASURE"
+      },
+      {
+        "carrier_id": "utf8_state:B:08",
+        "constant": 2881948573,
+        "expected_bit": 1,
+        "family": "helper-v2",
+        "line": 3,
+        "observed_bit": 1,
+        "position": 8,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "utf8_state:B:09",
+        "constant": 1777458119,
+        "expected_bit": 0,
+        "family": "helper-v2",
+        "line": 3,
+        "observed_bit": 0,
+        "position": 9,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "utf8_state:B:10",
+        "constant": 2309192025,
+        "expected_bit": 0,
+        "family": "helper-v2",
+        "line": 3,
+        "observed_bit": 0,
+        "position": 10,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "utf8_state:B:11",
+        "constant": 460271051,
+        "expected_bit": 1,
+        "family": "helper-v2",
+        "line": 3,
+        "observed_bit": 1,
+        "position": 11,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "utf8_state:B:12",
+        "constant": 3648351123,
+        "expected_bit": 1,
+        "family": "helper-v2",
+        "line": 3,
+        "observed_bit": 1,
+        "position": 12,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "utf8_state:B:13",
+        "constant": 3212017021,
+        "expected_bit": 0,
+        "family": "helper-v2",
+        "line": 3,
+        "observed_bit": 0,
+        "position": 13,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "utf8_state:B:14",
+        "constant": 766090119,
+        "expected_bit": 1,
+        "family": "helper-v2",
+        "line": 3,
+        "observed_bit": 1,
+        "position": 14,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "utf8_state:B:15",
+        "constant": 3476290367,
+        "expected_bit": 1,
+        "family": "helper-v2",
+        "line": 3,
+        "observed_bit": 1,
+        "position": 15,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "utf8_state:B:16",
+        "constant": 697422683,
+        "expected_bit": 1,
+        "family": "helper-v2",
+        "line": 3,
+        "observed_bit": 1,
+        "position": 16,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "utf8_state:B:17",
+        "constant": 3742600103,
+        "expected_bit": 1,
+        "family": "helper-v2",
+        "line": 3,
+        "observed_bit": 1,
+        "position": 17,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "utf8_state:B:18",
+        "constant": 3080671099,
+        "expected_bit": 1,
+        "family": "helper-v2",
+        "line": 3,
+        "observed_bit": 1,
+        "position": 18,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "utf8_state:B:19",
+        "constant": 3607298877,
+        "expected_bit": 1,
+        "family": "helper-v2",
+        "line": 3,
+        "observed_bit": 1,
+        "position": 19,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "utf8_state:B:20",
+        "constant": 3372981235,
+        "expected_bit": 1,
+        "family": "helper-v2",
+        "line": 3,
+        "observed_bit": 1,
+        "position": 20,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "utf8_state:B:21",
+        "constant": 4151294843,
+        "expected_bit": 0,
+        "family": "helper-v2",
+        "line": 3,
+        "observed_bit": 0,
+        "position": 21,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "utf8_state:B:22",
+        "constant": 3307983861,
+        "expected_bit": 1,
+        "family": "helper-v2",
+        "line": 3,
+        "observed_bit": 1,
+        "position": 22,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "utf8_state:B:23",
+        "constant": 4018214799,
+        "expected_bit": 0,
+        "family": "helper-v2",
+        "line": 3,
+        "observed_bit": 0,
+        "position": 23,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "utf8_state:B:24",
+        "constant": 2607886605,
+        "expected_bit": 0,
+        "family": "helper-v2",
+        "line": 3,
+        "observed_bit": 0,
+        "position": 24,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "utf8_state:B:25",
+        "constant": 2845123499,
+        "expected_bit": 1,
+        "family": "helper-v2",
+        "line": 3,
+        "observed_bit": 1,
+        "position": 25,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "utf8_state:B:26",
+        "constant": 694494155,
+        "expected_bit": 0,
+        "family": "helper-v2",
+        "line": 3,
+        "observed_bit": 0,
+        "position": 26,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "utf8_state:B:27",
+        "constant": 2166615343,
+        "expected_bit": 1,
+        "family": "helper-v2",
+        "line": 3,
+        "observed_bit": 1,
+        "position": 27,
+        "state": "MATCH"
+      }
+    ],
+    "traceability_threshold": 0.9285714285714286
+  }
+}

@@ -1,0 +1,58 @@
+[
+  {
+    "errors": [],
+    "expected": "pass",
+    "matches_expected": true,
+    "memo_reuse_count": 1,
+    "name": "diamond_shared_ancestor",
+    "primary_decision": "pass"
+  },
+  {
+    "errors": [],
+    "expected": "pass",
+    "matches_expected": true,
+    "memo_reuse_count": 0,
+    "name": "explicit_policy_bridge",
+    "primary_decision": "pass"
+  },
+  {
+    "errors": [
+      "cycle on active path: a"
+    ],
+    "expected": "reject",
+    "matches_expected": true,
+    "memo_reuse_count": 0,
+    "name": "cycle",
+    "primary_decision": "reject"
+  },
+  {
+    "errors": [
+      "missing parent: absent"
+    ],
+    "expected": "reject",
+    "matches_expected": true,
+    "memo_reuse_count": 0,
+    "name": "missing_parent",
+    "primary_decision": "reject"
+  },
+  {
+    "errors": [
+      "non-passing node: bad"
+    ],
+    "expected": "reject",
+    "matches_expected": true,
+    "memo_reuse_count": 0,
+    "name": "rejected_parent",
+    "primary_decision": "reject"
+  },
+  {
+    "errors": [
+      "policy mismatch: old->new"
+    ],
+    "expected": "reject",
+    "matches_expected": true,
+    "memo_reuse_count": 0,
+    "name": "unbridged_policy_mismatch",
+    "primary_decision": "reject"
+  }
+]

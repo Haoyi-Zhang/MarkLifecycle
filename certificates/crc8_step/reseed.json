@@ -1,0 +1,711 @@
+{
+  "behavior": {
+    "contract": "all x,y in {0,...,255}; one output byte",
+    "exact_finite_equivalence": true,
+    "maturity": "VERIFIED",
+    "reference_sha256": "cce644f78658d160a477e4f22ca1aee276630896d90cec41b818cc0eb485b270",
+    "reference_table_path": "artifact/benchmark/reference/crc8_step.bin",
+    "toolchains": [
+      {
+        "assembly_command": [
+          "gcc",
+          "-std=c11",
+          "-O0",
+          "-S",
+          "artifact/benchmark/generated/crc8_step/reseed/kernel.c",
+          "-o",
+          "artifact/results/raw/crc8_step/reseed/gcc_o0.s"
+        ],
+        "assembly_path": "artifact/results/raw/crc8_step/reseed/gcc_o0.s",
+        "assembly_retention": {
+          "method": "immediate-constant presence in emitted assembly; heuristic, not a formal detector",
+          "retained_carrier_ids": [
+            "crc8_step:R:00",
+            "crc8_step:R:01",
+            "crc8_step:R:02",
+            "crc8_step:R:03",
+            "crc8_step:R:04",
+            "crc8_step:R:05",
+            "crc8_step:R:06",
+            "crc8_step:R:07",
+            "crc8_step:R:08",
+            "crc8_step:R:09",
+            "crc8_step:R:10",
+            "crc8_step:R:11",
+            "crc8_step:R:12",
+            "crc8_step:R:13",
+            "crc8_step:R:14",
+            "crc8_step:R:15",
+            "crc8_step:R:16",
+            "crc8_step:R:17",
+            "crc8_step:R:18",
+            "crc8_step:R:19",
+            "crc8_step:R:20",
+            "crc8_step:R:21",
+            "crc8_step:R:22",
+            "crc8_step:R:23",
+            "crc8_step:R:24",
+            "crc8_step:R:25",
+            "crc8_step:R:26",
+            "crc8_step:R:27"
+          ],
+          "retained_count": 28,
+          "retention": 1.0,
+          "source_present_count": 28
+        },
+        "assembly_returncode": 0,
+        "assembly_sha256": "1614c8c02a13ddf2adfe8c77c84772591cb315b914ff38d673330d2a1fde1523",
+        "binary_path": "artifact/results/raw/crc8_step/reseed/gcc_o0",
+        "binary_sha256": "b4adb279acf1a4fdca2daf6f1940c7983c48b4e7a6dd65ad1ace13f4165590cd",
+        "compile_command": [
+          "gcc",
+          "-std=c11",
+          "-Wall",
+          "-Wextra",
+          "-Werror",
+          "-O0",
+          "artifact/benchmark/generated/crc8_step/reseed/kernel.c",
+          "-o",
+          "artifact/results/raw/crc8_step/reseed/gcc_o0"
+        ],
+        "compile_returncode": 0,
+        "compiler": "gcc",
+        "compiler_version": "gcc (Debian 14.2.0-19) 14.2.0",
+        "first_mismatch": null,
+        "matches_reference": true,
+        "optimization": "-O0",
+        "output_path": "artifact/results/raw/crc8_step/reseed/gcc_o0.out",
+        "output_sha256": "cce644f78658d160a477e4f22ca1aee276630896d90cec41b818cc0eb485b270",
+        "output_size": 65536,
+        "run_returncode": 0,
+        "status": "EXECUTED",
+        "stderr": ""
+      },
+      {
+        "assembly_command": [
+          "gcc",
+          "-std=c11",
+          "-O2",
+          "-S",
+          "artifact/benchmark/generated/crc8_step/reseed/kernel.c",
+          "-o",
+          "artifact/results/raw/crc8_step/reseed/gcc_o2.s"
+        ],
+        "assembly_path": "artifact/results/raw/crc8_step/reseed/gcc_o2.s",
+        "assembly_retention": {
+          "method": "immediate-constant presence in emitted assembly; heuristic, not a formal detector",
+          "retained_carrier_ids": [],
+          "retained_count": 0,
+          "retention": 0.0,
+          "source_present_count": 28
+        },
+        "assembly_returncode": 0,
+        "assembly_sha256": "2d5c2359790ab462e10a22c749c6da35c8cf3ecfb38c1a7af5f5aaeeb8273227",
+        "binary_path": "artifact/results/raw/crc8_step/reseed/gcc_o2",
+        "binary_sha256": "f2a80b1e9ca71db41756ca866d9b11bd3530bfb435cbcd60740c90fa7c951f22",
+        "compile_command": [
+          "gcc",
+          "-std=c11",
+          "-Wall",
+          "-Wextra",
+          "-Werror",
+          "-O2",
+          "artifact/benchmark/generated/crc8_step/reseed/kernel.c",
+          "-o",
+          "artifact/results/raw/crc8_step/reseed/gcc_o2"
+        ],
+        "compile_returncode": 0,
+        "compiler": "gcc",
+        "compiler_version": "gcc (Debian 14.2.0-19) 14.2.0",
+        "first_mismatch": null,
+        "matches_reference": true,
+        "optimization": "-O2",
+        "output_path": "artifact/results/raw/crc8_step/reseed/gcc_o2.out",
+        "output_sha256": "cce644f78658d160a477e4f22ca1aee276630896d90cec41b818cc0eb485b270",
+        "output_size": 65536,
+        "run_returncode": 0,
+        "status": "EXECUTED",
+        "stderr": ""
+      },
+      {
+        "assembly_command": [
+          "clang",
+          "-std=c11",
+          "-O0",
+          "-S",
+          "artifact/benchmark/generated/crc8_step/reseed/kernel.c",
+          "-o",
+          "artifact/results/raw/crc8_step/reseed/clang_o0.s"
+        ],
+        "assembly_path": "artifact/results/raw/crc8_step/reseed/clang_o0.s",
+        "assembly_retention": {
+          "method": "immediate-constant presence in emitted assembly; heuristic, not a formal detector",
+          "retained_carrier_ids": [
+            "crc8_step:R:00",
+            "crc8_step:R:01",
+            "crc8_step:R:02",
+            "crc8_step:R:03",
+            "crc8_step:R:04",
+            "crc8_step:R:05",
+            "crc8_step:R:06",
+            "crc8_step:R:07",
+            "crc8_step:R:08",
+            "crc8_step:R:09",
+            "crc8_step:R:10",
+            "crc8_step:R:11",
+            "crc8_step:R:12",
+            "crc8_step:R:13",
+            "crc8_step:R:14",
+            "crc8_step:R:15",
+            "crc8_step:R:16",
+            "crc8_step:R:17",
+            "crc8_step:R:18",
+            "crc8_step:R:19",
+            "crc8_step:R:20",
+            "crc8_step:R:21",
+            "crc8_step:R:22",
+            "crc8_step:R:23",
+            "crc8_step:R:24",
+            "crc8_step:R:25",
+            "crc8_step:R:26",
+            "crc8_step:R:27"
+          ],
+          "retained_count": 28,
+          "retention": 1.0,
+          "source_present_count": 28
+        },
+        "assembly_returncode": 0,
+        "assembly_sha256": "4b08c1d75477c8161d2aa4d395ec3675edc937410d422558a21d7c7dde6384dd",
+        "binary_path": "artifact/results/raw/crc8_step/reseed/clang_o0",
+        "binary_sha256": "61d422ec68be502432cecc4ccc6cbc520c837b467007a904dc39f37f3222dd36",
+        "compile_command": [
+          "clang",
+          "-std=c11",
+          "-Wall",
+          "-Wextra",
+          "-Werror",
+          "-O0",
+          "artifact/benchmark/generated/crc8_step/reseed/kernel.c",
+          "-o",
+          "artifact/results/raw/crc8_step/reseed/clang_o0"
+        ],
+        "compile_returncode": 0,
+        "compiler": "clang",
+        "compiler_version": "clang version 17.0.0 (https://github.com/swiftlang/llvm-project.git 10999b6d034fe318f3d56c83bddb6572593a8bb0)",
+        "first_mismatch": null,
+        "matches_reference": true,
+        "optimization": "-O0",
+        "output_path": "artifact/results/raw/crc8_step/reseed/clang_o0.out",
+        "output_sha256": "cce644f78658d160a477e4f22ca1aee276630896d90cec41b818cc0eb485b270",
+        "output_size": 65536,
+        "run_returncode": 0,
+        "status": "EXECUTED",
+        "stderr": ""
+      },
+      {
+        "assembly_command": [
+          "clang",
+          "-std=c11",
+          "-O2",
+          "-S",
+          "artifact/benchmark/generated/crc8_step/reseed/kernel.c",
+          "-o",
+          "artifact/results/raw/crc8_step/reseed/clang_o2.s"
+        ],
+        "assembly_path": "artifact/results/raw/crc8_step/reseed/clang_o2.s",
+        "assembly_retention": {
+          "method": "immediate-constant presence in emitted assembly; heuristic, not a formal detector",
+          "retained_carrier_ids": [],
+          "retained_count": 0,
+          "retention": 0.0,
+          "source_present_count": 28
+        },
+        "assembly_returncode": 0,
+        "assembly_sha256": "69c53864a26a64ad5dd76aca9cdafbb00833a8a6d0c5df3305b1916f8f7dbd5f",
+        "binary_path": "artifact/results/raw/crc8_step/reseed/clang_o2",
+        "binary_sha256": "f0e7e185329f287e1f473d0674cd9626bde0d2053146283438090dc31c194958",
+        "compile_command": [
+          "clang",
+          "-std=c11",
+          "-Wall",
+          "-Wextra",
+          "-Werror",
+          "-O2",
+          "artifact/benchmark/generated/crc8_step/reseed/kernel.c",
+          "-o",
+          "artifact/results/raw/crc8_step/reseed/clang_o2"
+        ],
+        "compile_returncode": 0,
+        "compiler": "clang",
+        "compiler_version": "clang version 17.0.0 (https://github.com/swiftlang/llvm-project.git 10999b6d034fe318f3d56c83bddb6572593a8bb0)",
+        "first_mismatch": null,
+        "matches_reference": true,
+        "optimization": "-O2",
+        "output_path": "artifact/results/raw/crc8_step/reseed/clang_o2.out",
+        "output_sha256": "cce644f78658d160a477e4f22ca1aee276630896d90cec41b818cc0eb485b270",
+        "output_size": 65536,
+        "run_returncode": 0,
+        "status": "EXECUTED",
+        "stderr": ""
+      }
+    ]
+  },
+  "certificate_sha256": "e334acd018131e9100220ea3db48a289045ae906a25b96aad368e19ebae13a2d",
+  "chain": {
+    "all_parents_accepted": true,
+    "hash_link_valid": true,
+    "parents": [
+      {
+        "accepted": true,
+        "certificate_sha256": "ec360d91f542faf015017d6fe0afe38c90110793e2b70a6dca065d7c4538730a",
+        "decision": "PASS",
+        "hash_link_valid": true,
+        "policy_canonical_sha256": "0f83c50ba2382a6c349e4355d76c9f5dc527839166e116f0d841f94abe54b92d",
+        "policy_compatible": true,
+        "variant": "dependency_upgrade"
+      }
+    ],
+    "policy_compatible": true,
+    "predecessor_accepted": true,
+    "predecessor_certificate_sha256": "ec360d91f542faf015017d6fe0afe38c90110793e2b70a6dca065d7c4538730a",
+    "predecessor_decision": "PASS",
+    "predecessor_policy_canonical_sha256": "0f83c50ba2382a6c349e4355d76c9f5dc527839166e116f0d841f94abe54b92d"
+  },
+  "kernel": "crc8_step",
+  "manifest": {
+    "canonical_sha256": "377e33e330d277b716e28b310def59262d721ed3bd916673722fad24ebb505a0",
+    "file_sha256": "69094f2523add948f0a4b836c03cbd793d6b349a45af5c0d79e37d2952d0a4cc",
+    "path": "artifact/benchmark/generated/crc8_step/reseed/watermark_manifest.json"
+  },
+  "parent_variant": "dependency_upgrade",
+  "parent_variants": [
+    "dependency_upgrade"
+  ],
+  "policy": {
+    "canonical_sha256": "0f83c50ba2382a6c349e4355d76c9f5dc527839166e116f0d841f94abe54b92d",
+    "file_sha256": "6abf78112de95da14c27981d430e1fd9b919ab8d1539e985c6edad748d0825f1",
+    "path": "artifact/policies/finite/crc8_step.json",
+    "policy_id": "finite:crc8_step:v1"
+  },
+  "relations": {
+    "behavior": {
+      "exact_finite_equivalence": true,
+      "passed": true,
+      "state": "ESTABLISHED_TRUE"
+    },
+    "continuity": {
+      "baseline_count": 28,
+      "mapped_count": 0,
+      "parent_edge_count": 1,
+      "passed": false,
+      "per_parent": [
+        {
+          "baseline_count": 28,
+          "mapped_count": 0,
+          "parent_variant": "dependency_upgrade",
+          "traceability": 0.0
+        }
+      ],
+      "required_count": 26,
+      "state": "ESTABLISHED_FALSE"
+    },
+    "executable_reproduction": {
+      "passed": true,
+      "state": "ESTABLISHED_TRUE"
+    },
+    "integrity": {
+      "passed": true,
+      "state": "ESTABLISHED_TRUE"
+    },
+    "lineage": {
+      "passed": true,
+      "state": "ESTABLISHED_TRUE"
+    },
+    "recovery": {
+      "passed": true,
+      "payload_hex": "e801",
+      "state": "ESTABLISHED_TRUE",
+      "status": "CERTIFIED_UNIQUE"
+    },
+    "source_conformance": {
+      "passed": true,
+      "state": "ESTABLISHED_TRUE"
+    }
+  },
+  "schema": "tracecert.release.v5",
+  "source": {
+    "parent_sha256": "774769bbd2781c6315f246a95099ad2e40987c44cbf2a4d32ede7662d54edb06",
+    "parent_sha256s": [
+      "774769bbd2781c6315f246a95099ad2e40987c44cbf2a4d32ede7662d54edb06"
+    ],
+    "path": "artifact/benchmark/generated/crc8_step/reseed/kernel.c",
+    "sha256": "6616a34e240478d19616a41a38c554576c9010ffc1ad974b28f5cf8d64f4e8c1"
+  },
+  "variant": "reseed",
+  "verdict": "REJECT",
+  "watermark": {
+    "continuity_status": "CONTINUITY_BELOW_LOCK",
+    "decode": {
+      "blocks": [
+        {
+          "candidate_count": 1,
+          "condition_holds": true,
+          "decoded_bits": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "erasures": 0,
+          "errors": 0,
+          "status": "CERTIFIED_UNIQUE"
+        },
+        {
+          "candidate_count": 1,
+          "condition_holds": true,
+          "decoded_bits": [
+            1,
+            0,
+            0,
+            0
+          ],
+          "erasures": 0,
+          "errors": 0,
+          "status": "CERTIFIED_UNIQUE"
+        },
+        {
+          "candidate_count": 1,
+          "condition_holds": true,
+          "decoded_bits": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "erasures": 0,
+          "errors": 0,
+          "status": "CERTIFIED_UNIQUE"
+        },
+        {
+          "candidate_count": 1,
+          "condition_holds": true,
+          "decoded_bits": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "erasures": 0,
+          "errors": 0,
+          "status": "CERTIFIED_UNIQUE"
+        }
+      ],
+      "payload_hex": "e801",
+      "status": "CERTIFIED_UNIQUE",
+      "total_erasures": 0,
+      "total_errors": 0
+    },
+    "expected_payload_hex": "e801",
+    "observed_symbols": "0010110111000000000001101001",
+    "payload_recoverable": true,
+    "provenance": {
+      "aggregation": "single-parent-edge",
+      "baseline_count": 28,
+      "mapped_count": 0,
+      "mappings": [],
+      "traceability": 0.0
+    },
+    "provenance_by_parent": [
+      {
+        "baseline_count": 28,
+        "mapped_count": 0,
+        "mappings": [],
+        "parent_variant": "dependency_upgrade",
+        "traceability": 0.0
+      }
+    ],
+    "source_carriers": [
+      {
+        "carrier_id": "crc8_step:R:00",
+        "constant": 2941486537,
+        "expected_bit": 0,
+        "family": "helper-v2",
+        "line": 9,
+        "observed_bit": 0,
+        "position": 0,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "crc8_step:R:01",
+        "constant": 3305617383,
+        "expected_bit": 0,
+        "family": "helper-v2",
+        "line": 23,
+        "observed_bit": 0,
+        "position": 1,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "crc8_step:R:02",
+        "constant": 1508352343,
+        "expected_bit": 1,
+        "family": "helper-v2",
+        "line": 10,
+        "observed_bit": 1,
+        "position": 2,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "crc8_step:R:03",
+        "constant": 3580569505,
+        "expected_bit": 0,
+        "family": "helper-v2",
+        "line": 24,
+        "observed_bit": 0,
+        "position": 3,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "crc8_step:R:04",
+        "constant": 3246724413,
+        "expected_bit": 1,
+        "family": "helper-v2",
+        "line": 11,
+        "observed_bit": 1,
+        "position": 4,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "crc8_step:R:05",
+        "constant": 3486348287,
+        "expected_bit": 1,
+        "family": "helper-v2",
+        "line": 25,
+        "observed_bit": 1,
+        "position": 5,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "crc8_step:R:06",
+        "constant": 4289668965,
+        "expected_bit": 0,
+        "family": "helper-v2",
+        "line": 12,
+        "observed_bit": 0,
+        "position": 6,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "crc8_step:R:07",
+        "constant": 3343475523,
+        "expected_bit": 1,
+        "family": "helper-v2",
+        "line": 26,
+        "observed_bit": 1,
+        "position": 7,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "crc8_step:R:08",
+        "constant": 1765112171,
+        "expected_bit": 1,
+        "family": "helper-v2",
+        "line": 13,
+        "observed_bit": 1,
+        "position": 8,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "crc8_step:R:09",
+        "constant": 1092161417,
+        "expected_bit": 1,
+        "family": "helper-v2",
+        "line": 27,
+        "observed_bit": 1,
+        "position": 9,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "crc8_step:R:10",
+        "constant": 456857897,
+        "expected_bit": 0,
+        "family": "helper-v2",
+        "line": 14,
+        "observed_bit": 0,
+        "position": 10,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "crc8_step:R:11",
+        "constant": 734365149,
+        "expected_bit": 0,
+        "family": "helper-v2",
+        "line": 28,
+        "observed_bit": 0,
+        "position": 11,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "crc8_step:R:12",
+        "constant": 896004995,
+        "expected_bit": 0,
+        "family": "helper-v2",
+        "line": 15,
+        "observed_bit": 0,
+        "position": 12,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "crc8_step:R:13",
+        "constant": 3473382251,
+        "expected_bit": 0,
+        "family": "helper-v2",
+        "line": 29,
+        "observed_bit": 0,
+        "position": 13,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "crc8_step:R:14",
+        "constant": 2265783181,
+        "expected_bit": 0,
+        "family": "helper-v2",
+        "line": 16,
+        "observed_bit": 0,
+        "position": 14,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "crc8_step:R:15",
+        "constant": 287664069,
+        "expected_bit": 0,
+        "family": "helper-v2",
+        "line": 30,
+        "observed_bit": 0,
+        "position": 15,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "crc8_step:R:16",
+        "constant": 2133156297,
+        "expected_bit": 0,
+        "family": "helper-v2",
+        "line": 17,
+        "observed_bit": 0,
+        "position": 16,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "crc8_step:R:17",
+        "constant": 2877249869,
+        "expected_bit": 0,
+        "family": "helper-v2",
+        "line": 31,
+        "observed_bit": 0,
+        "position": 17,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "crc8_step:R:18",
+        "constant": 1764581711,
+        "expected_bit": 0,
+        "family": "helper-v2",
+        "line": 18,
+        "observed_bit": 0,
+        "position": 18,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "crc8_step:R:19",
+        "constant": 3006658957,
+        "expected_bit": 0,
+        "family": "helper-v2",
+        "line": 32,
+        "observed_bit": 0,
+        "position": 19,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "crc8_step:R:20",
+        "constant": 4081789935,
+        "expected_bit": 0,
+        "family": "helper-v2",
+        "line": 19,
+        "observed_bit": 0,
+        "position": 20,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "crc8_step:R:21",
+        "constant": 998723851,
+        "expected_bit": 1,
+        "family": "helper-v2",
+        "line": 33,
+        "observed_bit": 1,
+        "position": 21,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "crc8_step:R:22",
+        "constant": 1704827233,
+        "expected_bit": 1,
+        "family": "helper-v2",
+        "line": 20,
+        "observed_bit": 1,
+        "position": 22,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "crc8_step:R:23",
+        "constant": 2881947117,
+        "expected_bit": 0,
+        "family": "helper-v2",
+        "line": 34,
+        "observed_bit": 0,
+        "position": 23,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "crc8_step:R:24",
+        "constant": 2846874955,
+        "expected_bit": 1,
+        "family": "helper-v2",
+        "line": 21,
+        "observed_bit": 1,
+        "position": 24,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "crc8_step:R:25",
+        "constant": 1733243765,
+        "expected_bit": 0,
+        "family": "helper-v2",
+        "line": 35,
+        "observed_bit": 0,
+        "position": 25,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "crc8_step:R:26",
+        "constant": 2268309893,
+        "expected_bit": 0,
+        "family": "helper-v2",
+        "line": 22,
+        "observed_bit": 0,
+        "position": 26,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "crc8_step:R:27",
+        "constant": 2005470639,
+        "expected_bit": 1,
+        "family": "helper-v2",
+        "line": 36,
+        "observed_bit": 1,
+        "position": 27,
+        "state": "MATCH"
+      }
+    ],
+    "traceability_threshold": 0.9285714285714286
+  }
+}

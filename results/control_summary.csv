@@ -1,0 +1,5 @@
+control,behavior,payload,traceability,certificate,interpretation
+recovery_break,PASS,NOT_CERTIFIED,27/28,REJECT,Behavior and accepted continuity do not imply recoverability.
+reseed,PASS,CERTIFIED_UNIQUE,0/28,REJECT,Correct payload recovery does not prove release continuity.
+behavior_drift,FAIL,CERTIFIED_UNIQUE,28/28,REJECT,Watermark continuity does not imply behavior preservation.
+tampered_certificate,N/A,N/A,N/A,REJECT,Self-hash mismatch prevents silent certificate alteration.

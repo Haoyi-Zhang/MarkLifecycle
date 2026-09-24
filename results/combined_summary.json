@@ -1,0 +1,73 @@
+{
+  "combined": {
+    "compiler_cells": 688,
+    "executed_contract_cases": 40963856,
+    "hold_count": 0,
+    "pass_count": 129,
+    "reject_count": 43,
+    "release_count": 172,
+    "semantic_tamper_tests": 24
+  },
+  "commit_derived_layer": {
+    "compiler_cells": 112,
+    "decision_fixtures_pass": true,
+    "executed_contract_cases": 3215120,
+    "hold_count": 0,
+    "independent_recheck": true,
+    "pass_count": 21,
+    "reject_count": 7,
+    "release_count": 28,
+    "semantic_tamper_tests": 10
+  },
+  "finite_layer": {
+    "compiler_cells": 576,
+    "decision_fixtures_pass": true,
+    "executed_contract_cases": 37748736,
+    "hold_count": 0,
+    "independent_recheck": true,
+    "pass_count": 108,
+    "reject_count": 36,
+    "release_count": 144,
+    "semantic_tamper_tests": 14
+  },
+  "gate_model_layer": {
+    "aggregate_mutation_tests": 5,
+    "ancestry_graph_fixtures": 6,
+    "boolean_completions": 16384,
+    "decision_counts": {
+      "hold": 127,
+      "pass": 1,
+      "reject": 2059
+    },
+    "diamond_merge_shared_ancestor_accepts": true,
+    "independent_recheck": true,
+    "invalid_ancestry_fixtures_rejected": 4,
+    "nonempty_failure_sets": 127,
+    "relation_subset_gates": 128,
+    "three_valued_vectors": 2187
+  },
+  "schema": "tse01.combined-summary.v4",
+  "total_execution_burden": {
+    "case_evaluations": 40964624,
+    "compiler_cells": 720,
+    "note": "Upstream source observations are separate transfer-validity evidence and are not release certificates.",
+    "release_certificates": 172
+  },
+  "upstream_source_validation": {
+    "adapter_cases_per_cell": 16,
+    "adapter_compiler_cells_compared": 8,
+    "adapter_outputs_equal": true,
+    "case_evaluations": 768,
+    "compiler_cells": 32,
+    "default_and_parent_link_configs_equal": true,
+    "exact_source_blob_count": 3,
+    "independent_recheck": true,
+    "repository": "zserge/jsmn",
+    "scope": "Exact jsmn core source comparison at one public maintenance commit; not a whole-repository or seven-project upstream build study.",
+    "strict_changed_case_ids": [
+      22,
+      23
+    ]
+  },
+  "verdict": "PASS"
+}

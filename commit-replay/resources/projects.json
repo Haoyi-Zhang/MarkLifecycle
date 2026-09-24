@@ -1,0 +1,119 @@
+{
+  "projects": [
+    {
+      "adapter_contract": "token signatures for sixteen fixed valid and invalid structured inputs",
+      "adverse_relation": "source_conformance",
+      "after_blobs": {
+        "jsmn.h": "b95368a2061ed52e817f8dbd885d3a1f477efccc"
+      },
+      "alias": "A",
+      "before_blobs": {
+        "jsmn.c": "853c3f17ad7a923dc40d61bf435d943547c0ea63",
+        "jsmn.h": "5a5200ee2fb8a7ce6dac7e4864b34eaadb9a917b"
+      },
+      "case_count": 16,
+      "change": "split parser implementation converted to a single header-contained implementation",
+      "commit": "fdcef3ebf886fa210d14956d3c068a653e76a24e",
+      "license": "MIT",
+      "repository": "zserge/jsmn"
+    },
+    {
+      "adapter_contract": "canonical operation codes for all 65,536 pairs of bounded four-key flat objects",
+      "adverse_relation": "continuity",
+      "after_blobs": {
+        "cJSON_Utils.c": "50463286d9dbcedc322660de39140e131579f664"
+      },
+      "alias": "B",
+      "before_blobs": {
+        "cJSON_Utils.c": "85238b18bd1c1e11ecb0023050f7ff836a6f2251"
+      },
+      "case_count": 65536,
+      "change": "merge-patch generation traversal expanded into explicit child-state branches",
+      "commit": "bb2f86812680c2cb489a38f3643fb58f4eb3482c",
+      "license": "MIT",
+      "repository": "DaveGamble/cJSON"
+    },
+    {
+      "adapter_contract": "normalized records for 144 level, threshold, quiet, and sink configurations",
+      "adverse_relation": "behavior",
+      "after_blobs": {
+        "src/log.c": "23516c9cdcc1bb896d8df061ede7094ebb6efd32"
+      },
+      "alias": "C",
+      "before_blobs": {
+        "src/log.c": "2e183b035852286eccabcc6478edce8dbcb1cb9d"
+      },
+      "case_count": 144,
+      "change": "direct output sinks replaced with callback dispatch",
+      "commit": "4c5da2155e0d60c704848fe5312d6049ddf04c08",
+      "license": "MIT",
+      "repository": "rxi/log.c"
+    },
+    {
+      "adapter_contract": "byte-exact copies for lengths zero through sixty-four",
+      "adverse_relation": "recovery",
+      "after_blobs": {
+        "parson.c": "621cc49d0b0d8177a2e0f3f8de3aabf436c4c086"
+      },
+      "alias": "D",
+      "before_blobs": {
+        "parson.c": "e065e196b48f313041f6b43cec50b5f1af03c856"
+      },
+      "case_count": 65,
+      "change": "bounded string copy replaced by raw byte copy under the original length precondition",
+      "commit": "9d63e760141b5c416a65ee0de9f67d684795ee49",
+      "license": "MIT",
+      "repository": "kgabis/parson"
+    },
+    {
+      "adapter_contract": "Adler-32 outputs for four seeds, four byte patterns, and lengths zero through 256",
+      "adverse_relation": "executable_reproduction",
+      "after_blobs": {
+        "adler32.c": "04b81d29bad1691878648d7ae1680726abd905e4"
+      },
+      "alias": "E",
+      "before_blobs": {
+        "adler32.c": "d0be4380a39c9c5bf439b1552c43585b5aafad0a"
+      },
+      "case_count": 4112,
+      "change": "K&R-style function definitions modernized without changing Adler-32 arithmetic",
+      "commit": "e9d5486e6635141f589e110fd789648aa08e9544",
+      "license": "zlib",
+      "repository": "madler/zlib"
+    },
+    {
+      "adapter_contract": "normalized start offset and length for all 65,536 two-byte strings",
+      "adverse_relation": "integrity",
+      "after_blobs": {
+        "ini.c": "c00e8945fbbffa7653ac9d11528d2e883f2152d0"
+      },
+      "alias": "F",
+      "before_blobs": {
+        "ini.c": "f2f9a6a9fed6e1d6e6817bc7da53f7b6ae79d54b"
+      },
+      "case_count": 65536,
+      "change": "leading- and trailing-space removal operations reordered without changing the normalized result",
+      "commit": "cd5f93974067a143434b0e9a1c1a8ae906af599b",
+      "license": "BSD-3-Clause",
+      "repository": "benhoyt/inih"
+    },
+    {
+      "adapter_contract": "parity classification for all 65,536 unsigned sixteen-bit values",
+      "adverse_relation": "lineage",
+      "after_blobs": {
+        "tests/test36.c": "f42c59b506151eac03829e1981a24959e11e20b5"
+      },
+      "alias": "G",
+      "before_blobs": {
+        "tests/test36.c": "713ba2c3600cfd2e5945262359aff4d3e8d72d77"
+      },
+      "case_count": 65536,
+      "change": "low-bit parity predicate replaced by remainder arithmetic",
+      "commit": "74d55a0e34e96e6a842727333a7d326925ec1c16",
+      "license": "BSD-1-Clause",
+      "repository": "troydhanson/uthash"
+    }
+  ],
+  "schema": "tse01.commit-replay.projects.v1",
+  "scope": "routine-level adapters derived from immutable public maintenance commits; not whole-repository builds"
+}

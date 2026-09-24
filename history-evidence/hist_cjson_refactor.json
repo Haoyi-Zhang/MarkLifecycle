@@ -1,0 +1,23 @@
+{
+  "change_families": [
+    "variable renaming",
+    "control-flow expansion",
+    "const qualification",
+    "documentation update"
+  ],
+  "commit": "bb2f86812680c2cb489a38f3643fb58f4eb3482c",
+  "date": "2017-05-01",
+  "id": "HIST_CJSON_REFACTOR",
+  "internals_modified": false,
+  "license": "MIT",
+  "matrix_mapping": [
+    "rename",
+    "reorder"
+  ],
+  "repository": "DaveGamble/cJSON",
+  "retrieval_mode": "read-only public repository records at an immutable commit",
+  "retrieved_at": "2026-07-18T21:32:05+09:00",
+  "title": "refactor cJSONUtils_GenerateMergePatch",
+  "url": "https://github.com/DaveGamble/cJSON/commit/bb2f86812680c2cb489a38f3643fb58f4eb3482c",
+  "use": "Grounds syntactic and local structural refactorings that can relocate carriers without changing the declared finite behavior contract."
+}

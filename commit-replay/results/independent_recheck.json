@@ -1,0 +1,136 @@
+{
+  "all_valid": true,
+  "assembly_files_rehashed": 112,
+  "certificates_rechecked": 28,
+  "checker_independence": "imports neither the primary replay generator nor its carrier/reference utilities",
+  "compiler_cells_recompiled": 112,
+  "decision_fixtures": [
+    {
+      "decision": "PASS",
+      "name": "all-established",
+      "values": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "decision": "HOLD",
+      "name": "one-unresolved",
+      "values": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        null
+      ]
+    },
+    {
+      "decision": "REJECT",
+      "name": "false-dominates-unresolved",
+      "values": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        null,
+        false
+      ]
+    }
+  ],
+  "decision_fixtures_pass": true,
+  "declared_case_evaluations_reexecuted": 3215120,
+  "errors": [],
+  "fresh_case_evaluations_reexecuted": 3215120,
+  "fresh_executables_reexecuted": 112,
+  "hold_count": 0,
+  "pass_count": 21,
+  "policy_files_reconstructed": 7,
+  "projects_rechecked": 7,
+  "refreshed_binding_test_count": 10,
+  "reject_count": 7,
+  "schema": "tse01.commit-replay.independent-recheck.v3",
+  "semantic_tamper_test_count": 10,
+  "semantic_tamper_tests": [
+    {
+      "name": "stored verdict",
+      "outer_self_hash_valid": true,
+      "project": "A",
+      "rejected": true
+    },
+    {
+      "name": "source_conformance relation",
+      "outer_self_hash_valid": true,
+      "project": "A",
+      "rejected": true
+    },
+    {
+      "name": "continuity relation",
+      "outer_self_hash_valid": true,
+      "project": "B",
+      "rejected": true
+    },
+    {
+      "name": "behavior relation",
+      "outer_self_hash_valid": true,
+      "project": "C",
+      "rejected": true
+    },
+    {
+      "name": "recovery relation",
+      "outer_self_hash_valid": true,
+      "project": "D",
+      "rejected": true
+    },
+    {
+      "name": "executable_reproduction relation",
+      "outer_self_hash_valid": true,
+      "project": "E",
+      "rejected": true
+    },
+    {
+      "name": "integrity relation",
+      "outer_self_hash_valid": true,
+      "project": "F",
+      "rejected": true
+    },
+    {
+      "name": "lineage relation",
+      "outer_self_hash_valid": true,
+      "project": "G",
+      "rejected": true
+    },
+    {
+      "errors": [
+        "stored relation disagrees: lineage",
+        "stored relation state disagrees: lineage",
+        "stored verdict disagrees"
+      ],
+      "name": "rejected predecessor graft",
+      "outer_self_hash_valid": true,
+      "project": "A",
+      "rejected": true
+    },
+    {
+      "errors": [
+        "policy content mismatch",
+        "policy expected digest mismatch",
+        "stored policy compatibility mismatch"
+      ],
+      "name": "silent policy threshold change",
+      "outer_self_hash_valid": true,
+      "project": "A",
+      "rejected": true
+    }
+  ],
+  "semantic_tamper_tests_pass": true,
+  "stored_executables_reexecuted": 112,
+  "verdict": "PASS"
+}

@@ -1,0 +1,25 @@
+{
+  "change_families": [
+    "automated formatting",
+    "build reorganization",
+    "header-only migration",
+    "compiler-warning cleanup",
+    "const qualification"
+  ],
+  "commit": "fdcef3ebf886fa210d14956d3c068a653e76a24e",
+  "date": "2018-10-03",
+  "id": "HIST_JSMN_MODERNIZE",
+  "internals_modified": false,
+  "license": "MIT",
+  "matrix_mapping": [
+    "format",
+    "reorder",
+    "dependency_upgrade"
+  ],
+  "repository": "zserge/jsmn",
+  "retrieval_mode": "read-only public repository records at an immutable commit",
+  "retrieved_at": "2026-07-18T21:32:05+09:00",
+  "title": "Modernize (#149)",
+  "url": "https://github.com/zserge/jsmn/commit/fdcef3ebf886fa210d14956d3c068a653e76a24e",
+  "use": "Motivates lifecycle cells in which source shape, build structure, and compiler-facing declarations change while intended behavior remains stable."
+}

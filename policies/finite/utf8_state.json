@@ -1,0 +1,117 @@
+{
+  "behavior": {
+    "case_count": 65536,
+    "contract_id": "utf8_state",
+    "input_domain": {
+      "x": [
+        0,
+        255
+      ],
+      "y": [
+        0,
+        255
+      ]
+    },
+    "output_bytes_per_case": 1,
+    "reference_semantics": "independent-complete-enumeration-v1"
+  },
+  "canonicalization": {
+    "certificate": "sorted-key-ascii-json-v1",
+    "policy": "sorted-key-ascii-json-v1"
+  },
+  "compiler_cells": [
+    {
+      "assembly_flags": [
+        "-std=c11"
+      ],
+      "compile_flags": [
+        "-std=c11",
+        "-Wall",
+        "-Wextra",
+        "-Werror"
+      ],
+      "compiler": "gcc",
+      "optimization": "-O0",
+      "version": "gcc (Debian 14.2.0-19) 14.2.0"
+    },
+    {
+      "assembly_flags": [
+        "-std=c11"
+      ],
+      "compile_flags": [
+        "-std=c11",
+        "-Wall",
+        "-Wextra",
+        "-Werror"
+      ],
+      "compiler": "gcc",
+      "optimization": "-O2",
+      "version": "gcc (Debian 14.2.0-19) 14.2.0"
+    },
+    {
+      "assembly_flags": [
+        "-std=c11"
+      ],
+      "compile_flags": [
+        "-std=c11",
+        "-Wall",
+        "-Wextra",
+        "-Werror"
+      ],
+      "compiler": "clang",
+      "optimization": "-O0",
+      "version": "clang version 17.0.0 (https://github.com/swiftlang/llvm-project.git 10999b6d034fe318f3d56c83bddb6572593a8bb0)"
+    },
+    {
+      "assembly_flags": [
+        "-std=c11"
+      ],
+      "compile_flags": [
+        "-std=c11",
+        "-Wall",
+        "-Wextra",
+        "-Werror"
+      ],
+      "compiler": "clang",
+      "optimization": "-O2",
+      "version": "clang version 17.0.0 (https://github.com/swiftlang/llvm-project.git 10999b6d034fe318f3d56c83bddb6572593a8bb0)"
+    }
+  ],
+  "continuity": {
+    "baseline_count": 28,
+    "required_count": 26,
+    "scope": "each-named-parent-issued-identities"
+  },
+  "decision": {
+    "hold": "no-false-and-at-least-one-unresolved",
+    "pass": "all-relations-established-true",
+    "reject": "any-relation-established-false",
+    "rule": "false-dominates-unresolved-conjunction-v1"
+  },
+  "evidence_inventory": [
+    "behavior",
+    "recovery",
+    "continuity",
+    "source_conformance",
+    "executable_reproduction",
+    "integrity",
+    "lineage"
+  ],
+  "layer": "finite-contract",
+  "policy_id": "finite:utf8_state:v1",
+  "schema": "tracecert.policy.v1",
+  "source_profiles": {
+    "accepted": [
+      "direct-v1",
+      "tc-helper-v1",
+      "tc-helper-v2"
+    ],
+    "inventory_rule": "exact-issued-carrier-accounting"
+  },
+  "watermark": {
+    "code": "four-independent-Hamming-7-4-blocks",
+    "minimum_distance": 3,
+    "payload_bits": 16,
+    "unique_recovery_condition": "2e+s<3-per-block"
+  }
+}

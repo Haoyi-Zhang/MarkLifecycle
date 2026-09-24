@@ -1,0 +1,12 @@
+{
+  "authors": "Danny Dig and Ralph Johnson",
+  "identifier": "10.1002/smr.328",
+  "key": "dig2006api",
+  "pages": "83--107",
+  "retrieved_at": "2026-07-18T21:32:05+09:00",
+  "supports": "API evolution frequently proceeds through refactoring, motivating dependency/interface migration cells.",
+  "title": "How Do APIs Evolve? A Story of Refactoring",
+  "venue": "Journal of Software Maintenance and Evolution: Research and Practice",
+  "verification_status": "VERIFIED_SCHOLARLY_IDENTIFIER",
+  "year": 2006
+}

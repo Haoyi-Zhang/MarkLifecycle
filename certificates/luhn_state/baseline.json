@@ -1,0 +1,653 @@
+{
+  "behavior": {
+    "contract": "all x,y in {0,...,255}; one output byte",
+    "exact_finite_equivalence": true,
+    "maturity": "VERIFIED",
+    "reference_sha256": "341fdfe4c5a25356d09d3295f97647188ba779d283bcf8bf4da0c2d071bd5e39",
+    "reference_table_path": "artifact/benchmark/reference/luhn_state.bin",
+    "toolchains": [
+      {
+        "assembly_command": [
+          "gcc",
+          "-std=c11",
+          "-O0",
+          "-S",
+          "artifact/benchmark/generated/luhn_state/baseline/kernel.c",
+          "-o",
+          "artifact/results/raw/luhn_state/baseline/gcc_o0.s"
+        ],
+        "assembly_path": "artifact/results/raw/luhn_state/baseline/gcc_o0.s",
+        "assembly_retention": {
+          "method": "immediate-constant presence in emitted assembly; heuristic, not a formal detector",
+          "retained_carrier_ids": [],
+          "retained_count": 0,
+          "retention": 0.0,
+          "source_present_count": 28
+        },
+        "assembly_returncode": 0,
+        "assembly_sha256": "ba3d3c934b77ff4f359de189060dd92bf8f9a9545e8f7e1581b72797ea12e518",
+        "binary_path": "artifact/results/raw/luhn_state/baseline/gcc_o0",
+        "binary_sha256": "360828c18ebbd079cccc9af0379774650b48bd9d09c869f59135e519d3f15570",
+        "compile_command": [
+          "gcc",
+          "-std=c11",
+          "-Wall",
+          "-Wextra",
+          "-Werror",
+          "-O0",
+          "artifact/benchmark/generated/luhn_state/baseline/kernel.c",
+          "-o",
+          "artifact/results/raw/luhn_state/baseline/gcc_o0"
+        ],
+        "compile_returncode": 0,
+        "compiler": "gcc",
+        "compiler_version": "gcc (Debian 14.2.0-19) 14.2.0",
+        "first_mismatch": null,
+        "matches_reference": true,
+        "optimization": "-O0",
+        "output_path": "artifact/results/raw/luhn_state/baseline/gcc_o0.out",
+        "output_sha256": "341fdfe4c5a25356d09d3295f97647188ba779d283bcf8bf4da0c2d071bd5e39",
+        "output_size": 65536,
+        "run_returncode": 0,
+        "status": "EXECUTED",
+        "stderr": ""
+      },
+      {
+        "assembly_command": [
+          "gcc",
+          "-std=c11",
+          "-O2",
+          "-S",
+          "artifact/benchmark/generated/luhn_state/baseline/kernel.c",
+          "-o",
+          "artifact/results/raw/luhn_state/baseline/gcc_o2.s"
+        ],
+        "assembly_path": "artifact/results/raw/luhn_state/baseline/gcc_o2.s",
+        "assembly_retention": {
+          "method": "immediate-constant presence in emitted assembly; heuristic, not a formal detector",
+          "retained_carrier_ids": [],
+          "retained_count": 0,
+          "retention": 0.0,
+          "source_present_count": 28
+        },
+        "assembly_returncode": 0,
+        "assembly_sha256": "229b3af37a370c809e9c33a7ea3cd35e97e900b43bdff3efba160e86063cf944",
+        "binary_path": "artifact/results/raw/luhn_state/baseline/gcc_o2",
+        "binary_sha256": "90081732d0a53acf975833c3d943240bab01ee51f2a4c9d2128a566ccf9da943",
+        "compile_command": [
+          "gcc",
+          "-std=c11",
+          "-Wall",
+          "-Wextra",
+          "-Werror",
+          "-O2",
+          "artifact/benchmark/generated/luhn_state/baseline/kernel.c",
+          "-o",
+          "artifact/results/raw/luhn_state/baseline/gcc_o2"
+        ],
+        "compile_returncode": 0,
+        "compiler": "gcc",
+        "compiler_version": "gcc (Debian 14.2.0-19) 14.2.0",
+        "first_mismatch": null,
+        "matches_reference": true,
+        "optimization": "-O2",
+        "output_path": "artifact/results/raw/luhn_state/baseline/gcc_o2.out",
+        "output_sha256": "341fdfe4c5a25356d09d3295f97647188ba779d283bcf8bf4da0c2d071bd5e39",
+        "output_size": 65536,
+        "run_returncode": 0,
+        "status": "EXECUTED",
+        "stderr": ""
+      },
+      {
+        "assembly_command": [
+          "clang",
+          "-std=c11",
+          "-O0",
+          "-S",
+          "artifact/benchmark/generated/luhn_state/baseline/kernel.c",
+          "-o",
+          "artifact/results/raw/luhn_state/baseline/clang_o0.s"
+        ],
+        "assembly_path": "artifact/results/raw/luhn_state/baseline/clang_o0.s",
+        "assembly_retention": {
+          "method": "immediate-constant presence in emitted assembly; heuristic, not a formal detector",
+          "retained_carrier_ids": [
+            "luhn_state:B:00",
+            "luhn_state:B:01",
+            "luhn_state:B:02",
+            "luhn_state:B:03",
+            "luhn_state:B:04",
+            "luhn_state:B:05",
+            "luhn_state:B:06",
+            "luhn_state:B:07",
+            "luhn_state:B:08",
+            "luhn_state:B:09",
+            "luhn_state:B:10",
+            "luhn_state:B:11",
+            "luhn_state:B:12",
+            "luhn_state:B:13",
+            "luhn_state:B:14",
+            "luhn_state:B:15",
+            "luhn_state:B:16",
+            "luhn_state:B:17",
+            "luhn_state:B:18",
+            "luhn_state:B:19",
+            "luhn_state:B:20",
+            "luhn_state:B:21",
+            "luhn_state:B:22",
+            "luhn_state:B:23",
+            "luhn_state:B:24",
+            "luhn_state:B:25",
+            "luhn_state:B:26",
+            "luhn_state:B:27"
+          ],
+          "retained_count": 28,
+          "retention": 1.0,
+          "source_present_count": 28
+        },
+        "assembly_returncode": 0,
+        "assembly_sha256": "e35413ae4585ceadd7caa806be398b1d70513b8550305d17f6284dc03c562bf1",
+        "binary_path": "artifact/results/raw/luhn_state/baseline/clang_o0",
+        "binary_sha256": "48b8bd035bdd33db4a2f41cf09af96928309c7603dc9dd665ac26205c72777f8",
+        "compile_command": [
+          "clang",
+          "-std=c11",
+          "-Wall",
+          "-Wextra",
+          "-Werror",
+          "-O0",
+          "artifact/benchmark/generated/luhn_state/baseline/kernel.c",
+          "-o",
+          "artifact/results/raw/luhn_state/baseline/clang_o0"
+        ],
+        "compile_returncode": 0,
+        "compiler": "clang",
+        "compiler_version": "clang version 17.0.0 (https://github.com/swiftlang/llvm-project.git 10999b6d034fe318f3d56c83bddb6572593a8bb0)",
+        "first_mismatch": null,
+        "matches_reference": true,
+        "optimization": "-O0",
+        "output_path": "artifact/results/raw/luhn_state/baseline/clang_o0.out",
+        "output_sha256": "341fdfe4c5a25356d09d3295f97647188ba779d283bcf8bf4da0c2d071bd5e39",
+        "output_size": 65536,
+        "run_returncode": 0,
+        "status": "EXECUTED",
+        "stderr": ""
+      },
+      {
+        "assembly_command": [
+          "clang",
+          "-std=c11",
+          "-O2",
+          "-S",
+          "artifact/benchmark/generated/luhn_state/baseline/kernel.c",
+          "-o",
+          "artifact/results/raw/luhn_state/baseline/clang_o2.s"
+        ],
+        "assembly_path": "artifact/results/raw/luhn_state/baseline/clang_o2.s",
+        "assembly_retention": {
+          "method": "immediate-constant presence in emitted assembly; heuristic, not a formal detector",
+          "retained_carrier_ids": [],
+          "retained_count": 0,
+          "retention": 0.0,
+          "source_present_count": 28
+        },
+        "assembly_returncode": 0,
+        "assembly_sha256": "d7f008375964194446d766d7ecf98c9ea2a1cd11c256c2c9cef5f4aa62a78c9c",
+        "binary_path": "artifact/results/raw/luhn_state/baseline/clang_o2",
+        "binary_sha256": "e5407660a576f16110de058c54d6f37c22c93a5e5ede416738180c5e6c8be9c0",
+        "compile_command": [
+          "clang",
+          "-std=c11",
+          "-Wall",
+          "-Wextra",
+          "-Werror",
+          "-O2",
+          "artifact/benchmark/generated/luhn_state/baseline/kernel.c",
+          "-o",
+          "artifact/results/raw/luhn_state/baseline/clang_o2"
+        ],
+        "compile_returncode": 0,
+        "compiler": "clang",
+        "compiler_version": "clang version 17.0.0 (https://github.com/swiftlang/llvm-project.git 10999b6d034fe318f3d56c83bddb6572593a8bb0)",
+        "first_mismatch": null,
+        "matches_reference": true,
+        "optimization": "-O2",
+        "output_path": "artifact/results/raw/luhn_state/baseline/clang_o2.out",
+        "output_sha256": "341fdfe4c5a25356d09d3295f97647188ba779d283bcf8bf4da0c2d071bd5e39",
+        "output_size": 65536,
+        "run_returncode": 0,
+        "status": "EXECUTED",
+        "stderr": ""
+      }
+    ]
+  },
+  "certificate_sha256": "63a874cdad34679c7f0a9725e200e603d832733f65a1b625b9320830f7eb86e2",
+  "chain": {
+    "all_parents_accepted": true,
+    "hash_link_valid": true,
+    "parents": [],
+    "policy_compatible": true,
+    "predecessor_accepted": true,
+    "predecessor_certificate_sha256": null,
+    "predecessor_decision": null,
+    "predecessor_policy_canonical_sha256": null
+  },
+  "kernel": "luhn_state",
+  "manifest": {
+    "canonical_sha256": "6d20f2eb74265b0a50bedf911d0d1741ccc9344fa56bdb9917f22433246742c6",
+    "file_sha256": "224b78df64f888204d3164c23d7a350be920519d61d2825dd09bbcf4c9fe435a",
+    "path": "artifact/benchmark/generated/luhn_state/baseline/watermark_manifest.json"
+  },
+  "parent_variant": null,
+  "parent_variants": [],
+  "policy": {
+    "canonical_sha256": "16a8755acc2557baac935352eceea679a9cfab4f995b218e29f2148da1a43881",
+    "file_sha256": "374f6ed543c821ce6cc249aeabd4808f8e69ed913802d58f8370305eaecc1040",
+    "path": "artifact/policies/finite/luhn_state.json",
+    "policy_id": "finite:luhn_state:v1"
+  },
+  "relations": {
+    "behavior": {
+      "exact_finite_equivalence": true,
+      "passed": true,
+      "state": "ESTABLISHED_TRUE"
+    },
+    "continuity": {
+      "baseline_count": 28,
+      "mapped_count": 28,
+      "parent_edge_count": 0,
+      "passed": true,
+      "per_parent": [],
+      "required_count": 26,
+      "state": "ESTABLISHED_TRUE"
+    },
+    "executable_reproduction": {
+      "passed": true,
+      "state": "ESTABLISHED_TRUE"
+    },
+    "integrity": {
+      "passed": true,
+      "state": "ESTABLISHED_TRUE"
+    },
+    "lineage": {
+      "passed": true,
+      "state": "ESTABLISHED_TRUE"
+    },
+    "recovery": {
+      "passed": true,
+      "payload_hex": "15d5",
+      "state": "ESTABLISHED_TRUE",
+      "status": "CERTIFIED_UNIQUE"
+    },
+    "source_conformance": {
+      "passed": true,
+      "state": "ESTABLISHED_TRUE"
+    }
+  },
+  "schema": "tracecert.release.v5",
+  "source": {
+    "parent_sha256": null,
+    "parent_sha256s": [],
+    "path": "artifact/benchmark/generated/luhn_state/baseline/kernel.c",
+    "sha256": "9267b90d4968ade16bce0f37fa1ddc401edfc87407c84185071e5fdd71075cc7"
+  },
+  "variant": "baseline",
+  "verdict": "PASS",
+  "watermark": {
+    "continuity_status": "TRACEABLE_WITHIN_LOCK",
+    "decode": {
+      "blocks": [
+        {
+          "candidate_count": 1,
+          "condition_holds": true,
+          "decoded_bits": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "erasures": 0,
+          "errors": 0,
+          "status": "CERTIFIED_UNIQUE"
+        },
+        {
+          "candidate_count": 1,
+          "condition_holds": true,
+          "decoded_bits": [
+            0,
+            1,
+            0,
+            1
+          ],
+          "erasures": 0,
+          "errors": 0,
+          "status": "CERTIFIED_UNIQUE"
+        },
+        {
+          "candidate_count": 1,
+          "condition_holds": true,
+          "decoded_bits": [
+            1,
+            1,
+            0,
+            1
+          ],
+          "erasures": 0,
+          "errors": 0,
+          "status": "CERTIFIED_UNIQUE"
+        },
+        {
+          "candidate_count": 1,
+          "condition_holds": true,
+          "decoded_bits": [
+            0,
+            1,
+            0,
+            1
+          ],
+          "erasures": 0,
+          "errors": 0,
+          "status": "CERTIFIED_UNIQUE"
+        }
+      ],
+      "payload_hex": "15d5",
+      "status": "CERTIFIED_UNIQUE",
+      "total_erasures": 0,
+      "total_errors": 0
+    },
+    "expected_payload_hex": "15d5",
+    "observed_symbols": "1101001010010110101010100101",
+    "payload_recoverable": true,
+    "provenance": {
+      "aggregation": "genesis",
+      "baseline_count": 28,
+      "mapped_count": 28,
+      "mappings": [],
+      "traceability": 1.0
+    },
+    "provenance_by_parent": [],
+    "source_carriers": [
+      {
+        "carrier_id": "luhn_state:B:00",
+        "constant": 4211281753,
+        "expected_bit": 1,
+        "family": "direct-xor",
+        "line": 8,
+        "observed_bit": 1,
+        "position": 0,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "luhn_state:B:01",
+        "constant": 1704163195,
+        "expected_bit": 1,
+        "family": "direct-xor",
+        "line": 9,
+        "observed_bit": 1,
+        "position": 1,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "luhn_state:B:02",
+        "constant": 935303521,
+        "expected_bit": 0,
+        "family": "direct-add",
+        "line": 10,
+        "observed_bit": 0,
+        "position": 2,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "luhn_state:B:03",
+        "constant": 3181091613,
+        "expected_bit": 1,
+        "family": "direct-xor",
+        "line": 11,
+        "observed_bit": 1,
+        "position": 3,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "luhn_state:B:04",
+        "constant": 3784569275,
+        "expected_bit": 0,
+        "family": "direct-add",
+        "line": 12,
+        "observed_bit": 0,
+        "position": 4,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "luhn_state:B:05",
+        "constant": 2780161979,
+        "expected_bit": 0,
+        "family": "direct-add",
+        "line": 13,
+        "observed_bit": 0,
+        "position": 5,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "luhn_state:B:06",
+        "constant": 433139003,
+        "expected_bit": 1,
+        "family": "direct-xor",
+        "line": 14,
+        "observed_bit": 1,
+        "position": 6,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "luhn_state:B:07",
+        "constant": 3816101689,
+        "expected_bit": 0,
+        "family": "direct-add",
+        "line": 15,
+        "observed_bit": 0,
+        "position": 7,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "luhn_state:B:08",
+        "constant": 1137379771,
+        "expected_bit": 1,
+        "family": "direct-xor",
+        "line": 16,
+        "observed_bit": 1,
+        "position": 8,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "luhn_state:B:09",
+        "constant": 4219834333,
+        "expected_bit": 0,
+        "family": "direct-add",
+        "line": 17,
+        "observed_bit": 0,
+        "position": 9,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "luhn_state:B:10",
+        "constant": 4192722871,
+        "expected_bit": 0,
+        "family": "direct-add",
+        "line": 18,
+        "observed_bit": 0,
+        "position": 10,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "luhn_state:B:11",
+        "constant": 2070669691,
+        "expected_bit": 1,
+        "family": "direct-xor",
+        "line": 19,
+        "observed_bit": 1,
+        "position": 11,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "luhn_state:B:12",
+        "constant": 960600025,
+        "expected_bit": 0,
+        "family": "direct-add",
+        "line": 20,
+        "observed_bit": 0,
+        "position": 12,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "luhn_state:B:13",
+        "constant": 4250354435,
+        "expected_bit": 1,
+        "family": "direct-xor",
+        "line": 21,
+        "observed_bit": 1,
+        "position": 13,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "luhn_state:B:14",
+        "constant": 1576614349,
+        "expected_bit": 1,
+        "family": "direct-xor",
+        "line": 22,
+        "observed_bit": 1,
+        "position": 14,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "luhn_state:B:15",
+        "constant": 4224156573,
+        "expected_bit": 0,
+        "family": "direct-add",
+        "line": 23,
+        "observed_bit": 0,
+        "position": 15,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "luhn_state:B:16",
+        "constant": 1329722853,
+        "expected_bit": 1,
+        "family": "direct-xor",
+        "line": 24,
+        "observed_bit": 1,
+        "position": 16,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "luhn_state:B:17",
+        "constant": 3781235497,
+        "expected_bit": 0,
+        "family": "direct-add",
+        "line": 25,
+        "observed_bit": 0,
+        "position": 17,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "luhn_state:B:18",
+        "constant": 1571671449,
+        "expected_bit": 1,
+        "family": "direct-xor",
+        "line": 26,
+        "observed_bit": 1,
+        "position": 18,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "luhn_state:B:19",
+        "constant": 3153827227,
+        "expected_bit": 0,
+        "family": "direct-add",
+        "line": 27,
+        "observed_bit": 0,
+        "position": 19,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "luhn_state:B:20",
+        "constant": 1461272437,
+        "expected_bit": 1,
+        "family": "direct-xor",
+        "line": 28,
+        "observed_bit": 1,
+        "position": 20,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "luhn_state:B:21",
+        "constant": 905158615,
+        "expected_bit": 0,
+        "family": "direct-add",
+        "line": 29,
+        "observed_bit": 0,
+        "position": 21,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "luhn_state:B:22",
+        "constant": 1003069783,
+        "expected_bit": 1,
+        "family": "direct-xor",
+        "line": 30,
+        "observed_bit": 1,
+        "position": 22,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "luhn_state:B:23",
+        "constant": 1762651575,
+        "expected_bit": 0,
+        "family": "direct-add",
+        "line": 31,
+        "observed_bit": 0,
+        "position": 23,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "luhn_state:B:24",
+        "constant": 2169614739,
+        "expected_bit": 0,
+        "family": "direct-add",
+        "line": 32,
+        "observed_bit": 0,
+        "position": 24,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "luhn_state:B:25",
+        "constant": 1407657395,
+        "expected_bit": 1,
+        "family": "direct-xor",
+        "line": 33,
+        "observed_bit": 1,
+        "position": 25,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "luhn_state:B:26",
+        "constant": 3883906023,
+        "expected_bit": 0,
+        "family": "direct-add",
+        "line": 34,
+        "observed_bit": 0,
+        "position": 26,
+        "state": "MATCH"
+      },
+      {
+        "carrier_id": "luhn_state:B:27",
+        "constant": 1392602955,
+        "expected_bit": 1,
+        "family": "direct-xor",
+        "line": 35,
+        "observed_bit": 1,
+        "position": 27,
+        "state": "MATCH"
+      }
+    ],
+    "traceability_threshold": 0.9285714285714286
+  }
+}

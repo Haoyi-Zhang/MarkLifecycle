@@ -1,0 +1,177 @@
+{
+  "carriers": [
+    {
+      "bit": 0,
+      "carrier_id": "crc8_step:B:00",
+      "constant": 3252019585,
+      "position": 0
+    },
+    {
+      "bit": 0,
+      "carrier_id": "crc8_step:B:01",
+      "constant": 2335420335,
+      "position": 1
+    },
+    {
+      "bit": 1,
+      "carrier_id": "crc8_step:B:02",
+      "constant": 4124811045,
+      "position": 2
+    },
+    {
+      "bit": 0,
+      "carrier_id": "crc8_step:B:03",
+      "constant": 356058095,
+      "position": 3
+    },
+    {
+      "bit": 1,
+      "carrier_id": "crc8_step:B:04",
+      "constant": 388467663,
+      "position": 4
+    },
+    {
+      "bit": 1,
+      "carrier_id": "crc8_step:B:05",
+      "constant": 2802258323,
+      "position": 5
+    },
+    {
+      "bit": 0,
+      "carrier_id": "crc8_step:B:06",
+      "constant": 201313723,
+      "position": 6
+    },
+    {
+      "bit": 1,
+      "carrier_id": "crc8_step:B:07",
+      "constant": 1298882847,
+      "position": 7
+    },
+    {
+      "bit": 1,
+      "carrier_id": "crc8_step:B:08",
+      "constant": 3115418379,
+      "position": 8
+    },
+    {
+      "bit": 1,
+      "carrier_id": "crc8_step:B:09",
+      "constant": 930155503,
+      "position": 9
+    },
+    {
+      "bit": 0,
+      "carrier_id": "crc8_step:B:10",
+      "constant": 3716646181,
+      "position": 10
+    },
+    {
+      "bit": 0,
+      "carrier_id": "crc8_step:B:11",
+      "constant": 3751147839,
+      "position": 11
+    },
+    {
+      "bit": 0,
+      "carrier_id": "crc8_step:B:12",
+      "constant": 3616502195,
+      "position": 12
+    },
+    {
+      "bit": 0,
+      "carrier_id": "crc8_step:B:13",
+      "constant": 1196140995,
+      "position": 13
+    },
+    {
+      "bit": 0,
+      "carrier_id": "crc8_step:B:14",
+      "constant": 1024952803,
+      "position": 14
+    },
+    {
+      "bit": 0,
+      "carrier_id": "crc8_step:B:15",
+      "constant": 2981622197,
+      "position": 15
+    },
+    {
+      "bit": 0,
+      "carrier_id": "crc8_step:B:16",
+      "constant": 91839871,
+      "position": 16
+    },
+    {
+      "bit": 0,
+      "carrier_id": "crc8_step:B:17",
+      "constant": 905018877,
+      "position": 17
+    },
+    {
+      "bit": 0,
+      "carrier_id": "crc8_step:B:18",
+      "constant": 4149552485,
+      "position": 18
+    },
+    {
+      "bit": 0,
+      "carrier_id": "crc8_step:B:19",
+      "constant": 1338234289,
+      "position": 19
+    },
+    {
+      "bit": 0,
+      "carrier_id": "crc8_step:B:20",
+      "constant": 661124463,
+      "position": 20
+    },
+    {
+      "bit": 1,
+      "carrier_id": "crc8_step:B:21",
+      "constant": 3647310679,
+      "position": 21
+    },
+    {
+      "bit": 1,
+      "carrier_id": "crc8_step:B:22",
+      "constant": 54869835,
+      "position": 22
+    },
+    {
+      "bit": 0,
+      "carrier_id": "crc8_step:B:23",
+      "constant": 3177424795,
+      "position": 23
+    },
+    {
+      "bit": 1,
+      "carrier_id": "crc8_step:B:24",
+      "constant": 4293472051,
+      "position": 24
+    },
+    {
+      "bit": 0,
+      "carrier_id": "crc8_step:B:25",
+      "constant": 764233665,
+      "position": 25
+    },
+    {
+      "bit": 0,
+      "carrier_id": "crc8_step:B:26",
+      "constant": 499630873,
+      "position": 26
+    },
+    {
+      "bit": 1,
+      "carrier_id": "crc8_step:B:27",
+      "constant": 4014808969,
+      "position": 27
+    }
+  ],
+  "code": "four independent Hamming(7,4) blocks",
+  "kernel": "crc8_step",
+  "minimum_distance": 3,
+  "payload_hex": "e801",
+  "schema": "tracecert.watermark-manifest.v1"
+}

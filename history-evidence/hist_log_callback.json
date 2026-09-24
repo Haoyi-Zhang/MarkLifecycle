@@ -1,0 +1,23 @@
+{
+  "change_families": [
+    "helper extraction",
+    "callback architecture",
+    "API evolution",
+    "state representation change"
+  ],
+  "commit": "4c5da2155e0d60c704848fe5312d6049ddf04c08",
+  "date": "2017-05-06",
+  "id": "HIST_LOG_CALLBACK",
+  "internals_modified": false,
+  "license": "MIT",
+  "matrix_mapping": [
+    "extract",
+    "dependency_upgrade"
+  ],
+  "repository": "rxi/log.c",
+  "retrieval_mode": "read-only public repository records at an immutable commit",
+  "retrieved_at": "2026-07-18T21:32:05+09:00",
+  "title": "Updated to use callback based system",
+  "url": "https://github.com/rxi/log.c/commit/4c5da2155e0d60c704848fe5312d6049ddf04c08",
+  "use": "Grounds transformations that move operations through helper interfaces and alter dependency/API boundaries."
+}

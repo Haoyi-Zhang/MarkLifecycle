@@ -1,0 +1,24 @@
+{
+  "after_blob": "c00e8945fbbffa7653ac9d11528d2e883f2152d0",
+  "before_blob": "f2f9a6a9fed6e1d6e6817bc7da53f7b6ae79d54b",
+  "change_families": [
+    "operation reordering",
+    "whitespace normalization",
+    "performance refactoring"
+  ],
+  "commit": "cd5f93974067a143434b0e9a1c1a8ae906af599b",
+  "date": "2024-10-20",
+  "id": "HIST_INIH_ORDER",
+  "internals_modified": false,
+  "license": "BSD-3-Clause",
+  "matrix_mapping": [
+    "reorder",
+    "format"
+  ],
+  "repository": "benhoyt/inih",
+  "retrieval_mode": "read-only public repository records at an immutable commit",
+  "retrieved_at": "2026-07-21T10:00:00+09:00",
+  "title": "swap rstrip and lskip to reduce execution time of strlen() (#177)",
+  "url": "https://github.com/benhoyt/inih/commit/cd5f93974067a143434b0e9a1c1a8ae906af599b",
+  "use": "Grounds an order-changing maintenance edit whose bounded normalized-string contract remains equivalent."
+}

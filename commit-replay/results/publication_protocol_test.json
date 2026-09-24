@@ -1,0 +1,13 @@
+{
+  "atomic_publish_operations": 16,
+  "concurrent_execution_attempts": 192,
+  "invalid_output_examples": [],
+  "non_busy_error_propagation_pass": true,
+  "observed_partial_or_invalid_outputs": 0,
+  "permanent_busy_failure_pass": true,
+  "primary_and_independent_paths_tested": true,
+  "schema": "tse01.executable-publication-test.v1",
+  "scientific_case_accounting": "excluded; reproducibility stress only",
+  "transient_busy_retry_pass": true,
+  "verdict": "PASS"
+}

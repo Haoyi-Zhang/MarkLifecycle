@@ -1,0 +1,24 @@
+{
+  "completed_here": [
+    "complete three-valued gate-model enumeration and independent reconstruction",
+    "finite-domain primary and independent execution",
+    "seven-project routine-level replay and independent reconstruction",
+    "exact-source jsmn replay at one public commit and its direct parent",
+    "paper compilation, author and reference audits, and full-document visual inspection"
+  ],
+  "delegated_tasks": [],
+  "objectively_unavailable": [
+    {
+      "attempts": [
+        "read-only public repository inspection",
+        "immutable commit-file retrieval",
+        "bounded changed-region reconstruction"
+      ],
+      "delegation": "none",
+      "observed_blocker": "the final artifact does not contain complete historical dependency closures for those six repositories",
+      "scientific_resolution": "retain immutable commit-derived routine adapters, add one exact-source transfer check, and state explicitly that the study is not a seven-repository whole-build evaluation",
+      "task": "build complete historical repository and dependency snapshots for the six public subjects not covered by the exact-source jsmn replay"
+    }
+  ],
+  "schema": "tse01.local-execution-gaps.v1"
+}

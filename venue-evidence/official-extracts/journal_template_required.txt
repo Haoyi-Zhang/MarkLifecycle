@@ -1,0 +1,1 @@
+IEEE Computer Society journal submissions must use an article template; LaTeX is accepted.

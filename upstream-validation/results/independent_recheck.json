@@ -1,0 +1,44 @@
+{
+  "case_evaluations_reexecuted": 768,
+  "compiler_cells_rebuilt": 32,
+  "cross_compiler_and_optimization_stable": true,
+  "default_and_parent_link_configs_equal": true,
+  "errors": [],
+  "mutation_tests": [
+    {
+      "name": "source-blob",
+      "rejected": true
+    },
+    {
+      "name": "stored-output",
+      "rejected": true
+    },
+    {
+      "name": "summary-count",
+      "rejected": true
+    }
+  ],
+  "schema": "tse01.upstream-validation-independent-recheck",
+  "source_checks": {
+    "after/jsmn.h": {
+      "actual": "b95368a2061ed52e817f8dbd885d3a1f477efccc",
+      "expected": "b95368a2061ed52e817f8dbd885d3a1f477efccc",
+      "match": true
+    },
+    "before/jsmn.c": {
+      "actual": "853c3f17ad7a923dc40d61bf435d943547c0ea63",
+      "expected": "853c3f17ad7a923dc40d61bf435d943547c0ea63",
+      "match": true
+    },
+    "before/jsmn.h": {
+      "actual": "5a5200ee2fb8a7ce6dac7e4864b34eaadb9a917b",
+      "expected": "5a5200ee2fb8a7ce6dac7e4864b34eaadb9a917b",
+      "match": true
+    }
+  },
+  "strict_changed_case_ids": [
+    22,
+    23
+  ],
+  "verdict": "PASS"
+}

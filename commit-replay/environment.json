@@ -1,0 +1,25 @@
+{
+  "clang": "clang version 17.0.0 (https://github.com/swiftlang/llvm-project.git 10999b6d034fe318f3d56c83bddb6572593a8bb0)",
+  "gcc": "gcc (Debian 14.2.0-19) 14.2.0",
+  "machine": "x86_64",
+  "python": "3.13.5",
+  "system": "Linux",
+  "toolchains": [
+    {
+      "compiler": "gcc",
+      "optimization": "-O0"
+    },
+    {
+      "compiler": "gcc",
+      "optimization": "-O2"
+    },
+    {
+      "compiler": "clang",
+      "optimization": "-O0"
+    },
+    {
+      "compiler": "clang",
+      "optimization": "-O2"
+    }
+  ]
+}

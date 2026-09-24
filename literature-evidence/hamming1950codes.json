@@ -1,0 +1,12 @@
+{
+  "authors": "Richard W. Hamming",
+  "identifier": "10.1002/j.1538-7305.1950.tb00463.x",
+  "key": "hamming1950codes",
+  "pages": "147--160",
+  "retrieved_at": "2026-07-18T21:32:05+09:00",
+  "supports": "The minimum-distance bound supplies the unique recovery condition for the four Hamming blocks.",
+  "title": "Error Detecting and Error Correcting Codes",
+  "venue": "Bell System Technical Journal",
+  "verification_status": "VERIFIED_SCHOLARLY_IDENTIFIER",
+  "year": 1950
+}

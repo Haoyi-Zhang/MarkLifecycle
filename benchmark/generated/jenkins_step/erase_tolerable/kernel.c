@@ -1,0 +1,48 @@
+#include <stdint.h>
+#include <stdio.h>
+static __attribute__((noinline)) uint32_t tc_add_v2(uint32_t v, uint32_t k) { return (v - k) + k; }
+static __attribute__((noinline)) uint32_t tc_xor_v2(uint32_t v, uint32_t k) { return v ^ (k ^ k); }
+
+static uint8_t kernel(uint8_t x, uint8_t y) {
+uint32_t accumulator = ((uint32_t)x + y) & 0xffu;
+accumulator = (accumulator + ((accumulator << 3) & 0xffu)) & 0xffu;
+accumulator ^= accumulator >> 4;
+accumulator = (accumulator * 0x1bu) & 0xffu;
+accumulator ^= accumulator >> 3;
+accumulator = tc_xor_v2(accumulator, 0x71af493bu);
+accumulator = tc_add_v2(accumulator, 0xe52b7145u);
+accumulator = tc_add_v2(accumulator, 0x0b41d799u);
+accumulator = tc_xor_v2(accumulator, 0xd71fafd3u);
+accumulator = tc_add_v2(accumulator, 0x4f8b4901u);
+accumulator = tc_xor_v2(accumulator, 0xbf339db9u);
+accumulator = tc_xor_v2(accumulator, 0x4f2b63cbu);
+accumulator = tc_add_v2(accumulator, 0x5159d3bbu);
+accumulator = tc_xor_v2(accumulator, 0x3325e549u);
+accumulator = tc_add_v2(accumulator, 0xc91385ffu);
+accumulator = tc_xor_v2(accumulator, 0x2f115d5bu);
+accumulator = tc_xor_v2(accumulator, 0x6545db39u);
+accumulator = tc_add_v2(accumulator, 0x97cd115du);
+accumulator = tc_add_v2(accumulator, 0x758f1dfbu);
+accumulator = tc_xor_v2(accumulator, 0xf53f731fu);
+accumulator = tc_xor_v2(accumulator, 0x671f57cdu);
+accumulator = tc_add_v2(accumulator, 0x8521fb0du);
+accumulator = tc_xor_v2(accumulator, 0x6f614fabu);
+accumulator = tc_add_v2(accumulator, 0xe1fdfb5du);
+accumulator = tc_add_v2(accumulator, 0x97b1930bu);
+accumulator = tc_xor_v2(accumulator, 0x2d831335u);
+accumulator = tc_add_v2(accumulator, 0x55eb57b5u);
+accumulator = tc_xor_v2(accumulator, 0xedf13bf1u);
+accumulator = tc_add_v2(accumulator, 0x4973d757u);
+accumulator = tc_add_v2(accumulator, 0x0f3975cbu);
+accumulator = tc_xor_v2(accumulator, 0xf1bb253du);
+return (uint8_t)(accumulator & 0xffu);
+}
+int main(void) {
+  for (unsigned x = 0; x < 256; ++x) {
+    for (unsigned y = 0; y < 256; ++y) {
+      unsigned char out = kernel((uint8_t)x, (uint8_t)y);
+      if (fwrite(&out, 1, 1, stdout) != 1) return 2;
+    }
+  }
+  return 0;
+}

@@ -1,0 +1,278 @@
+{
+  "certified_history": {
+    "branches": [
+      [
+        "format"
+      ],
+      [
+        "erase_tolerable"
+      ]
+    ],
+    "merge": "merge_tolerable",
+    "successor": "flip_tolerable",
+    "trunk": [
+      "baseline",
+      "rename",
+      "reorder",
+      "extract",
+      "dependency_upgrade"
+    ]
+  },
+  "decision_fixtures": [
+    {
+      "decision": "PASS",
+      "name": "all-established",
+      "values": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "decision": "HOLD",
+      "name": "one-unresolved",
+      "values": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        null
+      ]
+    },
+    {
+      "decision": "REJECT",
+      "name": "false-dominates-unresolved",
+      "values": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        null,
+        false
+      ]
+    }
+  ],
+  "environment": {
+    "clang": "clang version 17.0.0 (https://github.com/swiftlang/llvm-project.git 10999b6d034fe318f3d56c83bddb6572593a8bb0)",
+    "gcc": "gcc (Debian 14.2.0-19) 14.2.0",
+    "machine": "x86_64",
+    "platform": "Linux-6.18.44-x86_64-with-glibc2.41",
+    "python": "3.13.5",
+    "system": "Linux"
+  },
+  "hold_count": 0,
+  "kernel_count": 12,
+  "multi_parent_release_count": 12,
+  "negative_controls": [
+    "recovery_break",
+    "reseed",
+    "behavior_drift",
+    "tampered_certificate"
+  ],
+  "parent_edge_count": 144,
+  "pass_count": 108,
+  "policy_bridge_fixture_count": 1,
+  "policy_file_count": 12,
+  "reject_count": 36,
+  "rows": 576,
+  "schema": "tse01.finite-summary.v4",
+  "tamper_test": {
+    "errors": [
+      "certificate self-hash mismatch"
+    ],
+    "path": "artifact/results/raw/tampered_certificate.json",
+    "rejected": true
+  },
+  "toolchain_count": 4,
+  "traceability_threshold": 0.9285714285714286,
+  "variant_count": 12,
+  "variants": [
+    {
+      "behavior_pass_kernels": 12,
+      "median_assembly_retention": {
+        "clang-O0": 1.0,
+        "clang-O2": 0.0,
+        "gcc-O0": 0.0,
+        "gcc-O2": 0.0
+      },
+      "median_erasures": 0.0,
+      "median_errors": 0.0,
+      "median_traceability": 1.0,
+      "payload_pass_kernels": 12,
+      "variant": "baseline",
+      "verdict_class": "PASS"
+    },
+    {
+      "behavior_pass_kernels": 12,
+      "median_assembly_retention": {
+        "clang-O0": 1.0,
+        "clang-O2": 0.0,
+        "gcc-O0": 0.0,
+        "gcc-O2": 0.0
+      },
+      "median_erasures": 0.0,
+      "median_errors": 0.0,
+      "median_traceability": 1.0,
+      "payload_pass_kernels": 12,
+      "variant": "rename",
+      "verdict_class": "PASS"
+    },
+    {
+      "behavior_pass_kernels": 12,
+      "median_assembly_retention": {
+        "clang-O0": 1.0,
+        "clang-O2": 0.0,
+        "gcc-O0": 0.0,
+        "gcc-O2": 0.0
+      },
+      "median_erasures": 0.0,
+      "median_errors": 0.0,
+      "median_traceability": 1.0,
+      "payload_pass_kernels": 12,
+      "variant": "reorder",
+      "verdict_class": "PASS"
+    },
+    {
+      "behavior_pass_kernels": 12,
+      "median_assembly_retention": {
+        "clang-O0": 1.0,
+        "clang-O2": 0.0,
+        "gcc-O0": 1.0,
+        "gcc-O2": 0.0
+      },
+      "median_erasures": 0.0,
+      "median_errors": 0.0,
+      "median_traceability": 1.0,
+      "payload_pass_kernels": 12,
+      "variant": "extract",
+      "verdict_class": "PASS"
+    },
+    {
+      "behavior_pass_kernels": 12,
+      "median_assembly_retention": {
+        "clang-O0": 1.0,
+        "clang-O2": 0.0,
+        "gcc-O0": 1.0,
+        "gcc-O2": 0.0
+      },
+      "median_erasures": 0.0,
+      "median_errors": 0.0,
+      "median_traceability": 1.0,
+      "payload_pass_kernels": 12,
+      "variant": "dependency_upgrade",
+      "verdict_class": "PASS"
+    },
+    {
+      "behavior_pass_kernels": 12,
+      "median_assembly_retention": {
+        "clang-O0": 1.0,
+        "clang-O2": 0.0,
+        "gcc-O0": 1.0,
+        "gcc-O2": 0.0
+      },
+      "median_erasures": 0.0,
+      "median_errors": 0.0,
+      "median_traceability": 1.0,
+      "payload_pass_kernels": 12,
+      "variant": "format",
+      "verdict_class": "PASS"
+    },
+    {
+      "behavior_pass_kernels": 12,
+      "median_assembly_retention": {
+        "clang-O0": 1.0,
+        "clang-O2": 0.0,
+        "gcc-O0": 1.0,
+        "gcc-O2": 0.0
+      },
+      "median_erasures": 2.0,
+      "median_errors": 0.0,
+      "median_traceability": 0.9285714285714286,
+      "payload_pass_kernels": 12,
+      "variant": "erase_tolerable",
+      "verdict_class": "PASS"
+    },
+    {
+      "behavior_pass_kernels": 12,
+      "median_assembly_retention": {
+        "clang-O0": 1.0,
+        "clang-O2": 0.0,
+        "gcc-O0": 1.0,
+        "gcc-O2": 0.0
+      },
+      "median_erasures": 2.0,
+      "median_errors": 0.0,
+      "median_traceability": 0.9285714285714286,
+      "payload_pass_kernels": 12,
+      "variant": "merge_tolerable",
+      "verdict_class": "PASS"
+    },
+    {
+      "behavior_pass_kernels": 12,
+      "median_assembly_retention": {
+        "clang-O0": 1.0,
+        "clang-O2": 0.0,
+        "gcc-O0": 1.0,
+        "gcc-O2": 0.0
+      },
+      "median_erasures": 2.0,
+      "median_errors": 2.0,
+      "median_traceability": 0.9285714285714286,
+      "payload_pass_kernels": 12,
+      "variant": "flip_tolerable",
+      "verdict_class": "PASS"
+    },
+    {
+      "behavior_pass_kernels": 12,
+      "median_assembly_retention": {
+        "clang-O0": 1.0,
+        "clang-O2": 0.0,
+        "gcc-O0": 1.0,
+        "gcc-O2": 0.0
+      },
+      "median_erasures": 1.0,
+      "median_errors": 1.0,
+      "median_traceability": 0.9642857142857143,
+      "payload_pass_kernels": 0,
+      "variant": "recovery_break",
+      "verdict_class": "REJECT"
+    },
+    {
+      "behavior_pass_kernels": 12,
+      "median_assembly_retention": {
+        "clang-O0": 1.0,
+        "clang-O2": 0.0,
+        "gcc-O0": 1.0,
+        "gcc-O2": 0.0
+      },
+      "median_erasures": 0.0,
+      "median_errors": 0.0,
+      "median_traceability": 0.0,
+      "payload_pass_kernels": 12,
+      "variant": "reseed",
+      "verdict_class": "REJECT"
+    },
+    {
+      "behavior_pass_kernels": 0,
+      "median_assembly_retention": {
+        "clang-O0": 1.0,
+        "clang-O2": 0.0,
+        "gcc-O0": 1.0,
+        "gcc-O2": 0.0
+      },
+      "median_erasures": 0.0,
+      "median_errors": 0.0,
+      "median_traceability": 1.0,
+      "payload_pass_kernels": 12,
+      "variant": "behavior_drift",
+      "verdict_class": "REJECT"
+    }
+  ]
+}

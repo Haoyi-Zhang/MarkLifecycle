@@ -1,0 +1,177 @@
+{
+  "carriers": [
+    {
+      "bit": 1,
+      "carrier_id": "rotate_mix:B:00",
+      "constant": 2235690251,
+      "position": 0
+    },
+    {
+      "bit": 1,
+      "carrier_id": "rotate_mix:B:01",
+      "constant": 86328191,
+      "position": 1
+    },
+    {
+      "bit": 1,
+      "carrier_id": "rotate_mix:B:02",
+      "constant": 3855583115,
+      "position": 2
+    },
+    {
+      "bit": 0,
+      "carrier_id": "rotate_mix:B:03",
+      "constant": 2100637661,
+      "position": 3
+    },
+    {
+      "bit": 0,
+      "carrier_id": "rotate_mix:B:04",
+      "constant": 1604710829,
+      "position": 4
+    },
+    {
+      "bit": 0,
+      "carrier_id": "rotate_mix:B:05",
+      "constant": 990868259,
+      "position": 5
+    },
+    {
+      "bit": 0,
+      "carrier_id": "rotate_mix:B:06",
+      "constant": 2135894891,
+      "position": 6
+    },
+    {
+      "bit": 1,
+      "carrier_id": "rotate_mix:B:07",
+      "constant": 2064232259,
+      "position": 7
+    },
+    {
+      "bit": 1,
+      "carrier_id": "rotate_mix:B:08",
+      "constant": 226689851,
+      "position": 8
+    },
+    {
+      "bit": 0,
+      "carrier_id": "rotate_mix:B:09",
+      "constant": 1297969533,
+      "position": 9
+    },
+    {
+      "bit": 1,
+      "carrier_id": "rotate_mix:B:10",
+      "constant": 1912464321,
+      "position": 10
+    },
+    {
+      "bit": 0,
+      "carrier_id": "rotate_mix:B:11",
+      "constant": 1541615917,
+      "position": 11
+    },
+    {
+      "bit": 0,
+      "carrier_id": "rotate_mix:B:12",
+      "constant": 1840375703,
+      "position": 12
+    },
+    {
+      "bit": 1,
+      "carrier_id": "rotate_mix:B:13",
+      "constant": 603714977,
+      "position": 13
+    },
+    {
+      "bit": 0,
+      "carrier_id": "rotate_mix:B:14",
+      "constant": 1500729343,
+      "position": 14
+    },
+    {
+      "bit": 0,
+      "carrier_id": "rotate_mix:B:15",
+      "constant": 3747941637,
+      "position": 15
+    },
+    {
+      "bit": 1,
+      "carrier_id": "rotate_mix:B:16",
+      "constant": 30615839,
+      "position": 16
+    },
+    {
+      "bit": 0,
+      "carrier_id": "rotate_mix:B:17",
+      "constant": 2511802327,
+      "position": 17
+    },
+    {
+      "bit": 1,
+      "carrier_id": "rotate_mix:B:18",
+      "constant": 2735419237,
+      "position": 18
+    },
+    {
+      "bit": 1,
+      "carrier_id": "rotate_mix:B:19",
+      "constant": 2098281881,
+      "position": 19
+    },
+    {
+      "bit": 0,
+      "carrier_id": "rotate_mix:B:20",
+      "constant": 3648376141,
+      "position": 20
+    },
+    {
+      "bit": 1,
+      "carrier_id": "rotate_mix:B:21",
+      "constant": 2000804181,
+      "position": 21
+    },
+    {
+      "bit": 1,
+      "carrier_id": "rotate_mix:B:22",
+      "constant": 3082657229,
+      "position": 22
+    },
+    {
+      "bit": 1,
+      "carrier_id": "rotate_mix:B:23",
+      "constant": 3987151293,
+      "position": 23
+    },
+    {
+      "bit": 1,
+      "carrier_id": "rotate_mix:B:24",
+      "constant": 1271904739,
+      "position": 24
+    },
+    {
+      "bit": 1,
+      "carrier_id": "rotate_mix:B:25",
+      "constant": 2242063165,
+      "position": 25
+    },
+    {
+      "bit": 1,
+      "carrier_id": "rotate_mix:B:26",
+      "constant": 1673888089,
+      "position": 26
+    },
+    {
+      "bit": 1,
+      "carrier_id": "rotate_mix:B:27",
+      "constant": 661354357,
+      "position": 27
+    }
+  ],
+  "code": "four independent Hamming(7,4) blocks",
+  "kernel": "rotate_mix",
+  "minimum_distance": 3,
+  "payload_hex": "81ef",
+  "schema": "tracecert.watermark-manifest.v1"
+}

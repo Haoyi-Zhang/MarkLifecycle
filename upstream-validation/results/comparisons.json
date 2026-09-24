@@ -1,0 +1,154 @@
+[
+  {
+    "changed_case_count": 0,
+    "changed_case_ids": [],
+    "compiler": "gcc",
+    "configuration": "default",
+    "equal": true,
+    "optimization": "-O0"
+  },
+  {
+    "changed_case_count": 2,
+    "changed_case_ids": [
+      22,
+      23
+    ],
+    "compiler": "gcc",
+    "configuration": "strict",
+    "equal": false,
+    "optimization": "-O0"
+  },
+  {
+    "changed_case_count": 0,
+    "changed_case_ids": [],
+    "compiler": "gcc",
+    "configuration": "parent_links",
+    "equal": true,
+    "optimization": "-O0"
+  },
+  {
+    "changed_case_count": 2,
+    "changed_case_ids": [
+      22,
+      23
+    ],
+    "compiler": "gcc",
+    "configuration": "strict_parent_links",
+    "equal": false,
+    "optimization": "-O0"
+  },
+  {
+    "changed_case_count": 0,
+    "changed_case_ids": [],
+    "compiler": "gcc",
+    "configuration": "default",
+    "equal": true,
+    "optimization": "-O2"
+  },
+  {
+    "changed_case_count": 2,
+    "changed_case_ids": [
+      22,
+      23
+    ],
+    "compiler": "gcc",
+    "configuration": "strict",
+    "equal": false,
+    "optimization": "-O2"
+  },
+  {
+    "changed_case_count": 0,
+    "changed_case_ids": [],
+    "compiler": "gcc",
+    "configuration": "parent_links",
+    "equal": true,
+    "optimization": "-O2"
+  },
+  {
+    "changed_case_count": 2,
+    "changed_case_ids": [
+      22,
+      23
+    ],
+    "compiler": "gcc",
+    "configuration": "strict_parent_links",
+    "equal": false,
+    "optimization": "-O2"
+  },
+  {
+    "changed_case_count": 0,
+    "changed_case_ids": [],
+    "compiler": "clang",
+    "configuration": "default",
+    "equal": true,
+    "optimization": "-O0"
+  },
+  {
+    "changed_case_count": 2,
+    "changed_case_ids": [
+      22,
+      23
+    ],
+    "compiler": "clang",
+    "configuration": "strict",
+    "equal": false,
+    "optimization": "-O0"
+  },
+  {
+    "changed_case_count": 0,
+    "changed_case_ids": [],
+    "compiler": "clang",
+    "configuration": "parent_links",
+    "equal": true,
+    "optimization": "-O0"
+  },
+  {
+    "changed_case_count": 2,
+    "changed_case_ids": [
+      22,
+      23
+    ],
+    "compiler": "clang",
+    "configuration": "strict_parent_links",
+    "equal": false,
+    "optimization": "-O0"
+  },
+  {
+    "changed_case_count": 0,
+    "changed_case_ids": [],
+    "compiler": "clang",
+    "configuration": "default",
+    "equal": true,
+    "optimization": "-O2"
+  },
+  {
+    "changed_case_count": 2,
+    "changed_case_ids": [
+      22,
+      23
+    ],
+    "compiler": "clang",
+    "configuration": "strict",
+    "equal": false,
+    "optimization": "-O2"
+  },
+  {
+    "changed_case_count": 0,
+    "changed_case_ids": [],
+    "compiler": "clang",
+    "configuration": "parent_links",
+    "equal": true,
+    "optimization": "-O2"
+  },
+  {
+    "changed_case_count": 2,
+    "changed_case_ids": [
+      22,
+      23
+    ],
+    "compiler": "clang",
+    "configuration": "strict_parent_links",
+    "equal": false,
+    "optimization": "-O2"
+  }
+]

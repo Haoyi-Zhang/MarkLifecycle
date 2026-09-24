@@ -1,0 +1,22 @@
+{
+  "change_families": [
+    "compiler-version adaptation",
+    "library-call replacement",
+    "release version bump"
+  ],
+  "commit": "9d63e760141b5c416a65ee0de9f67d684795ee49",
+  "date": "2019-12-02",
+  "id": "HIST_PARSON_WARNING",
+  "internals_modified": false,
+  "license": "MIT",
+  "matrix_mapping": [
+    "dependency_upgrade",
+    "compiler_replacement"
+  ],
+  "repository": "kgabis/parson",
+  "retrieval_mode": "read-only public repository records at an immutable commit",
+  "retrieved_at": "2026-07-18T21:32:05+09:00",
+  "title": "Avoid truncating strings warning (#131)",
+  "url": "https://github.com/kgabis/parson/commit/9d63e760141b5c416a65ee0de9f67d684795ee49",
+  "use": "Grounds compiler-driven source changes and release migration while preserving an intended operation."
+}

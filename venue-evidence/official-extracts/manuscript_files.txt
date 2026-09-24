@@ -1,0 +1,1 @@
+IEEE Computer Society journal submissions require an article template. Word, plain-text, and LaTeX manuscript files are accepted and converted to PDF by the submission system.
