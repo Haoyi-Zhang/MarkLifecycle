@@ -188,10 +188,10 @@ def build_paper_audits() -> None:
         consistency_errors.append(f"conclusion omits relation terms: {conclusion_missing}")
 
     expected_parent_statements = [
-        "The finite stratum instantiates singleton and two-parent sets",
-        "The finite stratum contains singleton and two-parent releases",
-        "the commit-derived stratum uses singleton sets",
-        "the commit-derived histories remain singleton-parent",
+        "The finite stratum exercises one- and two-parent sets",
+        "the commit-derived stratum uses one",
+        "The finite stratum executes twelve two-parent diamond merges",
+        "the commit-derived histories remain single-parent",
     ]
     manuscript_casefold = main_tex.casefold()
     parent_statement_presence = {text: text.casefold() in manuscript_casefold for text in expected_parent_statements}
@@ -795,6 +795,13 @@ def make_results_manifest() -> None:
         ("PAPER-CONSISTENCY-AUDIT", PAPER / "manuscript_consistency_audit.json", "MANUSCRIPT_AUDIT", "paper/manuscript_consistency_audit.json"),
         ("PAPER-LEXICAL-AUDIT", PAPER / "lexical_audit.json", "MANUSCRIPT_AUDIT", "paper/lexical_audit.json"),
         ("PAPER-PAGE-FIT", PAPER / "page_fit_audit.json", "MANUSCRIPT_AUDIT", "paper/visual_inspection.json"),
+        ("RETAINED-OUTPUT-CLOSURE", FINITE / "retained_output_closure.json", "DELIVERY_EVIDENCE_CLOSURE", "artifact/results/retained_output_closure.json"),
+        ("ENTRYPOINT-PATH-SMOKE", FINITE / "entrypoint_path_smoke.json", "CLEAN_ROOT_ENTRYPOINT_SMOKE", "artifact/results/entrypoint_path_smoke.json"),
+        ("FINITE-HAMMING-EDGE-CASES", FINITE / "hamming_edge_cases.json", "HAMMING_EDGE_CASE_ENUMERATION", "artifact/results/independent_recheck.json"),
+        ("FINITE-RELATION-BOUNDARIES", FINITE / "relation_decision_boundaries.json", "RELATION_FIRST_AND_AVAILABILITY_BOUNDARIES", "artifact/results/independent_recheck.json"),
+        ("FINITE-STATIC-POLICY-PROJECTION", ART / "policies/bridge/fnv_step-threshold-25-bridge.json", "STATIC_DUAL_POLICY_PROJECTION", "artifact/results/independent_recheck.json"),
+        ("PROJECT-RELATION-BOUNDARIES", PROJECT / "relation_decision_boundaries.json", "RELATION_FIRST_AND_AVAILABILITY_BOUNDARIES", "artifact/commit-replay/results/independent_recheck.json"),
+        ("PROJECT-SOURCE-PARSER-SECURITY", PROJECT / "source_parser_security.json", "LEXICAL_SOURCE_PARSER_SECURITY", "artifact/commit-replay/results/independent_recheck.json"),
     ]
     for result_id, path, result_type, recheck in aggregates:
         rows.append({
@@ -838,7 +845,7 @@ def make_claim_ledgers() -> None:
         ("Conditional finite-contract soundness", "theorem", "Section 3.4", "hash, compiler, runtime, checker, issuance, finite-contract assumptions", "artifact/proofs.md#conditional-finite-contract-soundness", "both independent software checkers", "INDEPENDENTLY_RECHECKED", "bounded, not universal equivalence"),
         ("Minimal relation basis", "theorem", "Section 3.4", "one isolating witness per relation", "artifact/proofs.md#minimal-relation-basis", "gate and project subset sweeps", "INDEPENDENTLY_RECHECKED", "only the full relation set has zero false accepts"),
         ("Contract strengthening", "proposition", "Section 3.4", "release bytes fixed", "artifact/proofs.md#contract-strengthening", "predicate construction", "VERIFIED", "new obligations cannot rescue rejection"),
-        ("Module substitution", "proposition", "Section 3.5", "conservative replacement and bound assumptions", "artifact/proofs.md#module-substitution", "executed dual-policy bridge fixture", "INDEPENDENTLY_RECHECKED", "no retroactive reinterpretation"),
+        ("Module substitution", "proposition", "Section 3.5", "conservative replacement and bound assumptions", "artifact/proofs.md#module-substitution", "static dual-policy projection independently recomputed from reconstructed evidence", "INDEPENDENTLY_RECHECKED", "no retroactive reinterpretation"),
         ("Sound incremental reuse", "proposition", "Section 6.4", "complete dependency closure, module, and policy bindings unchanged", "artifact/proofs.md#sound-incremental-reuse", "dependency-closure rule and full-reconstruction reference semantics", "VERIFIED", "extension rule; no speedup measured"),
     ]
     write_csv(ART / "correctness_correspondence.csv", correspondence_fields, [dict(zip(correspondence_fields, row)) for row in items])

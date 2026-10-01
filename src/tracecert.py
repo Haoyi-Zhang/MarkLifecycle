@@ -367,47 +367,128 @@ def extract_source_carriers(source: str) -> list[dict[str, Any]]:
     return found
 
 
+
+
+def validate_manifest_issuance(manifest: dict[str, Any]) -> list[str]:
+    """Validate the issued carrier-key inventory without judging observations.
+
+    Source conformance binds the admitted syntax and the one-to-one issuance-key
+    namespace.  Whether an issued key is missing or carries the wrong symbol is
+    deliberately left to recovery and continuity.
+    """
+    errors: list[str] = []
+    carriers = manifest.get("carriers")
+    if not isinstance(carriers, list):
+        return ["manifest carrier inventory malformed"]
+    if len(carriers) != 28:
+        errors.append(f"manifest carrier count mismatch: {len(carriers)}")
+    positions: list[int] = []
+    carrier_ids: list[str] = []
+    constants: list[int] = []
+    for index, row in enumerate(carriers):
+        if not isinstance(row, dict):
+            errors.append(f"manifest carrier row malformed: {index}")
+            continue
+        try:
+            position = int(row.get("position"))
+            constant = int(row.get("constant"))
+            bit = int(row.get("bit"))
+        except (TypeError, ValueError):
+            errors.append(f"manifest carrier scalar malformed: {index}")
+            continue
+        carrier_id = row.get("carrier_id")
+        if not isinstance(carrier_id, str) or not carrier_id:
+            errors.append(f"manifest carrier id malformed: {index}")
+        else:
+            carrier_ids.append(carrier_id)
+        positions.append(position)
+        constants.append(constant)
+        if bit not in (0, 1):
+            errors.append(f"manifest carrier bit malformed: {index}")
+    if sorted(positions) != list(range(28)):
+        errors.append("manifest carrier positions are not the complete 0..27 set")
+    if len(carrier_ids) != len(set(carrier_ids)):
+        errors.append("manifest carrier ids are not unique")
+    if len(constants) != len(set(constants)):
+        errors.append("manifest issuance constants are not unique")
+    return errors
+
 def observe_against_manifest(source_path: Path, manifest: dict[str, Any]) -> dict[str, Any]:
     source = source_path.read_text(encoding="utf-8")
     helper_errors = validate_locked_helper_definitions(source)
-    if helper_errors:
-        raise ValueError("; ".join(helper_errors))
+    manifest_errors = validate_manifest_issuance(manifest)
     extracted = extract_source_carriers(source)
     by_constant: dict[int, list[dict[str, Any]]] = {}
     for item in extracted:
         by_constant.setdefault(item["constant"], []).append(item)
+    expected_constants = {int(row["constant"]) for row in manifest.get("carriers", []) if isinstance(row, dict) and "constant" in row}
+    extra_constants = sorted(
+        int(item["constant"]) for item in extracted
+        if int(item["constant"]) not in expected_constants
+    )
     observed: list[int | None] = [None] * 28
     carriers: list[dict[str, Any]] = []
     duplicates: list[int] = []
-    for expected in manifest["carriers"]:
-        matches = by_constant.get(expected["constant"], [])
+    for expected in manifest.get("carriers", []):
+        if not isinstance(expected, dict):
+            continue
+        position = int(expected["position"])
+        if position not in range(28):
+            continue
+        matches = by_constant.get(int(expected["constant"]), [])
         if len(matches) > 1:
-            duplicates.append(expected["constant"])
-        match = matches[0] if matches else None
+            duplicates.append(int(expected["constant"]))
+        match = matches[0] if len(matches) == 1 else None
         bit = None if match is None else int(match["observed_bit"])
-        observed[int(expected["position"])] = bit
+        observed[position] = bit
         carriers.append(
             {
                 "carrier_id": expected["carrier_id"],
-                "position": expected["position"],
-                "constant": expected["constant"],
-                "expected_bit": expected["bit"],
+                "position": position,
+                "constant": int(expected["constant"]),
+                "expected_bit": int(expected["bit"]),
                 "observed_bit": bit,
                 "line": None if match is None else match["line"],
                 "family": None if match is None else match["family"],
-                "state": "ERASURE" if bit is None else ("MATCH" if bit == expected["bit"] else "ERROR"),
+                "state": "ERASURE" if bit is None else ("MATCH" if bit == int(expected["bit"]) else "ERROR"),
             }
         )
     decoded = decode_hamming74_u16(observed)
+    observed_count = sum(bit is not None for bit in observed)
+    erasure_count = sum(bit is None for bit in observed)
+    symbol_error_count = sum(
+        row["observed_bit"] is not None and row["observed_bit"] != row["expected_bit"]
+        for row in carriers
+    )
+    grammar_valid = not helper_errors
+    issuance_keys_unique = not manifest_errors
+    occurrence_binding_valid = not duplicates and not extra_constants
+    source_errors = [*helper_errors, *manifest_errors]
+    if duplicates:
+        source_errors.append(f"duplicate recognized issuance constants: {sorted(duplicates)}")
+    if extra_constants:
+        source_errors.append(f"unissued recognized carrier constants: {extra_constants}")
     return {
         "source_sha256": sha256_file(source_path),
         "manifest_canonical_sha256": canonical_json_sha256(manifest),
         "extracted_count": len(extracted),
-        "manifest_count": len(manifest["carriers"]),
-        "duplicate_constants": duplicates,
+        "manifest_count": len(manifest.get("carriers", [])),
+        "duplicate_constants": sorted(duplicates),
+        "extra_constants": extra_constants,
         "observed_symbols": "".join("?" if x is None else str(x) for x in observed),
         "carriers": carriers,
         "decode": decoded,
+        "source_conformance": {
+            "passed": grammar_valid and issuance_keys_unique and occurrence_binding_valid,
+            "grammar_valid": grammar_valid,
+            "issuance_keys_unique": issuance_keys_unique,
+            "occurrence_binding_valid": occurrence_binding_valid,
+            "observed_count": observed_count,
+            "erasure_count": erasure_count,
+            "symbol_error_count": symbol_error_count,
+            "errors": source_errors,
+            "symbol_loss_and_flip_scope": "recovery-and-continuity",
+        },
     }
 
 

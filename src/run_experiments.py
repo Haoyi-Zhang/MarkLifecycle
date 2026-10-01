@@ -24,7 +24,9 @@ from tracecert import (  # noqa: E402
     SCHEMA,
     add_self_hash,
     canonical_json_sha256,
+    hamming74_encode_nibble,
     hamming74_encode_u16,
+    decode_hamming74_block,
     load_json,
     map_provenance,
     observe_against_manifest,
@@ -261,6 +263,114 @@ TRACEABILITY_THRESHOLD = 26 / 28
 POLICY_SCHEMA = "tracecert.policy.v1"
 POLICY_BRIDGE_SCHEMA = "tracecert.policy-bridge.v1"
 POLICY_CANONICALIZATION = "sorted-key-ascii-json-v1"
+RELATION_NAMES = (
+    "behavior", "recovery", "continuity", "source_conformance",
+    "executable_reproduction", "integrity", "lineage",
+)
+
+
+def hamming_candidate_scores(observed: list[int | None]) -> list[dict[str, Any]]:
+    rows: list[dict[str, Any]] = []
+    for value in range(16):
+        bits = [(value >> shift) & 1 for shift in (3, 2, 1, 0)]
+        codeword = hamming74_encode_nibble(bits)
+        observed_errors = sum(
+            actual is not None and actual != expected
+            for actual, expected in zip(observed, codeword)
+        )
+        rows.append({
+            "data_hex": f"{value:x}",
+            "data_bits": bits,
+            "codeword": "".join(str(bit) for bit in codeword),
+            "observed_errors": observed_errors,
+        })
+    return rows
+
+
+def hamming_edge_case_report() -> dict[str, Any]:
+    zero = [0] * 7
+    distributed_blocks = [
+        [1, 0, 0, 0, 0, 0, 0],
+        [None, 0, 0, 0, 0, 0, 0],
+        zero,
+        zero,
+    ]
+    concentrated = [None, 1, 0, 0, 0, 0, 0]  # ?100000
+    wrong_unique = [None, None, 1, 0, 0, 0, 0]  # ??10000
+
+    def block_record(observed: list[int | None], transmitted: list[int]) -> dict[str, Any]:
+        decoded = decode_hamming74_block(observed)
+        scores = hamming_candidate_scores(observed)
+        minimum = min(row["observed_errors"] for row in scores)
+        winners = [row["codeword"] for row in scores if row["observed_errors"] == minimum]
+        return {
+            "observed": "".join("?" if value is None else str(value) for value in observed),
+            "transmitted": "".join(str(value) for value in transmitted),
+            "errors_relative_to_transmitted": sum(
+                actual is not None and actual != expected
+                for actual, expected in zip(observed, transmitted)
+            ),
+            "erasures": sum(value is None for value in observed),
+            "decoder_status": decoded.status,
+            "decoded_bits": None if decoded.decoded_bits is None else list(decoded.decoded_bits),
+            "decoder_errors_to_winner": decoded.errors,
+            "candidate_count": decoded.candidate_count,
+            "condition_holds_for_winner": decoded.condition_holds,
+            "minimum_observed_errors": minimum,
+            "winning_codewords": winners,
+            "candidate_scores": scores,
+        }
+
+    distributed_records = [block_record(block, zero) for block in distributed_blocks]
+    concentrated_record = block_record(concentrated, zero)
+    wrong_record = block_record(wrong_unique, zero)
+    cases = [
+        {
+            "name": "distributed_same_total_e1_s1",
+            "global_errors_relative_to_transmitted": 1,
+            "global_erasures": 1,
+            "blocks": distributed_records,
+            "recovery_pass": all(row["decoder_status"] == "CERTIFIED_UNIQUE" for row in distributed_records)
+            and all(row["decoded_bits"] == [0, 0, 0, 0] for row in distributed_records),
+            "expected_decision": "PASS",
+        },
+        {
+            "name": "concentrated_same_total_e1_s1",
+            "global_errors_relative_to_transmitted": 1,
+            "global_erasures": 1,
+            "block": concentrated_record,
+            "explicit_tie": concentrated_record["winning_codewords"] == ["0000000", "1110000"],
+            "recovery_pass": False,
+            "expected_decision": "REJECT",
+        },
+        {
+            "name": "two_erasures_one_transmitted_error_unique_wrong_payload",
+            "global_errors_relative_to_transmitted": 1,
+            "global_erasures": 2,
+            "block": wrong_record,
+            "unique_nearest_codeword": wrong_record["winning_codewords"] == ["1110000"],
+            "decoded_nibble_hex": None if wrong_record["decoded_bits"] is None else f"{int(''.join(str(x) for x in wrong_record['decoded_bits']), 2):x}",
+            "recovery_pass": False,
+            "rejection_reason": "unique decoded payload differs from issued payload",
+            "expected_decision": "REJECT",
+        },
+    ]
+    passed = (
+        cases[0]["recovery_pass"] is True
+        and cases[1]["explicit_tie"] is True
+        and cases[1]["block"]["decoder_status"] == "AMBIGUOUS"
+        and cases[2]["unique_nearest_codeword"] is True
+        and cases[2]["block"]["decoder_status"] == "CERTIFIED_UNIQUE"
+        and cases[2]["decoded_nibble_hex"] == "8"
+        and cases[2]["recovery_pass"] is False
+    )
+    return {
+        "schema": "tse01.hamming-edge-cases.v1",
+        "code": "Hamming(7,4,3)",
+        "candidate_codewords_enumerated_per_block": 16,
+        "cases": cases,
+        "verdict": "PASS" if passed else "FAIL",
+    }
 
 
 def finite_policy(kernel_name: str, environment: dict[str, Any], required_count: int = 26, *, policy_id: str | None = None) -> dict[str, Any]:
@@ -293,7 +403,8 @@ def finite_policy(kernel_name: str, environment: dict[str, Any], required_count:
         },
         "source_profiles": {
             "accepted": ["direct-v1", "tc-helper-v1", "tc-helper-v2"],
-            "inventory_rule": "exact-issued-carrier-accounting",
+            "inventory_rule": "admitted-syntax-and-unique-issued-key-attribution",
+            "observation_scope": "missing-or-flipped-issued-symbols-are-evaluated-by-recovery-and-continuity",
         },
         "continuity": {
             "baseline_count": 28,
@@ -784,11 +895,8 @@ def run(root: Path) -> None:
             continuity_pass = all(
                 edge["traceability"] >= TRACEABILITY_THRESHOLD for edge in provenance_by_parent
             ) if provenance_by_parent else True
-            observed_count = sum(item["observed_bit"] is not None for item in observation["carriers"])
-            source_pass = (
-                not observation["duplicate_constants"]
-                and observation["extracted_count"] == observed_count
-            )
+            source_detail = observation["source_conformance"]
+            source_pass = bool(source_detail["passed"])
             executable_pass = all_exec
             integrity_pass = True
             current_policy = policies[kernel.name]
@@ -824,7 +932,16 @@ def run(root: Path) -> None:
                         for edge in provenance_by_parent
                     ],
                 ),
-                "source_conformance": relation_record(source_pass),
+                "source_conformance": relation_record(
+                    source_pass,
+                    grammar_valid=source_detail["grammar_valid"],
+                    issuance_keys_unique=source_detail["issuance_keys_unique"],
+                    occurrence_binding_valid=source_detail["occurrence_binding_valid"],
+                    observed_count=source_detail["observed_count"],
+                    erasure_count=source_detail["erasure_count"],
+                    symbol_error_count=source_detail["symbol_error_count"],
+                    symbol_loss_and_flip_scope=source_detail["symbol_loss_and_flip_scope"],
+                ),
                 "executable_reproduction": relation_record(executable_pass),
                 "integrity": relation_record(integrity_pass),
                 "lineage": relation_record(lineage_pass),
@@ -946,9 +1063,14 @@ def run(root: Path) -> None:
     ]
     if [row["decision"] for row in decision_fixtures] != ["PASS", "HOLD", "REJECT"]:
         raise AssertionError("typed decision fixture mismatch")
-    # Executed nonrelease bridge fixture: one realized release is evaluated
-    # under the issued policy and an explicitly migrated policy. Normal lineage
-    # remains policy-identical; this separate record is the only authorization.
+    hamming_edge_cases = hamming_edge_case_report()
+    if hamming_edge_cases["verdict"] != "PASS":
+        raise AssertionError("Hamming edge-case enumeration mismatch")
+    write_json(artifact / "results" / "hamming_edge_cases.json", hamming_edge_cases)
+    # Static dual-policy projection.  This is deliberately not counted as an
+    # executed release.  The primary generator records the dependency bindings
+    # and recomputes the one policy-dependent coordinate; the independent
+    # checker derives both vectors again from its own reconstructed evidence.
     bridge_kernel = "fnv_step"
     bridge_variant = "dependency_upgrade"
     bridge_subject = certs[(bridge_kernel, bridge_variant)]
@@ -957,22 +1079,54 @@ def run(root: Path) -> None:
     )
     bridge_to_path = policy_root / "bridge" / "fnv_step-threshold-25.json"
     write_json(bridge_to_path, bridge_to_policy)
-    bridge_vector = {name: bool(bridge_subject["relations"][name]["passed"]) for name in bridge_subject["relations"]}
+    mapped_count = int(bridge_subject["relations"]["continuity"]["mapped_count"])
+    bridge_from_vector = {
+        name: bool(bridge_subject["relations"][name]["passed"])
+        for name in RELATION_NAMES
+    }
+    bridge_from_vector["continuity"] = mapped_count >= 26
+    bridge_to_vector = dict(bridge_from_vector)
+    bridge_to_vector["continuity"] = mapped_count >= 25
+    remaining_true = {name: True for name in RELATION_NAMES if name != "continuity"}
+    minimal_witness_from = dict(remaining_true, continuity=False)
+    minimal_witness_to = dict(remaining_true, continuity=True)
     bridge = {
         "schema": POLICY_BRIDGE_SCHEMA,
+        "mode": "static-dual-policy-projection-from-reconstructed-evidence",
         "subject": {
             "kernel": bridge_kernel,
             "variant": bridge_variant,
             "certificate_sha256": bridge_subject["certificate_sha256"],
             "source_sha256": bridge_subject["source"]["sha256"],
         },
+        "dependency_bindings": {
+            "source_sha256": bridge_subject["source"]["sha256"],
+            "manifest_file_sha256": bridge_subject["manifest"]["file_sha256"],
+            "manifest_canonical_sha256": bridge_subject["manifest"]["canonical_sha256"],
+            "reference_sha256": bridge_subject["behavior"]["reference_sha256"],
+            "subject_certificate_sha256": bridge_subject["certificate_sha256"],
+            "from_policy_canonical_sha256": bridge_subject["policy"]["canonical_sha256"],
+        },
         "from_policy": bridge_subject["policy"],
         "to_policy": policy_binding(root, bridge_to_path, bridge_to_policy),
-        "from_relation_vector": bridge_vector,
-        "to_relation_vector": bridge_vector,
-        "from_decision": typed_decision(bridge_vector.values()),
-        "to_decision": typed_decision(bridge_vector.values()),
-        "authorization": "explicit-dual-policy-evaluation",
+        "from_relation_vector": bridge_from_vector,
+        "to_relation_vector": bridge_to_vector,
+        "from_decision": typed_decision(bridge_from_vector.values()),
+        "to_decision": typed_decision(bridge_to_vector.values()),
+        "recomputed_coordinates": ["continuity"],
+        "reused_coordinates": [name for name in RELATION_NAMES if name != "continuity"],
+        "reuse_rule": "reuse-only-when-dependency-bindings-and-policy-independent-inputs-are-identical",
+        "minimal_threshold_witness": {
+            "preserved": 25,
+            "from_required": 26,
+            "to_required": 25,
+            "from_relation_vector": minimal_witness_from,
+            "to_relation_vector": minimal_witness_to,
+            "from_decision": typed_decision(minimal_witness_from.values()),
+            "to_decision": typed_decision(minimal_witness_to.values()),
+        },
+        "authorization": "explicit-static-dual-policy-projection",
+        "counted_as_release": False,
     }
     bridge = add_self_hash(bridge)
     bridge_path = policy_root / "bridge" / "fnv_step-threshold-25-bridge.json"
@@ -983,12 +1137,15 @@ def run(root: Path) -> None:
         "environment": environment,
         "policy_file_count": len(policies),
         "policy_bridge_fixture_count": 1,
+        "policy_bridge_fixture_kind": "static-dual-policy-projection",
         "kernel_count": len(KERNELS),
         "variant_count": len(VARIANTS),
         "toolchain_count": len(TOOLCHAINS),
         "rows": len(rows),
         "traceability_threshold": TRACEABILITY_THRESHOLD,
         "decision_fixtures": decision_fixtures,
+        "hamming_edge_case_count": len(hamming_edge_cases["cases"]),
+        "hamming_edge_cases_pass": hamming_edge_cases["verdict"] == "PASS",
         "pass_count": sum(cert["verdict"] == "PASS" for cert in certs.values()),
         "hold_count": sum(cert["verdict"] == "HOLD" for cert in certs.values()),
         "reject_count": sum(cert["verdict"] == "REJECT" for cert in certs.values()),

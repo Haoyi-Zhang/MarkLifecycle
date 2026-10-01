@@ -1,5 +1,5 @@
 {
-  "certificate_sha256": "051b28e3282818bd12d4d948be56f411f0a6abfbeabfe3facb039017406ec86e",
+  "certificate_sha256": "06479fee67c5e4a2a850ed444442da1850ede2fc8d2bc142cc4aa9e2d048c969",
   "compiler_cells": [
     {
       "assembly": "artifact/commit-replay/build/E/before/gcc_O0/adapter.s",
@@ -58,8 +58,8 @@
   "parent_policy_canonical_sha256": null,
   "parent_version": null,
   "policy": {
-    "canonical_sha256": "5517f30e3d581e0c91c2dcf00929f15e1edf3b5e577945cd5fb58054c746db69",
-    "file_sha256": "a50c6d38ed2dc1ab429c30e0eb14ee8b2b3601f39988dd527076bace3028302e",
+    "canonical_sha256": "dc743f65b4f245693103df9532fe50ea94d47705d46d74769477b49758e74598",
+    "file_sha256": "43f8ab253c10e1095ea7352c82faf1853a660bba539064c2193110d690d75a3c",
     "path": "artifact/commit-replay/policies/E.json",
     "policy_id": "project:E:v1"
   },
@@ -156,9 +156,16 @@
       "status": "CERTIFIED_UNIQUE"
     },
     "source_conformance": {
+      "erasure_count": 0,
       "errors": [],
+      "grammar_valid": true,
+      "issuance_keys_unique": true,
+      "observed_count": 28,
+      "occurrence_binding_valid": true,
       "passed": true,
-      "state": "ESTABLISHED_TRUE"
+      "state": "ESTABLISHED_TRUE",
+      "symbol_error_count": 0,
+      "symbol_loss_and_flip_scope": "recovery-and-continuity"
     }
   },
   "schema": "tse01.commit-replay.certificate.v3",

@@ -1,0 +1,55 @@
+{
+  "controlled_refreshed_binding_replay": {
+    "behavior_matches_reference": true,
+    "compile_returncode": 0,
+    "execution_returncode": 0,
+    "former_raw_parser_decision": "PASS",
+    "former_raw_parser_observed_count": 28,
+    "lexical_parser_continuity_preserved": 0,
+    "lexical_parser_decision": "REJECT",
+    "lexical_parser_observed_count": 0,
+    "lexical_parser_recovery": "NOT_CERTIFIED",
+    "outer_self_hash_valid": true,
+    "refreshed_executable_sha256": "5db9e26fbfac2536764ce76378484c877c639d426450e31f85196eb520a29f34",
+    "refreshed_output_sha256": "4ba693b54d2c342548c6209f48bc85dd831aafdde61d30bf80cff23e44449043",
+    "refreshed_source_sha256": "81f2634aa947a3fc30dc6097885832dd52fabd105bcddbec400c18ac03643b4c"
+  },
+  "primary_and_independent_parser_tests": [
+    {
+      "continuity_preserved": 0,
+      "decision": "REJECT",
+      "expected": {
+        "decision": "REJECT",
+        "observed_count": 0,
+        "source_pass": true
+      },
+      "independent_source_pass": true,
+      "name": "commented_all_carriers",
+      "observed_count": 0,
+      "primary_source_pass": true,
+      "recovery_status": "NOT_CERTIFIED"
+    },
+    {
+      "expected_source_pass": false,
+      "independent_source_pass": false,
+      "name": "commented_fake_helper",
+      "primary_source_pass": false
+    },
+    {
+      "expected_source_pass": true,
+      "independent_source_pass": true,
+      "name": "string_literal_decoy",
+      "observations_equal_baseline": true,
+      "primary_source_pass": true
+    },
+    {
+      "expected_source_pass": false,
+      "independent_source_pass": false,
+      "name": "preprocessor_rebinding",
+      "primary_source_pass": false
+    }
+  ],
+  "schema": "tse01.commit-replay.source-parser-security.v1",
+  "scope": "controlled-copy regression; not an additional public project or release-count increment",
+  "verdict": "PASS"
+}

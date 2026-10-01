@@ -18,11 +18,6 @@ static void emit_u32(uint32_t v) {
 }
 
 
-static uint32_t hash_bytes(const unsigned char *data, size_t n) {
-  uint32_t h = 2166136261u;
-  for (size_t i = 0; i < n; ++i) { h ^= data[i]; h *= 16777619u; }
-  return h;
-}
 static void run_contract(void) {
   unsigned char input[64], out[65];
   for (size_t i = 0; i < 64; ++i) input[i] = (unsigned char)((i * 37u + 11u) & 255u);
@@ -30,7 +25,7 @@ static void run_contract(void) {
     memset(out, 0xa5, sizeof(out));
     memcpy(out, input, n);
     out[n] = 0;
-    emit_u32(hash_bytes(out, n + 1));
+    if (fwrite(out, 1, n + 1, stdout) != n + 1) return;
   }
 }
 

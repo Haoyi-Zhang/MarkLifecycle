@@ -15,7 +15,7 @@ from collections import Counter
 from pathlib import Path
 from typing import Any
 
-FULL_ROOT_ENTRIES = {"paper", "artifact", "research-plan.md", "CURRENT-STATE.md"}
+FULL_ROOT_ENTRIES = {"README.md", "artifact", "paper"}
 REVIEW_ROOT_ENTRIES = {"paper", "artifact", "REVIEW_PACKET_MANIFEST.json"}
 BASE_MANIFEST_EXCLUSIONS = {
     "artifact/release_manifest.json",
@@ -288,7 +288,7 @@ def main() -> int:
             errors.append("results manifest upstream-validation compiler-cell count mismatch")
         if type_counts["GATE_MODEL_AGGREGATE"] != 1 or type_counts["GATE_MODEL_INDEPENDENT_RECHECK"] != 1 or type_counts["GATE_MODEL_GRAPH_FIXTURES"] != 1:
             errors.append("results manifest gate-model aggregate count mismatch")
-        if len(result_rows) != 743:
+        if len(result_rows) != 750:
             errors.append(f"results manifest row count mismatch: {len(result_rows)}")
         for row in result_rows:
             for path_key, hash_key in (("raw_output", "raw_output_sha256"), ("derived_output", "derived_output_sha256")):
@@ -303,6 +303,75 @@ def main() -> int:
                 elif sha_file(target) != expected_hash:
                     errors.append(f"results manifest hash mismatch: {row.get('result_id')} -> {rel}")
                     results_bad += 1
+
+    # Retained finite-contract stdout is scientific evidence, not a paper
+    # auxiliary.  Require the exact 576-file closed set before accepting the
+    # delivery, independently of any prior experiment PASS.
+    finite_output_rows = {
+        row.get("raw_output", ""): row.get("raw_output_sha256", "")
+        for row in result_rows
+        if row.get("raw_output", "").startswith("artifact/results/raw/")
+        and row.get("raw_output", "").endswith(".out")
+    }
+    finite_certificate_outputs: dict[str, str] = {}
+    for cert_path in sorted((root / "artifact/certificates").glob("*/*.json")):
+        cert = load_json(cert_path)
+        for cell in cert.get("behavior", {}).get("toolchains", []):
+            rel = cell.get("output_path", "")
+            digest = cell.get("output_sha256", "")
+            if isinstance(rel, str) and rel.startswith("artifact/results/raw/") and rel.endswith(".out"):
+                if rel in finite_certificate_outputs and finite_certificate_outputs[rel] != digest:
+                    errors.append(f"conflicting finite output certificate binding: {rel}")
+                finite_certificate_outputs[rel] = digest
+    actual_finite_outputs = {
+        path.relative_to(root).as_posix(): path
+        for path in sorted((root / "artifact/results/raw").rglob("*.out"))
+        if path.is_file()
+    }
+    if len(finite_output_rows) != 576 or len(finite_certificate_outputs) != 576 or len(actual_finite_outputs) != 576:
+        errors.append(
+            "retained finite stdout count mismatch: "
+            f"manifest={len(finite_output_rows)} certificates={len(finite_certificate_outputs)} files={len(actual_finite_outputs)}"
+        )
+    if finite_output_rows != finite_certificate_outputs:
+        errors.append("retained finite stdout manifest/certificate binding mismatch")
+    if set(actual_finite_outputs) != set(finite_output_rows):
+        errors.append("retained finite stdout closed-set mismatch")
+    for rel, expected in finite_output_rows.items():
+        path = actual_finite_outputs.get(rel)
+        if path is None:
+            continue
+        if path.stat().st_size != 65_536:
+            errors.append(f"retained finite stdout size mismatch: {rel}")
+        if sha_file(path) != expected:
+            errors.append(f"retained finite stdout hash mismatch: {rel}")
+    closure_path = root / "artifact/results/retained_output_closure.json"
+    closure = load_json(closure_path) if closure_path.is_file() else {}
+    expect_fields(closure, {
+        "schema": "tse01.retained-output-closure.v1",
+        "verification_kind": "delivery-integrity-check-not-experiment-rerun",
+        "expected_count": 576,
+        "verified_count": 576,
+        "bytes_per_output": 65_536,
+        "results_manifest_and_certificates_agree": True,
+        "scientific_outputs_present": True,
+        "experiment_rerun": False,
+        "certificate_rewrite": False,
+        "verdict": "PASS",
+    }, "retained output closure", errors)
+    if closure.get("errors") != []:
+        errors.append("retained output closure contains errors")
+    smoke_path = root / "artifact/results/entrypoint_path_smoke.json"
+    smoke = load_json(smoke_path) if smoke_path.is_file() else {}
+    expect_fields(smoke, {
+        "schema": "tse01.entrypoint-smoke.v2",
+        "clean_unrelated_path_executed": True,
+        "flat_repository_path_with_spaces_executed": True,
+        "artifact_and_paper_are_siblings": True,
+        "paper_transient_is_exact_path": "paper/main.out",
+        "scientific_out_not_globally_excluded": True,
+        "verdict": "PASS",
+    }, "entrypoint path smoke", errors)
 
     # Exhaustive three-valued gate-model evidence.
     gate_path = root / "artifact/gate-model/results/independent_recheck.json"
@@ -354,7 +423,7 @@ def main() -> int:
     finite_path = root / "artifact/results/independent_recheck.json"
     finite = load_json(finite_path) if finite_path.is_file() else {}
     expect_fields(finite, {
-        "schema": "tracecert.independent-recheck.v10",
+        "schema": "tracecert.independent-recheck.v12",
         "all_valid": True,
         "tamper_rejected": True,
         "semantic_tamper_tests_pass": True,
@@ -377,6 +446,10 @@ def main() -> int:
         "direct_source_interpretation_test_count": 3,
         "policy_files_reconstructed": 12,
         "policy_bridge_fixture_pass": True,
+        "hamming_edge_cases_pass": True,
+        "availability_fixture_count": 5,
+        "relation_decision_boundary_test_count": 4,
+        "relation_decision_boundary_tests_pass": True,
         "multi_parent_releases_rechecked": 12,
         "pass_count": 108,
         "hold_count": 0,
@@ -432,6 +505,115 @@ def main() -> int:
     for field, expected in LOCKED_ENVIRONMENT.items():
         if finite_summary.get("environment", {}).get(field) != expected:
             errors.append(f"finite locked environment mismatch: {field}")
+
+    # Repair-specific finite-domain receipts are release-gated rather than
+    # described only in prose.
+    hamming_path = root / "artifact/results/hamming_edge_cases.json"
+    hamming = load_json(hamming_path) if hamming_path.is_file() else {}
+    expect_fields(hamming, {
+        "schema": "tse01.hamming-edge-cases.v1",
+        "candidate_codewords_enumerated_per_block": 16,
+        "verdict": "PASS",
+    }, "finite Hamming edge cases", errors)
+    hamming_cases = {row.get("name"): row for row in hamming.get("cases", [])}
+    if set(hamming_cases) != {
+        "distributed_same_total_e1_s1",
+        "concentrated_same_total_e1_s1",
+        "two_erasures_one_transmitted_error_unique_wrong_payload",
+    }:
+        errors.append("finite Hamming edge-case inventory mismatch")
+    else:
+        distributed = hamming_cases["distributed_same_total_e1_s1"]
+        concentrated = hamming_cases["concentrated_same_total_e1_s1"]
+        wrong_payload = hamming_cases["two_erasures_one_transmitted_error_unique_wrong_payload"]
+        if distributed.get("global_errors_relative_to_transmitted") != 1 or distributed.get("global_erasures") != 1 or distributed.get("recovery_pass") is not True:
+            errors.append("distributed Hamming e=1,s=1 fixture mismatch")
+        if concentrated.get("global_errors_relative_to_transmitted") != 1 or concentrated.get("global_erasures") != 1 or concentrated.get("explicit_tie") is not True or concentrated.get("recovery_pass") is not False:
+            errors.append("concentrated Hamming e=1,s=1 fixture mismatch")
+        if wrong_payload.get("unique_nearest_codeword") is not True or wrong_payload.get("decoded_nibble_hex") != "8" or wrong_payload.get("recovery_pass") is not False:
+            errors.append("unique wrong-payload Hamming fixture mismatch")
+
+    finite_boundary_path = root / "artifact/results/relation_decision_boundaries.json"
+    finite_boundary = load_json(finite_boundary_path) if finite_boundary_path.is_file() else {}
+    expect_fields(finite_boundary, {
+        "schema": "tracecert.relation-decision-boundaries.v1",
+        "verdict": "PASS",
+        "expected_availability_decisions": ["HOLD", "HOLD", "HOLD", "REJECT", "REJECT"],
+    }, "finite relation decision boundaries", errors)
+    if [row.get("reconstructed_verdict", row.get("child_reconstructed_verdict")) for row in finite_boundary.get("relation_first_cases", [])] != ["REJECT"] * 4:
+        errors.append("finite relation-first boundary decisions mismatch")
+    if [row.get("verdict") for row in finite_boundary.get("availability_cases", [])] != ["HOLD", "HOLD", "HOLD", "REJECT", "REJECT"]:
+        errors.append("finite availability boundary decisions mismatch")
+
+    bridge_path = root / "artifact/policies/bridge/fnv_step-threshold-25-bridge.json"
+    bridge = load_json(bridge_path) if bridge_path.is_file() else {}
+    expect_fields(bridge, {
+        "schema": "tracecert.policy-bridge.v1",
+        "mode": "static-dual-policy-projection-from-reconstructed-evidence",
+        "counted_as_release": False,
+        "authorization": "explicit-static-dual-policy-projection",
+        "from_decision": "PASS",
+        "to_decision": "PASS",
+    }, "static dual-policy projection", errors)
+    witness = bridge.get("minimal_threshold_witness", {})
+    if witness.get("preserved") != 25 or witness.get("from_decision") != "REJECT" or witness.get("to_decision") != "PASS":
+        errors.append("static dual-policy minimal witness mismatch")
+
+    # Source conformance is a syntax-and-issuance-key relation, not a
+    # completeness predicate over all twenty-eight observable symbols.  The
+    # tolerated loss/error controls must therefore retain S=true while R/T
+    # receive symbol erasures and errors.  This guards the repaired formal
+    # definition against a return to manifest-equality semantics.
+    finite_certificate_root = root / "artifact/certificates"
+    finite_kernels = sorted(path.name for path in finite_certificate_root.iterdir() if path.is_dir()) if finite_certificate_root.is_dir() else []
+    if len(finite_kernels) != 12:
+        errors.append(f"finite source-semantics kernel inventory mismatch: {len(finite_kernels)}")
+    expected_source_boundaries = {
+        "erase_tolerable": {
+            "observed_count": 26, "erasure_count": 2, "symbol_error_count": 0,
+            "source_pass": True, "recovery_pass": True, "continuity_pass": True,
+            "verdict": "PASS",
+        },
+        "flip_tolerable": {
+            "observed_count": 26, "erasure_count": 2, "symbol_error_count": 2,
+            "source_pass": True, "recovery_pass": True, "continuity_pass": True,
+            "verdict": "PASS",
+        },
+        "recovery_break": {
+            "observed_count": 27, "erasure_count": 1, "symbol_error_count": 1,
+            "source_pass": True, "recovery_pass": False, "continuity_pass": True,
+            "verdict": "REJECT",
+        },
+    }
+    for kernel in finite_kernels:
+        policy_path = root / f"artifact/policies/finite/{kernel}.json"
+        policy = load_json(policy_path) if policy_path.is_file() else {}
+        source_profile = policy.get("source_profiles", {})
+        if source_profile.get("inventory_rule") != "admitted-syntax-and-unique-issued-key-attribution":
+            errors.append(f"finite source policy inventory rule mismatch: {kernel}")
+        if source_profile.get("observation_scope") != "missing-or-flipped-issued-symbols-are-evaluated-by-recovery-and-continuity":
+            errors.append(f"finite source policy observation scope mismatch: {kernel}")
+        for variant, expected in expected_source_boundaries.items():
+            cert_path = finite_certificate_root / kernel / f"{variant}.json"
+            cert = load_json(cert_path) if cert_path.is_file() else {}
+            source = cert.get("relations", {}).get("source_conformance", {})
+            recovery = cert.get("relations", {}).get("recovery", {})
+            continuity = cert.get("relations", {}).get("continuity", {})
+            actual = {
+                "observed_count": source.get("observed_count"),
+                "erasure_count": source.get("erasure_count"),
+                "symbol_error_count": source.get("symbol_error_count"),
+                "source_pass": source.get("passed"),
+                "recovery_pass": recovery.get("passed"),
+                "continuity_pass": continuity.get("passed"),
+                "verdict": cert.get("verdict"),
+            }
+            if actual != expected:
+                errors.append(f"finite source/recovery/continuity boundary mismatch: {kernel}/{variant}: {actual}")
+            if source.get("grammar_valid") is not True or source.get("issuance_keys_unique") is not True or source.get("occurrence_binding_valid") is not True:
+                errors.append(f"finite admitted-source binding mismatch: {kernel}/{variant}")
+            if source.get("symbol_loss_and_flip_scope") != "recovery-and-continuity":
+                errors.append(f"finite symbol-loss scope mismatch: {kernel}/{variant}")
 
     # Public finite-variant summary must reflect reconstructed typed decisions,
     # not a legacy control label from the pre-REJECT implementation.
@@ -520,6 +702,10 @@ def main() -> int:
         "rejects eight coherent substitutions",
         "43 diagnostic or adverse holds",
         "CONTROL_HOLD",
+        "executed dual-policy bridge fixture",
+        "dual-sum",
+        "coupled sums",
+        "byte-exact FNV",
     ]
     for phrase in stale_documentation_phrases:
         if phrase in artifact_readme_normalized:
@@ -584,7 +770,7 @@ def main() -> int:
     project_path = root / "artifact/commit-replay/results/independent_recheck.json"
     project = load_json(project_path) if project_path.is_file() else {}
     expect_fields(project, {
-        "schema": "tse01.commit-replay.independent-recheck.v3",
+        "schema": "tse01.commit-replay.independent-recheck.v4",
         "verdict": "PASS",
         "all_valid": True,
         "semantic_tamper_tests_pass": True,
@@ -603,9 +789,44 @@ def main() -> int:
         "decision_fixtures_pass": True,
         "semantic_tamper_test_count": 10,
         "refreshed_binding_test_count": 10,
+        "availability_test_count": 5,
+        "availability_tests_pass": True,
+        "relation_decision_boundary_test_count": 4,
+        "relation_decision_boundary_tests_pass": True,
     }, "project independent recheck", errors)
     if any(test.get("rejected") is not True or test.get("outer_self_hash_valid") is not True for test in project.get("semantic_tamper_tests", [])):
         errors.append("project semantic tamper suite contains an invalid or non-rejected fixture")
+
+    project_boundary_path = root / "artifact/commit-replay/results/relation_decision_boundaries.json"
+    project_boundary = load_json(project_boundary_path) if project_boundary_path.is_file() else {}
+    expect_fields(project_boundary, {
+        "schema": "tse01.commit-replay.relation-decision-boundaries.v1",
+        "verdict": "PASS",
+        "availability_tests_pass": True,
+        "boundary_tests_pass": True,
+    }, "project relation decision boundaries", errors)
+    if [row.get("decision") for row in project_boundary.get("availability_tests", [])] != ["HOLD", "HOLD", "HOLD", "REJECT", "REJECT"]:
+        errors.append("project availability boundary decisions mismatch")
+    boundary_rows = project_boundary.get("boundary_tests", [])
+    boundary_decisions = [row.get("decision", row.get("child_decision")) for row in boundary_rows]
+    if boundary_decisions != ["REJECT"] * 4 or any(row.get("passed") is not True for row in boundary_rows):
+        errors.append("project relation-first boundary decisions mismatch")
+
+    parser_path = root / "artifact/commit-replay/results/source_parser_security.json"
+    parser_security = load_json(parser_path) if parser_path.is_file() else {}
+    expect_fields(parser_security, {
+        "schema": "tse01.commit-replay.source-parser-security.v1",
+        "verdict": "PASS",
+    }, "project source parser security", errors)
+    parser_rows = parser_security.get("primary_and_independent_parser_tests", [])
+    expected_parser_names = ["commented_all_carriers", "commented_fake_helper", "string_literal_decoy", "preprocessor_rebinding"]
+    if [row.get("name") for row in parser_rows] != expected_parser_names:
+        errors.append("project source parser micro-test inventory mismatch")
+    if not all(row.get("primary_source_pass") == row.get("independent_source_pass") for row in parser_rows):
+        errors.append("project source parser implementations disagree")
+    replay = parser_security.get("controlled_refreshed_binding_replay", {})
+    if replay.get("former_raw_parser_decision") != "PASS" or replay.get("lexical_parser_decision") != "REJECT" or replay.get("outer_self_hash_valid") is not True:
+        errors.append("project controlled refreshed-binding parser replay mismatch")
 
     project_summary_path = root / "artifact/commit-replay/results/summary.json"
     project_summary = load_json(project_summary_path) if project_summary_path.is_file() else {}
@@ -626,6 +847,31 @@ def main() -> int:
 
     project_matrix_path = root / "artifact/commit-replay/results/matrix.json"
     project_matrix = load_json(project_matrix_path) if project_matrix_path.is_file() else []
+    # Project D (Parson) declares byte-exact behavior over all sixty-five
+    # retained cases.  Every compiler cell must therefore bind the actual
+    # 2,145-byte output, not merely a non-injective 32-bit summary.
+    parson_reference_path = root / "artifact/commit-replay/reference/project-D.bin"
+    parson_reference = parson_reference_path.read_bytes() if parson_reference_path.is_file() else b""
+    parson_rows = [row for row in project_matrix if row.get("project") == "D"] if isinstance(project_matrix, list) else []
+    if len(parson_rows) != 16 or len(parson_reference) != 2145:
+        errors.append(f"Parson byte-exact inventory mismatch: rows={len(parson_rows)}, reference_bytes={len(parson_reference)}")
+    for row in parson_rows:
+        output_rel = row.get("output")
+        output_path = root / output_rel if isinstance(output_rel, str) else None
+        if row.get("case_count") != 65:
+            errors.append(f"Parson case-count mismatch: {row.get('version')}/{row.get('compiler')}/{row.get('optimization')}")
+        if output_path is None or not output_path.is_file():
+            errors.append(f"Parson output missing: {output_rel}")
+            continue
+        output_bytes = output_path.read_bytes()
+        if len(output_bytes) != 2145 or output_bytes != parson_reference:
+            errors.append(f"Parson byte-exact output mismatch: {output_rel}")
+        output_digest = hashlib.sha256(output_bytes).hexdigest()
+        if row.get("output_sha256") != output_digest or row.get("reference_sha256") != output_digest:
+            errors.append(f"Parson byte-exact hash binding mismatch: {output_rel}")
+        if row.get("behavior_match") is not True or row.get("reproduced_behavior_match") is not True or row.get("reproduced_output_matches_stored") is not True:
+            errors.append(f"Parson byte-exact decision flags mismatch: {output_rel}")
+
     if not isinstance(project_matrix, list) or len(project_matrix) != 112:
         errors.append("project deterministic matrix inventory mismatch")
     else:

@@ -297,91 +297,41 @@ Disassembly of section .text:
     1411:	eb c3                	jmp    13d6 <run_contract+0x16>
     1413:	48 c7 85 60 ff ff ff 00 00 00 00 	movq   $0x0,-0xa0(%rbp)
     141e:	48 83 bd 60 ff ff ff 40 	cmpq   $0x40,-0xa0(%rbp)
-    1426:	77 6e                	ja     1496 <run_contract+0xd6>
-    1428:	48 8d bd 70 ff ff ff 	lea    -0x90(%rbp),%rdi
-    142f:	be a5 00 00 00       	mov    $0xa5,%esi
-    1434:	ba 41 00 00 00       	mov    $0x41,%edx
-    1439:	e8 02 fc ff ff       	call   1040 <memset@plt>
-    143e:	48 8d bd 70 ff ff ff 	lea    -0x90(%rbp),%rdi
-    1445:	48 8d 75 c0          	lea    -0x40(%rbp),%rsi
-    1449:	48 8b 95 60 ff ff ff 	mov    -0xa0(%rbp),%rdx
-    1450:	e8 fb fb ff ff       	call   1050 <memcpy@plt>
-    1455:	48 8b 85 60 ff ff ff 	mov    -0xa0(%rbp),%rax
-    145c:	c6 84 05 70 ff ff ff 00 	movb   $0x0,-0x90(%rbp,%rax,1)
-    1464:	48 8d bd 70 ff ff ff 	lea    -0x90(%rbp),%rdi
-    146b:	48 8b b5 60 ff ff ff 	mov    -0xa0(%rbp),%rsi
-    1472:	48 83 c6 01          	add    $0x1,%rsi
-    1476:	e8 95 00 00 00       	call   1510 <hash_bytes>
-    147b:	89 c7                	mov    %eax,%edi
-    147d:	e8 1e 00 00 00       	call   14a0 <emit_u32>
-    1482:	48 8b 85 60 ff ff ff 	mov    -0xa0(%rbp),%rax
-    1489:	48 83 c0 01          	add    $0x1,%rax
-    148d:	48 89 85 60 ff ff ff 	mov    %rax,-0xa0(%rbp)
-    1494:	eb 88                	jmp    141e <run_contract+0x5e>
-    1496:	48 81 c4 a0 00 00 00 	add    $0xa0,%rsp
-    149d:	5d                   	pop    %rbp
-    149e:	c3                   	ret
-    149f:	90                   	nop
-
-00000000000014a0 <emit_u32>:
-    14a0:	55                   	push   %rbp
-    14a1:	48 89 e5             	mov    %rsp,%rbp
-    14a4:	48 83 ec 10          	sub    $0x10,%rsp
-    14a8:	89 7d fc             	mov    %edi,-0x4(%rbp)
-    14ab:	8b 45 fc             	mov    -0x4(%rbp),%eax
-    14ae:	25 ff 00 00 00       	and    $0xff,%eax
-    14b3:	88 45 f8             	mov    %al,-0x8(%rbp)
-    14b6:	8b 45 fc             	mov    -0x4(%rbp),%eax
-    14b9:	c1 e8 08             	shr    $0x8,%eax
-    14bc:	25 ff 00 00 00       	and    $0xff,%eax
-    14c1:	88 45 f9             	mov    %al,-0x7(%rbp)
-    14c4:	8b 45 fc             	mov    -0x4(%rbp),%eax
-    14c7:	c1 e8 10             	shr    $0x10,%eax
-    14ca:	25 ff 00 00 00       	and    $0xff,%eax
-    14cf:	88 45 fa             	mov    %al,-0x6(%rbp)
-    14d2:	8b 45 fc             	mov    -0x4(%rbp),%eax
-    14d5:	c1 e8 18             	shr    $0x18,%eax
-    14d8:	25 ff 00 00 00       	and    $0xff,%eax
-    14dd:	88 45 fb             	mov    %al,-0x5(%rbp)
-    14e0:	48 8d 7d f8          	lea    -0x8(%rbp),%rdi
-    14e4:	48 8b 05 dd 2a 00 00 	mov    0x2add(%rip),%rax        # 3fc8 <stdout@GLIBC_2.2.5>
-    14eb:	48 8b 08             	mov    (%rax),%rcx
-    14ee:	be 01 00 00 00       	mov    $0x1,%esi
-    14f3:	ba 04 00 00 00       	mov    $0x4,%edx
-    14f8:	e8 63 fb ff ff       	call   1060 <fwrite@plt>
-    14fd:	48 83 c4 10          	add    $0x10,%rsp
-    1501:	5d                   	pop    %rbp
-    1502:	c3                   	ret
-    1503:	66 66 66 66 2e 0f 1f 84 00 00 00 00 00 	data16 data16 data16 cs nopw 0x0(%rax,%rax,1)
-
-0000000000001510 <hash_bytes>:
-    1510:	55                   	push   %rbp
-    1511:	48 89 e5             	mov    %rsp,%rbp
-    1514:	48 89 7d f8          	mov    %rdi,-0x8(%rbp)
-    1518:	48 89 75 f0          	mov    %rsi,-0x10(%rbp)
-    151c:	c7 45 ec c5 9d 1c 81 	movl   $0x811c9dc5,-0x14(%rbp)
-    1523:	48 c7 45 e0 00 00 00 00 	movq   $0x0,-0x20(%rbp)
-    152b:	48 8b 45 e0          	mov    -0x20(%rbp),%rax
-    152f:	48 3b 45 f0          	cmp    -0x10(%rbp),%rax
-    1533:	73 2a                	jae    155f <hash_bytes+0x4f>
-    1535:	48 8b 45 f8          	mov    -0x8(%rbp),%rax
-    1539:	48 8b 4d e0          	mov    -0x20(%rbp),%rcx
-    153d:	0f b6 04 08          	movzbl (%rax,%rcx,1),%eax
-    1541:	33 45 ec             	xor    -0x14(%rbp),%eax
-    1544:	89 45 ec             	mov    %eax,-0x14(%rbp)
-    1547:	69 45 ec 93 01 00 01 	imul   $0x1000193,-0x14(%rbp),%eax
-    154e:	89 45 ec             	mov    %eax,-0x14(%rbp)
-    1551:	48 8b 45 e0          	mov    -0x20(%rbp),%rax
-    1555:	48 83 c0 01          	add    $0x1,%rax
-    1559:	48 89 45 e0          	mov    %rax,-0x20(%rbp)
-    155d:	eb cc                	jmp    152b <hash_bytes+0x1b>
-    155f:	8b 45 ec             	mov    -0x14(%rbp),%eax
-    1562:	5d                   	pop    %rbp
-    1563:	c3                   	ret
+    1426:	0f 87 8d 00 00 00    	ja     14b9 <run_contract+0xf9>
+    142c:	48 8d bd 70 ff ff ff 	lea    -0x90(%rbp),%rdi
+    1433:	be a5 00 00 00       	mov    $0xa5,%esi
+    1438:	ba 41 00 00 00       	mov    $0x41,%edx
+    143d:	e8 fe fb ff ff       	call   1040 <memset@plt>
+    1442:	48 8d bd 70 ff ff ff 	lea    -0x90(%rbp),%rdi
+    1449:	48 8d 75 c0          	lea    -0x40(%rbp),%rsi
+    144d:	48 8b 95 60 ff ff ff 	mov    -0xa0(%rbp),%rdx
+    1454:	e8 f7 fb ff ff       	call   1050 <memcpy@plt>
+    1459:	48 8b 85 60 ff ff ff 	mov    -0xa0(%rbp),%rax
+    1460:	c6 84 05 70 ff ff ff 00 	movb   $0x0,-0x90(%rbp,%rax,1)
+    1468:	48 8d bd 70 ff ff ff 	lea    -0x90(%rbp),%rdi
+    146f:	48 8b 95 60 ff ff ff 	mov    -0xa0(%rbp),%rdx
+    1476:	48 83 c2 01          	add    $0x1,%rdx
+    147a:	48 8b 05 47 2b 00 00 	mov    0x2b47(%rip),%rax        # 3fc8 <stdout@GLIBC_2.2.5>
+    1481:	48 8b 08             	mov    (%rax),%rcx
+    1484:	be 01 00 00 00       	mov    $0x1,%esi
+    1489:	e8 d2 fb ff ff       	call   1060 <fwrite@plt>
+    148e:	48 8b 8d 60 ff ff ff 	mov    -0xa0(%rbp),%rcx
+    1495:	48 83 c1 01          	add    $0x1,%rcx
+    1499:	48 39 c8             	cmp    %rcx,%rax
+    149c:	74 02                	je     14a0 <run_contract+0xe0>
+    149e:	eb 19                	jmp    14b9 <run_contract+0xf9>
+    14a0:	eb 00                	jmp    14a2 <run_contract+0xe2>
+    14a2:	48 8b 85 60 ff ff ff 	mov    -0xa0(%rbp),%rax
+    14a9:	48 83 c0 01          	add    $0x1,%rax
+    14ad:	48 89 85 60 ff ff ff 	mov    %rax,-0xa0(%rbp)
+    14b4:	e9 65 ff ff ff       	jmp    141e <run_contract+0x5e>
+    14b9:	48 81 c4 a0 00 00 00 	add    $0xa0,%rsp
+    14c0:	5d                   	pop    %rbp
+    14c1:	c3                   	ret
 
 Disassembly of section .fini:
 
-0000000000001564 <_fini>:
-    1564:	48 83 ec 08          	sub    $0x8,%rsp
-    1568:	48 83 c4 08          	add    $0x8,%rsp
-    156c:	c3                   	ret
+00000000000014c4 <_fini>:
+    14c4:	48 83 ec 08          	sub    $0x8,%rsp
+    14c8:	48 83 c4 08          	add    $0x8,%rsp
+    14cc:	c3                   	ret

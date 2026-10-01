@@ -53,7 +53,7 @@ Disassembly of section .text:
     107e:	54                   	push   %rsp
     107f:	45 31 c0             	xor    %r8d,%r8d
     1082:	31 c9                	xor    %ecx,%ecx
-    1084:	48 8d 3d 72 02 00 00 	lea    0x272(%rip),%rdi        # 12fd <main>
+    1084:	48 8d 3d 37 02 00 00 	lea    0x237(%rip),%rdi        # 12c2 <main>
     108b:	ff 15 2f 2f 00 00    	call   *0x2f2f(%rip)        # 3fc0 <__libc_start_main@GLIBC_2.34>
     1091:	f4                   	hlt
     1092:	66 2e 0f 1f 84 00 00 00 00 00 	cs nopw 0x0(%rax,%rax,1)
@@ -157,258 +157,238 @@ Disassembly of section .text:
     11c4:	c9                   	leave
     11c5:	c3                   	ret
 
-00000000000011c6 <hash_bytes>:
+00000000000011c6 <run_contract>:
     11c6:	55                   	push   %rbp
     11c7:	48 89 e5             	mov    %rsp,%rbp
-    11ca:	48 89 7d e8          	mov    %rdi,-0x18(%rbp)
-    11ce:	48 89 75 e0          	mov    %rsi,-0x20(%rbp)
-    11d2:	c7 45 fc c5 9d 1c 81 	movl   $0x811c9dc5,-0x4(%rbp)
-    11d9:	48 c7 45 f0 00 00 00 00 	movq   $0x0,-0x10(%rbp)
-    11e1:	eb 25                	jmp    1208 <hash_bytes+0x42>
-    11e3:	48 8b 55 e8          	mov    -0x18(%rbp),%rdx
-    11e7:	48 8b 45 f0          	mov    -0x10(%rbp),%rax
-    11eb:	48 01 d0             	add    %rdx,%rax
-    11ee:	0f b6 00             	movzbl (%rax),%eax
-    11f1:	0f b6 c0             	movzbl %al,%eax
-    11f4:	31 45 fc             	xor    %eax,-0x4(%rbp)
-    11f7:	8b 45 fc             	mov    -0x4(%rbp),%eax
-    11fa:	69 c0 93 01 00 01    	imul   $0x1000193,%eax,%eax
-    1200:	89 45 fc             	mov    %eax,-0x4(%rbp)
-    1203:	48 83 45 f0 01       	addq   $0x1,-0x10(%rbp)
-    1208:	48 8b 45 f0          	mov    -0x10(%rbp),%rax
-    120c:	48 3b 45 e0          	cmp    -0x20(%rbp),%rax
-    1210:	72 d1                	jb     11e3 <hash_bytes+0x1d>
-    1212:	8b 45 fc             	mov    -0x4(%rbp),%eax
-    1215:	5d                   	pop    %rbp
-    1216:	c3                   	ret
+    11ca:	48 81 ec b0 00 00 00 	sub    $0xb0,%rsp
+    11d1:	48 c7 45 f8 00 00 00 00 	movq   $0x0,-0x8(%rbp)
+    11d9:	eb 27                	jmp    1202 <run_contract+0x3c>
+    11db:	48 8b 45 f8          	mov    -0x8(%rbp),%rax
+    11df:	89 c2                	mov    %eax,%edx
+    11e1:	89 d0                	mov    %edx,%eax
+    11e3:	c1 e0 03             	shl    $0x3,%eax
+    11e6:	01 d0                	add    %edx,%eax
+    11e8:	c1 e0 02             	shl    $0x2,%eax
+    11eb:	01 d0                	add    %edx,%eax
+    11ed:	8d 50 0b             	lea    0xb(%rax),%edx
+    11f0:	48 8d 4d a0          	lea    -0x60(%rbp),%rcx
+    11f4:	48 8b 45 f8          	mov    -0x8(%rbp),%rax
+    11f8:	48 01 c8             	add    %rcx,%rax
+    11fb:	88 10                	mov    %dl,(%rax)
+    11fd:	48 83 45 f8 01       	addq   $0x1,-0x8(%rbp)
+    1202:	48 83 7d f8 3f       	cmpq   $0x3f,-0x8(%rbp)
+    1207:	76 d2                	jbe    11db <run_contract+0x15>
+    1209:	48 c7 45 f0 00 00 00 00 	movq   $0x0,-0x10(%rbp)
+    1211:	e9 9c 00 00 00       	jmp    12b2 <run_contract+0xec>
+    1216:	48 8d 85 50 ff ff ff 	lea    -0xb0(%rbp),%rax
+    121d:	ba 41 00 00 00       	mov    $0x41,%edx
+    1222:	be a5 00 00 00       	mov    $0xa5,%esi
+    1227:	48 89 c7             	mov    %rax,%rdi
+    122a:	e8 11 fe ff ff       	call   1040 <memset@plt>
+    122f:	48 c7 45 e8 00 00 00 00 	movq   $0x0,-0x18(%rbp)
+    1237:	eb 23                	jmp    125c <run_contract+0x96>
+    1239:	48 8d 55 a0          	lea    -0x60(%rbp),%rdx
+    123d:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+    1241:	48 01 d0             	add    %rdx,%rax
+    1244:	0f b6 00             	movzbl (%rax),%eax
+    1247:	48 8d 8d 50 ff ff ff 	lea    -0xb0(%rbp),%rcx
+    124e:	48 8b 55 e8          	mov    -0x18(%rbp),%rdx
+    1252:	48 01 ca             	add    %rcx,%rdx
+    1255:	88 02                	mov    %al,(%rdx)
+    1257:	48 83 45 e8 01       	addq   $0x1,-0x18(%rbp)
+    125c:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+    1260:	48 3b 45 f0          	cmp    -0x10(%rbp),%rax
+    1264:	72 d3                	jb     1239 <run_contract+0x73>
+    1266:	48 8d 95 50 ff ff ff 	lea    -0xb0(%rbp),%rdx
+    126d:	48 8b 45 f0          	mov    -0x10(%rbp),%rax
+    1271:	48 01 d0             	add    %rdx,%rax
+    1274:	c6 00 00             	movb   $0x0,(%rax)
+    1277:	48 8b 15 aa 2d 00 00 	mov    0x2daa(%rip),%rdx        # 4028 <stdout@GLIBC_2.2.5>
+    127e:	48 8b 45 f0          	mov    -0x10(%rbp),%rax
+    1282:	48 8d 70 01          	lea    0x1(%rax),%rsi
+    1286:	48 8d 85 50 ff ff ff 	lea    -0xb0(%rbp),%rax
+    128d:	48 89 d1             	mov    %rdx,%rcx
+    1290:	48 89 f2             	mov    %rsi,%rdx
+    1293:	be 01 00 00 00       	mov    $0x1,%esi
+    1298:	48 89 c7             	mov    %rax,%rdi
+    129b:	e8 b0 fd ff ff       	call   1050 <fwrite@plt>
+    12a0:	48 8b 55 f0          	mov    -0x10(%rbp),%rdx
+    12a4:	48 83 c2 01          	add    $0x1,%rdx
+    12a8:	48 39 d0             	cmp    %rdx,%rax
+    12ab:	75 12                	jne    12bf <run_contract+0xf9>
+    12ad:	48 83 45 f0 01       	addq   $0x1,-0x10(%rbp)
+    12b2:	48 83 7d f0 40       	cmpq   $0x40,-0x10(%rbp)
+    12b7:	0f 86 59 ff ff ff    	jbe    1216 <run_contract+0x50>
+    12bd:	eb 01                	jmp    12c0 <run_contract+0xfa>
+    12bf:	90                   	nop
+    12c0:	c9                   	leave
+    12c1:	c3                   	ret
 
-0000000000001217 <run_contract>:
-    1217:	55                   	push   %rbp
-    1218:	48 89 e5             	mov    %rsp,%rbp
-    121b:	48 81 ec b0 00 00 00 	sub    $0xb0,%rsp
-    1222:	48 c7 45 f8 00 00 00 00 	movq   $0x0,-0x8(%rbp)
-    122a:	eb 27                	jmp    1253 <run_contract+0x3c>
-    122c:	48 8b 45 f8          	mov    -0x8(%rbp),%rax
-    1230:	89 c2                	mov    %eax,%edx
-    1232:	89 d0                	mov    %edx,%eax
-    1234:	c1 e0 03             	shl    $0x3,%eax
-    1237:	01 d0                	add    %edx,%eax
-    1239:	c1 e0 02             	shl    $0x2,%eax
-    123c:	01 d0                	add    %edx,%eax
-    123e:	8d 50 0b             	lea    0xb(%rax),%edx
-    1241:	48 8d 4d a0          	lea    -0x60(%rbp),%rcx
-    1245:	48 8b 45 f8          	mov    -0x8(%rbp),%rax
-    1249:	48 01 c8             	add    %rcx,%rax
-    124c:	88 10                	mov    %dl,(%rax)
-    124e:	48 83 45 f8 01       	addq   $0x1,-0x8(%rbp)
-    1253:	48 83 7d f8 3f       	cmpq   $0x3f,-0x8(%rbp)
-    1258:	76 d2                	jbe    122c <run_contract+0x15>
-    125a:	48 c7 45 f0 00 00 00 00 	movq   $0x0,-0x10(%rbp)
-    1262:	e9 87 00 00 00       	jmp    12ee <run_contract+0xd7>
-    1267:	48 8d 85 50 ff ff ff 	lea    -0xb0(%rbp),%rax
-    126e:	ba 41 00 00 00       	mov    $0x41,%edx
-    1273:	be a5 00 00 00       	mov    $0xa5,%esi
-    1278:	48 89 c7             	mov    %rax,%rdi
-    127b:	e8 c0 fd ff ff       	call   1040 <memset@plt>
-    1280:	48 c7 45 e8 00 00 00 00 	movq   $0x0,-0x18(%rbp)
-    1288:	eb 23                	jmp    12ad <run_contract+0x96>
-    128a:	48 8d 55 a0          	lea    -0x60(%rbp),%rdx
-    128e:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
-    1292:	48 01 d0             	add    %rdx,%rax
-    1295:	0f b6 00             	movzbl (%rax),%eax
-    1298:	48 8d 8d 50 ff ff ff 	lea    -0xb0(%rbp),%rcx
-    129f:	48 8b 55 e8          	mov    -0x18(%rbp),%rdx
-    12a3:	48 01 ca             	add    %rcx,%rdx
-    12a6:	88 02                	mov    %al,(%rdx)
-    12a8:	48 83 45 e8 01       	addq   $0x1,-0x18(%rbp)
-    12ad:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
-    12b1:	48 3b 45 f0          	cmp    -0x10(%rbp),%rax
-    12b5:	72 d3                	jb     128a <run_contract+0x73>
-    12b7:	48 8d 95 50 ff ff ff 	lea    -0xb0(%rbp),%rdx
-    12be:	48 8b 45 f0          	mov    -0x10(%rbp),%rax
-    12c2:	48 01 d0             	add    %rdx,%rax
-    12c5:	c6 00 00             	movb   $0x0,(%rax)
-    12c8:	48 8b 45 f0          	mov    -0x10(%rbp),%rax
-    12cc:	48 8d 50 01          	lea    0x1(%rax),%rdx
-    12d0:	48 8d 85 50 ff ff ff 	lea    -0xb0(%rbp),%rax
-    12d7:	48 89 d6             	mov    %rdx,%rsi
-    12da:	48 89 c7             	mov    %rax,%rdi
-    12dd:	e8 e4 fe ff ff       	call   11c6 <hash_bytes>
-    12e2:	89 c7                	mov    %eax,%edi
-    12e4:	e8 8e fe ff ff       	call   1177 <emit_u32>
-    12e9:	48 83 45 f0 01       	addq   $0x1,-0x10(%rbp)
-    12ee:	48 83 7d f0 40       	cmpq   $0x40,-0x10(%rbp)
-    12f3:	0f 86 6e ff ff ff    	jbe    1267 <run_contract+0x50>
-    12f9:	90                   	nop
-    12fa:	90                   	nop
-    12fb:	c9                   	leave
-    12fc:	c3                   	ret
-
-00000000000012fd <main>:
-    12fd:	55                   	push   %rbp
-    12fe:	48 89 e5             	mov    %rsp,%rbp
-    1301:	48 83 ec 10          	sub    $0x10,%rsp
-    1305:	c7 45 fc f5 79 2b 6d 	movl   $0x6d2b79f5,-0x4(%rbp)
-    130c:	8b 45 fc             	mov    -0x4(%rbp),%eax
-    130f:	be a3 25 c1 bf       	mov    $0xbfc125a3,%esi
-    1314:	89 c7                	mov    %eax,%edi
-    1316:	e8 3e fe ff ff       	call   1159 <wm_add_v1>
-    131b:	89 45 fc             	mov    %eax,-0x4(%rbp)
-    131e:	8b 45 fc             	mov    -0x4(%rbp),%eax
-    1321:	be 07 85 57 ad       	mov    $0xad578507,%esi
-    1326:	89 c7                	mov    %eax,%edi
-    1328:	e8 3b fe ff ff       	call   1168 <wm_xor_v1>
-    132d:	89 45 fc             	mov    %eax,-0x4(%rbp)
-    1330:	8b 45 fc             	mov    -0x4(%rbp),%eax
-    1333:	be d3 bb 7d 99       	mov    $0x997dbbd3,%esi
-    1338:	89 c7                	mov    %eax,%edi
-    133a:	e8 1a fe ff ff       	call   1159 <wm_add_v1>
-    133f:	89 45 fc             	mov    %eax,-0x4(%rbp)
-    1342:	8b 45 fc             	mov    -0x4(%rbp),%eax
-    1345:	be eb 15 cb e7       	mov    $0xe7cb15eb,%esi
-    134a:	89 c7                	mov    %eax,%edi
-    134c:	e8 17 fe ff ff       	call   1168 <wm_xor_v1>
-    1351:	89 45 fc             	mov    %eax,-0x4(%rbp)
-    1354:	8b 45 fc             	mov    -0x4(%rbp),%eax
-    1357:	be 9b 81 e7 61       	mov    $0x61e7819b,%esi
-    135c:	89 c7                	mov    %eax,%edi
-    135e:	e8 f6 fd ff ff       	call   1159 <wm_add_v1>
-    1363:	89 45 fc             	mov    %eax,-0x4(%rbp)
-    1366:	8b 45 fc             	mov    -0x4(%rbp),%eax
-    1369:	be 99 b3 fd c7       	mov    $0xc7fdb399,%esi
-    136e:	89 c7                	mov    %eax,%edi
-    1370:	e8 f3 fd ff ff       	call   1168 <wm_xor_v1>
-    1375:	89 45 fc             	mov    %eax,-0x4(%rbp)
-    1378:	8b 45 fc             	mov    -0x4(%rbp),%eax
-    137b:	be 63 63 e3 93       	mov    $0x93e36363,%esi
-    1380:	89 c7                	mov    %eax,%edi
-    1382:	e8 d2 fd ff ff       	call   1159 <wm_add_v1>
-    1387:	89 45 fc             	mov    %eax,-0x4(%rbp)
-    138a:	8b 45 fc             	mov    -0x4(%rbp),%eax
-    138d:	be 0f 95 8d a7       	mov    $0xa78d950f,%esi
-    1392:	89 c7                	mov    %eax,%edi
-    1394:	e8 c0 fd ff ff       	call   1159 <wm_add_v1>
-    1399:	89 45 fc             	mov    %eax,-0x4(%rbp)
-    139c:	8b 45 fc             	mov    -0x4(%rbp),%eax
-    139f:	be c5 37 a1 e1       	mov    $0xe1a137c5,%esi
-    13a4:	89 c7                	mov    %eax,%edi
-    13a6:	e8 ae fd ff ff       	call   1159 <wm_add_v1>
-    13ab:	89 45 fc             	mov    %eax,-0x4(%rbp)
-    13ae:	8b 45 fc             	mov    -0x4(%rbp),%eax
-    13b1:	be ad 9b b9 b1       	mov    $0xb1b99bad,%esi
-    13b6:	89 c7                	mov    %eax,%edi
-    13b8:	e8 9c fd ff ff       	call   1159 <wm_add_v1>
-    13bd:	89 45 fc             	mov    %eax,-0x4(%rbp)
-    13c0:	8b 45 fc             	mov    -0x4(%rbp),%eax
-    13c3:	be 23 1d ad d7       	mov    $0xd7ad1d23,%esi
-    13c8:	89 c7                	mov    %eax,%edi
-    13ca:	e8 8a fd ff ff       	call   1159 <wm_add_v1>
-    13cf:	89 45 fc             	mov    %eax,-0x4(%rbp)
-    13d2:	8b 45 fc             	mov    -0x4(%rbp),%eax
-    13d5:	be 35 af fb eb       	mov    $0xebfbaf35,%esi
-    13da:	89 c7                	mov    %eax,%edi
-    13dc:	e8 78 fd ff ff       	call   1159 <wm_add_v1>
-    13e1:	89 45 fc             	mov    %eax,-0x4(%rbp)
-    13e4:	8b 45 fc             	mov    -0x4(%rbp),%eax
-    13e7:	be b9 e9 fd cd       	mov    $0xcdfde9b9,%esi
-    13ec:	89 c7                	mov    %eax,%edi
-    13ee:	e8 66 fd ff ff       	call   1159 <wm_add_v1>
-    13f3:	89 45 fc             	mov    %eax,-0x4(%rbp)
-    13f6:	8b 45 fc             	mov    -0x4(%rbp),%eax
-    13f9:	be b7 8f 39 21       	mov    $0x21398fb7,%esi
-    13fe:	89 c7                	mov    %eax,%edi
-    1400:	e8 54 fd ff ff       	call   1159 <wm_add_v1>
-    1405:	89 45 fc             	mov    %eax,-0x4(%rbp)
-    1408:	8b 45 fc             	mov    -0x4(%rbp),%eax
-    140b:	be d1 fd d1 19       	mov    $0x19d1fdd1,%esi
-    1410:	89 c7                	mov    %eax,%edi
-    1412:	e8 51 fd ff ff       	call   1168 <wm_xor_v1>
-    1417:	89 45 fc             	mov    %eax,-0x4(%rbp)
-    141a:	8b 45 fc             	mov    -0x4(%rbp),%eax
-    141d:	be a1 d5 8d fd       	mov    $0xfd8dd5a1,%esi
-    1422:	89 c7                	mov    %eax,%edi
-    1424:	e8 30 fd ff ff       	call   1159 <wm_add_v1>
-    1429:	89 45 fc             	mov    %eax,-0x4(%rbp)
-    142c:	8b 45 fc             	mov    -0x4(%rbp),%eax
-    142f:	be 25 dd b3 73       	mov    $0x73b3dd25,%esi
-    1434:	89 c7                	mov    %eax,%edi
-    1436:	e8 2d fd ff ff       	call   1168 <wm_xor_v1>
-    143b:	89 45 fc             	mov    %eax,-0x4(%rbp)
-    143e:	8b 45 fc             	mov    -0x4(%rbp),%eax
-    1441:	be 4d 8b bd c1       	mov    $0xc1bd8b4d,%esi
-    1446:	89 c7                	mov    %eax,%edi
-    1448:	e8 1b fd ff ff       	call   1168 <wm_xor_v1>
-    144d:	89 45 fc             	mov    %eax,-0x4(%rbp)
-    1450:	8b 45 fc             	mov    -0x4(%rbp),%eax
-    1453:	be df 57 2f 53       	mov    $0x532f57df,%esi
-    1458:	89 c7                	mov    %eax,%edi
-    145a:	e8 fa fc ff ff       	call   1159 <wm_add_v1>
-    145f:	89 45 fc             	mov    %eax,-0x4(%rbp)
-    1462:	8b 45 fc             	mov    -0x4(%rbp),%eax
-    1465:	be 79 33 c1 ad       	mov    $0xadc13379,%esi
-    146a:	89 c7                	mov    %eax,%edi
-    146c:	e8 f7 fc ff ff       	call   1168 <wm_xor_v1>
-    1471:	89 45 fc             	mov    %eax,-0x4(%rbp)
-    1474:	8b 45 fc             	mov    -0x4(%rbp),%eax
-    1477:	be b1 b7 85 03       	mov    $0x385b7b1,%esi
-    147c:	89 c7                	mov    %eax,%edi
-    147e:	e8 d6 fc ff ff       	call   1159 <wm_add_v1>
-    1483:	89 45 fc             	mov    %eax,-0x4(%rbp)
-    1486:	8b 45 fc             	mov    -0x4(%rbp),%eax
-    1489:	be 31 d5 01 3b       	mov    $0x3b01d531,%esi
-    148e:	89 c7                	mov    %eax,%edi
-    1490:	e8 c4 fc ff ff       	call   1159 <wm_add_v1>
-    1495:	89 45 fc             	mov    %eax,-0x4(%rbp)
-    1498:	8b 45 fc             	mov    -0x4(%rbp),%eax
-    149b:	be 7b 83 3d c7       	mov    $0xc73d837b,%esi
-    14a0:	89 c7                	mov    %eax,%edi
-    14a2:	e8 b2 fc ff ff       	call   1159 <wm_add_v1>
-    14a7:	89 45 fc             	mov    %eax,-0x4(%rbp)
-    14aa:	8b 45 fc             	mov    -0x4(%rbp),%eax
-    14ad:	be 8b c3 5d b1       	mov    $0xb15dc38b,%esi
-    14b2:	89 c7                	mov    %eax,%edi
-    14b4:	e8 af fc ff ff       	call   1168 <wm_xor_v1>
-    14b9:	89 45 fc             	mov    %eax,-0x4(%rbp)
-    14bc:	8b 45 fc             	mov    -0x4(%rbp),%eax
-    14bf:	be eb 67 3b c9       	mov    $0xc93b67eb,%esi
-    14c4:	89 c7                	mov    %eax,%edi
-    14c6:	e8 8e fc ff ff       	call   1159 <wm_add_v1>
-    14cb:	89 45 fc             	mov    %eax,-0x4(%rbp)
-    14ce:	8b 45 fc             	mov    -0x4(%rbp),%eax
-    14d1:	be 9d c7 bf f3       	mov    $0xf3bfc79d,%esi
-    14d6:	89 c7                	mov    %eax,%edi
-    14d8:	e8 8b fc ff ff       	call   1168 <wm_xor_v1>
-    14dd:	89 45 fc             	mov    %eax,-0x4(%rbp)
-    14e0:	8b 45 fc             	mov    -0x4(%rbp),%eax
-    14e3:	be 11 05 bb 27       	mov    $0x27bb0511,%esi
-    14e8:	89 c7                	mov    %eax,%edi
-    14ea:	e8 79 fc ff ff       	call   1168 <wm_xor_v1>
-    14ef:	89 45 fc             	mov    %eax,-0x4(%rbp)
-    14f2:	8b 45 fc             	mov    -0x4(%rbp),%eax
-    14f5:	be b9 5f 0f 37       	mov    $0x370f5fb9,%esi
-    14fa:	89 c7                	mov    %eax,%edi
-    14fc:	e8 58 fc ff ff       	call   1159 <wm_add_v1>
-    1501:	89 45 fc             	mov    %eax,-0x4(%rbp)
-    1504:	8b 45 fc             	mov    -0x4(%rbp),%eax
-    1507:	83 f8 ff             	cmp    $0xffffffff,%eax
-    150a:	75 07                	jne    1513 <main+0x216>
-    150c:	b8 61 00 00 00       	mov    $0x61,%eax
-    1511:	eb 24                	jmp    1537 <main+0x23a>
-    1513:	e8 ff fc ff ff       	call   1217 <run_contract>
-    1518:	48 8b 05 09 2b 00 00 	mov    0x2b09(%rip),%rax        # 4028 <stdout@GLIBC_2.2.5>
-    151f:	48 89 c7             	mov    %rax,%rdi
-    1522:	e8 09 fb ff ff       	call   1030 <ferror@plt>
-    1527:	85 c0                	test   %eax,%eax
-    1529:	74 07                	je     1532 <main+0x235>
-    152b:	b8 02 00 00 00       	mov    $0x2,%eax
-    1530:	eb 05                	jmp    1537 <main+0x23a>
-    1532:	b8 00 00 00 00       	mov    $0x0,%eax
-    1537:	c9                   	leave
-    1538:	c3                   	ret
+00000000000012c2 <main>:
+    12c2:	55                   	push   %rbp
+    12c3:	48 89 e5             	mov    %rsp,%rbp
+    12c6:	48 83 ec 10          	sub    $0x10,%rsp
+    12ca:	c7 45 fc f5 79 2b 6d 	movl   $0x6d2b79f5,-0x4(%rbp)
+    12d1:	8b 45 fc             	mov    -0x4(%rbp),%eax
+    12d4:	be a3 25 c1 bf       	mov    $0xbfc125a3,%esi
+    12d9:	89 c7                	mov    %eax,%edi
+    12db:	e8 79 fe ff ff       	call   1159 <wm_add_v1>
+    12e0:	89 45 fc             	mov    %eax,-0x4(%rbp)
+    12e3:	8b 45 fc             	mov    -0x4(%rbp),%eax
+    12e6:	be 07 85 57 ad       	mov    $0xad578507,%esi
+    12eb:	89 c7                	mov    %eax,%edi
+    12ed:	e8 76 fe ff ff       	call   1168 <wm_xor_v1>
+    12f2:	89 45 fc             	mov    %eax,-0x4(%rbp)
+    12f5:	8b 45 fc             	mov    -0x4(%rbp),%eax
+    12f8:	be d3 bb 7d 99       	mov    $0x997dbbd3,%esi
+    12fd:	89 c7                	mov    %eax,%edi
+    12ff:	e8 55 fe ff ff       	call   1159 <wm_add_v1>
+    1304:	89 45 fc             	mov    %eax,-0x4(%rbp)
+    1307:	8b 45 fc             	mov    -0x4(%rbp),%eax
+    130a:	be eb 15 cb e7       	mov    $0xe7cb15eb,%esi
+    130f:	89 c7                	mov    %eax,%edi
+    1311:	e8 52 fe ff ff       	call   1168 <wm_xor_v1>
+    1316:	89 45 fc             	mov    %eax,-0x4(%rbp)
+    1319:	8b 45 fc             	mov    -0x4(%rbp),%eax
+    131c:	be 9b 81 e7 61       	mov    $0x61e7819b,%esi
+    1321:	89 c7                	mov    %eax,%edi
+    1323:	e8 31 fe ff ff       	call   1159 <wm_add_v1>
+    1328:	89 45 fc             	mov    %eax,-0x4(%rbp)
+    132b:	8b 45 fc             	mov    -0x4(%rbp),%eax
+    132e:	be 99 b3 fd c7       	mov    $0xc7fdb399,%esi
+    1333:	89 c7                	mov    %eax,%edi
+    1335:	e8 2e fe ff ff       	call   1168 <wm_xor_v1>
+    133a:	89 45 fc             	mov    %eax,-0x4(%rbp)
+    133d:	8b 45 fc             	mov    -0x4(%rbp),%eax
+    1340:	be 63 63 e3 93       	mov    $0x93e36363,%esi
+    1345:	89 c7                	mov    %eax,%edi
+    1347:	e8 0d fe ff ff       	call   1159 <wm_add_v1>
+    134c:	89 45 fc             	mov    %eax,-0x4(%rbp)
+    134f:	8b 45 fc             	mov    -0x4(%rbp),%eax
+    1352:	be 0f 95 8d a7       	mov    $0xa78d950f,%esi
+    1357:	89 c7                	mov    %eax,%edi
+    1359:	e8 fb fd ff ff       	call   1159 <wm_add_v1>
+    135e:	89 45 fc             	mov    %eax,-0x4(%rbp)
+    1361:	8b 45 fc             	mov    -0x4(%rbp),%eax
+    1364:	be c5 37 a1 e1       	mov    $0xe1a137c5,%esi
+    1369:	89 c7                	mov    %eax,%edi
+    136b:	e8 e9 fd ff ff       	call   1159 <wm_add_v1>
+    1370:	89 45 fc             	mov    %eax,-0x4(%rbp)
+    1373:	8b 45 fc             	mov    -0x4(%rbp),%eax
+    1376:	be ad 9b b9 b1       	mov    $0xb1b99bad,%esi
+    137b:	89 c7                	mov    %eax,%edi
+    137d:	e8 d7 fd ff ff       	call   1159 <wm_add_v1>
+    1382:	89 45 fc             	mov    %eax,-0x4(%rbp)
+    1385:	8b 45 fc             	mov    -0x4(%rbp),%eax
+    1388:	be 23 1d ad d7       	mov    $0xd7ad1d23,%esi
+    138d:	89 c7                	mov    %eax,%edi
+    138f:	e8 c5 fd ff ff       	call   1159 <wm_add_v1>
+    1394:	89 45 fc             	mov    %eax,-0x4(%rbp)
+    1397:	8b 45 fc             	mov    -0x4(%rbp),%eax
+    139a:	be 35 af fb eb       	mov    $0xebfbaf35,%esi
+    139f:	89 c7                	mov    %eax,%edi
+    13a1:	e8 b3 fd ff ff       	call   1159 <wm_add_v1>
+    13a6:	89 45 fc             	mov    %eax,-0x4(%rbp)
+    13a9:	8b 45 fc             	mov    -0x4(%rbp),%eax
+    13ac:	be b9 e9 fd cd       	mov    $0xcdfde9b9,%esi
+    13b1:	89 c7                	mov    %eax,%edi
+    13b3:	e8 a1 fd ff ff       	call   1159 <wm_add_v1>
+    13b8:	89 45 fc             	mov    %eax,-0x4(%rbp)
+    13bb:	8b 45 fc             	mov    -0x4(%rbp),%eax
+    13be:	be b7 8f 39 21       	mov    $0x21398fb7,%esi
+    13c3:	89 c7                	mov    %eax,%edi
+    13c5:	e8 8f fd ff ff       	call   1159 <wm_add_v1>
+    13ca:	89 45 fc             	mov    %eax,-0x4(%rbp)
+    13cd:	8b 45 fc             	mov    -0x4(%rbp),%eax
+    13d0:	be d1 fd d1 19       	mov    $0x19d1fdd1,%esi
+    13d5:	89 c7                	mov    %eax,%edi
+    13d7:	e8 8c fd ff ff       	call   1168 <wm_xor_v1>
+    13dc:	89 45 fc             	mov    %eax,-0x4(%rbp)
+    13df:	8b 45 fc             	mov    -0x4(%rbp),%eax
+    13e2:	be a1 d5 8d fd       	mov    $0xfd8dd5a1,%esi
+    13e7:	89 c7                	mov    %eax,%edi
+    13e9:	e8 6b fd ff ff       	call   1159 <wm_add_v1>
+    13ee:	89 45 fc             	mov    %eax,-0x4(%rbp)
+    13f1:	8b 45 fc             	mov    -0x4(%rbp),%eax
+    13f4:	be 25 dd b3 73       	mov    $0x73b3dd25,%esi
+    13f9:	89 c7                	mov    %eax,%edi
+    13fb:	e8 68 fd ff ff       	call   1168 <wm_xor_v1>
+    1400:	89 45 fc             	mov    %eax,-0x4(%rbp)
+    1403:	8b 45 fc             	mov    -0x4(%rbp),%eax
+    1406:	be 4d 8b bd c1       	mov    $0xc1bd8b4d,%esi
+    140b:	89 c7                	mov    %eax,%edi
+    140d:	e8 56 fd ff ff       	call   1168 <wm_xor_v1>
+    1412:	89 45 fc             	mov    %eax,-0x4(%rbp)
+    1415:	8b 45 fc             	mov    -0x4(%rbp),%eax
+    1418:	be df 57 2f 53       	mov    $0x532f57df,%esi
+    141d:	89 c7                	mov    %eax,%edi
+    141f:	e8 35 fd ff ff       	call   1159 <wm_add_v1>
+    1424:	89 45 fc             	mov    %eax,-0x4(%rbp)
+    1427:	8b 45 fc             	mov    -0x4(%rbp),%eax
+    142a:	be 79 33 c1 ad       	mov    $0xadc13379,%esi
+    142f:	89 c7                	mov    %eax,%edi
+    1431:	e8 32 fd ff ff       	call   1168 <wm_xor_v1>
+    1436:	89 45 fc             	mov    %eax,-0x4(%rbp)
+    1439:	8b 45 fc             	mov    -0x4(%rbp),%eax
+    143c:	be b1 b7 85 03       	mov    $0x385b7b1,%esi
+    1441:	89 c7                	mov    %eax,%edi
+    1443:	e8 11 fd ff ff       	call   1159 <wm_add_v1>
+    1448:	89 45 fc             	mov    %eax,-0x4(%rbp)
+    144b:	8b 45 fc             	mov    -0x4(%rbp),%eax
+    144e:	be 31 d5 01 3b       	mov    $0x3b01d531,%esi
+    1453:	89 c7                	mov    %eax,%edi
+    1455:	e8 ff fc ff ff       	call   1159 <wm_add_v1>
+    145a:	89 45 fc             	mov    %eax,-0x4(%rbp)
+    145d:	8b 45 fc             	mov    -0x4(%rbp),%eax
+    1460:	be 7b 83 3d c7       	mov    $0xc73d837b,%esi
+    1465:	89 c7                	mov    %eax,%edi
+    1467:	e8 ed fc ff ff       	call   1159 <wm_add_v1>
+    146c:	89 45 fc             	mov    %eax,-0x4(%rbp)
+    146f:	8b 45 fc             	mov    -0x4(%rbp),%eax
+    1472:	be 8b c3 5d b1       	mov    $0xb15dc38b,%esi
+    1477:	89 c7                	mov    %eax,%edi
+    1479:	e8 ea fc ff ff       	call   1168 <wm_xor_v1>
+    147e:	89 45 fc             	mov    %eax,-0x4(%rbp)
+    1481:	8b 45 fc             	mov    -0x4(%rbp),%eax
+    1484:	be eb 67 3b c9       	mov    $0xc93b67eb,%esi
+    1489:	89 c7                	mov    %eax,%edi
+    148b:	e8 c9 fc ff ff       	call   1159 <wm_add_v1>
+    1490:	89 45 fc             	mov    %eax,-0x4(%rbp)
+    1493:	8b 45 fc             	mov    -0x4(%rbp),%eax
+    1496:	be 9d c7 bf f3       	mov    $0xf3bfc79d,%esi
+    149b:	89 c7                	mov    %eax,%edi
+    149d:	e8 c6 fc ff ff       	call   1168 <wm_xor_v1>
+    14a2:	89 45 fc             	mov    %eax,-0x4(%rbp)
+    14a5:	8b 45 fc             	mov    -0x4(%rbp),%eax
+    14a8:	be 11 05 bb 27       	mov    $0x27bb0511,%esi
+    14ad:	89 c7                	mov    %eax,%edi
+    14af:	e8 b4 fc ff ff       	call   1168 <wm_xor_v1>
+    14b4:	89 45 fc             	mov    %eax,-0x4(%rbp)
+    14b7:	8b 45 fc             	mov    -0x4(%rbp),%eax
+    14ba:	be b9 5f 0f 37       	mov    $0x370f5fb9,%esi
+    14bf:	89 c7                	mov    %eax,%edi
+    14c1:	e8 93 fc ff ff       	call   1159 <wm_add_v1>
+    14c6:	89 45 fc             	mov    %eax,-0x4(%rbp)
+    14c9:	8b 45 fc             	mov    -0x4(%rbp),%eax
+    14cc:	83 f8 ff             	cmp    $0xffffffff,%eax
+    14cf:	75 07                	jne    14d8 <main+0x216>
+    14d1:	b8 61 00 00 00       	mov    $0x61,%eax
+    14d6:	eb 24                	jmp    14fc <main+0x23a>
+    14d8:	e8 e9 fc ff ff       	call   11c6 <run_contract>
+    14dd:	48 8b 05 44 2b 00 00 	mov    0x2b44(%rip),%rax        # 4028 <stdout@GLIBC_2.2.5>
+    14e4:	48 89 c7             	mov    %rax,%rdi
+    14e7:	e8 44 fb ff ff       	call   1030 <ferror@plt>
+    14ec:	85 c0                	test   %eax,%eax
+    14ee:	74 07                	je     14f7 <main+0x235>
+    14f0:	b8 02 00 00 00       	mov    $0x2,%eax
+    14f5:	eb 05                	jmp    14fc <main+0x23a>
+    14f7:	b8 00 00 00 00       	mov    $0x0,%eax
+    14fc:	c9                   	leave
+    14fd:	c3                   	ret
 
 Disassembly of section .fini:
 
-000000000000153c <_fini>:
-    153c:	48 83 ec 08          	sub    $0x8,%rsp
-    1540:	48 83 c4 08          	add    $0x8,%rsp
-    1544:	c3                   	ret
+0000000000001500 <_fini>:
+    1500:	48 83 ec 08          	sub    $0x8,%rsp
+    1504:	48 83 c4 08          	add    $0x8,%rsp
+    1508:	c3                   	ret

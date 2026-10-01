@@ -246,26 +246,26 @@
       }
     ]
   },
-  "certificate_sha256": "07a807584b1d63b1ddf266ae2c2693d2dfc718f0fc7d504428fff102013b9033",
+  "certificate_sha256": "91007ed6cd74c7e08f95df7c029d0d76f5b15c49495d8654883a95963a49cb8e",
   "chain": {
     "all_parents_accepted": true,
     "hash_link_valid": true,
     "parents": [
       {
         "accepted": true,
-        "certificate_sha256": "1e340ecae7074da57837e0a3b73808f28d283cb9f43aab138f0f5034d52798b7",
+        "certificate_sha256": "3b14d30769bea22f5b4d61ad7599b103b3435ba814c7e9d2f1a0778d20035d5c",
         "decision": "PASS",
         "hash_link_valid": true,
-        "policy_canonical_sha256": "f83b6e41df619dc874cbe16a088adf70430a82b8d268f90750c85c8001ad932d",
+        "policy_canonical_sha256": "6e14435320b6f1413358913991ff0b7f6c1915a770aa90a0ea690b5a474f7b57",
         "policy_compatible": true,
         "variant": "format"
       },
       {
         "accepted": true,
-        "certificate_sha256": "7a6659b6a648abc65e0d485e77fbb4a20cb93cd1b483a5303a192ac339d241d7",
+        "certificate_sha256": "f83f71c6fcc4cc924298436c78b0554e5d46f0d720c2554a1064787e67bce363",
         "decision": "PASS",
         "hash_link_valid": true,
-        "policy_canonical_sha256": "f83b6e41df619dc874cbe16a088adf70430a82b8d268f90750c85c8001ad932d",
+        "policy_canonical_sha256": "6e14435320b6f1413358913991ff0b7f6c1915a770aa90a0ea690b5a474f7b57",
         "policy_compatible": true,
         "variant": "erase_tolerable"
       }
@@ -288,8 +288,8 @@
     "erase_tolerable"
   ],
   "policy": {
-    "canonical_sha256": "f83b6e41df619dc874cbe16a088adf70430a82b8d268f90750c85c8001ad932d",
-    "file_sha256": "2d60e7541e61dc81ebe58399fd92e4fb139a29be83143667d4b2137af3654899",
+    "canonical_sha256": "6e14435320b6f1413358913991ff0b7f6c1915a770aa90a0ea690b5a474f7b57",
+    "file_sha256": "52e3b4f00e84d475a2d1e25ea3ec6793170bc74648b89258ebe8c45bbfe900c2",
     "path": "artifact/policies/finite/jenkins_step.json",
     "policy_id": "finite:jenkins_step:v1"
   },
@@ -340,8 +340,15 @@
       "status": "CERTIFIED_UNIQUE"
     },
     "source_conformance": {
+      "erasure_count": 2,
+      "grammar_valid": true,
+      "issuance_keys_unique": true,
+      "observed_count": 26,
+      "occurrence_binding_valid": true,
       "passed": true,
-      "state": "ESTABLISHED_TRUE"
+      "state": "ESTABLISHED_TRUE",
+      "symbol_error_count": 0,
+      "symbol_loss_and_flip_scope": "recovery-and-continuity"
     }
   },
   "schema": "tracecert.release.v5",

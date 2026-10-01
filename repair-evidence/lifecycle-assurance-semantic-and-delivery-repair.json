@@ -1,0 +1,114 @@
+{
+  "current_hashes": {
+    "finite_independent": "b6d86493946b303433434d63ddd3eb72d8ce112e6777bac69e8c5cf3b39b62c3",
+    "finite_primary": "93852e1cfb60a13a5e20af52366ddfc69bbe5b73b5cd535858a1c131cb89e5fa",
+    "paper_main_pdf": "469467dfe80baf4a3b474dc3e2395230295b0d153877055d8ee549340e6d2fc4",
+    "paper_main_tex": "fa384d12cd0df0530b451503fab710829d3fbdf6f3f1f79a5b521954257043a1",
+    "project_independent": "bf356648a0d5366a137a50066f7557ae773f6ef15cd3873336d176870c7377cc",
+    "project_primary": "1dbd6869fafc37dcbf1facd66b69c9f986e6b6ec04ef2fa3680716bd112e5aef",
+    "release_entrypoint": "a92f891cc8fced9232f1ba73233af83ead4e872f2da9f88e4e0d03cc44d261d3",
+    "release_material_generator": "47c2490afb3299f0a9dfe2ed2f24ddb707a6f9cf4326f7fff62c461aa2a17a83",
+    "release_verifier": "d9b8feaaab4eb3695395eeb2f7b227f6ec9278c18642ca7c1004070822424b00"
+  },
+  "final_counts": {
+    "combined_compiler_cells": 688,
+    "combined_executions": 40963856,
+    "combined_releases": 172,
+    "finite_compiler_cells": 576,
+    "finite_executions": 37748736,
+    "finite_releases": 144,
+    "hold": 0,
+    "pass": 129,
+    "project_compiler_cells": 112,
+    "project_executions": 3215120,
+    "project_releases": 28,
+    "reject": 43
+  },
+  "final_delivery_validation": {
+    "full_release_audit": "PASS",
+    "paper_pages": 14,
+    "retained_output_bytes_each": 65536,
+    "retained_output_content_set_sha256": "a36396c6172db9a137cefbbdc430b06770115c6987a3a62ee70f9f774d404800",
+    "retained_output_count": 576,
+    "review_release_audit": "PASS",
+    "review_root_full_replay": "PASS"
+  },
+  "nonclaims": [
+    "not a seven-repository whole build",
+    "not universal program equivalence",
+    "not an executed organizational policy bridge",
+    "not an adaptive watermark attack evaluation"
+  ],
+  "repairs": [
+    {
+      "details": "576 original scientific .out files, each 65536 bytes, match certificates and results manifest; restoration is delivery repair, not experiment rerun or certificate rewrite",
+      "evidence": "artifact/results/retained_output_closure.json",
+      "id": "retained-output-closure",
+      "result": "PASS"
+    },
+    {
+      "details": "S checks admitted syntax, unique issued keys, and symbol bindings; R and T consume symbol erasure/error observations",
+      "evidence": "artifact/certificates/*/{erase_tolerable,flip_tolerable,recovery_break}.json",
+      "id": "source-conformance-partition",
+      "result": "PASS"
+    },
+    {
+      "details": "comments and strings excluded; comment-only carriers, fake helper, string decoy, rebinding, and compiled refreshed-binding copy covered",
+      "evidence": "artifact/commit-replay/results/source_parser_security.json",
+      "id": "lexical-source-parsers",
+      "result": "PASS"
+    },
+    {
+      "details": "fresh execution decides B; integrity/lineage contradictions enter explicit relations; delta alone produces PASS/HOLD/REJECT",
+      "evidence": "artifact/results/relation_decision_boundaries.json; artifact/commit-replay/results/relation_decision_boundaries.json",
+      "id": "relation-first-decision",
+      "result": "PASS"
+    },
+    {
+      "details": "temporary source, parent, or compiler unavailability holds only without a false relation; false dominates unknown",
+      "evidence": "artifact/results/relation_decision_boundaries.json; artifact/commit-replay/results/relation_decision_boundaries.json",
+      "id": "availability-to-hold",
+      "result": "PASS"
+    },
+    {
+      "details": "nonrelease static dual-policy projection starts from independently reconstructed evidence; continuity recomputed; 25/26 witness separates policies",
+      "evidence": "artifact/policies/bridge/fnv_step-threshold-25-bridge.json",
+      "id": "static-policy-projection",
+      "result": "PASS"
+    },
+    {
+      "details": "all 65 cases retain 2145 output bytes; all 16 Project-D compiler/version rows equal the byte reference",
+      "evidence": "artifact/commit-replay/results/matrix.json",
+      "id": "parson-byte-exact",
+      "result": "PASS"
+    },
+    {
+      "details": "independent 16-codeword enumeration checks distributed and concentrated e=1,s=1 plus unique wrong payload for ??10000",
+      "evidence": "artifact/results/hamming_edge_cases.json",
+      "id": "hamming-boundary",
+      "result": "PASS"
+    },
+    {
+      "details": "explicit project root; unrelated clean path containing spaces; sibling artifact and paper scope",
+      "evidence": "artifact/results/entrypoint_path_smoke.json",
+      "id": "clean-root-entrypoint",
+      "result": "PASS"
+    },
+    {
+      "details": "five model mutations reported separately from fourteen finite and ten project substitutions",
+      "evidence": "artifact/gate-model/results/independent_recheck.json",
+      "id": "mutation-accounting",
+      "result": "PASS"
+    },
+    {
+      "details": "Table V describes the implemented single modular accumulator (x+y) mod 255",
+      "evidence": "paper/main.tex; artifact/benchmark/generated/fletcher_step",
+      "id": "fletcher-description",
+      "result": "PASS"
+    }
+  ],
+  "schema": "tse01.lifecycle-assurance-repair.v1",
+  "scope": "finite contracts, transparent watermark example, routine-level maintenance adapters, and one exact-source jsmn boundary check; no whole-repository claim",
+  "source_archive_sha256": "ad7232e4d2ad1882fc3aa99fc9cc0dee1a4f52ccb5f55c0cd33204d9920d49ab",
+  "status": "REPAIRED_AND_INDEPENDENTLY_RECHECKED"
+}

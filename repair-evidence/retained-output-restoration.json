@@ -1,0 +1,15 @@
+{
+  "already_present_count": 576,
+  "archive_sha256": "ad7232e4d2ad1882fc3aa99fc9cc0dee1a4f52ccb5f55c0cd33204d9920d49ab",
+  "bytes_per_output": 65536,
+  "certificate_rewrite": false,
+  "content_set_sha256": "a36396c6172db9a137cefbbdc430b06770115c6987a3a62ee70f9f774d404800",
+  "expected_count": 576,
+  "experiment_rerun": false,
+  "inventory_path": "artifact/repair-evidence/retained-output-inventory.csv",
+  "restored_count": 0,
+  "results_manifest_and_certificates_agree": true,
+  "schema": "tse01.retained-output-restoration.v1",
+  "verdict": "PASS",
+  "verified_count": 576
+}

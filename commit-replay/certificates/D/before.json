@@ -1,49 +1,49 @@
 {
-  "certificate_sha256": "391d9d57129ebcd3ea08442240dcf51abf34a73baef08c8b7708802098e00e4f",
+  "certificate_sha256": "7a24be7e8d5a3c19cddcab2588daff4ab3338c4f032e6eeffc7f5362bf125be6",
   "compiler_cells": [
     {
       "assembly": "artifact/commit-replay/build/D/before/gcc_O0/adapter.s",
-      "assembly_sha256": "de2cd3dfc99553fb891c053d261b6b590c7ed9b263345dcd5f615e2d62a6fa59",
+      "assembly_sha256": "de59c4a72716713ec7ca56c8c0e012f244c56171738248e732281dd23e166718",
       "compiler": "gcc",
       "executable": "artifact/commit-replay/build/D/before/gcc_O0/adapter",
-      "executable_sha256": "ed64afca750d669498ee035364dcab27a64f7bbde9052c05689bad9db747a220",
+      "executable_sha256": "406befcbf55ff1f0b4e9e594429f9284d9a6e2b3938b25c40b4d82960d4d6b57",
       "optimization": "-O0",
       "output": "artifact/commit-replay/build/D/before/gcc_O0/stdout.bin",
-      "output_sha256": "2bcf65682844b1ecf789a684b82876e1699bde42aa3a2ff22e34718c4b0c0286",
-      "source_sha256": "7c5da89fff781c0d7728ab4160cde0160af3a618a27b3074c6eb47d63b34a6f4"
+      "output_sha256": "366f6a1c75c7e7438dbe87df03d1fcc9db358a7df1cc9bb90f352fed753d5b8b",
+      "source_sha256": "d5d6fab414a1e58a73d585c6e7068276c8c38503404fddaa5d48d474e599a55c"
     },
     {
       "assembly": "artifact/commit-replay/build/D/before/gcc_O2/adapter.s",
-      "assembly_sha256": "358c365ed6ab8690c32bc28b90878ffe648316fbd18cb16f10c57e9ba77b089f",
+      "assembly_sha256": "b81fe25964e8057c04415f693f04577b9b67c607f6ddab9f12a67b195e15ada1",
       "compiler": "gcc",
       "executable": "artifact/commit-replay/build/D/before/gcc_O2/adapter",
-      "executable_sha256": "e5bcdd8998a2adb135445da98ce19ec5577229ab7cd189f4cff519891d102a1e",
+      "executable_sha256": "a7f648d1e448462de96f6b21ebf4487fa644886e9a4f5c410fef03c1c50de345",
       "optimization": "-O2",
       "output": "artifact/commit-replay/build/D/before/gcc_O2/stdout.bin",
-      "output_sha256": "2bcf65682844b1ecf789a684b82876e1699bde42aa3a2ff22e34718c4b0c0286",
-      "source_sha256": "7c5da89fff781c0d7728ab4160cde0160af3a618a27b3074c6eb47d63b34a6f4"
+      "output_sha256": "366f6a1c75c7e7438dbe87df03d1fcc9db358a7df1cc9bb90f352fed753d5b8b",
+      "source_sha256": "d5d6fab414a1e58a73d585c6e7068276c8c38503404fddaa5d48d474e599a55c"
     },
     {
       "assembly": "artifact/commit-replay/build/D/before/clang_O0/adapter.s",
-      "assembly_sha256": "ff8b13e8fd3fd4673ab94eaea043d861c0a7d7cadcb0cf9006408a50b36df297",
+      "assembly_sha256": "d5e64b30b63425b6c927edc54aa0cf7a1a4250faef6d70faeb2482c8fc2ede8b",
       "compiler": "clang",
       "executable": "artifact/commit-replay/build/D/before/clang_O0/adapter",
-      "executable_sha256": "e388839daefeb889604878077b57550739ebad75b88e34f74b94355b926c2d69",
+      "executable_sha256": "3b9e411f90f69400e170a363b8e7c8e67822d0532a200f8655df9c08535df77a",
       "optimization": "-O0",
       "output": "artifact/commit-replay/build/D/before/clang_O0/stdout.bin",
-      "output_sha256": "2bcf65682844b1ecf789a684b82876e1699bde42aa3a2ff22e34718c4b0c0286",
-      "source_sha256": "7c5da89fff781c0d7728ab4160cde0160af3a618a27b3074c6eb47d63b34a6f4"
+      "output_sha256": "366f6a1c75c7e7438dbe87df03d1fcc9db358a7df1cc9bb90f352fed753d5b8b",
+      "source_sha256": "d5d6fab414a1e58a73d585c6e7068276c8c38503404fddaa5d48d474e599a55c"
     },
     {
       "assembly": "artifact/commit-replay/build/D/before/clang_O2/adapter.s",
-      "assembly_sha256": "c4011e88828de89584a07df6143a85f7d14cec27392a00b36c2efe384d5d98da",
+      "assembly_sha256": "233e48f32768eb1f86b6e83d14d765bcfdce99ab8e3a226ba92961cb834136a0",
       "compiler": "clang",
       "executable": "artifact/commit-replay/build/D/before/clang_O2/adapter",
-      "executable_sha256": "dbe50f9dd1c3ae12054a9ad91168aa8a9436aaf9fe7077c63a0918164fd6add6",
+      "executable_sha256": "a391e9a58c134aabc65d2ad5803f4eb4cb0fdbbf8c43cb6f8c22ec4426d1fa1c",
       "optimization": "-O2",
       "output": "artifact/commit-replay/build/D/before/clang_O2/stdout.bin",
-      "output_sha256": "2bcf65682844b1ecf789a684b82876e1699bde42aa3a2ff22e34718c4b0c0286",
-      "source_sha256": "7c5da89fff781c0d7728ab4160cde0160af3a618a27b3074c6eb47d63b34a6f4"
+      "output_sha256": "366f6a1c75c7e7438dbe87df03d1fcc9db358a7df1cc9bb90f352fed753d5b8b",
+      "source_sha256": "d5d6fab414a1e58a73d585c6e7068276c8c38503404fddaa5d48d474e599a55c"
     }
   ],
   "expected_class": "intended",
@@ -58,15 +58,15 @@
   "parent_policy_canonical_sha256": null,
   "parent_version": null,
   "policy": {
-    "canonical_sha256": "128cb5fdf9c0115453e0b0e9f70e1801969fcd2978a9eb3407a9b57815b1234e",
-    "file_sha256": "44d2be0e1ba08caed4b81cada65298f4719649e38054a9d4bea58c911731b5af",
+    "canonical_sha256": "666aba27660d86853e76fec8ff2fe25d8cbed6f5e3170f0dc1da251028fc233a",
+    "file_sha256": "084197af23c684c1b3aae56931803af1fb7d67897f3e7bdd3facb2615fb10f7f",
     "path": "artifact/commit-replay/policies/D.json",
     "policy_id": "project:D:v1"
   },
   "policy_compatible": true,
   "project": "D",
   "reference": "artifact/commit-replay/reference/project-D.bin",
-  "reference_sha256": "2bcf65682844b1ecf789a684b82876e1699bde42aa3a2ff22e34718c4b0c0286",
+  "reference_sha256": "366f6a1c75c7e7438dbe87df03d1fcc9db358a7df1cc9bb90f352fed753d5b8b",
   "relations": {
     "behavior": {
       "case_count_per_cell": 65,
@@ -156,14 +156,21 @@
       "status": "CERTIFIED_UNIQUE"
     },
     "source_conformance": {
+      "erasure_count": 0,
       "errors": [],
+      "grammar_valid": true,
+      "issuance_keys_unique": true,
+      "observed_count": 28,
+      "occurrence_binding_valid": true,
       "passed": true,
-      "state": "ESTABLISHED_TRUE"
+      "state": "ESTABLISHED_TRUE",
+      "symbol_error_count": 0,
+      "symbol_loss_and_flip_scope": "recovery-and-continuity"
     }
   },
   "schema": "tse01.commit-replay.certificate.v3",
   "source": "artifact/commit-replay/sources/D/before.c",
-  "source_sha256": "7c5da89fff781c0d7728ab4160cde0160af3a618a27b3074c6eb47d63b34a6f4",
+  "source_sha256": "d5d6fab414a1e58a73d585c6e7068276c8c38503404fddaa5d48d474e599a55c",
   "verdict": "PASS",
   "version": "before"
 }

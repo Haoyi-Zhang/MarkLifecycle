@@ -1,6 +1,8 @@
 {
   "all_valid": true,
   "assembly_files_rehashed": 112,
+  "availability_test_count": 5,
+  "availability_tests_pass": true,
   "certificates_rechecked": 28,
   "checker_independence": "imports neither the primary replay generator nor its carrier/reference utilities",
   "compiler_cells_recompiled": 112,
@@ -56,56 +58,99 @@
   "projects_rechecked": 7,
   "refreshed_binding_test_count": 10,
   "reject_count": 7,
-  "schema": "tse01.commit-replay.independent-recheck.v3",
+  "relation_decision_boundary_test_count": 4,
+  "relation_decision_boundary_tests_pass": true,
+  "schema": "tse01.commit-replay.independent-recheck.v4",
   "semantic_tamper_test_count": 10,
   "semantic_tamper_tests": [
     {
+      "errors": [
+        "stored verdict disagrees"
+      ],
+      "integrity_passed": false,
       "name": "stored verdict",
       "outer_self_hash_valid": true,
       "project": "A",
-      "rejected": true
+      "rejected": true,
+      "typed_verdict": "REJECT"
     },
     {
+      "errors": [
+        "stored relation disagrees: source_conformance"
+      ],
+      "integrity_passed": false,
       "name": "source_conformance relation",
       "outer_self_hash_valid": true,
       "project": "A",
-      "rejected": true
+      "rejected": true,
+      "typed_verdict": "REJECT"
     },
     {
+      "errors": [
+        "stored relation disagrees: continuity",
+        "stored continuity count disagrees"
+      ],
+      "integrity_passed": false,
       "name": "continuity relation",
       "outer_self_hash_valid": true,
       "project": "B",
-      "rejected": true
+      "rejected": true,
+      "typed_verdict": "REJECT"
     },
     {
+      "errors": [
+        "stored relation disagrees: behavior"
+      ],
+      "integrity_passed": false,
       "name": "behavior relation",
       "outer_self_hash_valid": true,
       "project": "C",
-      "rejected": true
+      "rejected": true,
+      "typed_verdict": "REJECT"
     },
     {
+      "errors": [
+        "stored relation disagrees: recovery"
+      ],
+      "integrity_passed": false,
       "name": "recovery relation",
       "outer_self_hash_valid": true,
       "project": "D",
-      "rejected": true
+      "rejected": true,
+      "typed_verdict": "REJECT"
     },
     {
+      "errors": [
+        "stored relation disagrees: executable_reproduction"
+      ],
+      "integrity_passed": false,
       "name": "executable_reproduction relation",
       "outer_self_hash_valid": true,
       "project": "E",
-      "rejected": true
+      "rejected": true,
+      "typed_verdict": "REJECT"
     },
     {
+      "errors": [
+        "stored relation disagrees: integrity"
+      ],
+      "integrity_passed": false,
       "name": "integrity relation",
       "outer_self_hash_valid": true,
       "project": "F",
-      "rejected": true
+      "rejected": true,
+      "typed_verdict": "REJECT"
     },
     {
+      "errors": [
+        "stored relation disagrees: lineage"
+      ],
+      "integrity_passed": false,
       "name": "lineage relation",
       "outer_self_hash_valid": true,
       "project": "G",
-      "rejected": true
+      "rejected": true,
+      "typed_verdict": "REJECT"
     },
     {
       "errors": [
@@ -113,10 +158,12 @@
         "stored relation state disagrees: lineage",
         "stored verdict disagrees"
       ],
+      "lineage_passed": false,
       "name": "rejected predecessor graft",
       "outer_self_hash_valid": true,
       "project": "A",
-      "rejected": true
+      "rejected": true,
+      "typed_verdict": "REJECT"
     },
     {
       "errors": [
@@ -124,10 +171,12 @@
         "policy expected digest mismatch",
         "stored policy compatibility mismatch"
       ],
+      "integrity_passed": false,
       "name": "silent policy threshold change",
       "outer_self_hash_valid": true,
       "project": "A",
-      "rejected": true
+      "rejected": true,
+      "typed_verdict": "REJECT"
     }
   ],
   "semantic_tamper_tests_pass": true,

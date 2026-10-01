@@ -90,6 +90,52 @@ def typed_decision(values: Sequence[bool | None]) -> str:
     return "HOLD"
 
 
+def aggregate_relation(values: Sequence[bool | None]) -> bool | None:
+    if any(value is False for value in values):
+        return False
+    if all(value is True for value in values):
+        return True
+    return None
+
+
+UNAVAILABLE_DEPENDENCIES = {
+    "source": {"behavior", "recovery", "continuity", "source_conformance", "executable_reproduction"},
+    "parent": {"continuity", "lineage"},
+    "compiler": {"behavior", "executable_reproduction"},
+}
+
+
+def project_availability(
+    base: dict[str, bool | None],
+    unavailable: set[str],
+    *,
+    closed_violations: set[str] | None = None,
+) -> dict[str, Any]:
+    """Project unavailable evidence into the seven relations.
+
+    Temporary unavailability creates unresolved dependent coordinates.  A
+    closed-world violation additionally falsifies integrity.  Established false
+    relations are never weakened, so false evidence still dominates unknowns.
+    """
+    values = {name: base.get(name) for name in RELATION_NAMES}
+    for evidence in sorted(unavailable):
+        for relation in UNAVAILABLE_DEPENDENCIES[evidence]:
+            if values[relation] is not False:
+                values[relation] = None
+    closed_violations = closed_violations or set()
+    if closed_violations:
+        values["integrity"] = False
+    return {
+        "unavailable": sorted(unavailable),
+        "closed_violations": sorted(closed_violations),
+        "relations": {
+            name: {"passed": values[name], "state": relation_state(values[name])}
+            for name in RELATION_NAMES
+        },
+        "verdict": typed_decision([values[name] for name in RELATION_NAMES]),
+    }
+
+
 def sha_bytes(data: bytes) -> str:
     return hashlib.sha256(data).hexdigest()
 
@@ -137,7 +183,8 @@ def expected_finite_policy(kernel: str, environment: dict[str, Any], required_co
         },
         "source_profiles": {
             "accepted": ["direct-v1", "tc-helper-v1", "tc-helper-v2"],
-            "inventory_rule": "exact-issued-carrier-accounting",
+            "inventory_rule": "admitted-syntax-and-unique-issued-key-attribution",
+            "observation_scope": "missing-or-flipped-issued-symbols-are-evaluated-by-recovery-and-continuity",
         },
         "continuity": {
             "baseline_count": 28,
@@ -649,9 +696,50 @@ def validate_locked_helper_definitions(source_text: str) -> list[str]:
     return errors
 
 
+def manifest_issuance_errors(manifest: dict[str, Any]) -> list[str]:
+    errors: list[str] = []
+    carriers = manifest.get("carriers")
+    if not isinstance(carriers, list):
+        return ["manifest carrier inventory malformed"]
+    if len(carriers) != 28:
+        errors.append(f"manifest carrier count mismatch: {len(carriers)}")
+    positions: list[int] = []
+    carrier_ids: list[str] = []
+    constants: list[int] = []
+    for index, row in enumerate(carriers):
+        if not isinstance(row, dict):
+            errors.append(f"manifest carrier row malformed: {index}")
+            continue
+        try:
+            position = int(row.get("position"))
+            constant = int(row.get("constant"))
+            bit = int(row.get("bit"))
+        except (TypeError, ValueError):
+            errors.append(f"manifest carrier scalar malformed: {index}")
+            continue
+        carrier_id = row.get("carrier_id")
+        if not isinstance(carrier_id, str) or not carrier_id:
+            errors.append(f"manifest carrier id malformed: {index}")
+        else:
+            carrier_ids.append(carrier_id)
+        positions.append(position)
+        constants.append(constant)
+        if bit not in (0, 1):
+            errors.append(f"manifest carrier bit malformed: {index}")
+    if sorted(positions) != list(range(28)):
+        errors.append("manifest carrier positions are not the complete 0..27 set")
+    if len(carrier_ids) != len(set(carrier_ids)):
+        errors.append("manifest carrier ids are not unique")
+    if len(constants) != len(set(constants)):
+        errors.append("manifest issuance constants are not unique")
+    return errors
+
+
 def source_observation(source_text: str, manifest: dict[str, Any]) -> tuple[dict[str, Any], list[str]]:
     code = strip_c_noncode(source_text)
-    errors = validate_locked_helper_definitions(code)
+    grammar_errors = validate_locked_helper_definitions(source_text)
+    issuance_errors = manifest_issuance_errors(manifest)
+    errors = [*grammar_errors, *issuance_errors]
     found: list[dict[str, Any]] = []
     for pattern, bit, family in ((DIRECT_ADD, 0, "direct-add"), (DIRECT_XOR, 1, "direct-xor")):
         for match in pattern.finditer(code):
@@ -674,21 +762,29 @@ def source_observation(source_text: str, manifest: dict[str, Any]) -> tuple[dict
     by_constant: dict[int, list[dict[str, Any]]] = {}
     for item in found:
         by_constant.setdefault(int(item["constant"]), []).append(item)
-    expected_constants_set = {int(c["constant"]) for c in manifest["carriers"]}
-    extra = [int(item["constant"]) for item in found if int(item["constant"]) not in expected_constants_set]
-    if extra:
-        errors.append(f"unmanifested recognized carrier constants: {extra}")
+    expected_constants_set = {
+        int(c["constant"]) for c in manifest.get("carriers", [])
+        if isinstance(c, dict) and "constant" in c
+    }
+    extra = sorted(
+        int(item["constant"]) for item in found
+        if int(item["constant"]) not in expected_constants_set
+    )
     symbols: list[int | None] = [None] * 28
     carriers: list[dict[str, Any]] = []
     duplicate_constants: list[int] = []
-    for expected in manifest["carriers"]:
+    for expected in manifest.get("carriers", []):
+        if not isinstance(expected, dict):
+            continue
         constant = int(expected["constant"])
+        position = int(expected["position"])
+        if position not in range(28):
+            continue
         matches = by_constant.get(constant, [])
         if len(matches) > 1:
             duplicate_constants.append(constant)
         match = matches[0] if len(matches) == 1 else None
         bit = None if match is None else int(match["observed_bit"])
-        position = int(expected["position"])
         symbols[position] = bit
         carriers.append({
             "carrier_id": expected["carrier_id"],
@@ -701,15 +797,35 @@ def source_observation(source_text: str, manifest: dict[str, Any]) -> tuple[dict
             "state": "ERASURE" if bit is None else ("MATCH" if bit == int(expected["bit"]) else "ERROR"),
         })
     if duplicate_constants:
-        errors.append(f"duplicate recognized carrier constants: {duplicate_constants}")
+        errors.append(f"duplicate recognized issuance constants: {sorted(duplicate_constants)}")
+    if extra:
+        errors.append(f"unissued recognized carrier constants: {extra}")
     decode = decode_u16(symbols)
+    observed_count = sum(bit is not None for bit in symbols)
+    erasure_count = sum(bit is None for bit in symbols)
+    symbol_error_count = sum(
+        row["observed_bit"] is not None and row["observed_bit"] != row["expected_bit"]
+        for row in carriers
+    )
+    source_conformance = {
+        "passed": not errors,
+        "grammar_valid": not grammar_errors,
+        "issuance_keys_unique": not issuance_errors,
+        "occurrence_binding_valid": not duplicate_constants and not extra,
+        "observed_count": observed_count,
+        "erasure_count": erasure_count,
+        "symbol_error_count": symbol_error_count,
+        "symbol_loss_and_flip_scope": "recovery-and-continuity",
+    }
     return {
         "extracted_count": len(found),
-        "manifest_count": 28,
-        "duplicate_constants": duplicate_constants,
+        "manifest_count": len(manifest.get("carriers", [])),
+        "duplicate_constants": sorted(duplicate_constants),
+        "extra_constants": extra,
         "observed_symbols": "".join("?" if bit is None else str(bit) for bit in symbols),
         "carriers": carriers,
         "decode": decode,
+        "source_conformance": source_conformance,
     }, errors
 
 
@@ -813,10 +929,24 @@ def validate_certificate(
 ) -> list[str]:
     errors: list[str] = []
     integrity_errors: list[str] = []
+    claim_integrity_errors: list[str] = []
+    lineage_errors: list[str] = []
+    owned_replay: tempfile.TemporaryDirectory[str] | None = None
+    if replay_root is None:
+        owned_replay = tempfile.TemporaryDirectory(prefix="tse01-independent-single-")
+        replay_root = Path(owned_replay.name)
 
     def record_integrity_error(message: str) -> None:
         errors.append(message)
         integrity_errors.append(message)
+
+    def record_claim_error(message: str) -> None:
+        errors.append(message)
+        claim_integrity_errors.append(message)
+
+    def record_lineage_error(message: str) -> None:
+        errors.append(message)
+        lineage_errors.append(message)
 
     def finish(
         relations: dict[str, Any] | None = None,
@@ -830,17 +960,29 @@ def validate_certificate(
                 "verdict": verdict,
                 "valid": not errors,
             })
+        if owned_replay is not None:
+            owned_replay.cleanup()
         return errors
+
+    def closed_failure(reason: str, *, lineage_false: bool = False) -> list[str]:
+        record_integrity_error(reason)
+        values: dict[str, bool | None] = {name: None for name in RELATION_NAMES}
+        values["integrity"] = False
+        if lineage_false:
+            values["lineage"] = False
+        relations = {
+            name: {"passed": values[name], "state": relation_state(values[name]), "reason": reason}
+            for name in RELATION_NAMES
+        }
+        return finish(relations, typed_decision([values[name] for name in RELATION_NAMES]))
     kernel = cert.get("kernel")
     variant = cert.get("variant")
     if cert.get("schema") != CERTIFICATE_SCHEMA:
         errors.append("certificate schema mismatch")
     if kernel not in KERNELS:
-        errors.append("unknown kernel")
-        return finish()
+        return closed_failure("unknown kernel")
     if variant not in VARIANT_PARENTS:
-        errors.append("unknown variant")
-        return finish()
+        return closed_failure("unknown variant")
     key = (kernel, variant)
     parent_variants = list(VARIANT_PARENTS[variant])
     sole_parent = parent_variants[0] if len(parent_variants) == 1 else None
@@ -864,17 +1006,17 @@ def validate_certificate(
     if policy_ref.get("path") != expected_policy_rel:
         record_integrity_error("policy path mismatch")
     if policy_ref.get("policy_id") != expected_policy["policy_id"]:
-        errors.append("policy identifier mismatch")
+        record_integrity_error("policy identifier mismatch")
     policy_path = root / expected_policy_rel
     if not policy_path.is_file():
-        errors.append("policy file missing")
+        record_integrity_error("policy file missing")
         actual_policy = None
     else:
         try:
             actual_policy = json.loads(policy_path.read_text(encoding="utf-8"))
         except (OSError, json.JSONDecodeError):
             actual_policy = None
-            errors.append("policy file is not valid JSON")
+            record_integrity_error("policy file is not valid JSON")
         if policy_ref.get("file_sha256") != sha_file(policy_path):
             record_integrity_error("policy file hash mismatch")
         if actual_policy is not None and policy_ref.get("canonical_sha256") != canonical_hash(actual_policy):
@@ -901,33 +1043,32 @@ def validate_certificate(
     manifest_path = root / expected_manifest_rel
     reference_path = root / expected_reference_rel
     if not source_path.is_file():
-        errors.append("source file missing")
-        return finish()
+        return closed_failure("source file missing")
     if not manifest_path.is_file():
-        errors.append("manifest file missing")
-        return finish()
+        return closed_failure("manifest file missing")
     if not reference_path.is_file():
-        errors.append("reference file missing")
-        return finish()
+        return closed_failure("reference file missing")
 
     actual_source_hash = sha_file(source_path)
     if source.get("sha256") != actual_source_hash:
         record_integrity_error("source hash mismatch")
     parent_certs = [certs.get((kernel, parent)) for parent in parent_variants]
     if any(parent_cert is None for parent_cert in parent_certs):
-        errors.append("parent certificate missing")
+        record_lineage_error("parent certificate missing")
+        integrity_errors.append("parent certificate missing")
     expected_parent_sources = [
         parent_cert.get("source", {}).get("sha256")
         for parent_cert in parent_certs if parent_cert is not None
     ]
     expected_parent_source = expected_parent_sources[0] if len(expected_parent_sources) == 1 else None
     if source.get("parent_sha256") != expected_parent_source:
-        errors.append("legacy parent source hash mismatch")
+        record_lineage_error("legacy parent source hash mismatch")
     if source.get("parent_sha256s") != expected_parent_sources:
-        errors.append("parent source hash set mismatch")
+        record_lineage_error("parent source hash set mismatch")
 
     manifest = manifests[key]
-    errors.extend(validate_manifest(manifest, kernel, variant))
+    for message in validate_manifest(manifest, kernel, variant):
+        record_integrity_error(message)
     if set(manifest_ref) != {"path", "file_sha256", "canonical_sha256"}:
         record_integrity_error("manifest binding fields mismatch")
     if manifest_ref.get("file_sha256") != sha_file(manifest_path):
@@ -949,25 +1090,25 @@ def validate_certificate(
     errors.extend(observation_errors)
     watermark = cert.get("watermark", {})
     if watermark.get("expected_payload_hex") != manifest.get("payload_hex"):
-        errors.append("expected payload field mismatch")
+        record_claim_error("expected payload field mismatch")
     if watermark.get("observed_symbols") != observation["observed_symbols"]:
-        errors.append("observed symbol string mismatch")
+        record_claim_error("observed symbol string mismatch")
     if watermark.get("source_carriers") != observation["carriers"]:
-        errors.append("source carrier evidence mismatch")
+        record_claim_error("source carrier evidence mismatch")
     if not compare_decode(watermark.get("decode"), observation["decode"]):
-        errors.append("independent decode mismatch")
+        record_claim_error("independent decode mismatch")
     payload_pass = (
         observation["decode"]["status"] == "CERTIFIED_UNIQUE"
         and observation["decode"]["payload_hex"] == manifest["payload_hex"]
     )
     if bool(watermark.get("payload_recoverable")) != payload_pass:
-        errors.append("payload recoverable flag mismatch")
+        record_claim_error("payload recoverable flag mismatch")
 
     provenance_by_parent: list[dict[str, Any]] = []
     for parent_variant in parent_variants:
         parent_manifest = manifests.get((kernel, parent_variant))
         if parent_manifest is None:
-            errors.append(f"parent manifest missing: {parent_variant}")
+            record_lineage_error(f"parent manifest missing: {parent_variant}")
             continue
         edge = compute_provenance(parent_manifest, manifest, observation)
         provenance_by_parent.append({"parent_variant": parent_variant, **edge})
@@ -994,17 +1135,17 @@ def validate_certificate(
             "aggregation": "minimum-over-parent-edges",
         }
     if watermark.get("provenance_by_parent") != provenance_by_parent:
-        errors.append("independent parent-edge provenance mismatch")
+        record_claim_error("independent parent-edge provenance mismatch")
     if watermark.get("provenance") != provenance:
-        errors.append("independent aggregate provenance mismatch")
+        record_claim_error("independent aggregate provenance mismatch")
     if not close(watermark.get("traceability_threshold"), TRACE_THRESHOLD):
-        errors.append("traceability threshold mismatch")
+        record_claim_error("traceability threshold mismatch")
     trace_pass = all(
         edge["traceability"] >= TRACE_THRESHOLD for edge in provenance_by_parent
     ) if provenance_by_parent else True
     expected_continuity = "TRACEABLE_WITHIN_LOCK" if trace_pass else "CONTINUITY_BELOW_LOCK"
     if watermark.get("continuity_status") != expected_continuity:
-        errors.append("continuity status mismatch")
+        record_claim_error("continuity status mismatch")
 
     toolchains = behavior.get("toolchains")
     if not isinstance(toolchains, list):
@@ -1014,16 +1155,17 @@ def validate_certificate(
     if len(toolchains) != 4 or sorted(observed_cells) != sorted(EXPECTED_TOOLCHAINS) or len(set(observed_cells)) != 4:
         record_integrity_error("certificate does not contain exactly the four locked compiler cells")
     tc_map = {(tc.get("compiler"), tc.get("optimization")): tc for tc in toolchains if isinstance(tc, dict)}
-    behavior_matches: list[bool] = []
+    fresh_behavior_matches: list[bool | None] = []
     executable_matches: list[bool] = []
     observed_ids = {c["carrier_id"] for c in observation["carriers"] if c["observed_bit"] is not None}
     for compiler, optimization in EXPECTED_TOOLCHAINS:
         tc = tc_map.get((compiler, optimization))
         if tc is None:
-            behavior_matches.append(False)
+            fresh_behavior_matches.append(None)
             executable_matches.append(False)
             continue
         cell_reproduced = False
+        fresh_behavior_result: bool | None = None
         tag = f"{compiler}_{optimization[1:].lower()}"
         expected_output_rel = f"artifact/results/raw/{kernel}/{variant}/{tag}.out"
         expected_assembly_rel = f"artifact/results/raw/{kernel}/{variant}/{tag}.s"
@@ -1064,22 +1206,21 @@ def validate_certificate(
             record_integrity_error(f"binary hash mismatch: {compiler} {optimization}")
         if not output_path.is_file():
             record_integrity_error(f"output file missing: {compiler} {optimization}")
-            behavior_matches.append(False)
+            fresh_behavior_matches.append(None)
             executable_matches.append(False)
             continue
         actual = output_path.read_bytes()
         actual_hash = sha_bytes(actual)
         mismatch = first_mismatch(reference, actual)
         match = mismatch is None
-        behavior_matches.append(match)
         if len(actual) != 65536 or tc.get("output_size") != len(actual):
             record_integrity_error(f"output size mismatch: {compiler} {optimization}")
         if tc.get("output_sha256") != actual_hash:
             record_integrity_error(f"output hash mismatch: {compiler} {optimization}")
         if bool(tc.get("matches_reference")) != match:
-            errors.append(f"behavior flag mismatch: {compiler} {optimization}")
+            record_claim_error(f"behavior flag mismatch: {compiler} {optimization}")
         if tc.get("first_mismatch") != mismatch:
-            errors.append(f"first mismatch evidence mismatch: {compiler} {optimization}")
+            record_claim_error(f"first mismatch evidence mismatch: {compiler} {optimization}")
         if not assembly_path.is_file():
             record_integrity_error(f"assembly file missing: {compiler} {optimization}")
         else:
@@ -1089,7 +1230,7 @@ def validate_certificate(
                 assembly_path.read_text(encoding="utf-8", errors="replace"), manifest, observed_ids
             )
             if tc.get("assembly_retention") != retention:
-                errors.append(f"assembly retention mismatch: {compiler} {optimization}")
+                record_claim_error(f"assembly retention mismatch: {compiler} {optimization}")
         if not isinstance(tc.get("binary_sha256"), str) or not HEX64.fullmatch(tc["binary_sha256"]):
             record_integrity_error(f"malformed binary hash record: {compiler} {optimization}")
 
@@ -1146,32 +1287,38 @@ def validate_certificate(
                     errors.append(f"independent executable replay failed: {compiler} {optimization}: {exc}")
                     replay_execution = None
                 if replay_execution is not None:
-                    if replay_execution.returncode != 0:
+                    replay_ok = replay_execution.returncode == 0
+                    if not replay_ok:
                         errors.append(
                             f"independent executable replay return code mismatch: {compiler} {optimization}"
                         )
                     replay_stderr = replay_execution.stderr.decode("utf-8", "replace")
-                    if replay_stderr != tc.get("stderr"):
+                    stderr_ok = replay_stderr == tc.get("stderr")
+                    if not stderr_ok:
                         errors.append(
                             f"independent executable replay stderr mismatch: {compiler} {optimization}"
                         )
-                    if replay_execution.stdout != actual:
+                    output_reproduced = replay_execution.stdout == actual
+                    if not output_reproduced:
                         errors.append(
                             f"independent executable replay output-file mismatch: {compiler} {optimization}"
                         )
                     replay_mismatch = first_mismatch(reference, replay_execution.stdout)
+                    fresh_behavior_result = replay_mismatch is None and replay_ok
                     if replay_mismatch != mismatch:
-                        errors.append(
+                        record_claim_error(
                             f"independent executable replay counterexample mismatch: {compiler} {optimization}"
                         )
+                    cell_reproduced = cell_reproduced and replay_ok and stderr_ok and output_reproduced
+        fresh_behavior_matches.append(fresh_behavior_result)
         executable_matches.append(cell_reproduced)
 
-    behavior_pass = len(behavior_matches) == 4 and all(behavior_matches)
-    if bool(behavior.get("exact_finite_equivalence")) != behavior_pass:
-        errors.append("exact finite equivalence flag mismatch")
-    expected_maturity = "VERIFIED" if behavior_pass else "COUNTEREXAMPLE_FOUND"
+    behavior_pass = aggregate_relation(fresh_behavior_matches)
+    if behavior.get("exact_finite_equivalence") is not behavior_pass:
+        record_claim_error("exact finite equivalence flag mismatch")
+    expected_maturity = "VERIFIED" if behavior_pass is True else ("COUNTEREXAMPLE_FOUND" if behavior_pass is False else "UNRESOLVED")
     if behavior.get("maturity") != expected_maturity:
-        errors.append("behavior maturity mismatch")
+        record_claim_error("behavior maturity mismatch")
 
     chain = cert.get("chain", {})
     parent_validations = parent_validations or {}
@@ -1183,7 +1330,7 @@ def validate_certificate(
         if parent_validation is None:
             expected_parent_decision = None
             parent_accepted = False
-            errors.append(f"independent parent reconstruction missing: {parent_variant}")
+            record_lineage_error(f"independent parent reconstruction missing: {parent_variant}")
         else:
             expected_parent_decision = parent_validation.get("verdict")
             parent_accepted = bool(
@@ -1203,7 +1350,7 @@ def validate_certificate(
         })
 
     if chain.get("parents") != expected_edges:
-        errors.append("parent-edge set mismatch")
+        record_lineage_error("parent-edge set mismatch")
     expected_sole_edge = expected_edges[0] if len(expected_edges) == 1 else None
     expected_predecessor_hash = None if expected_sole_edge is None else expected_sole_edge["certificate_sha256"]
     expected_predecessor_policy_hash = None if expected_sole_edge is None else expected_sole_edge["policy_canonical_sha256"]
@@ -1215,22 +1362,22 @@ def validate_certificate(
     expected_policy_compatibility = all(edge["policy_compatible"] for edge in expected_edges) if expected_edges else True
     expected_all_parents_accepted = all(edge["accepted"] for edge in expected_edges) if expected_edges else True
     if chain.get("predecessor_certificate_sha256") != expected_predecessor_hash:
-        errors.append("legacy predecessor link mismatch")
+        record_lineage_error("legacy predecessor link mismatch")
     if chain.get("predecessor_policy_canonical_sha256") != expected_predecessor_policy_hash:
-        errors.append("legacy predecessor policy link mismatch")
+        record_lineage_error("legacy predecessor policy link mismatch")
     if chain.get("predecessor_decision") != expected_predecessor_decision:
-        errors.append("legacy predecessor decision mismatch")
+        record_lineage_error("legacy predecessor decision mismatch")
     if chain.get("predecessor_accepted") is not expected_predecessor_accepted:
-        errors.append("legacy predecessor acceptance mismatch")
+        record_lineage_error("legacy predecessor acceptance mismatch")
     if chain.get("hash_link_valid") is not expected_hash_links:
-        errors.append("hash link validity field mismatch")
+        record_lineage_error("hash link validity field mismatch")
     if chain.get("policy_compatible") is not expected_policy_compatibility:
-        errors.append("policy compatibility field mismatch")
+        record_lineage_error("policy compatibility field mismatch")
     if chain.get("all_parents_accepted") is not expected_all_parents_accepted:
-        errors.append("all-parent acceptance field mismatch")
+        record_lineage_error("all-parent acceptance field mismatch")
 
-    executable_pass = len(executable_matches) == len(EXPECTED_TOOLCHAINS) and all(executable_matches)
-    source_pass = not observation_errors
+    executable_pass = aggregate_relation(executable_matches)
+    source_pass = bool(observation["source_conformance"]["passed"])
     lineage_pass = (
         chain.get("parents") == expected_edges
         and chain.get("hash_link_valid") is expected_hash_links
@@ -1239,6 +1386,7 @@ def validate_certificate(
         and expected_hash_links
         and expected_policy_compatibility
         and expected_all_parents_accepted
+        and not lineage_errors
     )
     # Integrity is a reconstructed relation, not a hidden validation channel.
     # Every mismatch in the certificate self-binding, policy binding, frozen
@@ -1279,6 +1427,13 @@ def validate_certificate(
         "source_conformance": {
             "passed": source_pass,
             "state": relation_state(source_pass),
+            "grammar_valid": observation["source_conformance"]["grammar_valid"],
+            "issuance_keys_unique": observation["source_conformance"]["issuance_keys_unique"],
+            "occurrence_binding_valid": observation["source_conformance"]["occurrence_binding_valid"],
+            "observed_count": observation["source_conformance"]["observed_count"],
+            "erasure_count": observation["source_conformance"]["erasure_count"],
+            "symbol_error_count": observation["source_conformance"]["symbol_error_count"],
+            "symbol_loss_and_flip_scope": observation["source_conformance"]["symbol_loss_and_flip_scope"],
         },
         "executable_reproduction": {
             "passed": executable_pass,
@@ -1295,26 +1450,46 @@ def validate_certificate(
     }
     stored_relations = cert.get("relations", {})
     if set(stored_relations) != set(RELATION_NAMES):
-        errors.append("relation inventory mismatch")
+        record_claim_error("relation inventory mismatch")
     for relation in RELATION_NAMES:
         stored = stored_relations.get(relation)
         actual = reconstructed_relations[relation]
         if not isinstance(stored, dict):
-            errors.append(f"missing stored relation: {relation}")
+            record_claim_error(f"missing stored relation: {relation}")
             continue
         if stored.get("passed") is not actual["passed"]:
-            errors.append(f"stored relation outcome mismatch: {relation}")
+            record_claim_error(f"stored relation outcome mismatch: {relation}")
         if stored.get("state") != actual["state"]:
-            errors.append(f"stored relation state mismatch: {relation}")
+            record_claim_error(f"stored relation state mismatch: {relation}")
         for field in sorted(set(actual) - {"passed", "state"}):
             if stored.get(field) != actual[field]:
-                errors.append(f"stored relation detail mismatch: {relation}.{field}")
+                record_claim_error(f"stored relation detail mismatch: {relation}.{field}")
 
+    preliminary_verdict = typed_decision(
+        [reconstructed_relations[name]["passed"] for name in RELATION_NAMES]
+    )
+    if cert.get("verdict") != preliminary_verdict:
+        record_claim_error("typed verdict predicate mismatch")
+    if claim_integrity_errors:
+        reconstructed_relations["integrity"] = {
+            "passed": False,
+            "state": relation_state(False),
+            "claim_contradictions": sorted(set(claim_integrity_errors)),
+        }
     expected_verdict = typed_decision(
         [reconstructed_relations[name]["passed"] for name in RELATION_NAMES]
     )
-    if cert.get("verdict") != expected_verdict:
-        errors.append("typed verdict predicate mismatch")
+    if errors and expected_verdict == "PASS":
+        fallback = "unmapped validation contradiction"
+        integrity_errors.append(fallback)
+        reconstructed_relations["integrity"] = {
+            "passed": False,
+            "state": relation_state(False),
+            "claim_contradictions": sorted(set([*claim_integrity_errors, fallback])),
+        }
+        expected_verdict = "REJECT"
+    if cert.get("verdict") != expected_verdict and "typed verdict predicate mismatch" not in claim_integrity_errors:
+        record_claim_error("typed verdict predicate mismatch")
     locked_verdict = "PASS" if variant in PASS_VARIANTS else "REJECT"
     if expected_verdict != locked_verdict:
         errors.append("locked variant outcome mismatch")
@@ -1769,7 +1944,229 @@ def run_semantic_tamper_tests(
     return outcomes
 
 
-def validate_policy_bridge(root: Path, certs: dict[tuple[str, str], dict[str, Any]], environment: dict[str, Any]) -> list[str]:
+
+def run_relation_decision_boundary_tests(
+    root: Path,
+    certs: dict[tuple[str, str], dict[str, Any]],
+    manifests: dict[tuple[str, str], dict[str, Any]],
+    references: dict[str, bytes],
+    environment: dict[str, Any],
+    reconstructed_results: dict[tuple[str, str], dict[str, Any]],
+) -> dict[str, Any]:
+    """Exercise relation-first verdicts without changing substitution counts."""
+    cases: list[dict[str, Any]] = []
+
+    def validate_case(name: str, cert: dict[str, Any], local_certs: dict[tuple[str, str], dict[str, Any]] | None = None,
+                      parent_validations: dict[str, dict[str, Any]] | None = None) -> tuple[list[str], dict[str, Any]]:
+        sink: dict[str, Any] = {}
+        errors = validate_mutant_with_fresh_replay(
+            root, cert, local_certs or certs, manifests, references, environment, name,
+            reconstructed_results=reconstructed_results,
+            parent_validations=parent_validations,
+            reconstruction_sink=sink,
+        )
+        return errors, sink
+
+    stored = copy.deepcopy(certs[("fnv_step", "baseline")])
+    stored["verdict"] = "HOLD"
+    stored = add_self_hash(stored)
+    stored_errors, stored_sink = validate_case("stored-verdict-refresh", stored)
+    cases.append({
+        "name": "stored_verdict_changed_with_refreshed_self_hash",
+        "outer_self_hash_valid": certificate_self_hash_valid(stored),
+        "reconstructed_integrity": (stored_sink.get("relations") or {}).get("integrity", {}).get("passed"),
+        "reconstructed_verdict": stored_sink.get("verdict"),
+        "rejected": bool(stored_errors),
+        "errors": stored_errors,
+    })
+
+    manifest_claim = copy.deepcopy(certs[("fnv_step", "baseline")])
+    manifest_claim["watermark"]["expected_payload_hex"] = "ffff"
+    manifest_claim = add_self_hash(manifest_claim)
+    manifest_errors, manifest_sink = validate_case("manifest-claim-contradiction", manifest_claim)
+    cases.append({
+        "name": "manifest_bound_payload_claim_contradiction",
+        "outer_self_hash_valid": certificate_self_hash_valid(manifest_claim),
+        "reconstructed_integrity": (manifest_sink.get("relations") or {}).get("integrity", {}).get("passed"),
+        "reconstructed_verdict": manifest_sink.get("verdict"),
+        "rejected": bool(manifest_errors),
+        "errors": manifest_errors,
+    })
+
+    output_cert = copy.deepcopy(certs[("fnv_step", "baseline")])
+    tc = output_cert["behavior"]["toolchains"][0]
+    output_path = root / tc["output_path"]
+    original_output = output_path.read_bytes()
+    changed = bytes([original_output[0] ^ 1]) + original_output[1:]
+    reference = references["fnv_step"]
+    try:
+        output_path.write_bytes(changed)
+        tc["output_sha256"] = sha_bytes(changed)
+        tc["output_size"] = len(changed)
+        tc["matches_reference"] = False
+        tc["first_mismatch"] = first_mismatch(reference, changed)
+        output_cert = add_self_hash(output_cert)
+        output_errors, output_sink = validate_case("fresh-retained-output-divergence", output_cert)
+    finally:
+        output_path.write_bytes(original_output)
+    output_relations = output_sink.get("relations") or {}
+    cases.append({
+        "name": "fresh_execution_and_retained_output_diverge",
+        "outer_self_hash_valid": certificate_self_hash_valid(output_cert),
+        "reconstructed_behavior": output_relations.get("behavior", {}).get("passed"),
+        "reconstructed_executable_reproduction": output_relations.get("executable_reproduction", {}).get("passed"),
+        "reconstructed_integrity": output_relations.get("integrity", {}).get("passed"),
+        "reconstructed_verdict": output_sink.get("verdict"),
+        "rejected": bool(output_errors),
+        "errors": output_errors,
+    })
+
+    parent_key = ("fnv_step", "merge_tolerable")
+    child_key = ("fnv_step", "flip_tolerable")
+    invalid_parent = copy.deepcopy(certs[parent_key])
+    invalid_parent["schema"] = "tracecert.release.invalid-structure"
+    invalid_parent = add_self_hash(invalid_parent)
+    local_certs = dict(certs); local_certs[parent_key] = invalid_parent
+    parent_errors, parent_sink = validate_case("structurally-invalid-parent", invalid_parent, local_certs)
+    child = copy.deepcopy(certs[child_key])
+    edge = child["chain"]["parents"][0]
+    edge["certificate_sha256"] = invalid_parent["certificate_sha256"]
+    edge["decision"] = "PASS"; edge["accepted"] = True
+    child["chain"]["predecessor_certificate_sha256"] = invalid_parent["certificate_sha256"]
+    child["chain"]["predecessor_decision"] = "PASS"
+    child["chain"]["predecessor_accepted"] = True
+    child = add_self_hash(child)
+    local_certs[child_key] = child
+    child_errors, child_sink = validate_case(
+        "child-of-structurally-invalid-parent", child, local_certs,
+        parent_validations={"merge_tolerable": parent_sink},
+    )
+    cases.append({
+        "name": "structurally_invalid_parent_certificate",
+        "parent_outer_self_hash_valid": certificate_self_hash_valid(invalid_parent),
+        "parent_reconstructed_integrity": (parent_sink.get("relations") or {}).get("integrity", {}).get("passed"),
+        "parent_reconstructed_verdict": parent_sink.get("verdict"),
+        "child_reconstructed_lineage": (child_sink.get("relations") or {}).get("lineage", {}).get("passed"),
+        "child_reconstructed_verdict": child_sink.get("verdict"),
+        "rejected": bool(parent_errors) and bool(child_errors),
+        "parent_errors": parent_errors,
+        "child_errors": child_errors,
+    })
+
+    all_true = {name: True for name in RELATION_NAMES}
+    behavior_false = dict(all_true); behavior_false["behavior"] = False
+    availability = [
+        {"name": "temporary_source_unavailable", **project_availability(all_true, {"source"})},
+        {"name": "temporary_parent_unavailable", **project_availability(all_true, {"parent"})},
+        {"name": "temporary_compiler_unavailable", **project_availability(all_true, {"compiler"})},
+        {"name": "false_relation_plus_temporary_compiler_unavailable", **project_availability(behavior_false, {"compiler"})},
+        {"name": "closed_source_inventory_violation", **project_availability(all_true, {"source"}, closed_violations={"source"})},
+    ]
+    expected_availability = ["HOLD", "HOLD", "HOLD", "REJECT", "REJECT"]
+    passed = (
+        cases[0]["outer_self_hash_valid"] is True and cases[0]["reconstructed_integrity"] is False and cases[0]["reconstructed_verdict"] == "REJECT"
+        and cases[1]["outer_self_hash_valid"] is True and cases[1]["reconstructed_integrity"] is False and cases[1]["reconstructed_verdict"] == "REJECT"
+        and cases[2]["outer_self_hash_valid"] is True and cases[2]["reconstructed_behavior"] is True and cases[2]["reconstructed_executable_reproduction"] is False and cases[2]["reconstructed_verdict"] == "REJECT"
+        and cases[3]["parent_outer_self_hash_valid"] is True and cases[3]["parent_reconstructed_verdict"] == "REJECT" and cases[3]["child_reconstructed_lineage"] is False and cases[3]["child_reconstructed_verdict"] == "REJECT"
+        and [row["verdict"] for row in availability] == expected_availability
+        and all(row["verdict"] is not None for row in availability)
+    )
+    return {
+        "schema": "tracecert.relation-decision-boundaries.v1",
+        "scope": "nonrelease boundary fixtures; excluded from the twenty-four coherent software substitutions",
+        "relation_first_cases": cases,
+        "availability_cases": availability,
+        "expected_availability_decisions": expected_availability,
+        "verdict": "PASS" if passed else "FAIL",
+    }
+
+def verify_hamming_edge_cases(root: Path) -> list[str]:
+    errors: list[str] = []
+    path = root / "artifact/results/hamming_edge_cases.json"
+    if not path.is_file():
+        return ["Hamming edge-case report missing"]
+    report = json.loads(path.read_text(encoding="utf-8"))
+    if report.get("schema") != "tse01.hamming-edge-cases.v1":
+        errors.append("Hamming edge-case schema mismatch")
+
+    def independent_block(observed_text: str) -> dict[str, Any]:
+        observed = [None if char == "?" else int(char) for char in observed_text]
+        rows = []
+        for value in range(16):
+            bits = tuple((value >> shift) & 1 for shift in (3, 2, 1, 0))
+            word = encode_nibble(bits)
+            score = sum(actual is not None and actual != expected for actual, expected in zip(observed, word))
+            rows.append({
+                "data_hex": f"{value:x}",
+                "data_bits": list(bits),
+                "codeword": "".join(str(bit) for bit in word),
+                "observed_errors": score,
+            })
+        minimum = min(row["observed_errors"] for row in rows)
+        winners = [row for row in rows if row["observed_errors"] == minimum]
+        decoded = decode_block(observed)
+        return {
+            "candidate_scores": rows,
+            "minimum_observed_errors": minimum,
+            "winning_codewords": [row["codeword"] for row in winners],
+            "decoder_status": decoded["status"],
+            "decoded_bits": None if decoded["decoded_bits"] is None else list(decoded["decoded_bits"]),
+            "decoder_errors_to_winner": decoded["errors"],
+            "erasures": decoded["erasures"],
+            "candidate_count": decoded["candidate_count"],
+            "condition_holds_for_winner": decoded["condition_holds"],
+        }
+
+    cases = {row.get("name"): row for row in report.get("cases", [])}
+    if set(cases) != {
+        "distributed_same_total_e1_s1",
+        "concentrated_same_total_e1_s1",
+        "two_erasures_one_transmitted_error_unique_wrong_payload",
+    }:
+        errors.append("Hamming edge-case inventory mismatch")
+        return errors
+    for case in cases.values():
+        blocks = case.get("blocks") or [case.get("block")]
+        for stored in blocks:
+            actual = independent_block(stored["observed"])
+            for key in (
+                "candidate_scores", "minimum_observed_errors", "winning_codewords",
+                "decoder_status", "decoded_bits", "decoder_errors_to_winner",
+                "erasures", "candidate_count", "condition_holds_for_winner",
+            ):
+                if stored.get(key) != actual[key]:
+                    errors.append(f"Hamming edge-case mismatch: {case['name']}.{key}")
+    distributed = cases["distributed_same_total_e1_s1"]
+    concentrated = cases["concentrated_same_total_e1_s1"]
+    wrong = cases["two_erasures_one_transmitted_error_unique_wrong_payload"]
+    if not distributed.get("recovery_pass"):
+        errors.append("distributed e=1,s=1 case should pass")
+    if concentrated.get("block", {}).get("winning_codewords") != ["0000000", "1110000"]:
+        errors.append("?100000 tie mismatch")
+    if wrong.get("block", {}).get("winning_codewords") != ["1110000"]:
+        errors.append("??10000 nearest-codeword mismatch")
+    if wrong.get("decoded_nibble_hex") != "8" or wrong.get("recovery_pass") is not False:
+        errors.append("??10000 wrong-payload rejection mismatch")
+    if report.get("candidate_codewords_enumerated_per_block") != 16:
+        errors.append("Hamming candidate count mismatch")
+    if report.get("verdict") != "PASS":
+        errors.append("stored Hamming edge-case verdict mismatch")
+    return errors
+
+
+def validate_policy_bridge(
+    root: Path,
+    certs: dict[tuple[str, str], dict[str, Any]],
+    environment: dict[str, Any],
+    reconstructed_results: dict[tuple[str, str], dict[str, Any]],
+) -> list[str]:
+    """Validate a static dual-policy projection from independent evidence.
+
+    The bridge is not an executed release.  The checker refuses to trust the
+    stored relation vectors: it starts from the independently reconstructed
+    subject, recomputes continuity under thresholds 26 and 25, and verifies
+    that every reused coordinate is dependency-bound and policy-independent.
+    """
     errors: list[str] = []
     bridge_path = root / "artifact/policies/bridge/fnv_step-threshold-25-bridge.json"
     to_policy_path = root / "artifact/policies/bridge/fnv_step-threshold-25.json"
@@ -1782,9 +2179,17 @@ def validate_policy_bridge(root: Path, certs: dict[tuple[str, str], dict[str, An
         errors.append("policy bridge self-hash mismatch")
     if bridge.get("schema") != POLICY_BRIDGE_SCHEMA:
         errors.append("policy bridge schema mismatch")
-    subject = certs.get(("fnv_step", "dependency_upgrade"))
-    if subject is None:
-        return errors + ["policy bridge subject missing"]
+    if bridge.get("mode") != "static-dual-policy-projection-from-reconstructed-evidence":
+        errors.append("policy bridge mode mismatch")
+    if bridge.get("counted_as_release") is not False:
+        errors.append("policy bridge must not be counted as an executed release")
+
+    key = ("fnv_step", "dependency_upgrade")
+    subject = certs.get(key)
+    reconstructed = reconstructed_results.get(key, {})
+    relations = reconstructed.get("relations") or {}
+    if subject is None or set(relations) != set(RELATION_NAMES):
+        return errors + ["policy bridge subject reconstruction missing"]
     expected_subject = {
         "kernel": "fnv_step",
         "variant": "dependency_upgrade",
@@ -1793,8 +2198,19 @@ def validate_policy_bridge(root: Path, certs: dict[tuple[str, str], dict[str, An
     }
     if bridge.get("subject") != expected_subject:
         errors.append("policy bridge subject mismatch")
+    expected_dependencies = {
+        "source_sha256": subject["source"]["sha256"],
+        "manifest_file_sha256": subject["manifest"]["file_sha256"],
+        "manifest_canonical_sha256": subject["manifest"]["canonical_sha256"],
+        "reference_sha256": subject["behavior"]["reference_sha256"],
+        "subject_certificate_sha256": subject["certificate_sha256"],
+        "from_policy_canonical_sha256": subject["policy"]["canonical_sha256"],
+    }
+    if bridge.get("dependency_bindings") != expected_dependencies:
+        errors.append("policy bridge dependency binding mismatch")
     if bridge.get("from_policy") != subject.get("policy"):
         errors.append("policy bridge source policy mismatch")
+
     expected_to = expected_finite_policy(
         "fnv_step", environment, 25, policy_id="finite:fnv_step:threshold-25-bridge-v1"
     )
@@ -1809,12 +2225,45 @@ def validate_policy_bridge(root: Path, certs: dict[tuple[str, str], dict[str, An
     }
     if bridge.get("to_policy") != expected_to_binding:
         errors.append("policy bridge target binding mismatch")
-    vector = {name: bool(subject["relations"][name]["passed"]) for name in RELATION_NAMES}
-    if bridge.get("from_relation_vector") != vector or bridge.get("to_relation_vector") != vector:
-        errors.append("policy bridge relation vector mismatch")
-    if bridge.get("from_decision") != typed_decision(list(vector.values())) or bridge.get("to_decision") != typed_decision(list(vector.values())):
-        errors.append("policy bridge decision mismatch")
-    if bridge.get("authorization") != "explicit-dual-policy-evaluation":
+
+    from_vector = {name: relations[name]["passed"] for name in RELATION_NAMES}
+    mapped_count = int(relations["continuity"]["mapped_count"])
+    from_vector["continuity"] = mapped_count >= 26
+    to_vector = dict(from_vector)
+    to_vector["continuity"] = mapped_count >= 25
+    if bridge.get("from_relation_vector") != from_vector:
+        errors.append("policy bridge source vector is not independently reconstructed")
+    if bridge.get("to_relation_vector") != to_vector:
+        errors.append("policy bridge target vector is not independently reconstructed")
+    if bridge.get("from_decision") != typed_decision(list(from_vector.values())):
+        errors.append("policy bridge source decision mismatch")
+    if bridge.get("to_decision") != typed_decision(list(to_vector.values())):
+        errors.append("policy bridge target decision mismatch")
+
+    expected_recomputed = ["continuity"]
+    expected_reused = [name for name in RELATION_NAMES if name != "continuity"]
+    if bridge.get("recomputed_coordinates") != expected_recomputed:
+        errors.append("policy bridge recomputed-coordinate inventory mismatch")
+    if bridge.get("reused_coordinates") != expected_reused:
+        errors.append("policy bridge reused-coordinate inventory mismatch")
+    if bridge.get("reuse_rule") != "reuse-only-when-dependency-bindings-and-policy-independent-inputs-are-identical":
+        errors.append("policy bridge reuse rule mismatch")
+
+    remaining_true = {name: True for name in RELATION_NAMES if name != "continuity"}
+    witness_from = dict(remaining_true, continuity=False)
+    witness_to = dict(remaining_true, continuity=True)
+    expected_witness = {
+        "preserved": 25,
+        "from_required": 26,
+        "to_required": 25,
+        "from_relation_vector": witness_from,
+        "to_relation_vector": witness_to,
+        "from_decision": typed_decision(list(witness_from.values())),
+        "to_decision": typed_decision(list(witness_to.values())),
+    }
+    if bridge.get("minimal_threshold_witness") != expected_witness:
+        errors.append("policy bridge minimal threshold witness mismatch")
+    if bridge.get("authorization") != "explicit-static-dual-policy-projection":
         errors.append("policy bridge authorization mismatch")
     if subject["policy"]["canonical_sha256"] == expected_to_binding["canonical_sha256"]:
         errors.append("policy bridge does not change policy identity")
@@ -1915,6 +2364,12 @@ def main() -> int:
     semantic_tamper_tests = run_semantic_tamper_tests(
         root, certs, manifests, references, environment, reconstructed_results
     )
+    boundary_tests = run_relation_decision_boundary_tests(
+        root, certs, manifests, references, environment, reconstructed_results
+    )
+    boundary_tests_path = root / "artifact/results/relation_decision_boundaries.json"
+    boundary_tests_path.write_text(json.dumps(boundary_tests, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+    boundary_tests_pass = boundary_tests.get("verdict") == "PASS"
     refreshed_binding_tests = [row for row in semantic_tamper_tests if row.get("binding_mode") == "refreshed_certificate_or_file"]
     direct_source_tests = [row for row in semantic_tamper_tests if row.get("binding_mode") == "direct_source_interpretation"]
     semantic_tamper_pass = (
@@ -1923,11 +2378,15 @@ def main() -> int:
         and all(row.get("outer_self_hash_valid") is True and row.get("rejected") is True for row in refreshed_binding_tests)
         and all(row.get("outer_self_hash_valid") is None and row.get("rejected") is True for row in direct_source_tests)
     )
-    policy_bridge_errors = validate_policy_bridge(root, certs, environment)
+    hamming_edge_case_errors = verify_hamming_edge_cases(root)
+    hamming_edge_cases_pass = not hamming_edge_case_errors
+    if hamming_edge_case_errors:
+        structural_errors.extend(hamming_edge_case_errors)
+    policy_bridge_errors = validate_policy_bridge(root, certs, environment, reconstructed_results)
     policy_bridge_fixture_pass = not policy_bridge_errors
     if not policy_bridge_fixture_pass:
         structural_errors.extend(policy_bridge_errors)
-    all_valid = not structural_errors and all(row["valid"] for row in findings)
+    all_valid = not structural_errors and all(row["valid"] for row in findings) and boundary_tests_pass
     decision_fixtures = [
         {"name": "all-established", "values": [True] * 7, "decision": typed_decision([True] * 7)},
         {"name": "one-unresolved", "values": [True] * 6 + [None], "decision": typed_decision([True] * 6 + [None])},
@@ -1943,7 +2402,7 @@ def main() -> int:
         all_valid = False
 
     receipt = {
-        "schema": "tracecert.independent-recheck.v10",
+        "schema": "tracecert.independent-recheck.v12",
         "checker_independence": "standard-library implementation; imports neither generator nor primary checker",
         "locked_environment_rechecked": not environment_errors,
         "certificate_count": len(findings),
@@ -1974,7 +2433,13 @@ def main() -> int:
         "refreshed_binding_test_count": len(refreshed_binding_tests),
         "direct_source_interpretation_test_count": len(direct_source_tests),
         "semantic_tamper_tests": semantic_tamper_tests,
+        "relation_decision_boundary_tests_pass": boundary_tests_pass,
+        "relation_decision_boundary_test_count": len(boundary_tests["relation_first_cases"]),
+        "availability_fixture_count": len(boundary_tests["availability_cases"]),
+        "relation_decision_boundaries_path": "artifact/results/relation_decision_boundaries.json",
         "policy_files_reconstructed": len(KERNELS),
+        "hamming_edge_cases_pass": hamming_edge_cases_pass,
+        "hamming_edge_case_errors": hamming_edge_case_errors,
         "policy_bridge_fixture_pass": policy_bridge_fixture_pass,
         "policy_bridge_errors": policy_bridge_errors,
         "decision_fixtures": decision_fixtures,

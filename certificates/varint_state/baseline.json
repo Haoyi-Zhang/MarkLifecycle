@@ -221,7 +221,7 @@
       }
     ]
   },
-  "certificate_sha256": "15a929f561e47f5a216010b040e3661660a7e0c7701b63d4de547dc76f9640fc",
+  "certificate_sha256": "f4d880a2888a356c1b247b7276400fdcc5890409229fe71ca533ac02a52ffd33",
   "chain": {
     "all_parents_accepted": true,
     "hash_link_valid": true,
@@ -241,8 +241,8 @@
   "parent_variant": null,
   "parent_variants": [],
   "policy": {
-    "canonical_sha256": "291252f97f5eb75d8dfd41cd911057411f9a78d37d7c8d797537c9d56ec8c5cf",
-    "file_sha256": "1bb4307fa342e63d8494c3e60e92e6de4e502836c391c88d58037e1f2292ef6d",
+    "canonical_sha256": "953d31e243202ec1c661a1efa6a5f63627b4cc6f08291c879da571d7884ea2b9",
+    "file_sha256": "8ce9bf6277e0ffcb0df2e5d2229719d2d39df56714369f93b3ff25e77b9ca85e",
     "path": "artifact/policies/finite/varint_state.json",
     "policy_id": "finite:varint_state:v1"
   },
@@ -280,8 +280,15 @@
       "status": "CERTIFIED_UNIQUE"
     },
     "source_conformance": {
+      "erasure_count": 0,
+      "grammar_valid": true,
+      "issuance_keys_unique": true,
+      "observed_count": 28,
+      "occurrence_binding_valid": true,
       "passed": true,
-      "state": "ESTABLISHED_TRUE"
+      "state": "ESTABLISHED_TRUE",
+      "symbol_error_count": 0,
+      "symbol_loss_and_flip_scope": "recovery-and-continuity"
     }
   },
   "schema": "tracecert.release.v5",

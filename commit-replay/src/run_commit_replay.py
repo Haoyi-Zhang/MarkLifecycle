@@ -40,7 +40,7 @@ PROJECT_META: dict[str, dict[str, Any]] = {
     "A": {"case_count": 16, "control": "source_conformance", "commit": "fdcef3ebf886fa210d14956d3c068a653e76a24e"},
     "B": {"case_count": 65536, "control": "continuity", "commit": "bb2f86812680c2cb489a38f3643fb58f4eb3482c"},
     "C": {"case_count": 144, "control": "behavior", "commit": "4c5da2155e0d60c704848fe5312d6049ddf04c08"},
-    "D": {"case_count": 65, "control": "recovery", "commit": "9d63e760141b5c416a65ee0de9f67d684795ee49"},
+    "D": {"case_count": 65, "reference_bytes": 2145, "control": "recovery", "commit": "9d63e760141b5c416a65ee0de9f67d684795ee49"},
     "E": {"case_count": 4112, "control": "executable_reproduction", "commit": "e9d5486e6635141f589e110fd789648aa08e9544"},
     "F": {"case_count": 65536, "control": "integrity", "commit": "cd5f93974067a143434b0e9a1c1a8ae906af599b"},
     "G": {"case_count": 65536, "control": "lineage", "commit": "74d55a0e34e96e6a842727333a7d326925ec1c16"},
@@ -135,7 +135,8 @@ def project_policy(alias: str, environment: dict[str, Any], required_count: int 
         },
         "source_profiles": {
             "accepted": ["wm-helper-v1", "wm-helper-v2"],
-            "inventory_rule": "exact-issued-carrier-accounting",
+            "inventory_rule": "admitted-syntax-and-unique-issued-key-attribution",
+            "observation_scope": "missing-or-flipped-issued-symbols-are-evaluated-by-recovery-and-continuity",
         },
         "continuity": {
             "baseline_count": 28,
@@ -468,11 +469,6 @@ static void run_contract(void) {{
     if alias == "D":
         copy = "for (size_t i = 0; i < n; ++i) out[i] = input[i];" if not modern else "memcpy(out, input, n);"
         return f"""
-static uint32_t hash_bytes(const unsigned char *data, size_t n) {{
-  uint32_t h = 2166136261u;
-  for (size_t i = 0; i < n; ++i) {{ h ^= data[i]; h *= 16777619u; }}
-  return h;
-}}
 static void run_contract(void) {{
   unsigned char input[64], out[65];
   for (size_t i = 0; i < 64; ++i) input[i] = (unsigned char)((i * 37u + 11u) & 255u);
@@ -480,7 +476,7 @@ static void run_contract(void) {{
     memset(out, 0xa5, sizeof(out));
     {copy}
     out[n] = 0;
-    emit_u32(hash_bytes(out, n + 1));
+    if (fwrite(out, 1, n + 1, stdout) != n + 1) return;
   }}
 }}
 """
@@ -601,50 +597,163 @@ int main(void) {{
 """
 
 
-def parse_carriers(source: str, manifest: dict[str, Any]) -> tuple[list[int | None], list[dict[str, Any]]]:
-    call_re = re.compile(r"wm_state\s*=\s*wm_(add|xor)_v[12]\s*\(\s*wm_state\s*,\s*0x([0-9a-fA-F]{8})u\s*\)\s*;")
-    by_constant = {int(c["constant"]): int(c["position"]) for c in manifest["carriers"]}
-    observed: list[int | None] = [None] * 28
-    evidence: list[dict[str, Any]] = []
-    for match in call_re.finditer(source):
-        constant = int(match.group(2), 16)
-        if constant not in by_constant:
-            evidence.append({"constant": constant, "error": "unissued_constant"})
-            continue
-        pos = by_constant[constant]
-        bit = 0 if match.group(1) == "add" else 1
+PROJECT_CARRIER_CALL = re.compile(
+    r"wm_state\s*=\s*wm_(?P<kind>add|xor)_v(?P<version>[12])\s*\(\s*wm_state\s*,\s*"
+    r"0x(?P<constant>[0-9a-fA-F]{8})u\s*\)\s*;"
+)
+PROJECT_HELPER_DEFINITION = re.compile(
+    r"static\s+__attribute__\s*\(\(\s*noinline\s*\)\)\s+uint32_t\s+"
+    r"wm_(?P<kind>add|xor)_v(?P<version>[12])\s*\(\s*uint32_t\s+v\s*,\s*"
+    r"uint32_t\s+k\s*\)\s*\{(?P<body>[^{}]*)\}"
+)
+PROJECT_HELPER_SYMBOL = re.compile(r"\bwm_(?P<kind>add|xor)_v(?P<version>[12])\b")
+PROJECT_UCE = re.compile(r"\\(?:u[0-9a-fA-F]{4}|U[0-9a-fA-F]{8})")
+PROJECT_DIRECTIVES = [
+    "#include <stdint.h>", "#include <stdio.h>",
+    "#include <string.h>", "#include <stdlib.h>",
+]
+PROJECT_HELPER_BODIES = {
+    ("add", "1"): "return(v+k)-k;",
+    ("xor", "1"): "return(v^k)^k;",
+    ("add", "2"): "return(v-k)+k;",
+    ("xor", "2"): "returnv^(k^k);",
+}
+
+
+def strip_c_noncode(source: str) -> str:
+    """Blank comments and string/character literals while preserving offsets."""
+    out = list(source)
+    state = "code"
+    i = 0
+    while i < len(source):
+        ch = source[i]
+        nxt = source[i + 1] if i + 1 < len(source) else ""
+        if state == "code":
+            if ch == "/" and nxt == "/":
+                out[i] = out[i + 1] = " "; i += 2; state = "line"; continue
+            if ch == "/" and nxt == "*":
+                out[i] = out[i + 1] = " "; i += 2; state = "block"; continue
+            if ch == '"': out[i] = " "; i += 1; state = "string"; continue
+            if ch == "'": out[i] = " "; i += 1; state = "char"; continue
+        elif state == "line":
+            if ch == "\n": state = "code"
+            else: out[i] = " "
+        elif state == "block":
+            if ch == "*" and nxt == "/":
+                out[i] = out[i + 1] = " "; i += 2; state = "code"; continue
+            if ch != "\n": out[i] = " "
+        else:
+            quote = '"' if state == "string" else "'"
+            if ch == "\\":
+                out[i] = " "
+                if i + 1 < len(source):
+                    if source[i + 1] != "\n": out[i + 1] = " "
+                    i += 2; continue
+            if ch == quote: out[i] = " "; state = "code"
+            elif ch != "\n": out[i] = " "
+        i += 1
+    return "".join(out)
+
+
+def validate_manifest_issuance(manifest: dict[str, Any]) -> list[str]:
+    errors: list[str] = []
+    carriers = manifest.get("carriers")
+    if not isinstance(carriers, list): return ["manifest carrier inventory malformed"]
+    positions=[]; ids=[]; constants=[]
+    if len(carriers) != 28: errors.append(f"manifest carrier count mismatch: {len(carriers)}")
+    for index,row in enumerate(carriers):
+        if not isinstance(row,dict): errors.append(f"manifest carrier row malformed: {index}"); continue
+        try:
+            positions.append(int(row.get("position")))
+            constants.append(int(row.get("constant")))
+            bit=int(row.get("expected_bit"))
+        except (TypeError,ValueError): errors.append(f"manifest carrier scalar malformed: {index}"); continue
+        carrier_id=row.get("carrier_id")
+        if not isinstance(carrier_id,str) or not carrier_id: errors.append(f"manifest carrier id malformed: {index}")
+        else: ids.append(carrier_id)
+        if bit not in (0,1): errors.append(f"manifest carrier bit malformed: {index}")
+    if sorted(positions) != list(range(28)): errors.append("manifest carrier positions are not the complete 0..27 set")
+    if len(ids) != len(set(ids)): errors.append("manifest carrier ids are not unique")
+    if len(constants) != len(set(constants)): errors.append("manifest issuance constants are not unique")
+    return errors
+
+
+def analyze_project_source(source: str, manifest: dict[str, Any]) -> dict[str, Any]:
+    code = strip_c_noncode(source)
+    errors: list[str] = []
+    grammar_errors: list[str] = []
+    if re.search(r"\\\r?\n", source): grammar_errors.append("line splicing is outside the locked source grammar")
+    if "??" in source: grammar_errors.append("trigraph-like tokens are outside the locked source grammar")
+    if PROJECT_UCE.search(source): grammar_errors.append("universal-character escapes are outside the locked source grammar")
+    if re.search(r"\b_Pragma\s*\(", code): grammar_errors.append("_Pragma is outside the locked source grammar")
+    directives=[line.strip() for line in code.splitlines() if line.strip().startswith(("#","%:","??="))]
+    if directives != PROJECT_DIRECTIVES: grammar_errors.append(f"preprocessor profile mismatch: {directives}")
+    profile = "1" if manifest.get("source_profile") == "wm-helper-v1" else "2"
+    calls=list(PROJECT_CARRIER_CALL.finditer(code))
+    definitions=list(PROJECT_HELPER_DEFINITION.finditer(code))
+    expected_names={(kind,profile) for kind in ("add","xor")}
+    actual_names=[(m.group("kind"),m.group("version")) for m in definitions]
+    if len(actual_names) != len(set(actual_names)): grammar_errors.append("duplicate locked helper definitions")
+    if set(actual_names) != expected_names:
+        grammar_errors.append(f"locked helper definition set mismatch: expected={sorted(expected_names)} actual={sorted(set(actual_names))}")
+    for match in definitions:
+        name=(match.group("kind"),match.group("version"))
+        if re.sub(r"\s+","",match.group("body")) != PROJECT_HELPER_BODIES.get(name):
+            grammar_errors.append(f"locked helper body mismatch: wm_{name[0]}_v{name[1]}")
+    call_counts: dict[tuple[str,str],int]={}
+    for match in calls:
+        name=(match.group("kind"),match.group("version")); call_counts[name]=call_counts.get(name,0)+1
+    symbol_counts: dict[tuple[str,str],int]={}
+    for match in PROJECT_HELPER_SYMBOL.finditer(code):
+        name=(match.group("kind"),match.group("version")); symbol_counts[name]=symbol_counts.get(name,0)+1
+    for name in sorted(set(symbol_counts)|expected_names):
+        expected=call_counts.get(name,0)+(1 if name in expected_names else 0)
+        actual=symbol_counts.get(name,0)
+        if actual != expected:
+            grammar_errors.append(f"locked helper symbol binding mismatch: wm_{name[0]}_v{name[1]} expected_occurrences={expected} actual_occurrences={actual}")
+    issuance_errors=validate_manifest_issuance(manifest)
+    issued={int(row["constant"]):int(row["position"]) for row in manifest.get("carriers",[]) if isinstance(row,dict) and "constant" in row and "position" in row}
+    observed: list[int|None]=[None]*28
+    evidence: list[dict[str,Any]]=[]
+    duplicate_constants: list[int]=[]; extra_constants: list[int]=[]
+    for match in calls:
+        constant=int(match.group("constant"),16)
+        if constant not in issued:
+            extra_constants.append(constant); evidence.append({"constant":constant,"error":"unissued_constant"}); continue
+        pos=issued[constant]
         if observed[pos] is not None:
-            evidence.append({"constant": constant, "position": pos, "error": "duplicate"})
-            continue
-        observed[pos] = bit
-        evidence.append({"constant": constant, "position": pos, "observed_bit": bit})
-    return observed, evidence
+            duplicate_constants.append(constant); evidence.append({"constant":constant,"position":pos,"error":"duplicate"}); continue
+        bit=0 if match.group("kind")=="add" else 1
+        observed[pos]=bit
+        evidence.append({"constant":constant,"position":pos,"observed_bit":bit,"line":code.count("\n",0,match.start())+1})
+    if duplicate_constants: errors.append(f"duplicate recognized issuance constants: {sorted(duplicate_constants)}")
+    if extra_constants: errors.append(f"unissued recognized carrier constants: {sorted(extra_constants)}")
+    errors=[*grammar_errors,*issuance_errors,*errors]
+    expected_bits={int(row["position"]):int(row["expected_bit"]) for row in manifest.get("carriers",[]) if isinstance(row,dict) and "position" in row and "expected_bit" in row}
+    observed_count=sum(v is not None for v in observed)
+    return {
+        "observed":observed,
+        "evidence":evidence,
+        "errors":errors,
+        "passed":not errors,
+        "grammar_valid":not grammar_errors,
+        "issuance_keys_unique":not issuance_errors,
+        "occurrence_binding_valid":not duplicate_constants and not extra_constants,
+        "observed_count":observed_count,
+        "erasure_count":28-observed_count,
+        "symbol_error_count":sum(v is not None and v != expected_bits.get(i) for i,v in enumerate(observed)),
+        "symbol_loss_and_flip_scope":"recovery-and-continuity",
+    }
+
+
+def parse_carriers(source: str, manifest: dict[str, Any]) -> tuple[list[int | None], list[dict[str, Any]]]:
+    analysis=analyze_project_source(source,manifest)
+    return analysis["observed"], analysis["evidence"]
 
 
 def source_conformance(source: str, manifest: dict[str, Any]) -> tuple[bool, list[str]]:
-    errors: list[str] = []
-    directives = [line.strip() for line in source.splitlines() if line.lstrip().startswith("#")]
-    expected = ["#include <stdint.h>", "#include <stdio.h>", "#include <string.h>", "#include <stdlib.h>"]
-    if directives != expected:
-        errors.append(f"preprocessor profile mismatch: {directives}")
-    profile = 1 if manifest["source_profile"] == "wm-helper-v1" else 2
-    normalized = re.sub(r"\s+", "", source)
-    expected_bodies = {
-        1: ["uint32_twm_add_v1(uint32_tv,uint32_tk){return(v+k)-k;}", "uint32_twm_xor_v1(uint32_tv,uint32_tk){return(v^k)^k;}"],
-        2: ["uint32_twm_add_v2(uint32_tv,uint32_tk){return(v-k)+k;}", "uint32_twm_xor_v2(uint32_tv,uint32_tk){returnv^(k^k);}"],
-    }
-    for body in expected_bodies[profile]:
-        if body not in normalized:
-            errors.append(f"missing locked helper body for profile {profile}")
-    observed, evidence = parse_carriers(source, manifest)
-    if any("error" in item for item in evidence):
-        errors.append("carrier inventory contains unknown or duplicate constants")
-    if sum(x is not None for x in observed) == 0:
-        errors.append("no issued carriers observed")
-    other_profile = 2 if profile == 1 else 1
-    if re.search(rf"\bwm_(?:add|xor)_v{other_profile}\b", source):
-        errors.append("mixed helper profiles")
-    return not errors, errors
+    analysis=analyze_project_source(source,manifest)
+    return bool(analysis["passed"]), list(analysis["errors"])
 
 
 def continuity(current_source: str, current_manifest: dict[str, Any], parent_source: str | None, parent_manifest: dict[str, Any] | None) -> dict[str, Any]:
@@ -739,8 +848,8 @@ def ref_d() -> bytes:
     source = bytes((i * 37 + 11) & 0xFF for i in range(64))
     out = bytearray()
     for n in range(65):
-        value = fnv32(source[:n] + b"\x00")
-        out.extend(value.to_bytes(4, "little"))
+        out.extend(source[:n])
+        out.append(0)
     return bytes(out)
 
 
@@ -925,8 +1034,11 @@ def run(root: Path) -> dict[str, Any]:
         data = builder()
         references[alias] = data
         (references_dir / f"project-{alias}.bin").write_bytes(data)
-        if len(data) not in (PROJECT_META[alias]["case_count"], PROJECT_META[alias]["case_count"] * 4):
-            raise AssertionError(f"reference size mismatch for {alias}: {len(data)}")
+        expected_bytes = PROJECT_META[alias].get("reference_bytes")
+        if expected_bytes is None:
+            expected_bytes = PROJECT_META[alias]["case_count"] if alias in {"B", "G"} else PROJECT_META[alias]["case_count"] * 4
+        if len(data) != expected_bytes:
+            raise AssertionError(f"reference size mismatch for {alias}: expected={expected_bytes} actual={len(data)}")
 
     source_texts: dict[tuple[str, str], str] = {}
     manifests: dict[tuple[str, str], dict[str, Any]] = {}
@@ -1029,9 +1141,12 @@ def run(root: Path) -> dict[str, Any]:
             executable_ok = all(bool(row["binary_reproduction_match"] and row["reproduced_output_matches_stored"]) for row in cell_rows)
             manifest = manifests[(alias, version)]
             source = source_texts[(alias, version)]
-            observed, carrier_evidence = parse_carriers(source, manifest)
+            source_analysis = analyze_project_source(source, manifest)
+            observed = source_analysis["observed"]
+            carrier_evidence = source_analysis["evidence"]
             recovery = decode_payload(observed)
-            source_pass, source_errors = source_conformance(source, manifest)
+            source_pass = bool(source_analysis["passed"])
+            source_errors = list(source_analysis["errors"])
             parent_version = manifest["parent"]
             if parent_version is None:
                 parent_source = parent_manifest = None
@@ -1052,7 +1167,17 @@ def run(root: Path) -> dict[str, Any]:
                         preserved=cont["preserved"],
                         required=cont["required"],
                     ),
-                    "source_conformance": relation_record(source_pass, errors=source_errors),
+                    "source_conformance": relation_record(
+                        source_pass,
+                        errors=source_errors,
+                        grammar_valid=source_analysis["grammar_valid"],
+                        issuance_keys_unique=source_analysis["issuance_keys_unique"],
+                        occurrence_binding_valid=source_analysis["occurrence_binding_valid"],
+                        observed_count=source_analysis["observed_count"],
+                        erasure_count=source_analysis["erasure_count"],
+                        symbol_error_count=source_analysis["symbol_error_count"],
+                        symbol_loss_and_flip_scope=source_analysis["symbol_loss_and_flip_scope"],
+                    ),
                     "executable_reproduction": relation_record(executable_ok),
                     "integrity": relation_record(
                         integrity_actual == integrity_expected[(alias, version)],

@@ -1,0 +1,235 @@
+{
+  "availability_tests": [
+    {
+      "decision": "HOLD",
+      "established_false": [],
+      "name": "temporary-source-unavailable",
+      "relations": {
+        "behavior": {
+          "passed": null,
+          "state": "UNRESOLVED"
+        },
+        "continuity": {
+          "passed": null,
+          "state": "UNRESOLVED"
+        },
+        "executable_reproduction": {
+          "passed": null,
+          "state": "UNRESOLVED"
+        },
+        "integrity": {
+          "passed": true,
+          "state": "ESTABLISHED_TRUE"
+        },
+        "lineage": {
+          "passed": true,
+          "state": "ESTABLISHED_TRUE"
+        },
+        "recovery": {
+          "passed": null,
+          "state": "UNRESOLVED"
+        },
+        "source_conformance": {
+          "passed": null,
+          "state": "UNRESOLVED"
+        }
+      },
+      "unavailable": [
+        "source"
+      ]
+    },
+    {
+      "decision": "HOLD",
+      "established_false": [],
+      "name": "temporary-parent-unavailable",
+      "relations": {
+        "behavior": {
+          "passed": true,
+          "state": "ESTABLISHED_TRUE"
+        },
+        "continuity": {
+          "passed": null,
+          "state": "UNRESOLVED"
+        },
+        "executable_reproduction": {
+          "passed": true,
+          "state": "ESTABLISHED_TRUE"
+        },
+        "integrity": {
+          "passed": true,
+          "state": "ESTABLISHED_TRUE"
+        },
+        "lineage": {
+          "passed": null,
+          "state": "UNRESOLVED"
+        },
+        "recovery": {
+          "passed": true,
+          "state": "ESTABLISHED_TRUE"
+        },
+        "source_conformance": {
+          "passed": true,
+          "state": "ESTABLISHED_TRUE"
+        }
+      },
+      "unavailable": [
+        "parent"
+      ]
+    },
+    {
+      "decision": "HOLD",
+      "established_false": [],
+      "name": "temporary-compiler-unavailable",
+      "relations": {
+        "behavior": {
+          "passed": null,
+          "state": "UNRESOLVED"
+        },
+        "continuity": {
+          "passed": true,
+          "state": "ESTABLISHED_TRUE"
+        },
+        "executable_reproduction": {
+          "passed": null,
+          "state": "UNRESOLVED"
+        },
+        "integrity": {
+          "passed": true,
+          "state": "ESTABLISHED_TRUE"
+        },
+        "lineage": {
+          "passed": true,
+          "state": "ESTABLISHED_TRUE"
+        },
+        "recovery": {
+          "passed": true,
+          "state": "ESTABLISHED_TRUE"
+        },
+        "source_conformance": {
+          "passed": true,
+          "state": "ESTABLISHED_TRUE"
+        }
+      },
+      "unavailable": [
+        "compiler"
+      ]
+    },
+    {
+      "decision": "REJECT",
+      "established_false": [
+        "behavior"
+      ],
+      "name": "false-dominates-unavailable-compiler",
+      "relations": {
+        "behavior": {
+          "passed": false,
+          "state": "ESTABLISHED_FALSE"
+        },
+        "continuity": {
+          "passed": true,
+          "state": "ESTABLISHED_TRUE"
+        },
+        "executable_reproduction": {
+          "passed": null,
+          "state": "UNRESOLVED"
+        },
+        "integrity": {
+          "passed": true,
+          "state": "ESTABLISHED_TRUE"
+        },
+        "lineage": {
+          "passed": true,
+          "state": "ESTABLISHED_TRUE"
+        },
+        "recovery": {
+          "passed": true,
+          "state": "ESTABLISHED_TRUE"
+        },
+        "source_conformance": {
+          "passed": true,
+          "state": "ESTABLISHED_TRUE"
+        }
+      },
+      "unavailable": [
+        "compiler"
+      ]
+    },
+    {
+      "decision": "REJECT",
+      "established_false": [
+        "integrity"
+      ],
+      "name": "closed-source-inventory-violation",
+      "relations": {
+        "behavior": {
+          "passed": true,
+          "state": "ESTABLISHED_TRUE"
+        },
+        "continuity": {
+          "passed": true,
+          "state": "ESTABLISHED_TRUE"
+        },
+        "executable_reproduction": {
+          "passed": true,
+          "state": "ESTABLISHED_TRUE"
+        },
+        "integrity": {
+          "passed": false,
+          "state": "ESTABLISHED_FALSE"
+        },
+        "lineage": {
+          "passed": true,
+          "state": "ESTABLISHED_TRUE"
+        },
+        "recovery": {
+          "passed": true,
+          "state": "ESTABLISHED_TRUE"
+        },
+        "source_conformance": {
+          "passed": true,
+          "state": "ESTABLISHED_TRUE"
+        }
+      },
+      "unavailable": []
+    }
+  ],
+  "availability_tests_pass": true,
+  "boundary_tests": [
+    {
+      "decision": "REJECT",
+      "errors": [
+        "stored verdict disagrees"
+      ],
+      "integrity_passed": false,
+      "name": "stored-verdict-with-refreshed-self-hash",
+      "outer_self_hash_valid": true,
+      "passed": true
+    },
+    {
+      "decision": "REJECT",
+      "integrity_passed": false,
+      "name": "manifest-binding-contradiction",
+      "outer_self_hash_valid": true,
+      "passed": true
+    },
+    {
+      "behavior_passed": true,
+      "decision": "REJECT",
+      "executable_reproduction_passed": false,
+      "name": "fresh-retained-output-divergence",
+      "passed": true
+    },
+    {
+      "child_decision": "REJECT",
+      "child_lineage_passed": false,
+      "name": "structurally-invalid-parent",
+      "parent_decision": "REJECT",
+      "parent_integrity_passed": false,
+      "passed": true
+    }
+  ],
+  "boundary_tests_pass": true,
+  "schema": "tse01.commit-replay.relation-decision-boundaries.v1",
+  "scope": "nonrelease decision fixtures; excluded from the ten software-substitution count",
+  "verdict": "PASS"
+}

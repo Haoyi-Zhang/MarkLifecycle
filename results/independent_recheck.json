@@ -1,6 +1,7 @@
 {
   "all_valid": true,
   "assembly_files_rehashed_and_rescanned": 576,
+  "availability_fixture_count": 5,
   "certificate_count": 144,
   "checker_independence": "standard-library implementation; imports neither generator nor primary checker",
   "compiler_cells_rechecked": 576,
@@ -1060,6 +1061,8 @@
       "verdict": "REJECT"
     }
   ],
+  "hamming_edge_case_errors": [],
+  "hamming_edge_cases_pass": true,
   "hold_count": 0,
   "input_evaluations_rechecked": 37748736,
   "input_evaluations_reexecuted": 37748736,
@@ -1076,7 +1079,10 @@
   "reference_tables_recomputed": 12,
   "refreshed_binding_test_count": 11,
   "reject_count": 36,
-  "schema": "tracecert.independent-recheck.v10",
+  "relation_decision_boundaries_path": "artifact/results/relation_decision_boundaries.json",
+  "relation_decision_boundary_test_count": 4,
+  "relation_decision_boundary_tests_pass": true,
+  "schema": "tracecert.independent-recheck.v12",
   "semantic_tamper_test_count": 14,
   "semantic_tamper_tests": [
     {
@@ -1110,7 +1116,7 @@
       ],
       "name": "forged_continuity_with_fresh_self_hash",
       "outer_self_hash_valid": true,
-      "reconstructed_integrity": true,
+      "reconstructed_integrity": false,
       "reconstructed_verdict": "REJECT",
       "rejected": true
     },
@@ -1136,7 +1142,7 @@
       ],
       "name": "forged_mapping_count_with_fresh_self_hash",
       "outer_self_hash_valid": true,
-      "reconstructed_integrity": true,
+      "reconstructed_integrity": false,
       "reconstructed_verdict": "REJECT",
       "rejected": true
     },
@@ -1213,7 +1219,7 @@
       ],
       "name": "merge_second_parent_omission_with_fresh_hashes",
       "outer_self_hash_valid": true,
-      "reconstructed_integrity": true,
+      "reconstructed_integrity": false,
       "reconstructed_verdict": "REJECT",
       "rejected": true
     },
@@ -1299,8 +1305,6 @@
   "tamper_errors": [
     "certificate self-hash mismatch",
     "expected payload field mismatch",
-    "stored relation outcome mismatch: executable_reproduction",
-    "stored relation state mismatch: executable_reproduction",
     "stored relation outcome mismatch: integrity",
     "stored relation state mismatch: integrity",
     "typed verdict predicate mismatch",

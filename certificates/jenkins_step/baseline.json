@@ -221,7 +221,7 @@
       }
     ]
   },
-  "certificate_sha256": "2aec563b0bb28eea9691dde5b15ba8cea0dbc2e3297ab4acb0a64b6b3080e64a",
+  "certificate_sha256": "e1085dcb73b577cc7826f18b77ebc32f007a32f783254b9b6721a1c595549bd4",
   "chain": {
     "all_parents_accepted": true,
     "hash_link_valid": true,
@@ -241,8 +241,8 @@
   "parent_variant": null,
   "parent_variants": [],
   "policy": {
-    "canonical_sha256": "f83b6e41df619dc874cbe16a088adf70430a82b8d268f90750c85c8001ad932d",
-    "file_sha256": "2d60e7541e61dc81ebe58399fd92e4fb139a29be83143667d4b2137af3654899",
+    "canonical_sha256": "6e14435320b6f1413358913991ff0b7f6c1915a770aa90a0ea690b5a474f7b57",
+    "file_sha256": "52e3b4f00e84d475a2d1e25ea3ec6793170bc74648b89258ebe8c45bbfe900c2",
     "path": "artifact/policies/finite/jenkins_step.json",
     "policy_id": "finite:jenkins_step:v1"
   },
@@ -280,8 +280,15 @@
       "status": "CERTIFIED_UNIQUE"
     },
     "source_conformance": {
+      "erasure_count": 0,
+      "grammar_valid": true,
+      "issuance_keys_unique": true,
+      "observed_count": 28,
+      "occurrence_binding_valid": true,
       "passed": true,
-      "state": "ESTABLISHED_TRUE"
+      "state": "ESTABLISHED_TRUE",
+      "symbol_error_count": 0,
+      "symbol_loss_and_flip_scope": "recovery-and-continuity"
     }
   },
   "schema": "tracecert.release.v5",

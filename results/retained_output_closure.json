@@ -1,0 +1,14 @@
+{
+  "bytes_per_output": 65536,
+  "certificate_rewrite": false,
+  "content_set_sha256": "a36396c6172db9a137cefbbdc430b06770115c6987a3a62ee70f9f774d404800",
+  "errors": [],
+  "expected_count": 576,
+  "experiment_rerun": false,
+  "results_manifest_and_certificates_agree": true,
+  "schema": "tse01.retained-output-closure.v1",
+  "scientific_outputs_present": true,
+  "verdict": "PASS",
+  "verification_kind": "delivery-integrity-check-not-experiment-rerun",
+  "verified_count": 576
+}

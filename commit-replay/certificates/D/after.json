@@ -1,49 +1,49 @@
 {
-  "certificate_sha256": "8d60df51c62e930288e37fff55b7d0af55e916cc8b0bf1bbfc3268c2edefe7b6",
+  "certificate_sha256": "cf6f9d095f36cbb1abacc8d2254a1c8b6968eae7a9781cc9eb49ef1888a64405",
   "compiler_cells": [
     {
       "assembly": "artifact/commit-replay/build/D/after/gcc_O0/adapter.s",
-      "assembly_sha256": "76a3f798ba91a7d855e64a9f87cc52d376174deaa35131546d08cd64a5e3afcc",
+      "assembly_sha256": "3de2d6841a6427429dbbdc7af8e943e5670f18865773dcbac96b1b31b9ac2d03",
       "compiler": "gcc",
       "executable": "artifact/commit-replay/build/D/after/gcc_O0/adapter",
-      "executable_sha256": "f4c769ce3d2d220c268e2c8a3d1f4554aae7bce43cadc49a5221e7e1f549089a",
+      "executable_sha256": "9a0bf496f1b3eed2f70fe185140ffd440471d9fd9feda7a640c6b85d7cd6c180",
       "optimization": "-O0",
       "output": "artifact/commit-replay/build/D/after/gcc_O0/stdout.bin",
-      "output_sha256": "2bcf65682844b1ecf789a684b82876e1699bde42aa3a2ff22e34718c4b0c0286",
-      "source_sha256": "f34b9987237ec632eb2f983b1cee45b5e2f3633ed400a2d330129a73ffc672f2"
+      "output_sha256": "366f6a1c75c7e7438dbe87df03d1fcc9db358a7df1cc9bb90f352fed753d5b8b",
+      "source_sha256": "a772b850fe287d788fb19c41855b30215e495cf38ca048059f67d22b9800ae43"
     },
     {
       "assembly": "artifact/commit-replay/build/D/after/gcc_O2/adapter.s",
-      "assembly_sha256": "f76397b998edeb490bdbd40b602d64ddb6e8d44269949cb919e08a35b756aae4",
+      "assembly_sha256": "2606ce64e2caac382471f19051fead7c4d1a05cff609452d5832e3d36729cf37",
       "compiler": "gcc",
       "executable": "artifact/commit-replay/build/D/after/gcc_O2/adapter",
-      "executable_sha256": "1b5774945298b7a47ab92fcf0026d403b97e687737966009d89e9a5c848d6ffb",
+      "executable_sha256": "d623d9f807c99921a275f979776a5886c4460626a005147bba55cb88f7b961ed",
       "optimization": "-O2",
       "output": "artifact/commit-replay/build/D/after/gcc_O2/stdout.bin",
-      "output_sha256": "2bcf65682844b1ecf789a684b82876e1699bde42aa3a2ff22e34718c4b0c0286",
-      "source_sha256": "f34b9987237ec632eb2f983b1cee45b5e2f3633ed400a2d330129a73ffc672f2"
+      "output_sha256": "366f6a1c75c7e7438dbe87df03d1fcc9db358a7df1cc9bb90f352fed753d5b8b",
+      "source_sha256": "a772b850fe287d788fb19c41855b30215e495cf38ca048059f67d22b9800ae43"
     },
     {
       "assembly": "artifact/commit-replay/build/D/after/clang_O0/adapter.s",
-      "assembly_sha256": "4d3dea7ebdc8597e6f7b47fa727548dbb2adf3e9b9d2bf8c4f490ba89b5fa26d",
+      "assembly_sha256": "a670a8069d037bd93795bf948588c54bbcccd47ef64ecf57db47c343a443f837",
       "compiler": "clang",
       "executable": "artifact/commit-replay/build/D/after/clang_O0/adapter",
-      "executable_sha256": "7c2a69534f0875bea1192efb5d25fbdb8a38f37a364b53708f42260be26f72fc",
+      "executable_sha256": "b205bc4a53602944a36ef9ec848afc7530e998529fffeadc4db1208bded19464",
       "optimization": "-O0",
       "output": "artifact/commit-replay/build/D/after/clang_O0/stdout.bin",
-      "output_sha256": "2bcf65682844b1ecf789a684b82876e1699bde42aa3a2ff22e34718c4b0c0286",
-      "source_sha256": "f34b9987237ec632eb2f983b1cee45b5e2f3633ed400a2d330129a73ffc672f2"
+      "output_sha256": "366f6a1c75c7e7438dbe87df03d1fcc9db358a7df1cc9bb90f352fed753d5b8b",
+      "source_sha256": "a772b850fe287d788fb19c41855b30215e495cf38ca048059f67d22b9800ae43"
     },
     {
       "assembly": "artifact/commit-replay/build/D/after/clang_O2/adapter.s",
-      "assembly_sha256": "55f7dad6ecbbfc5035bdaf03f6a8ca274bfcb6c105f723959161e859e3c8c839",
+      "assembly_sha256": "18e26acf0767778a788078713941cce440edecbfc55d88ff2b2d9bb1521ce2df",
       "compiler": "clang",
       "executable": "artifact/commit-replay/build/D/after/clang_O2/adapter",
-      "executable_sha256": "8a29b0c7b584ac5eadad371f26e056ffd78d715aee67082d24565fc0c1f31243",
+      "executable_sha256": "01e20b6d8de6a04a2165a3bffbe5d1c20e634df9088249ff1b1c254361973ee4",
       "optimization": "-O2",
       "output": "artifact/commit-replay/build/D/after/clang_O2/stdout.bin",
-      "output_sha256": "2bcf65682844b1ecf789a684b82876e1699bde42aa3a2ff22e34718c4b0c0286",
-      "source_sha256": "f34b9987237ec632eb2f983b1cee45b5e2f3633ed400a2d330129a73ffc672f2"
+      "output_sha256": "366f6a1c75c7e7438dbe87df03d1fcc9db358a7df1cc9bb90f352fed753d5b8b",
+      "source_sha256": "a772b850fe287d788fb19c41855b30215e495cf38ca048059f67d22b9800ae43"
     }
   ],
   "expected_class": "intended",
@@ -53,20 +53,20 @@
   "manifest": "artifact/commit-replay/manifests/D/after.json",
   "manifest_sha256": "ebf9dd0357556c54d742a8f5d9491bb3136199e4589b36d5f43da73756fba0ea",
   "parent_accepted": true,
-  "parent_certificate_sha256": "391d9d57129ebcd3ea08442240dcf51abf34a73baef08c8b7708802098e00e4f",
+  "parent_certificate_sha256": "7a24be7e8d5a3c19cddcab2588daff4ab3338c4f032e6eeffc7f5362bf125be6",
   "parent_decision": "PASS",
-  "parent_policy_canonical_sha256": "128cb5fdf9c0115453e0b0e9f70e1801969fcd2978a9eb3407a9b57815b1234e",
+  "parent_policy_canonical_sha256": "666aba27660d86853e76fec8ff2fe25d8cbed6f5e3170f0dc1da251028fc233a",
   "parent_version": "before",
   "policy": {
-    "canonical_sha256": "128cb5fdf9c0115453e0b0e9f70e1801969fcd2978a9eb3407a9b57815b1234e",
-    "file_sha256": "44d2be0e1ba08caed4b81cada65298f4719649e38054a9d4bea58c911731b5af",
+    "canonical_sha256": "666aba27660d86853e76fec8ff2fe25d8cbed6f5e3170f0dc1da251028fc233a",
+    "file_sha256": "084197af23c684c1b3aae56931803af1fb7d67897f3e7bdd3facb2615fb10f7f",
     "path": "artifact/commit-replay/policies/D.json",
     "policy_id": "project:D:v1"
   },
   "policy_compatible": true,
   "project": "D",
   "reference": "artifact/commit-replay/reference/project-D.bin",
-  "reference_sha256": "2bcf65682844b1ecf789a684b82876e1699bde42aa3a2ff22e34718c4b0c0286",
+  "reference_sha256": "366f6a1c75c7e7438dbe87df03d1fcc9db358a7df1cc9bb90f352fed753d5b8b",
   "relations": {
     "behavior": {
       "case_count_per_cell": 65,
@@ -156,14 +156,21 @@
       "status": "CERTIFIED_UNIQUE"
     },
     "source_conformance": {
+      "erasure_count": 0,
       "errors": [],
+      "grammar_valid": true,
+      "issuance_keys_unique": true,
+      "observed_count": 28,
+      "occurrence_binding_valid": true,
       "passed": true,
-      "state": "ESTABLISHED_TRUE"
+      "state": "ESTABLISHED_TRUE",
+      "symbol_error_count": 0,
+      "symbol_loss_and_flip_scope": "recovery-and-continuity"
     }
   },
   "schema": "tse01.commit-replay.certificate.v3",
   "source": "artifact/commit-replay/sources/D/after.c",
-  "source_sha256": "f34b9987237ec632eb2f983b1cee45b5e2f3633ed400a2d330129a73ffc672f2",
+  "source_sha256": "a772b850fe287d788fb19c41855b30215e495cf38ca048059f67d22b9800ae43",
   "verdict": "PASS",
   "version": "after"
 }

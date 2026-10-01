@@ -90,7 +90,8 @@
       "wm-helper-v1",
       "wm-helper-v2"
     ],
-    "inventory_rule": "exact-issued-carrier-accounting"
+    "inventory_rule": "admitted-syntax-and-unique-issued-key-attribution",
+    "observation_scope": "missing-or-flipped-issued-symbols-are-evaluated-by-recovery-and-continuity"
   },
   "watermark": {
     "code": "four-independent-Hamming-7-4-blocks",

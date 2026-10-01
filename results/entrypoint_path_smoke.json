@@ -1,0 +1,10 @@
+{
+  "artifact_and_paper_are_siblings": true,
+  "clean_unrelated_path_executed": true,
+  "flat_repository_path_with_spaces_executed": true,
+  "paper_transient_is_exact_path": "paper/main.out",
+  "root": "TSE-01",
+  "schema": "tse01.entrypoint-smoke.v2",
+  "scientific_out_not_globally_excluded": true,
+  "verdict": "PASS"
+}

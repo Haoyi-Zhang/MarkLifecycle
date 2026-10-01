@@ -8,7 +8,7 @@ import shutil
 import subprocess
 from pathlib import Path
 
-TRANSIENT_FILES = {
+PAPER_TRANSIENT_FILES = {
     "paper/main.aux", "paper/main.bbl", "paper/main.blg", "paper/main.log",
     "paper/main.out", "paper/main.fls", "paper/main.fdb_latexmk", "paper/main.synctex.gz",
 }
@@ -27,12 +27,17 @@ def main() -> int:
         raise SystemExit(f"review destination must be named TSE-01-REVIEW-PACKET, found {destination.name}")
     if destination == source or source in destination.parents:
         raise SystemExit("review destination must be outside the full release root")
+    verifier = source / "artifact/src/verify_retained_outputs.py"
+    subprocess.run(
+        ["python3", str(verifier), "--root", str(source)],
+        cwd=source, check=True,
+    )
     if destination.exists():
         shutil.rmtree(destination)
     destination.mkdir(parents=True)
     shutil.copytree(source / "paper", destination / "paper")
     shutil.copytree(source / "artifact", destination / "artifact")
-    for rel in TRANSIENT_FILES:
+    for rel in PAPER_TRANSIENT_FILES:
         (destination / rel).unlink(missing_ok=True)
     for cache in destination.rglob("__pycache__"):
         if cache.is_dir():
@@ -41,6 +46,12 @@ def main() -> int:
     env["PYTHONDONTWRITEBYTECODE"] = "1"
     env["TSE01_ROOT"] = str(destination)
     env["TSE01_PROFILE"] = "review"
+    subprocess.run(
+        ["python3", str(destination / "artifact/src/verify_retained_outputs.py"),
+         "--root", str(destination),
+         "--report", "artifact/results/retained_output_closure.json"],
+        cwd=destination, check=True, env=env,
+    )
     subprocess.run(["bash", "artifact/run_all.sh"], cwd=destination, env=env, check=True)
     print(destination)
     return 0

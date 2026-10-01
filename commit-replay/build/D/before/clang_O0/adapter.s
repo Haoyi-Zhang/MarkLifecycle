@@ -295,7 +295,7 @@ Disassembly of section .text:
     1411:	eb c3                	jmp    13d6 <run_contract+0x16>
     1413:	48 c7 85 60 ff ff ff 00 00 00 00 	movq   $0x0,-0xa0(%rbp)
     141e:	48 83 bd 60 ff ff ff 40 	cmpq   $0x40,-0xa0(%rbp)
-    1426:	0f 87 a2 00 00 00    	ja     14ce <run_contract+0x10e>
+    1426:	0f 87 be 00 00 00    	ja     14ea <run_contract+0x12a>
     142c:	48 8d bd 70 ff ff ff 	lea    -0x90(%rbp),%rdi
     1433:	be a5 00 00 00       	mov    $0xa5,%esi
     1438:	ba 41 00 00 00       	mov    $0x41,%edx
@@ -315,79 +315,29 @@ Disassembly of section .text:
     148a:	48 8b 85 60 ff ff ff 	mov    -0xa0(%rbp),%rax
     1491:	c6 84 05 70 ff ff ff 00 	movb   $0x0,-0x90(%rbp,%rax,1)
     1499:	48 8d bd 70 ff ff ff 	lea    -0x90(%rbp),%rdi
-    14a0:	48 8b b5 60 ff ff ff 	mov    -0xa0(%rbp),%rsi
-    14a7:	48 83 c6 01          	add    $0x1,%rsi
-    14ab:	e8 a0 00 00 00       	call   1550 <hash_bytes>
-    14b0:	89 c7                	mov    %eax,%edi
-    14b2:	e8 29 00 00 00       	call   14e0 <emit_u32>
-    14b7:	48 8b 85 60 ff ff ff 	mov    -0xa0(%rbp),%rax
-    14be:	48 83 c0 01          	add    $0x1,%rax
-    14c2:	48 89 85 60 ff ff ff 	mov    %rax,-0xa0(%rbp)
-    14c9:	e9 50 ff ff ff       	jmp    141e <run_contract+0x5e>
-    14ce:	48 81 c4 b0 00 00 00 	add    $0xb0,%rsp
-    14d5:	5d                   	pop    %rbp
-    14d6:	c3                   	ret
-    14d7:	66 0f 1f 84 00 00 00 00 00 	nopw   0x0(%rax,%rax,1)
-
-00000000000014e0 <emit_u32>:
-    14e0:	55                   	push   %rbp
-    14e1:	48 89 e5             	mov    %rsp,%rbp
-    14e4:	48 83 ec 10          	sub    $0x10,%rsp
-    14e8:	89 7d fc             	mov    %edi,-0x4(%rbp)
-    14eb:	8b 45 fc             	mov    -0x4(%rbp),%eax
-    14ee:	25 ff 00 00 00       	and    $0xff,%eax
-    14f3:	88 45 f8             	mov    %al,-0x8(%rbp)
-    14f6:	8b 45 fc             	mov    -0x4(%rbp),%eax
-    14f9:	c1 e8 08             	shr    $0x8,%eax
-    14fc:	25 ff 00 00 00       	and    $0xff,%eax
-    1501:	88 45 f9             	mov    %al,-0x7(%rbp)
-    1504:	8b 45 fc             	mov    -0x4(%rbp),%eax
-    1507:	c1 e8 10             	shr    $0x10,%eax
-    150a:	25 ff 00 00 00       	and    $0xff,%eax
-    150f:	88 45 fa             	mov    %al,-0x6(%rbp)
-    1512:	8b 45 fc             	mov    -0x4(%rbp),%eax
-    1515:	c1 e8 18             	shr    $0x18,%eax
-    1518:	25 ff 00 00 00       	and    $0xff,%eax
-    151d:	88 45 fb             	mov    %al,-0x5(%rbp)
-    1520:	48 8d 7d f8          	lea    -0x8(%rbp),%rdi
-    1524:	48 8b 05 9d 2a 00 00 	mov    0x2a9d(%rip),%rax        # 3fc8 <stdout@GLIBC_2.2.5>
-    152b:	48 8b 08             	mov    (%rax),%rcx
-    152e:	be 01 00 00 00       	mov    $0x1,%esi
-    1533:	ba 04 00 00 00       	mov    $0x4,%edx
-    1538:	e8 13 fb ff ff       	call   1050 <fwrite@plt>
-    153d:	48 83 c4 10          	add    $0x10,%rsp
-    1541:	5d                   	pop    %rbp
-    1542:	c3                   	ret
-    1543:	66 66 66 66 2e 0f 1f 84 00 00 00 00 00 	data16 data16 data16 cs nopw 0x0(%rax,%rax,1)
-
-0000000000001550 <hash_bytes>:
-    1550:	55                   	push   %rbp
-    1551:	48 89 e5             	mov    %rsp,%rbp
-    1554:	48 89 7d f8          	mov    %rdi,-0x8(%rbp)
-    1558:	48 89 75 f0          	mov    %rsi,-0x10(%rbp)
-    155c:	c7 45 ec c5 9d 1c 81 	movl   $0x811c9dc5,-0x14(%rbp)
-    1563:	48 c7 45 e0 00 00 00 00 	movq   $0x0,-0x20(%rbp)
-    156b:	48 8b 45 e0          	mov    -0x20(%rbp),%rax
-    156f:	48 3b 45 f0          	cmp    -0x10(%rbp),%rax
-    1573:	73 2a                	jae    159f <hash_bytes+0x4f>
-    1575:	48 8b 45 f8          	mov    -0x8(%rbp),%rax
-    1579:	48 8b 4d e0          	mov    -0x20(%rbp),%rcx
-    157d:	0f b6 04 08          	movzbl (%rax,%rcx,1),%eax
-    1581:	33 45 ec             	xor    -0x14(%rbp),%eax
-    1584:	89 45 ec             	mov    %eax,-0x14(%rbp)
-    1587:	69 45 ec 93 01 00 01 	imul   $0x1000193,-0x14(%rbp),%eax
-    158e:	89 45 ec             	mov    %eax,-0x14(%rbp)
-    1591:	48 8b 45 e0          	mov    -0x20(%rbp),%rax
-    1595:	48 83 c0 01          	add    $0x1,%rax
-    1599:	48 89 45 e0          	mov    %rax,-0x20(%rbp)
-    159d:	eb cc                	jmp    156b <hash_bytes+0x1b>
-    159f:	8b 45 ec             	mov    -0x14(%rbp),%eax
-    15a2:	5d                   	pop    %rbp
-    15a3:	c3                   	ret
+    14a0:	48 8b 95 60 ff ff ff 	mov    -0xa0(%rbp),%rdx
+    14a7:	48 83 c2 01          	add    $0x1,%rdx
+    14ab:	48 8b 05 16 2b 00 00 	mov    0x2b16(%rip),%rax        # 3fc8 <stdout@GLIBC_2.2.5>
+    14b2:	48 8b 08             	mov    (%rax),%rcx
+    14b5:	be 01 00 00 00       	mov    $0x1,%esi
+    14ba:	e8 91 fb ff ff       	call   1050 <fwrite@plt>
+    14bf:	48 8b 8d 60 ff ff ff 	mov    -0xa0(%rbp),%rcx
+    14c6:	48 83 c1 01          	add    $0x1,%rcx
+    14ca:	48 39 c8             	cmp    %rcx,%rax
+    14cd:	74 02                	je     14d1 <run_contract+0x111>
+    14cf:	eb 19                	jmp    14ea <run_contract+0x12a>
+    14d1:	eb 00                	jmp    14d3 <run_contract+0x113>
+    14d3:	48 8b 85 60 ff ff ff 	mov    -0xa0(%rbp),%rax
+    14da:	48 83 c0 01          	add    $0x1,%rax
+    14de:	48 89 85 60 ff ff ff 	mov    %rax,-0xa0(%rbp)
+    14e5:	e9 34 ff ff ff       	jmp    141e <run_contract+0x5e>
+    14ea:	48 81 c4 b0 00 00 00 	add    $0xb0,%rsp
+    14f1:	5d                   	pop    %rbp
+    14f2:	c3                   	ret
 
 Disassembly of section .fini:
 
-00000000000015a4 <_fini>:
-    15a4:	48 83 ec 08          	sub    $0x8,%rsp
-    15a8:	48 83 c4 08          	add    $0x8,%rsp
-    15ac:	c3                   	ret
+00000000000014f4 <_fini>:
+    14f4:	48 83 ec 08          	sub    $0x8,%rsp
+    14f8:	48 83 c4 08          	add    $0x8,%rsp
+    14fc:	c3                   	ret

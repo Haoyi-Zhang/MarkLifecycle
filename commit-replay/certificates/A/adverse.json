@@ -1,5 +1,5 @@
 {
-  "certificate_sha256": "8dbc656346f55c503fb1e613134c7447ed0683080ffe985b7dd97ad6ac5d82c7",
+  "certificate_sha256": "20794b6c527598439ef6cb765df47a0197f3330f79e10f82e0ff0ea0d1c65dd9",
   "compiler_cells": [
     {
       "assembly": "artifact/commit-replay/build/A/adverse/gcc_O0/adapter.s",
@@ -53,13 +53,13 @@
   "manifest": "artifact/commit-replay/manifests/A/adverse.json",
   "manifest_sha256": "f3934e220e7a601e681d7935d3b5ebe9c31c8230c1366eaf42d2d3a7853e108c",
   "parent_accepted": true,
-  "parent_certificate_sha256": "de61d0d3f4635296cf92eda2fdff070c316e07299342d69e6c63adb81e084b9f",
+  "parent_certificate_sha256": "0aaacac43e482265582174d071531f8820f10c4a23524f0f1f8025119fa8ced3",
   "parent_decision": "PASS",
-  "parent_policy_canonical_sha256": "cf579ea96cfd5f38469b6eac5d4242f70309f2e96cd836864c20c11e8ded3020",
+  "parent_policy_canonical_sha256": "0ab7d998fee8ec2fa80b5515b655425de5a872e7747d8e1eca40bb038993e40a",
   "parent_version": "after",
   "policy": {
-    "canonical_sha256": "cf579ea96cfd5f38469b6eac5d4242f70309f2e96cd836864c20c11e8ded3020",
-    "file_sha256": "b8582a7f40c808490059bc63244dd003f708237f08688551d0b502a21513e89a",
+    "canonical_sha256": "0ab7d998fee8ec2fa80b5515b655425de5a872e7747d8e1eca40bb038993e40a",
+    "file_sha256": "55f98068cb087726c517892eb3df41b1a19c5f4823d379fac5a17cada552d31e",
     "path": "artifact/commit-replay/policies/A.json",
     "policy_id": "project:A:v1"
   },
@@ -156,11 +156,20 @@
       "status": "CERTIFIED_UNIQUE"
     },
     "source_conformance": {
+      "erasure_count": 0,
       "errors": [
-        "preprocessor profile mismatch: ['#include <stdint.h>', '#include <stdio.h>', '#include <string.h>', '#include <stdlib.h>', '#define wm_add_v2 wm_xor_v2']"
+        "preprocessor profile mismatch: ['#include <stdint.h>', '#include <stdio.h>', '#include <string.h>', '#include <stdlib.h>', '#define wm_add_v2 wm_xor_v2']",
+        "locked helper symbol binding mismatch: wm_add_v2 expected_occurrences=20 actual_occurrences=21",
+        "locked helper symbol binding mismatch: wm_xor_v2 expected_occurrences=10 actual_occurrences=11"
       ],
+      "grammar_valid": false,
+      "issuance_keys_unique": true,
+      "observed_count": 28,
+      "occurrence_binding_valid": true,
       "passed": false,
-      "state": "ESTABLISHED_FALSE"
+      "state": "ESTABLISHED_FALSE",
+      "symbol_error_count": 0,
+      "symbol_loss_and_flip_scope": "recovery-and-continuity"
     }
   },
   "schema": "tse01.commit-replay.certificate.v3",

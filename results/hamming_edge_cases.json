@@ -1,0 +1,1219 @@
+{
+  "candidate_codewords_enumerated_per_block": 16,
+  "cases": [
+    {
+      "blocks": [
+        {
+          "candidate_count": 1,
+          "candidate_scores": [
+            {
+              "codeword": "0000000",
+              "data_bits": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "data_hex": "0",
+              "observed_errors": 1
+            },
+            {
+              "codeword": "1101001",
+              "data_bits": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "data_hex": "1",
+              "observed_errors": 3
+            },
+            {
+              "codeword": "0101010",
+              "data_bits": [
+                0,
+                0,
+                1,
+                0
+              ],
+              "data_hex": "2",
+              "observed_errors": 4
+            },
+            {
+              "codeword": "1000011",
+              "data_bits": [
+                0,
+                0,
+                1,
+                1
+              ],
+              "data_hex": "3",
+              "observed_errors": 2
+            },
+            {
+              "codeword": "1001100",
+              "data_bits": [
+                0,
+                1,
+                0,
+                0
+              ],
+              "data_hex": "4",
+              "observed_errors": 2
+            },
+            {
+              "codeword": "0100101",
+              "data_bits": [
+                0,
+                1,
+                0,
+                1
+              ],
+              "data_hex": "5",
+              "observed_errors": 4
+            },
+            {
+              "codeword": "1100110",
+              "data_bits": [
+                0,
+                1,
+                1,
+                0
+              ],
+              "data_hex": "6",
+              "observed_errors": 3
+            },
+            {
+              "codeword": "0001111",
+              "data_bits": [
+                0,
+                1,
+                1,
+                1
+              ],
+              "data_hex": "7",
+              "observed_errors": 5
+            },
+            {
+              "codeword": "1110000",
+              "data_bits": [
+                1,
+                0,
+                0,
+                0
+              ],
+              "data_hex": "8",
+              "observed_errors": 2
+            },
+            {
+              "codeword": "0011001",
+              "data_bits": [
+                1,
+                0,
+                0,
+                1
+              ],
+              "data_hex": "9",
+              "observed_errors": 4
+            },
+            {
+              "codeword": "1011010",
+              "data_bits": [
+                1,
+                0,
+                1,
+                0
+              ],
+              "data_hex": "a",
+              "observed_errors": 3
+            },
+            {
+              "codeword": "0110011",
+              "data_bits": [
+                1,
+                0,
+                1,
+                1
+              ],
+              "data_hex": "b",
+              "observed_errors": 5
+            },
+            {
+              "codeword": "0111100",
+              "data_bits": [
+                1,
+                1,
+                0,
+                0
+              ],
+              "data_hex": "c",
+              "observed_errors": 5
+            },
+            {
+              "codeword": "1010101",
+              "data_bits": [
+                1,
+                1,
+                0,
+                1
+              ],
+              "data_hex": "d",
+              "observed_errors": 3
+            },
+            {
+              "codeword": "0010110",
+              "data_bits": [
+                1,
+                1,
+                1,
+                0
+              ],
+              "data_hex": "e",
+              "observed_errors": 4
+            },
+            {
+              "codeword": "1111111",
+              "data_bits": [
+                1,
+                1,
+                1,
+                1
+              ],
+              "data_hex": "f",
+              "observed_errors": 6
+            }
+          ],
+          "condition_holds_for_winner": true,
+          "decoded_bits": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "decoder_errors_to_winner": 1,
+          "decoder_status": "CERTIFIED_UNIQUE",
+          "erasures": 0,
+          "errors_relative_to_transmitted": 1,
+          "minimum_observed_errors": 1,
+          "observed": "1000000",
+          "transmitted": "0000000",
+          "winning_codewords": [
+            "0000000"
+          ]
+        },
+        {
+          "candidate_count": 1,
+          "candidate_scores": [
+            {
+              "codeword": "0000000",
+              "data_bits": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "data_hex": "0",
+              "observed_errors": 0
+            },
+            {
+              "codeword": "1101001",
+              "data_bits": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "data_hex": "1",
+              "observed_errors": 3
+            },
+            {
+              "codeword": "0101010",
+              "data_bits": [
+                0,
+                0,
+                1,
+                0
+              ],
+              "data_hex": "2",
+              "observed_errors": 3
+            },
+            {
+              "codeword": "1000011",
+              "data_bits": [
+                0,
+                0,
+                1,
+                1
+              ],
+              "data_hex": "3",
+              "observed_errors": 2
+            },
+            {
+              "codeword": "1001100",
+              "data_bits": [
+                0,
+                1,
+                0,
+                0
+              ],
+              "data_hex": "4",
+              "observed_errors": 2
+            },
+            {
+              "codeword": "0100101",
+              "data_bits": [
+                0,
+                1,
+                0,
+                1
+              ],
+              "data_hex": "5",
+              "observed_errors": 3
+            },
+            {
+              "codeword": "1100110",
+              "data_bits": [
+                0,
+                1,
+                1,
+                0
+              ],
+              "data_hex": "6",
+              "observed_errors": 3
+            },
+            {
+              "codeword": "0001111",
+              "data_bits": [
+                0,
+                1,
+                1,
+                1
+              ],
+              "data_hex": "7",
+              "observed_errors": 4
+            },
+            {
+              "codeword": "1110000",
+              "data_bits": [
+                1,
+                0,
+                0,
+                0
+              ],
+              "data_hex": "8",
+              "observed_errors": 2
+            },
+            {
+              "codeword": "0011001",
+              "data_bits": [
+                1,
+                0,
+                0,
+                1
+              ],
+              "data_hex": "9",
+              "observed_errors": 3
+            },
+            {
+              "codeword": "1011010",
+              "data_bits": [
+                1,
+                0,
+                1,
+                0
+              ],
+              "data_hex": "a",
+              "observed_errors": 3
+            },
+            {
+              "codeword": "0110011",
+              "data_bits": [
+                1,
+                0,
+                1,
+                1
+              ],
+              "data_hex": "b",
+              "observed_errors": 4
+            },
+            {
+              "codeword": "0111100",
+              "data_bits": [
+                1,
+                1,
+                0,
+                0
+              ],
+              "data_hex": "c",
+              "observed_errors": 4
+            },
+            {
+              "codeword": "1010101",
+              "data_bits": [
+                1,
+                1,
+                0,
+                1
+              ],
+              "data_hex": "d",
+              "observed_errors": 3
+            },
+            {
+              "codeword": "0010110",
+              "data_bits": [
+                1,
+                1,
+                1,
+                0
+              ],
+              "data_hex": "e",
+              "observed_errors": 3
+            },
+            {
+              "codeword": "1111111",
+              "data_bits": [
+                1,
+                1,
+                1,
+                1
+              ],
+              "data_hex": "f",
+              "observed_errors": 6
+            }
+          ],
+          "condition_holds_for_winner": true,
+          "decoded_bits": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "decoder_errors_to_winner": 0,
+          "decoder_status": "CERTIFIED_UNIQUE",
+          "erasures": 1,
+          "errors_relative_to_transmitted": 0,
+          "minimum_observed_errors": 0,
+          "observed": "?000000",
+          "transmitted": "0000000",
+          "winning_codewords": [
+            "0000000"
+          ]
+        },
+        {
+          "candidate_count": 1,
+          "candidate_scores": [
+            {
+              "codeword": "0000000",
+              "data_bits": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "data_hex": "0",
+              "observed_errors": 0
+            },
+            {
+              "codeword": "1101001",
+              "data_bits": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "data_hex": "1",
+              "observed_errors": 4
+            },
+            {
+              "codeword": "0101010",
+              "data_bits": [
+                0,
+                0,
+                1,
+                0
+              ],
+              "data_hex": "2",
+              "observed_errors": 3
+            },
+            {
+              "codeword": "1000011",
+              "data_bits": [
+                0,
+                0,
+                1,
+                1
+              ],
+              "data_hex": "3",
+              "observed_errors": 3
+            },
+            {
+              "codeword": "1001100",
+              "data_bits": [
+                0,
+                1,
+                0,
+                0
+              ],
+              "data_hex": "4",
+              "observed_errors": 3
+            },
+            {
+              "codeword": "0100101",
+              "data_bits": [
+                0,
+                1,
+                0,
+                1
+              ],
+              "data_hex": "5",
+              "observed_errors": 3
+            },
+            {
+              "codeword": "1100110",
+              "data_bits": [
+                0,
+                1,
+                1,
+                0
+              ],
+              "data_hex": "6",
+              "observed_errors": 4
+            },
+            {
+              "codeword": "0001111",
+              "data_bits": [
+                0,
+                1,
+                1,
+                1
+              ],
+              "data_hex": "7",
+              "observed_errors": 4
+            },
+            {
+              "codeword": "1110000",
+              "data_bits": [
+                1,
+                0,
+                0,
+                0
+              ],
+              "data_hex": "8",
+              "observed_errors": 3
+            },
+            {
+              "codeword": "0011001",
+              "data_bits": [
+                1,
+                0,
+                0,
+                1
+              ],
+              "data_hex": "9",
+              "observed_errors": 3
+            },
+            {
+              "codeword": "1011010",
+              "data_bits": [
+                1,
+                0,
+                1,
+                0
+              ],
+              "data_hex": "a",
+              "observed_errors": 4
+            },
+            {
+              "codeword": "0110011",
+              "data_bits": [
+                1,
+                0,
+                1,
+                1
+              ],
+              "data_hex": "b",
+              "observed_errors": 4
+            },
+            {
+              "codeword": "0111100",
+              "data_bits": [
+                1,
+                1,
+                0,
+                0
+              ],
+              "data_hex": "c",
+              "observed_errors": 4
+            },
+            {
+              "codeword": "1010101",
+              "data_bits": [
+                1,
+                1,
+                0,
+                1
+              ],
+              "data_hex": "d",
+              "observed_errors": 4
+            },
+            {
+              "codeword": "0010110",
+              "data_bits": [
+                1,
+                1,
+                1,
+                0
+              ],
+              "data_hex": "e",
+              "observed_errors": 3
+            },
+            {
+              "codeword": "1111111",
+              "data_bits": [
+                1,
+                1,
+                1,
+                1
+              ],
+              "data_hex": "f",
+              "observed_errors": 7
+            }
+          ],
+          "condition_holds_for_winner": true,
+          "decoded_bits": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "decoder_errors_to_winner": 0,
+          "decoder_status": "CERTIFIED_UNIQUE",
+          "erasures": 0,
+          "errors_relative_to_transmitted": 0,
+          "minimum_observed_errors": 0,
+          "observed": "0000000",
+          "transmitted": "0000000",
+          "winning_codewords": [
+            "0000000"
+          ]
+        },
+        {
+          "candidate_count": 1,
+          "candidate_scores": [
+            {
+              "codeword": "0000000",
+              "data_bits": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "data_hex": "0",
+              "observed_errors": 0
+            },
+            {
+              "codeword": "1101001",
+              "data_bits": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "data_hex": "1",
+              "observed_errors": 4
+            },
+            {
+              "codeword": "0101010",
+              "data_bits": [
+                0,
+                0,
+                1,
+                0
+              ],
+              "data_hex": "2",
+              "observed_errors": 3
+            },
+            {
+              "codeword": "1000011",
+              "data_bits": [
+                0,
+                0,
+                1,
+                1
+              ],
+              "data_hex": "3",
+              "observed_errors": 3
+            },
+            {
+              "codeword": "1001100",
+              "data_bits": [
+                0,
+                1,
+                0,
+                0
+              ],
+              "data_hex": "4",
+              "observed_errors": 3
+            },
+            {
+              "codeword": "0100101",
+              "data_bits": [
+                0,
+                1,
+                0,
+                1
+              ],
+              "data_hex": "5",
+              "observed_errors": 3
+            },
+            {
+              "codeword": "1100110",
+              "data_bits": [
+                0,
+                1,
+                1,
+                0
+              ],
+              "data_hex": "6",
+              "observed_errors": 4
+            },
+            {
+              "codeword": "0001111",
+              "data_bits": [
+                0,
+                1,
+                1,
+                1
+              ],
+              "data_hex": "7",
+              "observed_errors": 4
+            },
+            {
+              "codeword": "1110000",
+              "data_bits": [
+                1,
+                0,
+                0,
+                0
+              ],
+              "data_hex": "8",
+              "observed_errors": 3
+            },
+            {
+              "codeword": "0011001",
+              "data_bits": [
+                1,
+                0,
+                0,
+                1
+              ],
+              "data_hex": "9",
+              "observed_errors": 3
+            },
+            {
+              "codeword": "1011010",
+              "data_bits": [
+                1,
+                0,
+                1,
+                0
+              ],
+              "data_hex": "a",
+              "observed_errors": 4
+            },
+            {
+              "codeword": "0110011",
+              "data_bits": [
+                1,
+                0,
+                1,
+                1
+              ],
+              "data_hex": "b",
+              "observed_errors": 4
+            },
+            {
+              "codeword": "0111100",
+              "data_bits": [
+                1,
+                1,
+                0,
+                0
+              ],
+              "data_hex": "c",
+              "observed_errors": 4
+            },
+            {
+              "codeword": "1010101",
+              "data_bits": [
+                1,
+                1,
+                0,
+                1
+              ],
+              "data_hex": "d",
+              "observed_errors": 4
+            },
+            {
+              "codeword": "0010110",
+              "data_bits": [
+                1,
+                1,
+                1,
+                0
+              ],
+              "data_hex": "e",
+              "observed_errors": 3
+            },
+            {
+              "codeword": "1111111",
+              "data_bits": [
+                1,
+                1,
+                1,
+                1
+              ],
+              "data_hex": "f",
+              "observed_errors": 7
+            }
+          ],
+          "condition_holds_for_winner": true,
+          "decoded_bits": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "decoder_errors_to_winner": 0,
+          "decoder_status": "CERTIFIED_UNIQUE",
+          "erasures": 0,
+          "errors_relative_to_transmitted": 0,
+          "minimum_observed_errors": 0,
+          "observed": "0000000",
+          "transmitted": "0000000",
+          "winning_codewords": [
+            "0000000"
+          ]
+        }
+      ],
+      "expected_decision": "PASS",
+      "global_erasures": 1,
+      "global_errors_relative_to_transmitted": 1,
+      "name": "distributed_same_total_e1_s1",
+      "recovery_pass": true
+    },
+    {
+      "block": {
+        "candidate_count": 2,
+        "candidate_scores": [
+          {
+            "codeword": "0000000",
+            "data_bits": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "data_hex": "0",
+            "observed_errors": 1
+          },
+          {
+            "codeword": "1101001",
+            "data_bits": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "data_hex": "1",
+            "observed_errors": 2
+          },
+          {
+            "codeword": "0101010",
+            "data_bits": [
+              0,
+              0,
+              1,
+              0
+            ],
+            "data_hex": "2",
+            "observed_errors": 2
+          },
+          {
+            "codeword": "1000011",
+            "data_bits": [
+              0,
+              0,
+              1,
+              1
+            ],
+            "data_hex": "3",
+            "observed_errors": 3
+          },
+          {
+            "codeword": "1001100",
+            "data_bits": [
+              0,
+              1,
+              0,
+              0
+            ],
+            "data_hex": "4",
+            "observed_errors": 3
+          },
+          {
+            "codeword": "0100101",
+            "data_bits": [
+              0,
+              1,
+              0,
+              1
+            ],
+            "data_hex": "5",
+            "observed_errors": 2
+          },
+          {
+            "codeword": "1100110",
+            "data_bits": [
+              0,
+              1,
+              1,
+              0
+            ],
+            "data_hex": "6",
+            "observed_errors": 2
+          },
+          {
+            "codeword": "0001111",
+            "data_bits": [
+              0,
+              1,
+              1,
+              1
+            ],
+            "data_hex": "7",
+            "observed_errors": 5
+          },
+          {
+            "codeword": "1110000",
+            "data_bits": [
+              1,
+              0,
+              0,
+              0
+            ],
+            "data_hex": "8",
+            "observed_errors": 1
+          },
+          {
+            "codeword": "0011001",
+            "data_bits": [
+              1,
+              0,
+              0,
+              1
+            ],
+            "data_hex": "9",
+            "observed_errors": 4
+          },
+          {
+            "codeword": "1011010",
+            "data_bits": [
+              1,
+              0,
+              1,
+              0
+            ],
+            "data_hex": "a",
+            "observed_errors": 4
+          },
+          {
+            "codeword": "0110011",
+            "data_bits": [
+              1,
+              0,
+              1,
+              1
+            ],
+            "data_hex": "b",
+            "observed_errors": 3
+          },
+          {
+            "codeword": "0111100",
+            "data_bits": [
+              1,
+              1,
+              0,
+              0
+            ],
+            "data_hex": "c",
+            "observed_errors": 3
+          },
+          {
+            "codeword": "1010101",
+            "data_bits": [
+              1,
+              1,
+              0,
+              1
+            ],
+            "data_hex": "d",
+            "observed_errors": 4
+          },
+          {
+            "codeword": "0010110",
+            "data_bits": [
+              1,
+              1,
+              1,
+              0
+            ],
+            "data_hex": "e",
+            "observed_errors": 4
+          },
+          {
+            "codeword": "1111111",
+            "data_bits": [
+              1,
+              1,
+              1,
+              1
+            ],
+            "data_hex": "f",
+            "observed_errors": 5
+          }
+        ],
+        "condition_holds_for_winner": false,
+        "decoded_bits": null,
+        "decoder_errors_to_winner": 1,
+        "decoder_status": "AMBIGUOUS",
+        "erasures": 1,
+        "errors_relative_to_transmitted": 1,
+        "minimum_observed_errors": 1,
+        "observed": "?100000",
+        "transmitted": "0000000",
+        "winning_codewords": [
+          "0000000",
+          "1110000"
+        ]
+      },
+      "expected_decision": "REJECT",
+      "explicit_tie": true,
+      "global_erasures": 1,
+      "global_errors_relative_to_transmitted": 1,
+      "name": "concentrated_same_total_e1_s1",
+      "recovery_pass": false
+    },
+    {
+      "block": {
+        "candidate_count": 1,
+        "candidate_scores": [
+          {
+            "codeword": "0000000",
+            "data_bits": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "data_hex": "0",
+            "observed_errors": 1
+          },
+          {
+            "codeword": "1101001",
+            "data_bits": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "data_hex": "1",
+            "observed_errors": 3
+          },
+          {
+            "codeword": "0101010",
+            "data_bits": [
+              0,
+              0,
+              1,
+              0
+            ],
+            "data_hex": "2",
+            "observed_errors": 3
+          },
+          {
+            "codeword": "1000011",
+            "data_bits": [
+              0,
+              0,
+              1,
+              1
+            ],
+            "data_hex": "3",
+            "observed_errors": 3
+          },
+          {
+            "codeword": "1001100",
+            "data_bits": [
+              0,
+              1,
+              0,
+              0
+            ],
+            "data_hex": "4",
+            "observed_errors": 3
+          },
+          {
+            "codeword": "0100101",
+            "data_bits": [
+              0,
+              1,
+              0,
+              1
+            ],
+            "data_hex": "5",
+            "observed_errors": 3
+          },
+          {
+            "codeword": "1100110",
+            "data_bits": [
+              0,
+              1,
+              1,
+              0
+            ],
+            "data_hex": "6",
+            "observed_errors": 3
+          },
+          {
+            "codeword": "0001111",
+            "data_bits": [
+              0,
+              1,
+              1,
+              1
+            ],
+            "data_hex": "7",
+            "observed_errors": 5
+          },
+          {
+            "codeword": "1110000",
+            "data_bits": [
+              1,
+              0,
+              0,
+              0
+            ],
+            "data_hex": "8",
+            "observed_errors": 0
+          },
+          {
+            "codeword": "0011001",
+            "data_bits": [
+              1,
+              0,
+              0,
+              1
+            ],
+            "data_hex": "9",
+            "observed_errors": 2
+          },
+          {
+            "codeword": "1011010",
+            "data_bits": [
+              1,
+              0,
+              1,
+              0
+            ],
+            "data_hex": "a",
+            "observed_errors": 2
+          },
+          {
+            "codeword": "0110011",
+            "data_bits": [
+              1,
+              0,
+              1,
+              1
+            ],
+            "data_hex": "b",
+            "observed_errors": 2
+          },
+          {
+            "codeword": "0111100",
+            "data_bits": [
+              1,
+              1,
+              0,
+              0
+            ],
+            "data_hex": "c",
+            "observed_errors": 2
+          },
+          {
+            "codeword": "1010101",
+            "data_bits": [
+              1,
+              1,
+              0,
+              1
+            ],
+            "data_hex": "d",
+            "observed_errors": 2
+          },
+          {
+            "codeword": "0010110",
+            "data_bits": [
+              1,
+              1,
+              1,
+              0
+            ],
+            "data_hex": "e",
+            "observed_errors": 2
+          },
+          {
+            "codeword": "1111111",
+            "data_bits": [
+              1,
+              1,
+              1,
+              1
+            ],
+            "data_hex": "f",
+            "observed_errors": 4
+          }
+        ],
+        "condition_holds_for_winner": true,
+        "decoded_bits": [
+          1,
+          0,
+          0,
+          0
+        ],
+        "decoder_errors_to_winner": 0,
+        "decoder_status": "CERTIFIED_UNIQUE",
+        "erasures": 2,
+        "errors_relative_to_transmitted": 1,
+        "minimum_observed_errors": 0,
+        "observed": "??10000",
+        "transmitted": "0000000",
+        "winning_codewords": [
+          "1110000"
+        ]
+      },
+      "decoded_nibble_hex": "8",
+      "expected_decision": "REJECT",
+      "global_erasures": 2,
+      "global_errors_relative_to_transmitted": 1,
+      "name": "two_erasures_one_transmitted_error_unique_wrong_payload",
+      "recovery_pass": false,
+      "rejection_reason": "unique decoded payload differs from issued payload",
+      "unique_nearest_codeword": true
+    }
+  ],
+  "code": "Hamming(7,4,3)",
+  "schema": "tse01.hamming-edge-cases.v1",
+  "verdict": "PASS"
+}

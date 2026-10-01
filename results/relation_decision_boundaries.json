@@ -1,0 +1,272 @@
+{
+  "availability_cases": [
+    {
+      "closed_violations": [],
+      "name": "temporary_source_unavailable",
+      "relations": {
+        "behavior": {
+          "passed": null,
+          "state": "UNRESOLVED"
+        },
+        "continuity": {
+          "passed": null,
+          "state": "UNRESOLVED"
+        },
+        "executable_reproduction": {
+          "passed": null,
+          "state": "UNRESOLVED"
+        },
+        "integrity": {
+          "passed": true,
+          "state": "ESTABLISHED_TRUE"
+        },
+        "lineage": {
+          "passed": true,
+          "state": "ESTABLISHED_TRUE"
+        },
+        "recovery": {
+          "passed": null,
+          "state": "UNRESOLVED"
+        },
+        "source_conformance": {
+          "passed": null,
+          "state": "UNRESOLVED"
+        }
+      },
+      "unavailable": [
+        "source"
+      ],
+      "verdict": "HOLD"
+    },
+    {
+      "closed_violations": [],
+      "name": "temporary_parent_unavailable",
+      "relations": {
+        "behavior": {
+          "passed": true,
+          "state": "ESTABLISHED_TRUE"
+        },
+        "continuity": {
+          "passed": null,
+          "state": "UNRESOLVED"
+        },
+        "executable_reproduction": {
+          "passed": true,
+          "state": "ESTABLISHED_TRUE"
+        },
+        "integrity": {
+          "passed": true,
+          "state": "ESTABLISHED_TRUE"
+        },
+        "lineage": {
+          "passed": null,
+          "state": "UNRESOLVED"
+        },
+        "recovery": {
+          "passed": true,
+          "state": "ESTABLISHED_TRUE"
+        },
+        "source_conformance": {
+          "passed": true,
+          "state": "ESTABLISHED_TRUE"
+        }
+      },
+      "unavailable": [
+        "parent"
+      ],
+      "verdict": "HOLD"
+    },
+    {
+      "closed_violations": [],
+      "name": "temporary_compiler_unavailable",
+      "relations": {
+        "behavior": {
+          "passed": null,
+          "state": "UNRESOLVED"
+        },
+        "continuity": {
+          "passed": true,
+          "state": "ESTABLISHED_TRUE"
+        },
+        "executable_reproduction": {
+          "passed": null,
+          "state": "UNRESOLVED"
+        },
+        "integrity": {
+          "passed": true,
+          "state": "ESTABLISHED_TRUE"
+        },
+        "lineage": {
+          "passed": true,
+          "state": "ESTABLISHED_TRUE"
+        },
+        "recovery": {
+          "passed": true,
+          "state": "ESTABLISHED_TRUE"
+        },
+        "source_conformance": {
+          "passed": true,
+          "state": "ESTABLISHED_TRUE"
+        }
+      },
+      "unavailable": [
+        "compiler"
+      ],
+      "verdict": "HOLD"
+    },
+    {
+      "closed_violations": [],
+      "name": "false_relation_plus_temporary_compiler_unavailable",
+      "relations": {
+        "behavior": {
+          "passed": false,
+          "state": "ESTABLISHED_FALSE"
+        },
+        "continuity": {
+          "passed": true,
+          "state": "ESTABLISHED_TRUE"
+        },
+        "executable_reproduction": {
+          "passed": null,
+          "state": "UNRESOLVED"
+        },
+        "integrity": {
+          "passed": true,
+          "state": "ESTABLISHED_TRUE"
+        },
+        "lineage": {
+          "passed": true,
+          "state": "ESTABLISHED_TRUE"
+        },
+        "recovery": {
+          "passed": true,
+          "state": "ESTABLISHED_TRUE"
+        },
+        "source_conformance": {
+          "passed": true,
+          "state": "ESTABLISHED_TRUE"
+        }
+      },
+      "unavailable": [
+        "compiler"
+      ],
+      "verdict": "REJECT"
+    },
+    {
+      "closed_violations": [
+        "source"
+      ],
+      "name": "closed_source_inventory_violation",
+      "relations": {
+        "behavior": {
+          "passed": null,
+          "state": "UNRESOLVED"
+        },
+        "continuity": {
+          "passed": null,
+          "state": "UNRESOLVED"
+        },
+        "executable_reproduction": {
+          "passed": null,
+          "state": "UNRESOLVED"
+        },
+        "integrity": {
+          "passed": false,
+          "state": "ESTABLISHED_FALSE"
+        },
+        "lineage": {
+          "passed": true,
+          "state": "ESTABLISHED_TRUE"
+        },
+        "recovery": {
+          "passed": null,
+          "state": "UNRESOLVED"
+        },
+        "source_conformance": {
+          "passed": null,
+          "state": "UNRESOLVED"
+        }
+      },
+      "unavailable": [
+        "source"
+      ],
+      "verdict": "REJECT"
+    }
+  ],
+  "expected_availability_decisions": [
+    "HOLD",
+    "HOLD",
+    "HOLD",
+    "REJECT",
+    "REJECT"
+  ],
+  "relation_first_cases": [
+    {
+      "errors": [
+        "typed verdict predicate mismatch",
+        "locked variant outcome mismatch"
+      ],
+      "name": "stored_verdict_changed_with_refreshed_self_hash",
+      "outer_self_hash_valid": true,
+      "reconstructed_integrity": false,
+      "reconstructed_verdict": "REJECT",
+      "rejected": true
+    },
+    {
+      "errors": [
+        "expected payload field mismatch",
+        "typed verdict predicate mismatch",
+        "locked variant outcome mismatch"
+      ],
+      "name": "manifest_bound_payload_claim_contradiction",
+      "outer_self_hash_valid": true,
+      "reconstructed_integrity": false,
+      "reconstructed_verdict": "REJECT",
+      "rejected": true
+    },
+    {
+      "errors": [
+        "independent executable replay output-file mismatch: gcc -O0",
+        "independent executable replay counterexample mismatch: gcc -O0",
+        "stored relation outcome mismatch: executable_reproduction",
+        "stored relation state mismatch: executable_reproduction",
+        "typed verdict predicate mismatch",
+        "locked variant outcome mismatch"
+      ],
+      "name": "fresh_execution_and_retained_output_diverge",
+      "outer_self_hash_valid": true,
+      "reconstructed_behavior": true,
+      "reconstructed_executable_reproduction": false,
+      "reconstructed_integrity": false,
+      "reconstructed_verdict": "REJECT",
+      "rejected": true
+    },
+    {
+      "child_errors": [
+        "parent-edge set mismatch",
+        "legacy predecessor decision mismatch",
+        "legacy predecessor acceptance mismatch",
+        "all-parent acceptance field mismatch",
+        "stored relation outcome mismatch: lineage",
+        "stored relation state mismatch: lineage",
+        "typed verdict predicate mismatch",
+        "locked variant outcome mismatch"
+      ],
+      "child_reconstructed_lineage": false,
+      "child_reconstructed_verdict": "REJECT",
+      "name": "structurally_invalid_parent_certificate",
+      "parent_errors": [
+        "certificate schema mismatch",
+        "typed verdict predicate mismatch",
+        "locked variant outcome mismatch"
+      ],
+      "parent_outer_self_hash_valid": true,
+      "parent_reconstructed_integrity": false,
+      "parent_reconstructed_verdict": "REJECT",
+      "rejected": true
+    }
+  ],
+  "schema": "tracecert.relation-decision-boundaries.v1",
+  "scope": "nonrelease boundary fixtures; excluded from the twenty-four coherent software substitutions",
+  "verdict": "PASS"
+}

@@ -1,10 +1,19 @@
 {
-  "authorization": "explicit-dual-policy-evaluation",
-  "certificate_sha256": "2374d699a45b58bfe7ed1e61e7d96c10ff20ad4274c4287bdfb35ff40c99217a",
+  "authorization": "explicit-static-dual-policy-projection",
+  "certificate_sha256": "ca85cbfeb4da036b82621194e09f70d6a242d5fafa66ed1a906c693cb6667024",
+  "counted_as_release": false,
+  "dependency_bindings": {
+    "from_policy_canonical_sha256": "46fe7ee00d958111db1bd82f97d419d952c4fc41850ccb0e1f253fe3d9141d67",
+    "manifest_canonical_sha256": "d9103cffccee91b1d06bad858dae32290889ceec173acf6205c0bee6465562b4",
+    "manifest_file_sha256": "8a1f78fb5e25efffcaa5d6f5826ce93f866163302bfc0f13314817f6b53916e4",
+    "reference_sha256": "1c350da5c03f84956e8cac90222ac964eb3ecc7930f7cc20100e63bfb736a140",
+    "source_sha256": "788226171dfdb637001a17d2f19c34752178cbb8efdcc90c690408c73aa289d0",
+    "subject_certificate_sha256": "853b6e8a849ce9ae3c7c1c89da2f41642e69ccc69f87bdba6c5060440498a312"
+  },
   "from_decision": "PASS",
   "from_policy": {
-    "canonical_sha256": "1ed8f1a8c32ea6f02d8a722650a00c5a6728d9e7b6a399c9ee1bfb7871e4bbfa",
-    "file_sha256": "e0b2d987c685f33295e58144fb944676915c763dcdce295040fa3dc669aa0f7a",
+    "canonical_sha256": "46fe7ee00d958111db1bd82f97d419d952c4fc41850ccb0e1f253fe3d9141d67",
+    "file_sha256": "aaac43da8e8247119bbac4770c4724fe428d5f1bc223503de4dd78dc05f0825f",
     "path": "artifact/policies/finite/fnv_step.json",
     "policy_id": "finite:fnv_step:v1"
   },
@@ -17,17 +26,55 @@
     "recovery": true,
     "source_conformance": true
   },
+  "minimal_threshold_witness": {
+    "from_decision": "REJECT",
+    "from_relation_vector": {
+      "behavior": true,
+      "continuity": false,
+      "executable_reproduction": true,
+      "integrity": true,
+      "lineage": true,
+      "recovery": true,
+      "source_conformance": true
+    },
+    "from_required": 26,
+    "preserved": 25,
+    "to_decision": "PASS",
+    "to_relation_vector": {
+      "behavior": true,
+      "continuity": true,
+      "executable_reproduction": true,
+      "integrity": true,
+      "lineage": true,
+      "recovery": true,
+      "source_conformance": true
+    },
+    "to_required": 25
+  },
+  "mode": "static-dual-policy-projection-from-reconstructed-evidence",
+  "recomputed_coordinates": [
+    "continuity"
+  ],
+  "reuse_rule": "reuse-only-when-dependency-bindings-and-policy-independent-inputs-are-identical",
+  "reused_coordinates": [
+    "behavior",
+    "recovery",
+    "source_conformance",
+    "executable_reproduction",
+    "integrity",
+    "lineage"
+  ],
   "schema": "tracecert.policy-bridge.v1",
   "subject": {
-    "certificate_sha256": "254bbd8cab3337c996e5d173047c17eeb4d0287d8ea5d2b9790d119abd5e391c",
+    "certificate_sha256": "853b6e8a849ce9ae3c7c1c89da2f41642e69ccc69f87bdba6c5060440498a312",
     "kernel": "fnv_step",
     "source_sha256": "788226171dfdb637001a17d2f19c34752178cbb8efdcc90c690408c73aa289d0",
     "variant": "dependency_upgrade"
   },
   "to_decision": "PASS",
   "to_policy": {
-    "canonical_sha256": "c1443e6531f3a9ea1a5050d91de0a66f6f0caacb9ccf45574608511ed1ea0e55",
-    "file_sha256": "220e104aee349d56b9aa543ca3edb86b3add432a0a24fe30534d366b4f072b1e",
+    "canonical_sha256": "feeeb09c4e8bfc10e47bcbcedac82eba21cf74024722a387aeb4eb7a9eaaeaa9",
+    "file_sha256": "388b2fa796c8b2346e79bb8444639b3545e6625d7c11f1d8d04f463cf4df7b76",
     "path": "artifact/policies/bridge/fnv_step-threshold-25.json",
     "policy_id": "finite:fnv_step:threshold-25-bridge-v1"
   },
