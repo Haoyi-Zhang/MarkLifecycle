@@ -2160,12 +2160,13 @@ def validate_policy_bridge(
     environment: dict[str, Any],
     reconstructed_results: dict[tuple[str, str], dict[str, Any]],
 ) -> list[str]:
-    """Validate a static dual-policy projection from independent evidence.
+    """Check a nonrelease continuity-sensitivity projection.
 
-    The bridge is not an executed release.  The checker refuses to trust the
-    stored relation vectors: it starts from the independently reconstructed
-    subject, recomputes continuity under thresholds 26 and 25, and verifies
-    that every reused coordinate is dependency-bound and policy-independent.
+    Continuity is recomputed under thresholds 26 and 25. Other coordinates
+    are copied from reconstructed source-policy evidence, not rederived under
+    the target policy. Dependency identities here do not establish target-policy
+    integrity, lineage, or conservative module replacement. This is not a
+    separately accepted bridge release.
     """
     errors: list[str] = []
     bridge_path = root / "artifact/policies/bridge/fnv_step-threshold-25-bridge.json"

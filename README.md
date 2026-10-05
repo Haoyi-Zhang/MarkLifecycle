@@ -42,9 +42,10 @@ does not regenerate experiments or rewrite certificates.
 The independent checkers also retain:
 
 - a sixteen-codeword Hamming boundary enumeration;
-- typed relation-first and evidence-availability decisions;
-- a static, nonrelease threshold-26 to threshold-25 policy projection computed
-  from independently reconstructed evidence;
+- typed relation-vector and evidence-availability projections, not end-to-end
+  unavailable-tool/source/parent execution coverage;
+- a nonrelease threshold-26 to threshold-25 continuity-sensitivity projection;
+  integrity and lineage are not reconstructed under its target policy;
 - source-parser adversarial fixtures;
 - a byte-exact Parson comparison for all sixty-five cases;
 - concurrent executable-publication tests.
@@ -59,10 +60,11 @@ whole-repository boundary.
 ## Decision accounting
 
 The gate-model checker rejects five aggregate mutations. The finite checker
-rejects fourteen semantic substitutions, and the commit-derived checker rejects
-ten coherent substitutions. Across the software strata there are 129 passes,
-zero unresolved holds, 43 diagnostic or adverse rejections, and twenty-four
-coherent substitutions rejected by reconstruction. Separate nonrelease fixtures
-exercise genuine hold behavior for temporarily unavailable source, parent, and
-compiler evidence; a false relation still dominates an unrelated unknown and
-yields reject.
+has eleven refreshed-outer-binding checks and three direct source-interpretation
+probes; the commit-derived checker has ten refreshed-binding checks. Together
+these are 24 checks, not 24 fully rebound-package tests. Retained software runs
+have 129 passes, zero unresolved holds, and 43 diagnostic or adverse rejections.
+Separate relation-vector fixtures exercise abstract hold behavior, not the real
+reconstruction entrypoints with unavailable tools or files. In the model a false
+relation dominates an unrelated unknown. Current prose/docstring corrections
+do not constitute new executions or replacement run receipts.
