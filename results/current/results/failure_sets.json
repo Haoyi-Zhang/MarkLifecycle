@@ -1,0 +1,1339 @@
+[
+  {
+    "failed_relations": [
+      "behavior"
+    ],
+    "full_gate_decision": "reject",
+    "mask": 1,
+    "minimum_witness_count": 1
+  },
+  {
+    "failed_relations": [
+      "recovery"
+    ],
+    "full_gate_decision": "reject",
+    "mask": 2,
+    "minimum_witness_count": 1
+  },
+  {
+    "failed_relations": [
+      "behavior",
+      "recovery"
+    ],
+    "full_gate_decision": "reject",
+    "mask": 3,
+    "minimum_witness_count": 2
+  },
+  {
+    "failed_relations": [
+      "continuity"
+    ],
+    "full_gate_decision": "reject",
+    "mask": 4,
+    "minimum_witness_count": 1
+  },
+  {
+    "failed_relations": [
+      "behavior",
+      "continuity"
+    ],
+    "full_gate_decision": "reject",
+    "mask": 5,
+    "minimum_witness_count": 2
+  },
+  {
+    "failed_relations": [
+      "recovery",
+      "continuity"
+    ],
+    "full_gate_decision": "reject",
+    "mask": 6,
+    "minimum_witness_count": 2
+  },
+  {
+    "failed_relations": [
+      "behavior",
+      "recovery",
+      "continuity"
+    ],
+    "full_gate_decision": "reject",
+    "mask": 7,
+    "minimum_witness_count": 3
+  },
+  {
+    "failed_relations": [
+      "source_conformance"
+    ],
+    "full_gate_decision": "reject",
+    "mask": 8,
+    "minimum_witness_count": 1
+  },
+  {
+    "failed_relations": [
+      "behavior",
+      "source_conformance"
+    ],
+    "full_gate_decision": "reject",
+    "mask": 9,
+    "minimum_witness_count": 2
+  },
+  {
+    "failed_relations": [
+      "recovery",
+      "source_conformance"
+    ],
+    "full_gate_decision": "reject",
+    "mask": 10,
+    "minimum_witness_count": 2
+  },
+  {
+    "failed_relations": [
+      "behavior",
+      "recovery",
+      "source_conformance"
+    ],
+    "full_gate_decision": "reject",
+    "mask": 11,
+    "minimum_witness_count": 3
+  },
+  {
+    "failed_relations": [
+      "continuity",
+      "source_conformance"
+    ],
+    "full_gate_decision": "reject",
+    "mask": 12,
+    "minimum_witness_count": 2
+  },
+  {
+    "failed_relations": [
+      "behavior",
+      "continuity",
+      "source_conformance"
+    ],
+    "full_gate_decision": "reject",
+    "mask": 13,
+    "minimum_witness_count": 3
+  },
+  {
+    "failed_relations": [
+      "recovery",
+      "continuity",
+      "source_conformance"
+    ],
+    "full_gate_decision": "reject",
+    "mask": 14,
+    "minimum_witness_count": 3
+  },
+  {
+    "failed_relations": [
+      "behavior",
+      "recovery",
+      "continuity",
+      "source_conformance"
+    ],
+    "full_gate_decision": "reject",
+    "mask": 15,
+    "minimum_witness_count": 4
+  },
+  {
+    "failed_relations": [
+      "executable_reproduction"
+    ],
+    "full_gate_decision": "reject",
+    "mask": 16,
+    "minimum_witness_count": 1
+  },
+  {
+    "failed_relations": [
+      "behavior",
+      "executable_reproduction"
+    ],
+    "full_gate_decision": "reject",
+    "mask": 17,
+    "minimum_witness_count": 2
+  },
+  {
+    "failed_relations": [
+      "recovery",
+      "executable_reproduction"
+    ],
+    "full_gate_decision": "reject",
+    "mask": 18,
+    "minimum_witness_count": 2
+  },
+  {
+    "failed_relations": [
+      "behavior",
+      "recovery",
+      "executable_reproduction"
+    ],
+    "full_gate_decision": "reject",
+    "mask": 19,
+    "minimum_witness_count": 3
+  },
+  {
+    "failed_relations": [
+      "continuity",
+      "executable_reproduction"
+    ],
+    "full_gate_decision": "reject",
+    "mask": 20,
+    "minimum_witness_count": 2
+  },
+  {
+    "failed_relations": [
+      "behavior",
+      "continuity",
+      "executable_reproduction"
+    ],
+    "full_gate_decision": "reject",
+    "mask": 21,
+    "minimum_witness_count": 3
+  },
+  {
+    "failed_relations": [
+      "recovery",
+      "continuity",
+      "executable_reproduction"
+    ],
+    "full_gate_decision": "reject",
+    "mask": 22,
+    "minimum_witness_count": 3
+  },
+  {
+    "failed_relations": [
+      "behavior",
+      "recovery",
+      "continuity",
+      "executable_reproduction"
+    ],
+    "full_gate_decision": "reject",
+    "mask": 23,
+    "minimum_witness_count": 4
+  },
+  {
+    "failed_relations": [
+      "source_conformance",
+      "executable_reproduction"
+    ],
+    "full_gate_decision": "reject",
+    "mask": 24,
+    "minimum_witness_count": 2
+  },
+  {
+    "failed_relations": [
+      "behavior",
+      "source_conformance",
+      "executable_reproduction"
+    ],
+    "full_gate_decision": "reject",
+    "mask": 25,
+    "minimum_witness_count": 3
+  },
+  {
+    "failed_relations": [
+      "recovery",
+      "source_conformance",
+      "executable_reproduction"
+    ],
+    "full_gate_decision": "reject",
+    "mask": 26,
+    "minimum_witness_count": 3
+  },
+  {
+    "failed_relations": [
+      "behavior",
+      "recovery",
+      "source_conformance",
+      "executable_reproduction"
+    ],
+    "full_gate_decision": "reject",
+    "mask": 27,
+    "minimum_witness_count": 4
+  },
+  {
+    "failed_relations": [
+      "continuity",
+      "source_conformance",
+      "executable_reproduction"
+    ],
+    "full_gate_decision": "reject",
+    "mask": 28,
+    "minimum_witness_count": 3
+  },
+  {
+    "failed_relations": [
+      "behavior",
+      "continuity",
+      "source_conformance",
+      "executable_reproduction"
+    ],
+    "full_gate_decision": "reject",
+    "mask": 29,
+    "minimum_witness_count": 4
+  },
+  {
+    "failed_relations": [
+      "recovery",
+      "continuity",
+      "source_conformance",
+      "executable_reproduction"
+    ],
+    "full_gate_decision": "reject",
+    "mask": 30,
+    "minimum_witness_count": 4
+  },
+  {
+    "failed_relations": [
+      "behavior",
+      "recovery",
+      "continuity",
+      "source_conformance",
+      "executable_reproduction"
+    ],
+    "full_gate_decision": "reject",
+    "mask": 31,
+    "minimum_witness_count": 5
+  },
+  {
+    "failed_relations": [
+      "integrity"
+    ],
+    "full_gate_decision": "reject",
+    "mask": 32,
+    "minimum_witness_count": 1
+  },
+  {
+    "failed_relations": [
+      "behavior",
+      "integrity"
+    ],
+    "full_gate_decision": "reject",
+    "mask": 33,
+    "minimum_witness_count": 2
+  },
+  {
+    "failed_relations": [
+      "recovery",
+      "integrity"
+    ],
+    "full_gate_decision": "reject",
+    "mask": 34,
+    "minimum_witness_count": 2
+  },
+  {
+    "failed_relations": [
+      "behavior",
+      "recovery",
+      "integrity"
+    ],
+    "full_gate_decision": "reject",
+    "mask": 35,
+    "minimum_witness_count": 3
+  },
+  {
+    "failed_relations": [
+      "continuity",
+      "integrity"
+    ],
+    "full_gate_decision": "reject",
+    "mask": 36,
+    "minimum_witness_count": 2
+  },
+  {
+    "failed_relations": [
+      "behavior",
+      "continuity",
+      "integrity"
+    ],
+    "full_gate_decision": "reject",
+    "mask": 37,
+    "minimum_witness_count": 3
+  },
+  {
+    "failed_relations": [
+      "recovery",
+      "continuity",
+      "integrity"
+    ],
+    "full_gate_decision": "reject",
+    "mask": 38,
+    "minimum_witness_count": 3
+  },
+  {
+    "failed_relations": [
+      "behavior",
+      "recovery",
+      "continuity",
+      "integrity"
+    ],
+    "full_gate_decision": "reject",
+    "mask": 39,
+    "minimum_witness_count": 4
+  },
+  {
+    "failed_relations": [
+      "source_conformance",
+      "integrity"
+    ],
+    "full_gate_decision": "reject",
+    "mask": 40,
+    "minimum_witness_count": 2
+  },
+  {
+    "failed_relations": [
+      "behavior",
+      "source_conformance",
+      "integrity"
+    ],
+    "full_gate_decision": "reject",
+    "mask": 41,
+    "minimum_witness_count": 3
+  },
+  {
+    "failed_relations": [
+      "recovery",
+      "source_conformance",
+      "integrity"
+    ],
+    "full_gate_decision": "reject",
+    "mask": 42,
+    "minimum_witness_count": 3
+  },
+  {
+    "failed_relations": [
+      "behavior",
+      "recovery",
+      "source_conformance",
+      "integrity"
+    ],
+    "full_gate_decision": "reject",
+    "mask": 43,
+    "minimum_witness_count": 4
+  },
+  {
+    "failed_relations": [
+      "continuity",
+      "source_conformance",
+      "integrity"
+    ],
+    "full_gate_decision": "reject",
+    "mask": 44,
+    "minimum_witness_count": 3
+  },
+  {
+    "failed_relations": [
+      "behavior",
+      "continuity",
+      "source_conformance",
+      "integrity"
+    ],
+    "full_gate_decision": "reject",
+    "mask": 45,
+    "minimum_witness_count": 4
+  },
+  {
+    "failed_relations": [
+      "recovery",
+      "continuity",
+      "source_conformance",
+      "integrity"
+    ],
+    "full_gate_decision": "reject",
+    "mask": 46,
+    "minimum_witness_count": 4
+  },
+  {
+    "failed_relations": [
+      "behavior",
+      "recovery",
+      "continuity",
+      "source_conformance",
+      "integrity"
+    ],
+    "full_gate_decision": "reject",
+    "mask": 47,
+    "minimum_witness_count": 5
+  },
+  {
+    "failed_relations": [
+      "executable_reproduction",
+      "integrity"
+    ],
+    "full_gate_decision": "reject",
+    "mask": 48,
+    "minimum_witness_count": 2
+  },
+  {
+    "failed_relations": [
+      "behavior",
+      "executable_reproduction",
+      "integrity"
+    ],
+    "full_gate_decision": "reject",
+    "mask": 49,
+    "minimum_witness_count": 3
+  },
+  {
+    "failed_relations": [
+      "recovery",
+      "executable_reproduction",
+      "integrity"
+    ],
+    "full_gate_decision": "reject",
+    "mask": 50,
+    "minimum_witness_count": 3
+  },
+  {
+    "failed_relations": [
+      "behavior",
+      "recovery",
+      "executable_reproduction",
+      "integrity"
+    ],
+    "full_gate_decision": "reject",
+    "mask": 51,
+    "minimum_witness_count": 4
+  },
+  {
+    "failed_relations": [
+      "continuity",
+      "executable_reproduction",
+      "integrity"
+    ],
+    "full_gate_decision": "reject",
+    "mask": 52,
+    "minimum_witness_count": 3
+  },
+  {
+    "failed_relations": [
+      "behavior",
+      "continuity",
+      "executable_reproduction",
+      "integrity"
+    ],
+    "full_gate_decision": "reject",
+    "mask": 53,
+    "minimum_witness_count": 4
+  },
+  {
+    "failed_relations": [
+      "recovery",
+      "continuity",
+      "executable_reproduction",
+      "integrity"
+    ],
+    "full_gate_decision": "reject",
+    "mask": 54,
+    "minimum_witness_count": 4
+  },
+  {
+    "failed_relations": [
+      "behavior",
+      "recovery",
+      "continuity",
+      "executable_reproduction",
+      "integrity"
+    ],
+    "full_gate_decision": "reject",
+    "mask": 55,
+    "minimum_witness_count": 5
+  },
+  {
+    "failed_relations": [
+      "source_conformance",
+      "executable_reproduction",
+      "integrity"
+    ],
+    "full_gate_decision": "reject",
+    "mask": 56,
+    "minimum_witness_count": 3
+  },
+  {
+    "failed_relations": [
+      "behavior",
+      "source_conformance",
+      "executable_reproduction",
+      "integrity"
+    ],
+    "full_gate_decision": "reject",
+    "mask": 57,
+    "minimum_witness_count": 4
+  },
+  {
+    "failed_relations": [
+      "recovery",
+      "source_conformance",
+      "executable_reproduction",
+      "integrity"
+    ],
+    "full_gate_decision": "reject",
+    "mask": 58,
+    "minimum_witness_count": 4
+  },
+  {
+    "failed_relations": [
+      "behavior",
+      "recovery",
+      "source_conformance",
+      "executable_reproduction",
+      "integrity"
+    ],
+    "full_gate_decision": "reject",
+    "mask": 59,
+    "minimum_witness_count": 5
+  },
+  {
+    "failed_relations": [
+      "continuity",
+      "source_conformance",
+      "executable_reproduction",
+      "integrity"
+    ],
+    "full_gate_decision": "reject",
+    "mask": 60,
+    "minimum_witness_count": 4
+  },
+  {
+    "failed_relations": [
+      "behavior",
+      "continuity",
+      "source_conformance",
+      "executable_reproduction",
+      "integrity"
+    ],
+    "full_gate_decision": "reject",
+    "mask": 61,
+    "minimum_witness_count": 5
+  },
+  {
+    "failed_relations": [
+      "recovery",
+      "continuity",
+      "source_conformance",
+      "executable_reproduction",
+      "integrity"
+    ],
+    "full_gate_decision": "reject",
+    "mask": 62,
+    "minimum_witness_count": 5
+  },
+  {
+    "failed_relations": [
+      "behavior",
+      "recovery",
+      "continuity",
+      "source_conformance",
+      "executable_reproduction",
+      "integrity"
+    ],
+    "full_gate_decision": "reject",
+    "mask": 63,
+    "minimum_witness_count": 6
+  },
+  {
+    "failed_relations": [
+      "lineage"
+    ],
+    "full_gate_decision": "reject",
+    "mask": 64,
+    "minimum_witness_count": 1
+  },
+  {
+    "failed_relations": [
+      "behavior",
+      "lineage"
+    ],
+    "full_gate_decision": "reject",
+    "mask": 65,
+    "minimum_witness_count": 2
+  },
+  {
+    "failed_relations": [
+      "recovery",
+      "lineage"
+    ],
+    "full_gate_decision": "reject",
+    "mask": 66,
+    "minimum_witness_count": 2
+  },
+  {
+    "failed_relations": [
+      "behavior",
+      "recovery",
+      "lineage"
+    ],
+    "full_gate_decision": "reject",
+    "mask": 67,
+    "minimum_witness_count": 3
+  },
+  {
+    "failed_relations": [
+      "continuity",
+      "lineage"
+    ],
+    "full_gate_decision": "reject",
+    "mask": 68,
+    "minimum_witness_count": 2
+  },
+  {
+    "failed_relations": [
+      "behavior",
+      "continuity",
+      "lineage"
+    ],
+    "full_gate_decision": "reject",
+    "mask": 69,
+    "minimum_witness_count": 3
+  },
+  {
+    "failed_relations": [
+      "recovery",
+      "continuity",
+      "lineage"
+    ],
+    "full_gate_decision": "reject",
+    "mask": 70,
+    "minimum_witness_count": 3
+  },
+  {
+    "failed_relations": [
+      "behavior",
+      "recovery",
+      "continuity",
+      "lineage"
+    ],
+    "full_gate_decision": "reject",
+    "mask": 71,
+    "minimum_witness_count": 4
+  },
+  {
+    "failed_relations": [
+      "source_conformance",
+      "lineage"
+    ],
+    "full_gate_decision": "reject",
+    "mask": 72,
+    "minimum_witness_count": 2
+  },
+  {
+    "failed_relations": [
+      "behavior",
+      "source_conformance",
+      "lineage"
+    ],
+    "full_gate_decision": "reject",
+    "mask": 73,
+    "minimum_witness_count": 3
+  },
+  {
+    "failed_relations": [
+      "recovery",
+      "source_conformance",
+      "lineage"
+    ],
+    "full_gate_decision": "reject",
+    "mask": 74,
+    "minimum_witness_count": 3
+  },
+  {
+    "failed_relations": [
+      "behavior",
+      "recovery",
+      "source_conformance",
+      "lineage"
+    ],
+    "full_gate_decision": "reject",
+    "mask": 75,
+    "minimum_witness_count": 4
+  },
+  {
+    "failed_relations": [
+      "continuity",
+      "source_conformance",
+      "lineage"
+    ],
+    "full_gate_decision": "reject",
+    "mask": 76,
+    "minimum_witness_count": 3
+  },
+  {
+    "failed_relations": [
+      "behavior",
+      "continuity",
+      "source_conformance",
+      "lineage"
+    ],
+    "full_gate_decision": "reject",
+    "mask": 77,
+    "minimum_witness_count": 4
+  },
+  {
+    "failed_relations": [
+      "recovery",
+      "continuity",
+      "source_conformance",
+      "lineage"
+    ],
+    "full_gate_decision": "reject",
+    "mask": 78,
+    "minimum_witness_count": 4
+  },
+  {
+    "failed_relations": [
+      "behavior",
+      "recovery",
+      "continuity",
+      "source_conformance",
+      "lineage"
+    ],
+    "full_gate_decision": "reject",
+    "mask": 79,
+    "minimum_witness_count": 5
+  },
+  {
+    "failed_relations": [
+      "executable_reproduction",
+      "lineage"
+    ],
+    "full_gate_decision": "reject",
+    "mask": 80,
+    "minimum_witness_count": 2
+  },
+  {
+    "failed_relations": [
+      "behavior",
+      "executable_reproduction",
+      "lineage"
+    ],
+    "full_gate_decision": "reject",
+    "mask": 81,
+    "minimum_witness_count": 3
+  },
+  {
+    "failed_relations": [
+      "recovery",
+      "executable_reproduction",
+      "lineage"
+    ],
+    "full_gate_decision": "reject",
+    "mask": 82,
+    "minimum_witness_count": 3
+  },
+  {
+    "failed_relations": [
+      "behavior",
+      "recovery",
+      "executable_reproduction",
+      "lineage"
+    ],
+    "full_gate_decision": "reject",
+    "mask": 83,
+    "minimum_witness_count": 4
+  },
+  {
+    "failed_relations": [
+      "continuity",
+      "executable_reproduction",
+      "lineage"
+    ],
+    "full_gate_decision": "reject",
+    "mask": 84,
+    "minimum_witness_count": 3
+  },
+  {
+    "failed_relations": [
+      "behavior",
+      "continuity",
+      "executable_reproduction",
+      "lineage"
+    ],
+    "full_gate_decision": "reject",
+    "mask": 85,
+    "minimum_witness_count": 4
+  },
+  {
+    "failed_relations": [
+      "recovery",
+      "continuity",
+      "executable_reproduction",
+      "lineage"
+    ],
+    "full_gate_decision": "reject",
+    "mask": 86,
+    "minimum_witness_count": 4
+  },
+  {
+    "failed_relations": [
+      "behavior",
+      "recovery",
+      "continuity",
+      "executable_reproduction",
+      "lineage"
+    ],
+    "full_gate_decision": "reject",
+    "mask": 87,
+    "minimum_witness_count": 5
+  },
+  {
+    "failed_relations": [
+      "source_conformance",
+      "executable_reproduction",
+      "lineage"
+    ],
+    "full_gate_decision": "reject",
+    "mask": 88,
+    "minimum_witness_count": 3
+  },
+  {
+    "failed_relations": [
+      "behavior",
+      "source_conformance",
+      "executable_reproduction",
+      "lineage"
+    ],
+    "full_gate_decision": "reject",
+    "mask": 89,
+    "minimum_witness_count": 4
+  },
+  {
+    "failed_relations": [
+      "recovery",
+      "source_conformance",
+      "executable_reproduction",
+      "lineage"
+    ],
+    "full_gate_decision": "reject",
+    "mask": 90,
+    "minimum_witness_count": 4
+  },
+  {
+    "failed_relations": [
+      "behavior",
+      "recovery",
+      "source_conformance",
+      "executable_reproduction",
+      "lineage"
+    ],
+    "full_gate_decision": "reject",
+    "mask": 91,
+    "minimum_witness_count": 5
+  },
+  {
+    "failed_relations": [
+      "continuity",
+      "source_conformance",
+      "executable_reproduction",
+      "lineage"
+    ],
+    "full_gate_decision": "reject",
+    "mask": 92,
+    "minimum_witness_count": 4
+  },
+  {
+    "failed_relations": [
+      "behavior",
+      "continuity",
+      "source_conformance",
+      "executable_reproduction",
+      "lineage"
+    ],
+    "full_gate_decision": "reject",
+    "mask": 93,
+    "minimum_witness_count": 5
+  },
+  {
+    "failed_relations": [
+      "recovery",
+      "continuity",
+      "source_conformance",
+      "executable_reproduction",
+      "lineage"
+    ],
+    "full_gate_decision": "reject",
+    "mask": 94,
+    "minimum_witness_count": 5
+  },
+  {
+    "failed_relations": [
+      "behavior",
+      "recovery",
+      "continuity",
+      "source_conformance",
+      "executable_reproduction",
+      "lineage"
+    ],
+    "full_gate_decision": "reject",
+    "mask": 95,
+    "minimum_witness_count": 6
+  },
+  {
+    "failed_relations": [
+      "integrity",
+      "lineage"
+    ],
+    "full_gate_decision": "reject",
+    "mask": 96,
+    "minimum_witness_count": 2
+  },
+  {
+    "failed_relations": [
+      "behavior",
+      "integrity",
+      "lineage"
+    ],
+    "full_gate_decision": "reject",
+    "mask": 97,
+    "minimum_witness_count": 3
+  },
+  {
+    "failed_relations": [
+      "recovery",
+      "integrity",
+      "lineage"
+    ],
+    "full_gate_decision": "reject",
+    "mask": 98,
+    "minimum_witness_count": 3
+  },
+  {
+    "failed_relations": [
+      "behavior",
+      "recovery",
+      "integrity",
+      "lineage"
+    ],
+    "full_gate_decision": "reject",
+    "mask": 99,
+    "minimum_witness_count": 4
+  },
+  {
+    "failed_relations": [
+      "continuity",
+      "integrity",
+      "lineage"
+    ],
+    "full_gate_decision": "reject",
+    "mask": 100,
+    "minimum_witness_count": 3
+  },
+  {
+    "failed_relations": [
+      "behavior",
+      "continuity",
+      "integrity",
+      "lineage"
+    ],
+    "full_gate_decision": "reject",
+    "mask": 101,
+    "minimum_witness_count": 4
+  },
+  {
+    "failed_relations": [
+      "recovery",
+      "continuity",
+      "integrity",
+      "lineage"
+    ],
+    "full_gate_decision": "reject",
+    "mask": 102,
+    "minimum_witness_count": 4
+  },
+  {
+    "failed_relations": [
+      "behavior",
+      "recovery",
+      "continuity",
+      "integrity",
+      "lineage"
+    ],
+    "full_gate_decision": "reject",
+    "mask": 103,
+    "minimum_witness_count": 5
+  },
+  {
+    "failed_relations": [
+      "source_conformance",
+      "integrity",
+      "lineage"
+    ],
+    "full_gate_decision": "reject",
+    "mask": 104,
+    "minimum_witness_count": 3
+  },
+  {
+    "failed_relations": [
+      "behavior",
+      "source_conformance",
+      "integrity",
+      "lineage"
+    ],
+    "full_gate_decision": "reject",
+    "mask": 105,
+    "minimum_witness_count": 4
+  },
+  {
+    "failed_relations": [
+      "recovery",
+      "source_conformance",
+      "integrity",
+      "lineage"
+    ],
+    "full_gate_decision": "reject",
+    "mask": 106,
+    "minimum_witness_count": 4
+  },
+  {
+    "failed_relations": [
+      "behavior",
+      "recovery",
+      "source_conformance",
+      "integrity",
+      "lineage"
+    ],
+    "full_gate_decision": "reject",
+    "mask": 107,
+    "minimum_witness_count": 5
+  },
+  {
+    "failed_relations": [
+      "continuity",
+      "source_conformance",
+      "integrity",
+      "lineage"
+    ],
+    "full_gate_decision": "reject",
+    "mask": 108,
+    "minimum_witness_count": 4
+  },
+  {
+    "failed_relations": [
+      "behavior",
+      "continuity",
+      "source_conformance",
+      "integrity",
+      "lineage"
+    ],
+    "full_gate_decision": "reject",
+    "mask": 109,
+    "minimum_witness_count": 5
+  },
+  {
+    "failed_relations": [
+      "recovery",
+      "continuity",
+      "source_conformance",
+      "integrity",
+      "lineage"
+    ],
+    "full_gate_decision": "reject",
+    "mask": 110,
+    "minimum_witness_count": 5
+  },
+  {
+    "failed_relations": [
+      "behavior",
+      "recovery",
+      "continuity",
+      "source_conformance",
+      "integrity",
+      "lineage"
+    ],
+    "full_gate_decision": "reject",
+    "mask": 111,
+    "minimum_witness_count": 6
+  },
+  {
+    "failed_relations": [
+      "executable_reproduction",
+      "integrity",
+      "lineage"
+    ],
+    "full_gate_decision": "reject",
+    "mask": 112,
+    "minimum_witness_count": 3
+  },
+  {
+    "failed_relations": [
+      "behavior",
+      "executable_reproduction",
+      "integrity",
+      "lineage"
+    ],
+    "full_gate_decision": "reject",
+    "mask": 113,
+    "minimum_witness_count": 4
+  },
+  {
+    "failed_relations": [
+      "recovery",
+      "executable_reproduction",
+      "integrity",
+      "lineage"
+    ],
+    "full_gate_decision": "reject",
+    "mask": 114,
+    "minimum_witness_count": 4
+  },
+  {
+    "failed_relations": [
+      "behavior",
+      "recovery",
+      "executable_reproduction",
+      "integrity",
+      "lineage"
+    ],
+    "full_gate_decision": "reject",
+    "mask": 115,
+    "minimum_witness_count": 5
+  },
+  {
+    "failed_relations": [
+      "continuity",
+      "executable_reproduction",
+      "integrity",
+      "lineage"
+    ],
+    "full_gate_decision": "reject",
+    "mask": 116,
+    "minimum_witness_count": 4
+  },
+  {
+    "failed_relations": [
+      "behavior",
+      "continuity",
+      "executable_reproduction",
+      "integrity",
+      "lineage"
+    ],
+    "full_gate_decision": "reject",
+    "mask": 117,
+    "minimum_witness_count": 5
+  },
+  {
+    "failed_relations": [
+      "recovery",
+      "continuity",
+      "executable_reproduction",
+      "integrity",
+      "lineage"
+    ],
+    "full_gate_decision": "reject",
+    "mask": 118,
+    "minimum_witness_count": 5
+  },
+  {
+    "failed_relations": [
+      "behavior",
+      "recovery",
+      "continuity",
+      "executable_reproduction",
+      "integrity",
+      "lineage"
+    ],
+    "full_gate_decision": "reject",
+    "mask": 119,
+    "minimum_witness_count": 6
+  },
+  {
+    "failed_relations": [
+      "source_conformance",
+      "executable_reproduction",
+      "integrity",
+      "lineage"
+    ],
+    "full_gate_decision": "reject",
+    "mask": 120,
+    "minimum_witness_count": 4
+  },
+  {
+    "failed_relations": [
+      "behavior",
+      "source_conformance",
+      "executable_reproduction",
+      "integrity",
+      "lineage"
+    ],
+    "full_gate_decision": "reject",
+    "mask": 121,
+    "minimum_witness_count": 5
+  },
+  {
+    "failed_relations": [
+      "recovery",
+      "source_conformance",
+      "executable_reproduction",
+      "integrity",
+      "lineage"
+    ],
+    "full_gate_decision": "reject",
+    "mask": 122,
+    "minimum_witness_count": 5
+  },
+  {
+    "failed_relations": [
+      "behavior",
+      "recovery",
+      "source_conformance",
+      "executable_reproduction",
+      "integrity",
+      "lineage"
+    ],
+    "full_gate_decision": "reject",
+    "mask": 123,
+    "minimum_witness_count": 6
+  },
+  {
+    "failed_relations": [
+      "continuity",
+      "source_conformance",
+      "executable_reproduction",
+      "integrity",
+      "lineage"
+    ],
+    "full_gate_decision": "reject",
+    "mask": 124,
+    "minimum_witness_count": 5
+  },
+  {
+    "failed_relations": [
+      "behavior",
+      "continuity",
+      "source_conformance",
+      "executable_reproduction",
+      "integrity",
+      "lineage"
+    ],
+    "full_gate_decision": "reject",
+    "mask": 125,
+    "minimum_witness_count": 6
+  },
+  {
+    "failed_relations": [
+      "recovery",
+      "continuity",
+      "source_conformance",
+      "executable_reproduction",
+      "integrity",
+      "lineage"
+    ],
+    "full_gate_decision": "reject",
+    "mask": 126,
+    "minimum_witness_count": 6
+  },
+  {
+    "failed_relations": [
+      "behavior",
+      "recovery",
+      "continuity",
+      "source_conformance",
+      "executable_reproduction",
+      "integrity",
+      "lineage"
+    ],
+    "full_gate_decision": "reject",
+    "mask": 127,
+    "minimum_witness_count": 7
+  }
+]

@@ -1,0 +1,180 @@
+{
+  "checker": "/home/runner/work/MarkLifecycle/MarkLifecycle/gate-model/src/independent_recheck.py",
+  "elapsed_seconds": 1.696021315000003,
+  "regression_count": 19,
+  "regressions": [
+    {
+      "errors": [
+        "vector 0: vector"
+      ],
+      "field": "vector",
+      "file": "vectors.json",
+      "name": "vector-label",
+      "rejected": true
+    },
+    {
+      "errors": [
+        "vector 1093: completion_count"
+      ],
+      "field": "completion_count",
+      "file": "vectors.json",
+      "name": "completion-count",
+      "rejected": true
+    },
+    {
+      "errors": [
+        "vector 1093: boolean_completion_outcomes"
+      ],
+      "field": "boolean_completion_outcomes",
+      "file": "vectors.json",
+      "name": "completion-outcomes",
+      "rejected": true
+    },
+    {
+      "errors": [
+        "vector 1093: closed_form_decision"
+      ],
+      "field": "closed_form_decision",
+      "file": "vectors.json",
+      "name": "closed-form",
+      "rejected": true
+    },
+    {
+      "errors": [
+        "vector 1093: sound_pass"
+      ],
+      "field": "sound_pass",
+      "file": "vectors.json",
+      "name": "sound-pass",
+      "rejected": true
+    },
+    {
+      "errors": [
+        "vector 1093: sound_reject"
+      ],
+      "field": "sound_reject",
+      "file": "vectors.json",
+      "name": "sound-reject",
+      "rejected": true
+    },
+    {
+      "errors": [
+        "vector 1093: maximally_decisive"
+      ],
+      "field": "maximally_decisive",
+      "file": "vectors.json",
+      "name": "maximality",
+      "rejected": true
+    },
+    {
+      "errors": [
+        "vector 1093: boolean_faithful"
+      ],
+      "field": "boolean_faithful",
+      "file": "vectors.json",
+      "name": "faithfulness",
+      "rejected": true
+    },
+    {
+      "errors": [
+        "vector 1093: stable_under_refinement"
+      ],
+      "field": "stable_under_refinement",
+      "file": "vectors.json",
+      "name": "refinement",
+      "rejected": true
+    },
+    {
+      "errors": [
+        "subset 1: mask"
+      ],
+      "field": "mask",
+      "file": "subset_gates.json",
+      "name": "subset-mask",
+      "rejected": true
+    },
+    {
+      "errors": [
+        "subset 1: required_relations"
+      ],
+      "field": "required_relations",
+      "file": "subset_gates.json",
+      "name": "subset-relations",
+      "rejected": true
+    },
+    {
+      "errors": [
+        "subset 1: relation_count"
+      ],
+      "field": "relation_count",
+      "file": "subset_gates.json",
+      "name": "subset-count",
+      "rejected": true
+    },
+    {
+      "errors": [
+        "subset 1: accepted_isolating_controls"
+      ],
+      "field": "accepted_isolating_controls",
+      "file": "subset_gates.json",
+      "name": "subset-controls",
+      "rejected": true
+    },
+    {
+      "errors": [
+        "failure set 1: mask"
+      ],
+      "field": "mask",
+      "file": "failure_sets.json",
+      "name": "failure-mask",
+      "rejected": true
+    },
+    {
+      "errors": [
+        "failure set 1: failed_relations"
+      ],
+      "field": "failed_relations",
+      "file": "failure_sets.json",
+      "name": "failure-relations",
+      "rejected": true
+    },
+    {
+      "errors": [
+        "failure set 1: full_gate_decision"
+      ],
+      "field": "full_gate_decision",
+      "file": "failure_sets.json",
+      "name": "failure-decision",
+      "rejected": true
+    },
+    {
+      "errors": [
+        "failure set 1: minimum_witness_count"
+      ],
+      "field": "minimum_witness_count",
+      "file": "failure_sets.json",
+      "name": "failure-witness-count",
+      "rejected": true
+    },
+    {
+      "errors": [
+        "isolating control 0: control"
+      ],
+      "field": "control",
+      "file": "isolating_controls.json",
+      "name": "control-name",
+      "rejected": true
+    },
+    {
+      "errors": [
+        "isolating control 0: vector"
+      ],
+      "field": "vector",
+      "file": "isolating_controls.json",
+      "name": "control-vector",
+      "rejected": true
+    }
+  ],
+  "rejected_count": 19,
+  "valid_baseline_passed": true
+}

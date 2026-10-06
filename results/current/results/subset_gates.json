@@ -1,0 +1,2048 @@
+[
+  {
+    "accepted_isolating_controls": [
+      "behavior",
+      "recovery",
+      "continuity",
+      "source_conformance",
+      "executable_reproduction",
+      "integrity",
+      "lineage"
+    ],
+    "false_accept_count": 7,
+    "mask": 0,
+    "relation_count": 0,
+    "required_relations": []
+  },
+  {
+    "accepted_isolating_controls": [
+      "recovery",
+      "continuity",
+      "source_conformance",
+      "executable_reproduction",
+      "integrity",
+      "lineage"
+    ],
+    "false_accept_count": 6,
+    "mask": 1,
+    "relation_count": 1,
+    "required_relations": [
+      "behavior"
+    ]
+  },
+  {
+    "accepted_isolating_controls": [
+      "behavior",
+      "continuity",
+      "source_conformance",
+      "executable_reproduction",
+      "integrity",
+      "lineage"
+    ],
+    "false_accept_count": 6,
+    "mask": 2,
+    "relation_count": 1,
+    "required_relations": [
+      "recovery"
+    ]
+  },
+  {
+    "accepted_isolating_controls": [
+      "continuity",
+      "source_conformance",
+      "executable_reproduction",
+      "integrity",
+      "lineage"
+    ],
+    "false_accept_count": 5,
+    "mask": 3,
+    "relation_count": 2,
+    "required_relations": [
+      "behavior",
+      "recovery"
+    ]
+  },
+  {
+    "accepted_isolating_controls": [
+      "behavior",
+      "recovery",
+      "source_conformance",
+      "executable_reproduction",
+      "integrity",
+      "lineage"
+    ],
+    "false_accept_count": 6,
+    "mask": 4,
+    "relation_count": 1,
+    "required_relations": [
+      "continuity"
+    ]
+  },
+  {
+    "accepted_isolating_controls": [
+      "recovery",
+      "source_conformance",
+      "executable_reproduction",
+      "integrity",
+      "lineage"
+    ],
+    "false_accept_count": 5,
+    "mask": 5,
+    "relation_count": 2,
+    "required_relations": [
+      "behavior",
+      "continuity"
+    ]
+  },
+  {
+    "accepted_isolating_controls": [
+      "behavior",
+      "source_conformance",
+      "executable_reproduction",
+      "integrity",
+      "lineage"
+    ],
+    "false_accept_count": 5,
+    "mask": 6,
+    "relation_count": 2,
+    "required_relations": [
+      "recovery",
+      "continuity"
+    ]
+  },
+  {
+    "accepted_isolating_controls": [
+      "source_conformance",
+      "executable_reproduction",
+      "integrity",
+      "lineage"
+    ],
+    "false_accept_count": 4,
+    "mask": 7,
+    "relation_count": 3,
+    "required_relations": [
+      "behavior",
+      "recovery",
+      "continuity"
+    ]
+  },
+  {
+    "accepted_isolating_controls": [
+      "behavior",
+      "recovery",
+      "continuity",
+      "executable_reproduction",
+      "integrity",
+      "lineage"
+    ],
+    "false_accept_count": 6,
+    "mask": 8,
+    "relation_count": 1,
+    "required_relations": [
+      "source_conformance"
+    ]
+  },
+  {
+    "accepted_isolating_controls": [
+      "recovery",
+      "continuity",
+      "executable_reproduction",
+      "integrity",
+      "lineage"
+    ],
+    "false_accept_count": 5,
+    "mask": 9,
+    "relation_count": 2,
+    "required_relations": [
+      "behavior",
+      "source_conformance"
+    ]
+  },
+  {
+    "accepted_isolating_controls": [
+      "behavior",
+      "continuity",
+      "executable_reproduction",
+      "integrity",
+      "lineage"
+    ],
+    "false_accept_count": 5,
+    "mask": 10,
+    "relation_count": 2,
+    "required_relations": [
+      "recovery",
+      "source_conformance"
+    ]
+  },
+  {
+    "accepted_isolating_controls": [
+      "continuity",
+      "executable_reproduction",
+      "integrity",
+      "lineage"
+    ],
+    "false_accept_count": 4,
+    "mask": 11,
+    "relation_count": 3,
+    "required_relations": [
+      "behavior",
+      "recovery",
+      "source_conformance"
+    ]
+  },
+  {
+    "accepted_isolating_controls": [
+      "behavior",
+      "recovery",
+      "executable_reproduction",
+      "integrity",
+      "lineage"
+    ],
+    "false_accept_count": 5,
+    "mask": 12,
+    "relation_count": 2,
+    "required_relations": [
+      "continuity",
+      "source_conformance"
+    ]
+  },
+  {
+    "accepted_isolating_controls": [
+      "recovery",
+      "executable_reproduction",
+      "integrity",
+      "lineage"
+    ],
+    "false_accept_count": 4,
+    "mask": 13,
+    "relation_count": 3,
+    "required_relations": [
+      "behavior",
+      "continuity",
+      "source_conformance"
+    ]
+  },
+  {
+    "accepted_isolating_controls": [
+      "behavior",
+      "executable_reproduction",
+      "integrity",
+      "lineage"
+    ],
+    "false_accept_count": 4,
+    "mask": 14,
+    "relation_count": 3,
+    "required_relations": [
+      "recovery",
+      "continuity",
+      "source_conformance"
+    ]
+  },
+  {
+    "accepted_isolating_controls": [
+      "executable_reproduction",
+      "integrity",
+      "lineage"
+    ],
+    "false_accept_count": 3,
+    "mask": 15,
+    "relation_count": 4,
+    "required_relations": [
+      "behavior",
+      "recovery",
+      "continuity",
+      "source_conformance"
+    ]
+  },
+  {
+    "accepted_isolating_controls": [
+      "behavior",
+      "recovery",
+      "continuity",
+      "source_conformance",
+      "integrity",
+      "lineage"
+    ],
+    "false_accept_count": 6,
+    "mask": 16,
+    "relation_count": 1,
+    "required_relations": [
+      "executable_reproduction"
+    ]
+  },
+  {
+    "accepted_isolating_controls": [
+      "recovery",
+      "continuity",
+      "source_conformance",
+      "integrity",
+      "lineage"
+    ],
+    "false_accept_count": 5,
+    "mask": 17,
+    "relation_count": 2,
+    "required_relations": [
+      "behavior",
+      "executable_reproduction"
+    ]
+  },
+  {
+    "accepted_isolating_controls": [
+      "behavior",
+      "continuity",
+      "source_conformance",
+      "integrity",
+      "lineage"
+    ],
+    "false_accept_count": 5,
+    "mask": 18,
+    "relation_count": 2,
+    "required_relations": [
+      "recovery",
+      "executable_reproduction"
+    ]
+  },
+  {
+    "accepted_isolating_controls": [
+      "continuity",
+      "source_conformance",
+      "integrity",
+      "lineage"
+    ],
+    "false_accept_count": 4,
+    "mask": 19,
+    "relation_count": 3,
+    "required_relations": [
+      "behavior",
+      "recovery",
+      "executable_reproduction"
+    ]
+  },
+  {
+    "accepted_isolating_controls": [
+      "behavior",
+      "recovery",
+      "source_conformance",
+      "integrity",
+      "lineage"
+    ],
+    "false_accept_count": 5,
+    "mask": 20,
+    "relation_count": 2,
+    "required_relations": [
+      "continuity",
+      "executable_reproduction"
+    ]
+  },
+  {
+    "accepted_isolating_controls": [
+      "recovery",
+      "source_conformance",
+      "integrity",
+      "lineage"
+    ],
+    "false_accept_count": 4,
+    "mask": 21,
+    "relation_count": 3,
+    "required_relations": [
+      "behavior",
+      "continuity",
+      "executable_reproduction"
+    ]
+  },
+  {
+    "accepted_isolating_controls": [
+      "behavior",
+      "source_conformance",
+      "integrity",
+      "lineage"
+    ],
+    "false_accept_count": 4,
+    "mask": 22,
+    "relation_count": 3,
+    "required_relations": [
+      "recovery",
+      "continuity",
+      "executable_reproduction"
+    ]
+  },
+  {
+    "accepted_isolating_controls": [
+      "source_conformance",
+      "integrity",
+      "lineage"
+    ],
+    "false_accept_count": 3,
+    "mask": 23,
+    "relation_count": 4,
+    "required_relations": [
+      "behavior",
+      "recovery",
+      "continuity",
+      "executable_reproduction"
+    ]
+  },
+  {
+    "accepted_isolating_controls": [
+      "behavior",
+      "recovery",
+      "continuity",
+      "integrity",
+      "lineage"
+    ],
+    "false_accept_count": 5,
+    "mask": 24,
+    "relation_count": 2,
+    "required_relations": [
+      "source_conformance",
+      "executable_reproduction"
+    ]
+  },
+  {
+    "accepted_isolating_controls": [
+      "recovery",
+      "continuity",
+      "integrity",
+      "lineage"
+    ],
+    "false_accept_count": 4,
+    "mask": 25,
+    "relation_count": 3,
+    "required_relations": [
+      "behavior",
+      "source_conformance",
+      "executable_reproduction"
+    ]
+  },
+  {
+    "accepted_isolating_controls": [
+      "behavior",
+      "continuity",
+      "integrity",
+      "lineage"
+    ],
+    "false_accept_count": 4,
+    "mask": 26,
+    "relation_count": 3,
+    "required_relations": [
+      "recovery",
+      "source_conformance",
+      "executable_reproduction"
+    ]
+  },
+  {
+    "accepted_isolating_controls": [
+      "continuity",
+      "integrity",
+      "lineage"
+    ],
+    "false_accept_count": 3,
+    "mask": 27,
+    "relation_count": 4,
+    "required_relations": [
+      "behavior",
+      "recovery",
+      "source_conformance",
+      "executable_reproduction"
+    ]
+  },
+  {
+    "accepted_isolating_controls": [
+      "behavior",
+      "recovery",
+      "integrity",
+      "lineage"
+    ],
+    "false_accept_count": 4,
+    "mask": 28,
+    "relation_count": 3,
+    "required_relations": [
+      "continuity",
+      "source_conformance",
+      "executable_reproduction"
+    ]
+  },
+  {
+    "accepted_isolating_controls": [
+      "recovery",
+      "integrity",
+      "lineage"
+    ],
+    "false_accept_count": 3,
+    "mask": 29,
+    "relation_count": 4,
+    "required_relations": [
+      "behavior",
+      "continuity",
+      "source_conformance",
+      "executable_reproduction"
+    ]
+  },
+  {
+    "accepted_isolating_controls": [
+      "behavior",
+      "integrity",
+      "lineage"
+    ],
+    "false_accept_count": 3,
+    "mask": 30,
+    "relation_count": 4,
+    "required_relations": [
+      "recovery",
+      "continuity",
+      "source_conformance",
+      "executable_reproduction"
+    ]
+  },
+  {
+    "accepted_isolating_controls": [
+      "integrity",
+      "lineage"
+    ],
+    "false_accept_count": 2,
+    "mask": 31,
+    "relation_count": 5,
+    "required_relations": [
+      "behavior",
+      "recovery",
+      "continuity",
+      "source_conformance",
+      "executable_reproduction"
+    ]
+  },
+  {
+    "accepted_isolating_controls": [
+      "behavior",
+      "recovery",
+      "continuity",
+      "source_conformance",
+      "executable_reproduction",
+      "lineage"
+    ],
+    "false_accept_count": 6,
+    "mask": 32,
+    "relation_count": 1,
+    "required_relations": [
+      "integrity"
+    ]
+  },
+  {
+    "accepted_isolating_controls": [
+      "recovery",
+      "continuity",
+      "source_conformance",
+      "executable_reproduction",
+      "lineage"
+    ],
+    "false_accept_count": 5,
+    "mask": 33,
+    "relation_count": 2,
+    "required_relations": [
+      "behavior",
+      "integrity"
+    ]
+  },
+  {
+    "accepted_isolating_controls": [
+      "behavior",
+      "continuity",
+      "source_conformance",
+      "executable_reproduction",
+      "lineage"
+    ],
+    "false_accept_count": 5,
+    "mask": 34,
+    "relation_count": 2,
+    "required_relations": [
+      "recovery",
+      "integrity"
+    ]
+  },
+  {
+    "accepted_isolating_controls": [
+      "continuity",
+      "source_conformance",
+      "executable_reproduction",
+      "lineage"
+    ],
+    "false_accept_count": 4,
+    "mask": 35,
+    "relation_count": 3,
+    "required_relations": [
+      "behavior",
+      "recovery",
+      "integrity"
+    ]
+  },
+  {
+    "accepted_isolating_controls": [
+      "behavior",
+      "recovery",
+      "source_conformance",
+      "executable_reproduction",
+      "lineage"
+    ],
+    "false_accept_count": 5,
+    "mask": 36,
+    "relation_count": 2,
+    "required_relations": [
+      "continuity",
+      "integrity"
+    ]
+  },
+  {
+    "accepted_isolating_controls": [
+      "recovery",
+      "source_conformance",
+      "executable_reproduction",
+      "lineage"
+    ],
+    "false_accept_count": 4,
+    "mask": 37,
+    "relation_count": 3,
+    "required_relations": [
+      "behavior",
+      "continuity",
+      "integrity"
+    ]
+  },
+  {
+    "accepted_isolating_controls": [
+      "behavior",
+      "source_conformance",
+      "executable_reproduction",
+      "lineage"
+    ],
+    "false_accept_count": 4,
+    "mask": 38,
+    "relation_count": 3,
+    "required_relations": [
+      "recovery",
+      "continuity",
+      "integrity"
+    ]
+  },
+  {
+    "accepted_isolating_controls": [
+      "source_conformance",
+      "executable_reproduction",
+      "lineage"
+    ],
+    "false_accept_count": 3,
+    "mask": 39,
+    "relation_count": 4,
+    "required_relations": [
+      "behavior",
+      "recovery",
+      "continuity",
+      "integrity"
+    ]
+  },
+  {
+    "accepted_isolating_controls": [
+      "behavior",
+      "recovery",
+      "continuity",
+      "executable_reproduction",
+      "lineage"
+    ],
+    "false_accept_count": 5,
+    "mask": 40,
+    "relation_count": 2,
+    "required_relations": [
+      "source_conformance",
+      "integrity"
+    ]
+  },
+  {
+    "accepted_isolating_controls": [
+      "recovery",
+      "continuity",
+      "executable_reproduction",
+      "lineage"
+    ],
+    "false_accept_count": 4,
+    "mask": 41,
+    "relation_count": 3,
+    "required_relations": [
+      "behavior",
+      "source_conformance",
+      "integrity"
+    ]
+  },
+  {
+    "accepted_isolating_controls": [
+      "behavior",
+      "continuity",
+      "executable_reproduction",
+      "lineage"
+    ],
+    "false_accept_count": 4,
+    "mask": 42,
+    "relation_count": 3,
+    "required_relations": [
+      "recovery",
+      "source_conformance",
+      "integrity"
+    ]
+  },
+  {
+    "accepted_isolating_controls": [
+      "continuity",
+      "executable_reproduction",
+      "lineage"
+    ],
+    "false_accept_count": 3,
+    "mask": 43,
+    "relation_count": 4,
+    "required_relations": [
+      "behavior",
+      "recovery",
+      "source_conformance",
+      "integrity"
+    ]
+  },
+  {
+    "accepted_isolating_controls": [
+      "behavior",
+      "recovery",
+      "executable_reproduction",
+      "lineage"
+    ],
+    "false_accept_count": 4,
+    "mask": 44,
+    "relation_count": 3,
+    "required_relations": [
+      "continuity",
+      "source_conformance",
+      "integrity"
+    ]
+  },
+  {
+    "accepted_isolating_controls": [
+      "recovery",
+      "executable_reproduction",
+      "lineage"
+    ],
+    "false_accept_count": 3,
+    "mask": 45,
+    "relation_count": 4,
+    "required_relations": [
+      "behavior",
+      "continuity",
+      "source_conformance",
+      "integrity"
+    ]
+  },
+  {
+    "accepted_isolating_controls": [
+      "behavior",
+      "executable_reproduction",
+      "lineage"
+    ],
+    "false_accept_count": 3,
+    "mask": 46,
+    "relation_count": 4,
+    "required_relations": [
+      "recovery",
+      "continuity",
+      "source_conformance",
+      "integrity"
+    ]
+  },
+  {
+    "accepted_isolating_controls": [
+      "executable_reproduction",
+      "lineage"
+    ],
+    "false_accept_count": 2,
+    "mask": 47,
+    "relation_count": 5,
+    "required_relations": [
+      "behavior",
+      "recovery",
+      "continuity",
+      "source_conformance",
+      "integrity"
+    ]
+  },
+  {
+    "accepted_isolating_controls": [
+      "behavior",
+      "recovery",
+      "continuity",
+      "source_conformance",
+      "lineage"
+    ],
+    "false_accept_count": 5,
+    "mask": 48,
+    "relation_count": 2,
+    "required_relations": [
+      "executable_reproduction",
+      "integrity"
+    ]
+  },
+  {
+    "accepted_isolating_controls": [
+      "recovery",
+      "continuity",
+      "source_conformance",
+      "lineage"
+    ],
+    "false_accept_count": 4,
+    "mask": 49,
+    "relation_count": 3,
+    "required_relations": [
+      "behavior",
+      "executable_reproduction",
+      "integrity"
+    ]
+  },
+  {
+    "accepted_isolating_controls": [
+      "behavior",
+      "continuity",
+      "source_conformance",
+      "lineage"
+    ],
+    "false_accept_count": 4,
+    "mask": 50,
+    "relation_count": 3,
+    "required_relations": [
+      "recovery",
+      "executable_reproduction",
+      "integrity"
+    ]
+  },
+  {
+    "accepted_isolating_controls": [
+      "continuity",
+      "source_conformance",
+      "lineage"
+    ],
+    "false_accept_count": 3,
+    "mask": 51,
+    "relation_count": 4,
+    "required_relations": [
+      "behavior",
+      "recovery",
+      "executable_reproduction",
+      "integrity"
+    ]
+  },
+  {
+    "accepted_isolating_controls": [
+      "behavior",
+      "recovery",
+      "source_conformance",
+      "lineage"
+    ],
+    "false_accept_count": 4,
+    "mask": 52,
+    "relation_count": 3,
+    "required_relations": [
+      "continuity",
+      "executable_reproduction",
+      "integrity"
+    ]
+  },
+  {
+    "accepted_isolating_controls": [
+      "recovery",
+      "source_conformance",
+      "lineage"
+    ],
+    "false_accept_count": 3,
+    "mask": 53,
+    "relation_count": 4,
+    "required_relations": [
+      "behavior",
+      "continuity",
+      "executable_reproduction",
+      "integrity"
+    ]
+  },
+  {
+    "accepted_isolating_controls": [
+      "behavior",
+      "source_conformance",
+      "lineage"
+    ],
+    "false_accept_count": 3,
+    "mask": 54,
+    "relation_count": 4,
+    "required_relations": [
+      "recovery",
+      "continuity",
+      "executable_reproduction",
+      "integrity"
+    ]
+  },
+  {
+    "accepted_isolating_controls": [
+      "source_conformance",
+      "lineage"
+    ],
+    "false_accept_count": 2,
+    "mask": 55,
+    "relation_count": 5,
+    "required_relations": [
+      "behavior",
+      "recovery",
+      "continuity",
+      "executable_reproduction",
+      "integrity"
+    ]
+  },
+  {
+    "accepted_isolating_controls": [
+      "behavior",
+      "recovery",
+      "continuity",
+      "lineage"
+    ],
+    "false_accept_count": 4,
+    "mask": 56,
+    "relation_count": 3,
+    "required_relations": [
+      "source_conformance",
+      "executable_reproduction",
+      "integrity"
+    ]
+  },
+  {
+    "accepted_isolating_controls": [
+      "recovery",
+      "continuity",
+      "lineage"
+    ],
+    "false_accept_count": 3,
+    "mask": 57,
+    "relation_count": 4,
+    "required_relations": [
+      "behavior",
+      "source_conformance",
+      "executable_reproduction",
+      "integrity"
+    ]
+  },
+  {
+    "accepted_isolating_controls": [
+      "behavior",
+      "continuity",
+      "lineage"
+    ],
+    "false_accept_count": 3,
+    "mask": 58,
+    "relation_count": 4,
+    "required_relations": [
+      "recovery",
+      "source_conformance",
+      "executable_reproduction",
+      "integrity"
+    ]
+  },
+  {
+    "accepted_isolating_controls": [
+      "continuity",
+      "lineage"
+    ],
+    "false_accept_count": 2,
+    "mask": 59,
+    "relation_count": 5,
+    "required_relations": [
+      "behavior",
+      "recovery",
+      "source_conformance",
+      "executable_reproduction",
+      "integrity"
+    ]
+  },
+  {
+    "accepted_isolating_controls": [
+      "behavior",
+      "recovery",
+      "lineage"
+    ],
+    "false_accept_count": 3,
+    "mask": 60,
+    "relation_count": 4,
+    "required_relations": [
+      "continuity",
+      "source_conformance",
+      "executable_reproduction",
+      "integrity"
+    ]
+  },
+  {
+    "accepted_isolating_controls": [
+      "recovery",
+      "lineage"
+    ],
+    "false_accept_count": 2,
+    "mask": 61,
+    "relation_count": 5,
+    "required_relations": [
+      "behavior",
+      "continuity",
+      "source_conformance",
+      "executable_reproduction",
+      "integrity"
+    ]
+  },
+  {
+    "accepted_isolating_controls": [
+      "behavior",
+      "lineage"
+    ],
+    "false_accept_count": 2,
+    "mask": 62,
+    "relation_count": 5,
+    "required_relations": [
+      "recovery",
+      "continuity",
+      "source_conformance",
+      "executable_reproduction",
+      "integrity"
+    ]
+  },
+  {
+    "accepted_isolating_controls": [
+      "lineage"
+    ],
+    "false_accept_count": 1,
+    "mask": 63,
+    "relation_count": 6,
+    "required_relations": [
+      "behavior",
+      "recovery",
+      "continuity",
+      "source_conformance",
+      "executable_reproduction",
+      "integrity"
+    ]
+  },
+  {
+    "accepted_isolating_controls": [
+      "behavior",
+      "recovery",
+      "continuity",
+      "source_conformance",
+      "executable_reproduction",
+      "integrity"
+    ],
+    "false_accept_count": 6,
+    "mask": 64,
+    "relation_count": 1,
+    "required_relations": [
+      "lineage"
+    ]
+  },
+  {
+    "accepted_isolating_controls": [
+      "recovery",
+      "continuity",
+      "source_conformance",
+      "executable_reproduction",
+      "integrity"
+    ],
+    "false_accept_count": 5,
+    "mask": 65,
+    "relation_count": 2,
+    "required_relations": [
+      "behavior",
+      "lineage"
+    ]
+  },
+  {
+    "accepted_isolating_controls": [
+      "behavior",
+      "continuity",
+      "source_conformance",
+      "executable_reproduction",
+      "integrity"
+    ],
+    "false_accept_count": 5,
+    "mask": 66,
+    "relation_count": 2,
+    "required_relations": [
+      "recovery",
+      "lineage"
+    ]
+  },
+  {
+    "accepted_isolating_controls": [
+      "continuity",
+      "source_conformance",
+      "executable_reproduction",
+      "integrity"
+    ],
+    "false_accept_count": 4,
+    "mask": 67,
+    "relation_count": 3,
+    "required_relations": [
+      "behavior",
+      "recovery",
+      "lineage"
+    ]
+  },
+  {
+    "accepted_isolating_controls": [
+      "behavior",
+      "recovery",
+      "source_conformance",
+      "executable_reproduction",
+      "integrity"
+    ],
+    "false_accept_count": 5,
+    "mask": 68,
+    "relation_count": 2,
+    "required_relations": [
+      "continuity",
+      "lineage"
+    ]
+  },
+  {
+    "accepted_isolating_controls": [
+      "recovery",
+      "source_conformance",
+      "executable_reproduction",
+      "integrity"
+    ],
+    "false_accept_count": 4,
+    "mask": 69,
+    "relation_count": 3,
+    "required_relations": [
+      "behavior",
+      "continuity",
+      "lineage"
+    ]
+  },
+  {
+    "accepted_isolating_controls": [
+      "behavior",
+      "source_conformance",
+      "executable_reproduction",
+      "integrity"
+    ],
+    "false_accept_count": 4,
+    "mask": 70,
+    "relation_count": 3,
+    "required_relations": [
+      "recovery",
+      "continuity",
+      "lineage"
+    ]
+  },
+  {
+    "accepted_isolating_controls": [
+      "source_conformance",
+      "executable_reproduction",
+      "integrity"
+    ],
+    "false_accept_count": 3,
+    "mask": 71,
+    "relation_count": 4,
+    "required_relations": [
+      "behavior",
+      "recovery",
+      "continuity",
+      "lineage"
+    ]
+  },
+  {
+    "accepted_isolating_controls": [
+      "behavior",
+      "recovery",
+      "continuity",
+      "executable_reproduction",
+      "integrity"
+    ],
+    "false_accept_count": 5,
+    "mask": 72,
+    "relation_count": 2,
+    "required_relations": [
+      "source_conformance",
+      "lineage"
+    ]
+  },
+  {
+    "accepted_isolating_controls": [
+      "recovery",
+      "continuity",
+      "executable_reproduction",
+      "integrity"
+    ],
+    "false_accept_count": 4,
+    "mask": 73,
+    "relation_count": 3,
+    "required_relations": [
+      "behavior",
+      "source_conformance",
+      "lineage"
+    ]
+  },
+  {
+    "accepted_isolating_controls": [
+      "behavior",
+      "continuity",
+      "executable_reproduction",
+      "integrity"
+    ],
+    "false_accept_count": 4,
+    "mask": 74,
+    "relation_count": 3,
+    "required_relations": [
+      "recovery",
+      "source_conformance",
+      "lineage"
+    ]
+  },
+  {
+    "accepted_isolating_controls": [
+      "continuity",
+      "executable_reproduction",
+      "integrity"
+    ],
+    "false_accept_count": 3,
+    "mask": 75,
+    "relation_count": 4,
+    "required_relations": [
+      "behavior",
+      "recovery",
+      "source_conformance",
+      "lineage"
+    ]
+  },
+  {
+    "accepted_isolating_controls": [
+      "behavior",
+      "recovery",
+      "executable_reproduction",
+      "integrity"
+    ],
+    "false_accept_count": 4,
+    "mask": 76,
+    "relation_count": 3,
+    "required_relations": [
+      "continuity",
+      "source_conformance",
+      "lineage"
+    ]
+  },
+  {
+    "accepted_isolating_controls": [
+      "recovery",
+      "executable_reproduction",
+      "integrity"
+    ],
+    "false_accept_count": 3,
+    "mask": 77,
+    "relation_count": 4,
+    "required_relations": [
+      "behavior",
+      "continuity",
+      "source_conformance",
+      "lineage"
+    ]
+  },
+  {
+    "accepted_isolating_controls": [
+      "behavior",
+      "executable_reproduction",
+      "integrity"
+    ],
+    "false_accept_count": 3,
+    "mask": 78,
+    "relation_count": 4,
+    "required_relations": [
+      "recovery",
+      "continuity",
+      "source_conformance",
+      "lineage"
+    ]
+  },
+  {
+    "accepted_isolating_controls": [
+      "executable_reproduction",
+      "integrity"
+    ],
+    "false_accept_count": 2,
+    "mask": 79,
+    "relation_count": 5,
+    "required_relations": [
+      "behavior",
+      "recovery",
+      "continuity",
+      "source_conformance",
+      "lineage"
+    ]
+  },
+  {
+    "accepted_isolating_controls": [
+      "behavior",
+      "recovery",
+      "continuity",
+      "source_conformance",
+      "integrity"
+    ],
+    "false_accept_count": 5,
+    "mask": 80,
+    "relation_count": 2,
+    "required_relations": [
+      "executable_reproduction",
+      "lineage"
+    ]
+  },
+  {
+    "accepted_isolating_controls": [
+      "recovery",
+      "continuity",
+      "source_conformance",
+      "integrity"
+    ],
+    "false_accept_count": 4,
+    "mask": 81,
+    "relation_count": 3,
+    "required_relations": [
+      "behavior",
+      "executable_reproduction",
+      "lineage"
+    ]
+  },
+  {
+    "accepted_isolating_controls": [
+      "behavior",
+      "continuity",
+      "source_conformance",
+      "integrity"
+    ],
+    "false_accept_count": 4,
+    "mask": 82,
+    "relation_count": 3,
+    "required_relations": [
+      "recovery",
+      "executable_reproduction",
+      "lineage"
+    ]
+  },
+  {
+    "accepted_isolating_controls": [
+      "continuity",
+      "source_conformance",
+      "integrity"
+    ],
+    "false_accept_count": 3,
+    "mask": 83,
+    "relation_count": 4,
+    "required_relations": [
+      "behavior",
+      "recovery",
+      "executable_reproduction",
+      "lineage"
+    ]
+  },
+  {
+    "accepted_isolating_controls": [
+      "behavior",
+      "recovery",
+      "source_conformance",
+      "integrity"
+    ],
+    "false_accept_count": 4,
+    "mask": 84,
+    "relation_count": 3,
+    "required_relations": [
+      "continuity",
+      "executable_reproduction",
+      "lineage"
+    ]
+  },
+  {
+    "accepted_isolating_controls": [
+      "recovery",
+      "source_conformance",
+      "integrity"
+    ],
+    "false_accept_count": 3,
+    "mask": 85,
+    "relation_count": 4,
+    "required_relations": [
+      "behavior",
+      "continuity",
+      "executable_reproduction",
+      "lineage"
+    ]
+  },
+  {
+    "accepted_isolating_controls": [
+      "behavior",
+      "source_conformance",
+      "integrity"
+    ],
+    "false_accept_count": 3,
+    "mask": 86,
+    "relation_count": 4,
+    "required_relations": [
+      "recovery",
+      "continuity",
+      "executable_reproduction",
+      "lineage"
+    ]
+  },
+  {
+    "accepted_isolating_controls": [
+      "source_conformance",
+      "integrity"
+    ],
+    "false_accept_count": 2,
+    "mask": 87,
+    "relation_count": 5,
+    "required_relations": [
+      "behavior",
+      "recovery",
+      "continuity",
+      "executable_reproduction",
+      "lineage"
+    ]
+  },
+  {
+    "accepted_isolating_controls": [
+      "behavior",
+      "recovery",
+      "continuity",
+      "integrity"
+    ],
+    "false_accept_count": 4,
+    "mask": 88,
+    "relation_count": 3,
+    "required_relations": [
+      "source_conformance",
+      "executable_reproduction",
+      "lineage"
+    ]
+  },
+  {
+    "accepted_isolating_controls": [
+      "recovery",
+      "continuity",
+      "integrity"
+    ],
+    "false_accept_count": 3,
+    "mask": 89,
+    "relation_count": 4,
+    "required_relations": [
+      "behavior",
+      "source_conformance",
+      "executable_reproduction",
+      "lineage"
+    ]
+  },
+  {
+    "accepted_isolating_controls": [
+      "behavior",
+      "continuity",
+      "integrity"
+    ],
+    "false_accept_count": 3,
+    "mask": 90,
+    "relation_count": 4,
+    "required_relations": [
+      "recovery",
+      "source_conformance",
+      "executable_reproduction",
+      "lineage"
+    ]
+  },
+  {
+    "accepted_isolating_controls": [
+      "continuity",
+      "integrity"
+    ],
+    "false_accept_count": 2,
+    "mask": 91,
+    "relation_count": 5,
+    "required_relations": [
+      "behavior",
+      "recovery",
+      "source_conformance",
+      "executable_reproduction",
+      "lineage"
+    ]
+  },
+  {
+    "accepted_isolating_controls": [
+      "behavior",
+      "recovery",
+      "integrity"
+    ],
+    "false_accept_count": 3,
+    "mask": 92,
+    "relation_count": 4,
+    "required_relations": [
+      "continuity",
+      "source_conformance",
+      "executable_reproduction",
+      "lineage"
+    ]
+  },
+  {
+    "accepted_isolating_controls": [
+      "recovery",
+      "integrity"
+    ],
+    "false_accept_count": 2,
+    "mask": 93,
+    "relation_count": 5,
+    "required_relations": [
+      "behavior",
+      "continuity",
+      "source_conformance",
+      "executable_reproduction",
+      "lineage"
+    ]
+  },
+  {
+    "accepted_isolating_controls": [
+      "behavior",
+      "integrity"
+    ],
+    "false_accept_count": 2,
+    "mask": 94,
+    "relation_count": 5,
+    "required_relations": [
+      "recovery",
+      "continuity",
+      "source_conformance",
+      "executable_reproduction",
+      "lineage"
+    ]
+  },
+  {
+    "accepted_isolating_controls": [
+      "integrity"
+    ],
+    "false_accept_count": 1,
+    "mask": 95,
+    "relation_count": 6,
+    "required_relations": [
+      "behavior",
+      "recovery",
+      "continuity",
+      "source_conformance",
+      "executable_reproduction",
+      "lineage"
+    ]
+  },
+  {
+    "accepted_isolating_controls": [
+      "behavior",
+      "recovery",
+      "continuity",
+      "source_conformance",
+      "executable_reproduction"
+    ],
+    "false_accept_count": 5,
+    "mask": 96,
+    "relation_count": 2,
+    "required_relations": [
+      "integrity",
+      "lineage"
+    ]
+  },
+  {
+    "accepted_isolating_controls": [
+      "recovery",
+      "continuity",
+      "source_conformance",
+      "executable_reproduction"
+    ],
+    "false_accept_count": 4,
+    "mask": 97,
+    "relation_count": 3,
+    "required_relations": [
+      "behavior",
+      "integrity",
+      "lineage"
+    ]
+  },
+  {
+    "accepted_isolating_controls": [
+      "behavior",
+      "continuity",
+      "source_conformance",
+      "executable_reproduction"
+    ],
+    "false_accept_count": 4,
+    "mask": 98,
+    "relation_count": 3,
+    "required_relations": [
+      "recovery",
+      "integrity",
+      "lineage"
+    ]
+  },
+  {
+    "accepted_isolating_controls": [
+      "continuity",
+      "source_conformance",
+      "executable_reproduction"
+    ],
+    "false_accept_count": 3,
+    "mask": 99,
+    "relation_count": 4,
+    "required_relations": [
+      "behavior",
+      "recovery",
+      "integrity",
+      "lineage"
+    ]
+  },
+  {
+    "accepted_isolating_controls": [
+      "behavior",
+      "recovery",
+      "source_conformance",
+      "executable_reproduction"
+    ],
+    "false_accept_count": 4,
+    "mask": 100,
+    "relation_count": 3,
+    "required_relations": [
+      "continuity",
+      "integrity",
+      "lineage"
+    ]
+  },
+  {
+    "accepted_isolating_controls": [
+      "recovery",
+      "source_conformance",
+      "executable_reproduction"
+    ],
+    "false_accept_count": 3,
+    "mask": 101,
+    "relation_count": 4,
+    "required_relations": [
+      "behavior",
+      "continuity",
+      "integrity",
+      "lineage"
+    ]
+  },
+  {
+    "accepted_isolating_controls": [
+      "behavior",
+      "source_conformance",
+      "executable_reproduction"
+    ],
+    "false_accept_count": 3,
+    "mask": 102,
+    "relation_count": 4,
+    "required_relations": [
+      "recovery",
+      "continuity",
+      "integrity",
+      "lineage"
+    ]
+  },
+  {
+    "accepted_isolating_controls": [
+      "source_conformance",
+      "executable_reproduction"
+    ],
+    "false_accept_count": 2,
+    "mask": 103,
+    "relation_count": 5,
+    "required_relations": [
+      "behavior",
+      "recovery",
+      "continuity",
+      "integrity",
+      "lineage"
+    ]
+  },
+  {
+    "accepted_isolating_controls": [
+      "behavior",
+      "recovery",
+      "continuity",
+      "executable_reproduction"
+    ],
+    "false_accept_count": 4,
+    "mask": 104,
+    "relation_count": 3,
+    "required_relations": [
+      "source_conformance",
+      "integrity",
+      "lineage"
+    ]
+  },
+  {
+    "accepted_isolating_controls": [
+      "recovery",
+      "continuity",
+      "executable_reproduction"
+    ],
+    "false_accept_count": 3,
+    "mask": 105,
+    "relation_count": 4,
+    "required_relations": [
+      "behavior",
+      "source_conformance",
+      "integrity",
+      "lineage"
+    ]
+  },
+  {
+    "accepted_isolating_controls": [
+      "behavior",
+      "continuity",
+      "executable_reproduction"
+    ],
+    "false_accept_count": 3,
+    "mask": 106,
+    "relation_count": 4,
+    "required_relations": [
+      "recovery",
+      "source_conformance",
+      "integrity",
+      "lineage"
+    ]
+  },
+  {
+    "accepted_isolating_controls": [
+      "continuity",
+      "executable_reproduction"
+    ],
+    "false_accept_count": 2,
+    "mask": 107,
+    "relation_count": 5,
+    "required_relations": [
+      "behavior",
+      "recovery",
+      "source_conformance",
+      "integrity",
+      "lineage"
+    ]
+  },
+  {
+    "accepted_isolating_controls": [
+      "behavior",
+      "recovery",
+      "executable_reproduction"
+    ],
+    "false_accept_count": 3,
+    "mask": 108,
+    "relation_count": 4,
+    "required_relations": [
+      "continuity",
+      "source_conformance",
+      "integrity",
+      "lineage"
+    ]
+  },
+  {
+    "accepted_isolating_controls": [
+      "recovery",
+      "executable_reproduction"
+    ],
+    "false_accept_count": 2,
+    "mask": 109,
+    "relation_count": 5,
+    "required_relations": [
+      "behavior",
+      "continuity",
+      "source_conformance",
+      "integrity",
+      "lineage"
+    ]
+  },
+  {
+    "accepted_isolating_controls": [
+      "behavior",
+      "executable_reproduction"
+    ],
+    "false_accept_count": 2,
+    "mask": 110,
+    "relation_count": 5,
+    "required_relations": [
+      "recovery",
+      "continuity",
+      "source_conformance",
+      "integrity",
+      "lineage"
+    ]
+  },
+  {
+    "accepted_isolating_controls": [
+      "executable_reproduction"
+    ],
+    "false_accept_count": 1,
+    "mask": 111,
+    "relation_count": 6,
+    "required_relations": [
+      "behavior",
+      "recovery",
+      "continuity",
+      "source_conformance",
+      "integrity",
+      "lineage"
+    ]
+  },
+  {
+    "accepted_isolating_controls": [
+      "behavior",
+      "recovery",
+      "continuity",
+      "source_conformance"
+    ],
+    "false_accept_count": 4,
+    "mask": 112,
+    "relation_count": 3,
+    "required_relations": [
+      "executable_reproduction",
+      "integrity",
+      "lineage"
+    ]
+  },
+  {
+    "accepted_isolating_controls": [
+      "recovery",
+      "continuity",
+      "source_conformance"
+    ],
+    "false_accept_count": 3,
+    "mask": 113,
+    "relation_count": 4,
+    "required_relations": [
+      "behavior",
+      "executable_reproduction",
+      "integrity",
+      "lineage"
+    ]
+  },
+  {
+    "accepted_isolating_controls": [
+      "behavior",
+      "continuity",
+      "source_conformance"
+    ],
+    "false_accept_count": 3,
+    "mask": 114,
+    "relation_count": 4,
+    "required_relations": [
+      "recovery",
+      "executable_reproduction",
+      "integrity",
+      "lineage"
+    ]
+  },
+  {
+    "accepted_isolating_controls": [
+      "continuity",
+      "source_conformance"
+    ],
+    "false_accept_count": 2,
+    "mask": 115,
+    "relation_count": 5,
+    "required_relations": [
+      "behavior",
+      "recovery",
+      "executable_reproduction",
+      "integrity",
+      "lineage"
+    ]
+  },
+  {
+    "accepted_isolating_controls": [
+      "behavior",
+      "recovery",
+      "source_conformance"
+    ],
+    "false_accept_count": 3,
+    "mask": 116,
+    "relation_count": 4,
+    "required_relations": [
+      "continuity",
+      "executable_reproduction",
+      "integrity",
+      "lineage"
+    ]
+  },
+  {
+    "accepted_isolating_controls": [
+      "recovery",
+      "source_conformance"
+    ],
+    "false_accept_count": 2,
+    "mask": 117,
+    "relation_count": 5,
+    "required_relations": [
+      "behavior",
+      "continuity",
+      "executable_reproduction",
+      "integrity",
+      "lineage"
+    ]
+  },
+  {
+    "accepted_isolating_controls": [
+      "behavior",
+      "source_conformance"
+    ],
+    "false_accept_count": 2,
+    "mask": 118,
+    "relation_count": 5,
+    "required_relations": [
+      "recovery",
+      "continuity",
+      "executable_reproduction",
+      "integrity",
+      "lineage"
+    ]
+  },
+  {
+    "accepted_isolating_controls": [
+      "source_conformance"
+    ],
+    "false_accept_count": 1,
+    "mask": 119,
+    "relation_count": 6,
+    "required_relations": [
+      "behavior",
+      "recovery",
+      "continuity",
+      "executable_reproduction",
+      "integrity",
+      "lineage"
+    ]
+  },
+  {
+    "accepted_isolating_controls": [
+      "behavior",
+      "recovery",
+      "continuity"
+    ],
+    "false_accept_count": 3,
+    "mask": 120,
+    "relation_count": 4,
+    "required_relations": [
+      "source_conformance",
+      "executable_reproduction",
+      "integrity",
+      "lineage"
+    ]
+  },
+  {
+    "accepted_isolating_controls": [
+      "recovery",
+      "continuity"
+    ],
+    "false_accept_count": 2,
+    "mask": 121,
+    "relation_count": 5,
+    "required_relations": [
+      "behavior",
+      "source_conformance",
+      "executable_reproduction",
+      "integrity",
+      "lineage"
+    ]
+  },
+  {
+    "accepted_isolating_controls": [
+      "behavior",
+      "continuity"
+    ],
+    "false_accept_count": 2,
+    "mask": 122,
+    "relation_count": 5,
+    "required_relations": [
+      "recovery",
+      "source_conformance",
+      "executable_reproduction",
+      "integrity",
+      "lineage"
+    ]
+  },
+  {
+    "accepted_isolating_controls": [
+      "continuity"
+    ],
+    "false_accept_count": 1,
+    "mask": 123,
+    "relation_count": 6,
+    "required_relations": [
+      "behavior",
+      "recovery",
+      "source_conformance",
+      "executable_reproduction",
+      "integrity",
+      "lineage"
+    ]
+  },
+  {
+    "accepted_isolating_controls": [
+      "behavior",
+      "recovery"
+    ],
+    "false_accept_count": 2,
+    "mask": 124,
+    "relation_count": 5,
+    "required_relations": [
+      "continuity",
+      "source_conformance",
+      "executable_reproduction",
+      "integrity",
+      "lineage"
+    ]
+  },
+  {
+    "accepted_isolating_controls": [
+      "recovery"
+    ],
+    "false_accept_count": 1,
+    "mask": 125,
+    "relation_count": 6,
+    "required_relations": [
+      "behavior",
+      "continuity",
+      "source_conformance",
+      "executable_reproduction",
+      "integrity",
+      "lineage"
+    ]
+  },
+  {
+    "accepted_isolating_controls": [
+      "behavior"
+    ],
+    "false_accept_count": 1,
+    "mask": 126,
+    "relation_count": 6,
+    "required_relations": [
+      "recovery",
+      "continuity",
+      "source_conformance",
+      "executable_reproduction",
+      "integrity",
+      "lineage"
+    ]
+  },
+  {
+    "accepted_isolating_controls": [],
+    "false_accept_count": 0,
+    "mask": 127,
+    "relation_count": 7,
+    "required_relations": [
+      "behavior",
+      "recovery",
+      "continuity",
+      "source_conformance",
+      "executable_reproduction",
+      "integrity",
+      "lineage"
+    ]
+  }
+]

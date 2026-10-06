@@ -1,0 +1,86 @@
+[
+  {
+    "control": "behavior",
+    "vector": [
+      "false",
+      "true",
+      "true",
+      "true",
+      "true",
+      "true",
+      "true"
+    ]
+  },
+  {
+    "control": "recovery",
+    "vector": [
+      "true",
+      "false",
+      "true",
+      "true",
+      "true",
+      "true",
+      "true"
+    ]
+  },
+  {
+    "control": "continuity",
+    "vector": [
+      "true",
+      "true",
+      "false",
+      "true",
+      "true",
+      "true",
+      "true"
+    ]
+  },
+  {
+    "control": "source_conformance",
+    "vector": [
+      "true",
+      "true",
+      "true",
+      "false",
+      "true",
+      "true",
+      "true"
+    ]
+  },
+  {
+    "control": "executable_reproduction",
+    "vector": [
+      "true",
+      "true",
+      "true",
+      "true",
+      "false",
+      "true",
+      "true"
+    ]
+  },
+  {
+    "control": "integrity",
+    "vector": [
+      "true",
+      "true",
+      "true",
+      "true",
+      "true",
+      "false",
+      "true"
+    ]
+  },
+  {
+    "control": "lineage",
+    "vector": [
+      "true",
+      "true",
+      "true",
+      "true",
+      "true",
+      "true",
+      "false"
+    ]
+  }
+]

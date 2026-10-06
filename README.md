@@ -79,5 +79,8 @@ and independently reconstructs the finite gate model, runs the record regression
 and passively checks the 576 retained finite stdout bindings. It does not run
 the compiler-locked release campaigns, upstream programs, or paper builds.
 The job has a six-minute wall limit and explicit per-process limits, fails on
-check errors, and uploads raw outputs even after failure. Preparing this workflow
-does not establish a hosted run result.
+check errors, and uploads raw outputs even after failure. The current Ubuntu
+24.04 / Python 3.12 run passed the finite model and all 19 record regressions,
+and confirmed the bindings of 576 retained outputs. Raw records are retained
+in `results/current/`, with the larger finite-model JSON files losslessly
+compressed as `.gz`. This is not a fresh compiler or subject-program run.
