@@ -1,0 +1,53 @@
+name: Bounded scientific checks
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  finite-model-and-retained-evidence:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 6
+    env:
+      PYTHONUTF8: '1'
+      PYTHONDONTWRITEBYTECODE: '1'
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.12'
+      - name: Exhaust finite records and check retained output bindings
+        shell: bash
+        run: |
+          set -euo pipefail
+          ulimit -t 240
+          ulimit -v 2097152
+          ulimit -n 256
+          ulimit -f 262144
+          evidence="$RUNNER_TEMP/p035-scientific"
+          mkdir -p "$evidence/logs" "$evidence/flat-root"
+          ln -s "$GITHUB_WORKSPACE" "$evidence/flat-root/artifact"
+          timeout --signal=TERM --kill-after=5s 60s python -B gate-model/src/run_gate_model.py \
+            --root "$evidence/model" > "$evidence/logs/model.stdout.txt" 2> "$evidence/logs/model.stderr.txt"
+          timeout --signal=TERM --kill-after=5s 60s python -B gate-model/src/independent_recheck.py \
+            --root "$evidence/model" > "$evidence/logs/recheck.stdout.txt" 2> "$evidence/logs/recheck.stderr.txt"
+          timeout --signal=TERM --kill-after=5s 90s python -B gate-model/src/test_gate_records.py \
+            --out "$evidence/regressions" > "$evidence/logs/regressions.stdout.txt" 2> "$evidence/logs/regressions.stderr.txt"
+          timeout --signal=TERM --kill-after=5s 60s python -B src/verify_retained_outputs.py \
+            --root "$evidence/flat-root" --report "$evidence/retained-output-closure.json" \
+            > "$evidence/logs/retained.stdout.txt" 2> "$evidence/logs/retained.stderr.txt"
+      - name: Upload raw bounded-check outputs
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: p035-bounded-scientific-output
+          path: |
+            ${{ runner.temp }}/p035-scientific/logs
+            ${{ runner.temp }}/p035-scientific/model
+            ${{ runner.temp }}/p035-scientific/regressions
+            ${{ runner.temp }}/p035-scientific/retained-output-closure.json
+          if-no-files-found: warn
+          retention-days: 14

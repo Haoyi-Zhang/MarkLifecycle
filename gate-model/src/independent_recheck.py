@@ -142,29 +142,77 @@ def validate(root: Path) -> dict[str, Any]:
     if sum(2 ** sum(value == 0 for value in digits) for digits in itertools.product((-1, 0, 1), repeat=N)) != 4**N:
         errors.append("completion identity")
     actual_counts = {key: 0 for key in expected_counts}
-    for digits, row in zip(itertools.product((-1, 0, 1), repeat=N), vectors):
+    completion_total = 0
+    labels = {-1: "false", 0: "unresolved", 1: "true"}
+    for index, (digits, row) in enumerate(zip(itertools.product((-1, 0, 1), repeat=N), vectors)):
         verdict = forced_decision(digits)
         actual_counts[verdict] += 1
-        if row.get("decision") != verdict:
-            errors.append("vector decision")
-            break
+        count = 2 ** digits.count(0)
+        completion_total += count
+        # Reconstruct record meaning, not just decision labels and totals.
+        outcomes = [0] if -1 in digits else [0, 1] if 0 in digits else [1]
+        expected_row = {
+            "vector": [labels[value] for value in digits],
+            "completion_count": count,
+            "boolean_completion_outcomes": outcomes,
+            "decision": verdict,
+            "closed_form_decision": verdict,
+            "boolean_faithful": True,
+            "sound_pass": verdict != "pass" or outcomes == [1],
+            "sound_reject": verdict != "reject" or outcomes == [0],
+            "maximally_decisive": True,
+            "stable_under_refinement": True,
+        }
+        for field, value in expected_row.items():
+            if not isinstance(row, dict) or row.get(field) != value:
+                errors.append(f"vector {index}: {field}")
     if actual_counts != expected_counts or summary.get("decision_counts") != expected_counts:
         errors.append("decision partition")
+    if completion_total != 4**N:
+        errors.append("record completion total")
 
     if len(subsets) != 2**N:
         errors.append("subset count")
     zero_rows = []
     for mask, row in enumerate(subsets):
-        expected_false_accepts = N - mask.bit_count()
-        if row.get("false_accept_count") != expected_false_accepts:
-            errors.append("subset false-accept profile")
-            break
+        required = [relation for index, relation in enumerate(RELATIONS) if mask & (1 << index)]
+        accepted = [relation for relation in RELATIONS if relation not in required]
+        expected_false_accepts = len(accepted)
+        expected_row = {
+            "mask": mask,
+            "required_relations": required,
+            "relation_count": len(required),
+            "false_accept_count": expected_false_accepts,
+            "accepted_isolating_controls": accepted,
+        }
+        for field, value in expected_row.items():
+            if not isinstance(row, dict) or row.get(field) != value:
+                errors.append(f"subset {mask}: {field}")
         if expected_false_accepts == 0:
             zero_rows.append(row)
-    if len(zero_rows) != 1 or zero_rows[0].get("required_relations") != RELATIONS:
+    if len(zero_rows) != 1 or not isinstance(zero_rows[0], dict) or zero_rows[0].get("required_relations") != RELATIONS:
         errors.append("unique full basis")
     if len(failures) != 2**N - 1 or len(controls) != N:
         errors.append("failure/control inventory")
+    for mask, row in enumerate(failures, start=1):
+        failed = [relation for index, relation in enumerate(RELATIONS) if mask & (1 << index)]
+        expected_row = {
+            "mask": mask,
+            "failed_relations": failed,
+            "full_gate_decision": "reject",
+            "minimum_witness_count": len(failed),
+        }
+        for field, value in expected_row.items():
+            if not isinstance(row, dict) or row.get(field) != value:
+                errors.append(f"failure set {mask}: {field}")
+    for index, row in enumerate(controls):
+        vector = ["true"] * N
+        if index < N:
+            vector[index] = "false"
+        expected_row = {"control": RELATIONS[index] if index < N else None, "vector": vector}
+        for field, value in expected_row.items():
+            if not isinstance(row, dict) or row.get(field) != value:
+                errors.append(f"isolating control {index}: {field}")
 
     graph_rows = []
     for fixture in graph_fixtures():

@@ -17,3 +17,18 @@ arithmetic and subset cardinality identities for the gate, then reconstructs the
 reachable parent closure and applies Kahn topological sorting. It additionally
 executes a deliberately wrong global-seen validator; that mutant rejects the
 valid diamond and is therefore exposed by the fixture.
+
+The independent checker reconstructs each recorded vector, its completion
+count and outcomes, all subset memberships, each failure-set record, and every
+isolating control rather than accepting their aggregate counts alone. A bounded
+record-consistency regression creates one valid model and 19 individually
+inconsistent records in a fresh directory outside the artifact:
+
+```sh
+python3 -B gate-model/src/test_gate_records.py --out /tmp/gate-record-check
+```
+
+These JSON-only cases do not rebuild software releases or change the five
+historical aggregate model mutations. The graph bridge fixture models edge
+authorization as an input; it is not a reconstruction of a dual-policy software
+bridge certificate.

@@ -28,7 +28,11 @@ resolve only to pass, hold, or reject according to the same rule.
 
 For two codewords at distance at least d, an observation with e wrong known
 symbols and s erased symbols cannot place a competitor at least as close as the
-transmitted word when 2e+s<d. Both artifact decoders enumerate all sixteen
+transmitted word when 2e+s<d. On known coordinates their mutual distance is at
+least d-s. The competitor's distance to the observation is therefore at least
+d-s-e, strictly greater than the transmitted word's distance e. This is unique
+nearest recovery, not literal agreement with every observed symbol when e>0.
+Both artifact decoders enumerate all sixteen
 Hamming codewords independently and require a unique minimizer plus this bound.
 
 ## Block locality
@@ -104,8 +108,11 @@ this argument.
 ## Contract strengthening
 
 Adding cases, compiler cells, bindings, or predecessor obligations adds
-conjuncts while release bytes remain fixed. Conjunction cannot turn false into
-true by adding obligations.
+conjuncts while release bytes remain fixed and every original obligation and
+its interpretation is retained. The strengthened gate is A'=A AND Q, so false
+A cannot become true A'. Changing a reference, the expected inventory, or a
+parent interpretation is a policy replacement rather than pure strengthening;
+fixed release bytes alone do not establish this premise.
 
 ## Module substitution
 

@@ -66,5 +66,18 @@ these are 24 checks, not 24 fully rebound-package tests. Retained software runs
 have 129 passes, zero unresolved holds, and 43 diagnostic or adverse rejections.
 Separate relation-vector fixtures exercise abstract hold behavior, not the real
 reconstruction entrypoints with unavailable tools or files. In the model a false
-relation dominates an unrelated unknown. Current prose/docstring corrections
-do not constitute new executions or replacement run receipts.
+relation dominates an unrelated unknown. The JSON-only gate-record regression
+now rejects 19 individually inconsistent model records while accepting a fresh
+valid model. This bounded check does not rerun the historical compiler campaigns
+or replace their receipts. See `gate-model/README.md` for the standalone command.
+
+## Bounded repository checks
+
+`.github/workflows/scientific-checks.yml` is designed for this artifact directory
+as a flat repository root. On pushes to `main` or a manual dispatch, it generates
+and independently reconstructs the finite gate model, runs the record regressions,
+and passively checks the 576 retained finite stdout bindings. It does not run
+the compiler-locked release campaigns, upstream programs, or paper builds.
+The job has a six-minute wall limit and explicit per-process limits, fails on
+check errors, and uploads raw outputs even after failure. Preparing this workflow
+does not establish a hosted run result.
