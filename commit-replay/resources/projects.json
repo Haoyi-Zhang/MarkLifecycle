@@ -82,7 +82,7 @@
       "repository": "madler/zlib"
     },
     {
-      "adapter_contract": "normalized start offset and length for all 65,536 two-byte strings",
+      "adapter_contract": "normalized length and up to two surviving bytes after NUL truncation and space/tab trimming for all 65,536 two-byte inputs; packed little-endian word stores length in bits 0--7 and surviving bytes in bits 8--23",
       "adverse_relation": "integrity",
       "after_blobs": {
         "ini.c": "c00e8945fbbffa7653ac9d11528d2e883f2152d0"
