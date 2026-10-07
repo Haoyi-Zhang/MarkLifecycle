@@ -73,6 +73,16 @@ or replace their receipts. See `gate-model/README.md` for the standalone command
 
 ## Bounded repository checks
 
+Five additional in-memory regression methods exercise the finite checker's
+closed source/manifest/reference inventory, unknown subjects, missing entry-point
+records, environment read errors, and unavailable-compiler preflight. Run
+`python -B -m unittest discover -s src -p 'test_reconstruction_inventory.py' -v`
+from the artifact directory. They also run in the bounded scientific workflow.
+No subjects or compilers execute: closed inventory fails with REJECT, missing
+records have no reconstructed verdict, and environment read exceptions remain
+exceptions. These tests do not establish end-to-end HOLD propagation or change
+any retained release, tamper, or availability-projection denominator.
+
 `.github/workflows/scientific-checks.yml` is designed for this artifact directory
 as a flat repository root. On pushes to `main` or a manual dispatch, it generates
 and independently reconstructs the finite gate model, runs the record regressions,
