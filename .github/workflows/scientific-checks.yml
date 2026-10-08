@@ -33,6 +33,9 @@ jobs:
           timeout --signal=TERM --kill-after=5s 30s python -B -m unittest discover \
             -s src -p 'test_reconstruction_inventory.py' -v \
             > "$evidence/logs/inventory.stdout.txt" 2> "$evidence/logs/inventory.stderr.txt"
+          timeout --signal=TERM --kill-after=5s 30s python -B -m unittest discover \
+            -s src -p 'test_commit_release_binding.py' -v \
+            > "$evidence/logs/binding.stdout.txt" 2> "$evidence/logs/binding.stderr.txt"
           timeout --signal=TERM --kill-after=5s 60s python -B gate-model/src/run_gate_model.py \
             --root "$evidence/model" > "$evidence/logs/model.stdout.txt" 2> "$evidence/logs/model.stderr.txt"
           timeout --signal=TERM --kill-after=5s 60s python -B gate-model/src/independent_recheck.py \

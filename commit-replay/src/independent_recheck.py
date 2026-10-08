@@ -654,16 +654,53 @@ def availability_projection(
     }
 
 
+def bind_release_inputs(root: Path, alias: str, version: str, cert: dict[str, Any]) -> dict[str, Any]:
+    """Read one named release once and bind every compiler cell to its source."""
+    if alias not in PROJECTS or version not in VERSIONS:
+        raise ValueError("unknown release identity")
+    if cert.get("project") != alias or cert.get("version") != version:
+        raise ValueError("certificate release identity mismatch")
+    expected = {
+        "source": f"artifact/commit-replay/sources/{alias}/{version}.c",
+        "manifest": f"artifact/commit-replay/manifests/{alias}/{version}.json",
+        "reference": f"artifact/commit-replay/reference/project-{alias}.bin",
+        "integrity_object": f"artifact/commit-replay/integrity-objects/{alias}/{version}.bin",
+    }
+    for name, relative in expected.items():
+        if cert.get(name) != relative:
+            raise ValueError(f"{name} release identity mismatch")
+    cells = cert.get("compiler_cells")
+    if not isinstance(cells, list) or len(cells) != len(TOOLCHAINS):
+        raise ValueError("compiler cell inventory mismatch")
+    seen = set()
+    for cell in cells:
+        if not isinstance(cell, dict):
+            raise ValueError("compiler cell record malformed")
+        key = (cell.get("compiler"), cell.get("optimization"))
+        if key not in TOOLCHAINS or key in seen:
+            raise ValueError("compiler cell identity mismatch")
+        seen.add(key)
+        if cell.get("source_sha256") != cert.get("source_sha256"):
+            raise ValueError("compiler cell source binding mismatch")
+        prefix = f"artifact/commit-replay/build/{alias}/{version}/{key[0]}_{key[1][1:]}"
+        for name, filename in (("executable", "adapter"), ("output", "stdout.bin"), ("assembly", "adapter.s")):
+            if cell.get(name) != f"{prefix}/{filename}":
+                raise ValueError(f"compiler cell {name} identity mismatch")
+    source_bytes = (root / expected["source"]).read_bytes()
+    manifest_bytes = (root / expected["manifest"]).read_bytes()
+    if sha_bytes(source_bytes) != cert.get("source_sha256"):
+        raise ValueError("source snapshot binding mismatch")
+    if sha_bytes(manifest_bytes) != cert.get("manifest_sha256"):
+        raise ValueError("manifest snapshot binding mismatch")
+    return {"source_bytes": source_bytes, "manifest_bytes": manifest_bytes,
+            "source_text": source_bytes.decode("utf-8"),
+            "manifest": json.loads(manifest_bytes.decode("utf-8"))}
+
+
 def recheck(root: Path) -> dict[str, Any]:
     layer = root / "artifact" / "commit-replay"
     environment = read_json(layer / "environment.json")
     errors: list[str] = []
-    for compiler in ("gcc", "clang"):
-        if environment.get(compiler) != compiler_version(compiler):
-            errors.append(f"compiler version mismatch: {compiler}")
-    if environment.get("system") != platform.system() or environment.get("machine") != platform.machine():
-        errors.append("platform mismatch")
-
     references: dict[str, bytes] = {}
     for alias, builder in REFERENCE_FUNCTIONS.items():
         computed = builder()
@@ -676,6 +713,7 @@ def recheck(root: Path) -> dict[str, Any]:
     certificate_hash_validity: dict[tuple[str, str], bool] = {}
     manifests: dict[tuple[str, str], dict[str, Any]] = {}
     sources: dict[tuple[str, str], str] = {}
+    snapshots: dict[tuple[str, str], dict[str, Any]] = {}
     for alias in PROJECTS:
         for version in VERSIONS:
             cert_path = layer / "certificates" / alias / f"{version}.json"
@@ -689,15 +727,31 @@ def recheck(root: Path) -> dict[str, Any]:
             certificate_hash_validity[(alias, version)] = self_hash_valid
             if not self_hash_valid:
                 errors.append(f"invalid certificate self-hash: {alias}/{version}")
+            snapshot = bind_release_inputs(root, alias, version, cert)
             certs[(alias, version)] = cert
-            manifests[(alias, version)] = read_json(manifest_path)
-            sources[(alias, version)] = source_path.read_text(encoding="utf-8")
+            snapshots[(alias, version)] = snapshot
+            manifests[(alias, version)] = snapshot["manifest"]
+            sources[(alias, version)] = snapshot["source_text"]
+
+    if len(snapshots) != len(PROJECTS) * len(VERSIONS):
+        raise ValueError("incomplete release input inventory")
+    for compiler in ("gcc", "clang"):
+        if environment.get(compiler) != compiler_version(compiler):
+            errors.append(f"compiler version mismatch: {compiler}")
+    if environment.get("system") != platform.system() or environment.get("machine") != platform.machine():
+        errors.append("platform mismatch")
 
     reconstructed_by_release: dict[tuple[str, str], dict[str, dict[str, Any]]] = {}
     pass_count = hold_count = reject_count = 0
 
     with tempfile.TemporaryDirectory(prefix="tse01-project-recheck-") as temporary:
         temp = Path(temporary)
+        compilation_sources: dict[tuple[str, str], Path] = {}
+        for (alias, version), snapshot in snapshots.items():
+            path = temp / "sources" / alias / f"{version}.c"
+            path.parent.mkdir(parents=True, exist_ok=True)
+            path.write_bytes(snapshot["source_bytes"])
+            compilation_sources[(alias, version)] = path
 
         def check_cell(task: tuple[str, str, dict[str, Any]]) -> dict[str, Any]:
             alias, version, cell = task
@@ -720,7 +774,7 @@ def recheck(root: Path) -> dict[str, Any]:
                 cell_errors.append("stored execution mismatch")
             fresh = temp / alias / version / f"{compiler}_{optimization[1:]}"
             fresh.parent.mkdir(parents=True, exist_ok=True)
-            compile_fresh(root / cert["source"], fresh, compiler, optimization)
+            compile_fresh(compilation_sources[(alias, version)], fresh, compiler, optimization)
             fresh_rc, fresh_stdout, fresh_stderr = execute(fresh)
             executable_pass = fresh.read_bytes() == executable.read_bytes() and fresh_stdout == stored_stdout and fresh_rc == stored_rc and fresh_stderr == stored_stderr
             behavior_pass = fresh_stdout == references[alias]
@@ -751,9 +805,13 @@ def recheck(root: Path) -> dict[str, Any]:
                 integrity_errors: list[str] = []
                 if not certificate_hash_validity.get((alias, version), False):
                     integrity_errors.append("certificate self-binding")
+                for value, expected, label in [
+                    (snapshots[(alias, version)]["source_bytes"], cert["source_sha256"], "source"),
+                    (snapshots[(alias, version)]["manifest_bytes"], cert["manifest_sha256"], "manifest"),
+                ]:
+                    if sha_bytes(value) != expected:
+                        integrity_errors.append(label)
                 for path, expected, label in [
-                    (source_path, cert["source_sha256"], "source"),
-                    (manifest_path, cert["manifest_sha256"], "manifest"),
                     (reference_path, cert["reference_sha256"], "reference"),
                     (integrity_object_path, cert["integrity_object_sha256"], "integrity object"),
                 ]:
