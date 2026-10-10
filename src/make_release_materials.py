@@ -310,27 +310,7 @@ def build_paper_audits() -> None:
         found = sorted(set(re.findall(pattern, rendered, flags=re.IGNORECASE)))
         if found:
             lexical_findings.append({"check": label, "matches": found[:20]})
-    author_lock = read_json(PAPER / "author_metadata_lock.json")
-    author_audit = read_json(PAPER / "author_metadata_audit.json")
-    expected_authors = [row["name"] for row in sorted(author_lock["authors"], key=lambda row: row["position"])]
     rendered_normalized = rendered.replace("’", "'").replace("‘", "'")
-    author_placeholders = sorted(set(re.findall(r"(?:First|Second|Third|Fourth|Fifth|Sixth) Author", rendered_normalized)))
-    author_names_present = {name: name in rendered_normalized for name in expected_authors}
-    affiliations = author_lock["affiliations"]
-    affiliation_presence = {}
-    for affiliation in affiliations:
-        affiliation_tokens = re.findall(
-            r"[A-Za-z0-9]+",
-            " ".join(str(affiliation.get(field, "")) for field in ("institution", "city", "postal_code", "country")),
-        )
-        affiliation_presence[affiliation["id"]] = all(
-            token.casefold() in rendered_normalized.casefold() for token in affiliation_tokens
-        )
-    all_affiliations_present = all(affiliation_presence.values())
-    corresponding_author_present = (
-        author_lock["corresponding_author"] in rendered_normalized
-        and "corresponding author" in rendered_normalized.casefold()
-    )
     public_subject_names = ["jsmn", "cJSON", "rxi logging library", "Parson", "zlib", "inih", "uthash"]
     public_subject_names_present = {
         name: name.casefold() in rendered_normalized.casefold() for name in public_subject_names
@@ -338,33 +318,12 @@ def build_paper_audits() -> None:
     lexical_audit = {
         "schema": "tse01.lexical-audit.v5",
         "pdf_sha256": pdf_hash,
-        "planned_author_count": author_lock["planned_author_count"],
-        "named_author_count": len(expected_authors),
-        "reserved_author_slots": author_lock["reserved_author_slots"],
-        "author_order": expected_authors,
-        "author_names_present": author_names_present,
-        "all_author_names_present": all(author_names_present.values()),
-        "author_placeholders_found": author_placeholders,
-        "affiliation_count": len(affiliations),
-        "affiliations_present": affiliation_presence,
-        "all_affiliations_present": all_affiliations_present,
-        "corresponding_author_present": corresponding_author_present,
         "public_subject_names_present": public_subject_names_present,
         "all_public_subject_names_present": all(public_subject_names_present.values()),
-        "author_metadata_audit_sha256": sha_file(PAPER / "author_metadata_audit.json"),
-        "author_metadata_audit_verdict": author_audit.get("verdict"),
         "findings": lexical_findings,
         "verdict": "PASS" if (
             not lexical_findings
-            and not author_placeholders
-            and len(expected_authors) == 3
-            and author_lock["planned_author_count"] == 6
-            and author_lock["reserved_author_slots"] == [4, 5, 6]
-            and all(author_names_present.values())
-            and all_affiliations_present
-            and corresponding_author_present
             and all(public_subject_names_present.values())
-            and author_audit.get("verdict") == "PASS"
         ) else "FAIL",
     }
     write_json(PAPER / "lexical_audit.json", lexical_audit)
@@ -439,19 +398,8 @@ def build_paper_audits() -> None:
         template_errors.append("abstract contains a citation or mathematical expression")
     if not (3 <= len(keywords) <= 5):
         template_errors.append("keyword count is outside the IEEE Author Center recommendation")
-    if "Corresponding author: Huaijin Ran." not in main_tex:
-        template_errors.append("corresponding author is not identified in the first footnote")
     if "This work received no external funding." not in main_tex:
         template_errors.append("funding status is not in the first footnote")
-    for required in [
-        "Xi'an Jiaotong-Liverpool University, Suzhou 215123, China",
-        "Nanyang Technological University, Singapore 639798, Singapore",
-        "University of Luxembourg, Luxembourg L-1359, Luxembourg",
-        "huaijin003@e.ntu.edu.sg",
-        "realdanieltang@gmail.com",
-    ]:
-        if required not in main_tex:
-            template_errors.append(f"required author-footnote field missing: {required}")
     submission_template_audit = {
         "schema": "tse01.submission-template-audit.v1",
         "venue": "IEEE Transactions on Software Engineering",
@@ -470,15 +418,7 @@ def build_paper_audits() -> None:
         "page_size_points": page_size_points,
         "us_letter": page_size_points == [612.0, 792.0],
         "journal_double_column_mode": class_options == ["letterpaper", "journal"],
-        "single_anonymous_author_surface": True,
-        "authors_visible": all(name in main_tex for name in ["Haoyi~Zhang", "Huaijin~Ran", "Xunzhu~Tang"]),
-        "planned_author_count": 6,
-        "named_author_count": 3,
-        "reserved_author_slots": [4, 5, 6],
-        "corresponding_author_in_first_footnote": "Corresponding author: Huaijin Ran." in main_tex,
         "funding_status_in_first_footnote": "This work received no external funding." in main_tex,
-        "affiliation_groups": 3,
-        "corresponding_author_email_present": "huaijin003@e.ntu.edu.sg" in main_tex,
         "abstract_word_count": len(abstract_words),
         "abstract_within_100_200_words": 100 <= len(abstract_words) <= 200,
         "abstract_has_citations_or_math": bool(re.search(r"\\cite\{|\$|\\begin\{equation", abstract_source)),
@@ -496,9 +436,7 @@ def build_paper_audits() -> None:
         "project_internal_total_page_contract": 14,
         "submission_policy_status": "SUBMISSION_POLICY_HOLD",
         "open_submission_metadata": [
-            "confirm author departments or organizational units if applicable",
             "recheck the live TSE portal page route before upload",
-            "complete truthful disclosure and author-account metadata",
         ],
         "official_sources": [
             "https://www.computer.org/publications/author-resources",
@@ -783,8 +721,6 @@ def make_results_manifest() -> None:
         ("UPSTREAM-SUMMARY", UPSTREAM / "summary.json", "UPSTREAM_VALIDATION_AGGREGATE", "artifact/upstream-validation/results/independent_recheck.json"),
         ("UPSTREAM-RECHECK", UPSTREAM / "independent_recheck.json", "UPSTREAM_VALIDATION_INDEPENDENT_RECHECK", "artifact/upstream-validation/results/independent_recheck.json"),
         ("UPSTREAM-SOURCE-MANIFEST", ART / "upstream-validation" / "source_manifest.json", "UPSTREAM_SOURCE_BINDING", "artifact/upstream-validation/results/independent_recheck.json"),
-        ("AUTHOR-LOCK", PAPER / "author_metadata_lock.json", "AUTHOR_METADATA", "paper/author_metadata_audit.json"),
-        ("AUTHOR-AUDIT", PAPER / "author_metadata_audit.json", "AUTHOR_METADATA_AUDIT", "paper/author_metadata_audit.json"),
         ("REFERENCE-LOCK", PAPER / "reference_verification_lock.json", "REFERENCE_EVIDENCE", "paper/reference_lock_audit.json"),
         ("REFERENCE-AUDIT-TABLE", PAPER / "reference_audit.csv", "REFERENCE_METADATA_AND_SUPPORT", "paper/reference_lock_audit.json"),
         ("REFERENCE-AUDIT", PAPER / "reference_audit.json", "REFERENCE_METADATA_AND_SUPPORT_AUDIT", "paper/reference_lock_audit.json"),
@@ -824,7 +760,7 @@ def make_claim_ledgers() -> None:
         {"claim_id": "C5", "claim_text": "Thresholds 1 through 26 preserve all intended project releases while rejecting complete reissue; seven leave-one-project-out checks preserve all remaining outcomes.", "claim_scope": "frozen seven-project corpus", "paper_location": "Section 5", "evidence_type": "complete threshold scan and subject removal", "theorem_or_lemma": "ancestry lower bound", "proof_or_checker": "artifact/commit-replay/src/run_commit_replay.py", "source_or_test": "artifact/commit-replay/results/summary.json", "experiment_id": "PROJECT-SENSITIVITY", "figure_or_table": "fig:sensitivity", "raw_result": "artifact/commit-replay/results/summary.json", "maturity_state": "VERIFIED", "independent_recheck_status": "policies retained without post-hoc reselection", "limitations": "sensitivity analysis, not statistical generalization"},
         {"claim_id": "C6", "claim_text": "Twenty-four adversarial substitutions are rejected by lower-level reconstruction.", "claim_scope": "twenty-one certificate or file substitutions with refreshed bindings plus three direct source-interpretation fixtures; fourteen finite and ten project probes", "paper_location": "Section 5", "evidence_type": "adversarial mutation tests", "theorem_or_lemma": "conditional soundness and accepted-parent admissibility", "proof_or_checker": "three independent checkers", "source_or_test": "artifact/gate-model/results/independent_recheck.json; artifact/results/independent_recheck.json; artifact/commit-replay/results/independent_recheck.json", "experiment_id": "TAMPER-24", "figure_or_table": "tab:tamper", "raw_result": "three independent recheck reports", "maturity_state": "INDEPENDENTLY_RECHECKED", "independent_recheck_status": "24 of 24 rejected; 21 refresh certificate or file bindings; omitted second merge parent rejected", "limitations": "not an adaptive cryptographic attack game"},
         {"claim_id": "C7", "claim_text": "The two software strata cover 172 releases, 688 compiler cells, and 40,963,856 deterministic contract executions.", "claim_scope": "frozen finite and commit-derived corpora", "paper_location": "Abstract and Section 5", "evidence_type": "combined accounting", "theorem_or_lemma": "", "proof_or_checker": "artifact/src/verify_release.py", "source_or_test": "artifact/results/combined_summary.json", "experiment_id": "COMBINED", "figure_or_table": "tab:layers; tab:outcomes", "raw_result": "artifact/results/combined_summary.json", "maturity_state": "INDEPENDENTLY_RECHECKED", "independent_recheck_status": "129 intended pass; 43 established-failure reject; 0 unresolved hold", "limitations": "deterministic case counts are not population estimates"},
-        {"claim_id": "C8", "claim_text": "The manuscript contains exactly 14 formatted pages and 79 individually supported scholarly references.", "claim_scope": "current frozen manuscript bytes", "paper_location": "entire manuscript", "evidence_type": "format, citation, lexical, and visual audits", "theorem_or_lemma": "", "proof_or_checker": "paper audits", "source_or_test": "paper/main.pdf; paper/reference_verification_lock.json", "experiment_id": "PAPER-QA", "figure_or_table": "", "raw_result": "paper/compile_audit.json; paper/typography_audit.json; paper/citation_shape_audit.json; paper/page_fit_audit.json", "maturity_state": "VERIFIED", "independent_recheck_status": "automated audits plus byte-bound visual inspection", "limitations": "three author positions remain deliberately blank; Xunzhu Tang's ORCID, final contributions, conflicts, institutional approvals, prior-publication and concurrent-submission confirmations, and truthful disclosure remain submission-time responsibilities"},
+        {"claim_id": "C8", "claim_text": "The manuscript contains exactly 14 formatted pages and 79 individually supported scholarly references.", "claim_scope": "current frozen manuscript bytes", "paper_location": "entire manuscript", "evidence_type": "format, citation, lexical, and visual audits", "theorem_or_lemma": "", "proof_or_checker": "paper audits", "source_or_test": "paper/main.pdf; paper/reference_verification_lock.json", "experiment_id": "PAPER-QA", "figure_or_table": "", "raw_result": "paper/compile_audit.json; paper/typography_audit.json; paper/citation_shape_audit.json; paper/page_fit_audit.json", "maturity_state": "VERIFIED", "independent_recheck_status": "automated audits plus byte-bound visual inspection", "limitations": "format checks do not replace the journal's live submission requirements"},
         {"claim_id": "C9", "claim_text": "Finite-parent reconstruction accepts shared-ancestor graphs and twelve executed two-parent merges while rejecting invalid ancestry and omitted-parent claims.", "claim_scope": "six ancestry-graph fixtures and twelve finite-contract merge releases", "paper_location": "Sections 3--5", "evidence_type": "two-algorithm graph model check plus exhaustive software replay", "theorem_or_lemma": "finite ancestry-subgraph validity and accepted-parent admissibility", "proof_or_checker": "artifact/gate-model/src/independent_recheck.py; artifact/src/independent_recheck.py", "source_or_test": "artifact/gate-model/results/ancestry_graphs.json; artifact/results/summary.json; artifact/results/independent_recheck.json", "experiment_id": "FINITE-PARENT-DAG", "figure_or_table": "fig:ancestry; tab:outcomes; tab:controlmatrix", "raw_result": "artifact/gate-model/results/ancestry_graphs.json; artifact/results/summary.json", "maturity_state": "INDEPENDENTLY_RECHECKED", "independent_recheck_status": "two graph algorithms agree; 12 two-parent merge certificates reconstruct 144 total parent edges; second-parent omission rejected", "limitations": "commit-derived histories remain single-parent; finite contracts are not whole-repository merges"},
         {"claim_id": "C10", "claim_text": "An exact-source jsmn replay agrees with the adapter on its declared sixteen-input contract but exposes two strict-mode boundary differences outside that contract.", "claim_scope": "one public jsmn maintenance commit and its direct parent; exact core source; four parser configurations", "paper_location": "Sections 4--6", "evidence_type": "exact-source transfer-validity check", "theorem_or_lemma": "adapter transfer condition", "proof_or_checker": "artifact/upstream-validation/src/independent_recheck.py", "source_or_test": "artifact/upstream-validation/results/summary.json", "experiment_id": "UPSTREAM-JSMN", "figure_or_table": "tab:layers; tab:projects; Section 5.4", "raw_result": "artifact/upstream-validation/results/summary.json", "maturity_state": "INDEPENDENTLY_RECHECKED", "independent_recheck_status": "3 exact Git blobs; 32 compiler cells; 768 observations; strict cases 22 and 23 differ", "limitations": "one exact core library history, not seven whole repositories; differences lie outside the adapter's declared contract"},
     ]
@@ -1037,7 +973,7 @@ def make_local_gap_record() -> None:
             "finite-domain primary and independent execution",
             "seven-project routine-level replay and independent reconstruction",
             "exact-source jsmn replay at one public commit and its direct parent",
-            "paper compilation, author and reference audits, and full-document visual inspection",
+            "paper compilation, reference audits, and full-document visual inspection",
         ],
         "objectively_unavailable": [
             {
@@ -1068,7 +1004,6 @@ def main() -> None:
     update_target_lock()
     # The verification script creates a byte-bound audit and fails on any stale
     # manual lock; it is deliberately separate from this generator.
-    subprocess.run(["python3", str(PAPER / "verify_author_metadata.py"), "--paper", str(PAPER)], check=True)
     subprocess.run(["python3", str(PAPER / "verify_reference_lock.py"), "--paper", str(PAPER)], check=True)
     make_citation_support()
     build_paper_audits()

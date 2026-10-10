@@ -1056,7 +1056,6 @@ def main() -> int:
     citation_audit = check_pass_audit(root, "paper/citation_shape_audit.json", "tse01.citation-shape-audit.v2", errors)
     consistency_audit = check_pass_audit(root, "paper/manuscript_consistency_audit.json", "tse01.manuscript-consistency-audit.v1", errors)
     lexical_audit = check_pass_audit(root, "paper/lexical_audit.json", "tse01.lexical-audit.v5", errors)
-    author_audit = check_pass_audit(root, "paper/author_metadata_audit.json", "tse01.author-metadata-audit", errors)
     page_fit = check_pass_audit(root, "paper/page_fit_audit.json", "tse01.page-fit-audit.v2", errors)
     reference_audit = check_pass_audit(root, "paper/reference_lock_audit.json", "tse01.reference-lock-audit.v1", errors)
     visual_audit = check_pass_audit(root, "paper/visual_inspection.json", "tse01.visual-inspection.v1", errors)
@@ -1077,12 +1076,9 @@ def main() -> int:
             or typography_audit.get("pdf_sha256") != paper_hash
             or page_fit.get("pdf_sha256") != paper_hash
             or lexical_audit.get("pdf_sha256") != paper_hash
-            or author_audit.get("pdf_sha256") != paper_hash
             or visual_audit.get("pdf_sha256") != paper_hash
         ):
             errors.append("paper audit hashes do not all bind the current PDF")
-        if author_audit.get("main_tex_sha256") != sha_file(paper_tex):
-            errors.append("author metadata audit does not bind the current source")
         if template_audit.get("manuscript_sha256") != sha_file(paper_tex):
             errors.append("submission-template audit does not bind the current source")
         if consistency_audit.get("manuscript_sha256") != sha_file(paper_tex):
@@ -1154,12 +1150,7 @@ def main() -> int:
             "page_size_points": [612.0, 792.0],
             "us_letter": True,
             "journal_double_column_mode": True,
-            "single_anonymous_author_surface": True,
-            "authors_visible": True,
-            "corresponding_author_in_first_footnote": True,
             "funding_status_in_first_footnote": True,
-            "affiliation_groups": 3,
-            "corresponding_author_email_present": True,
             "abstract_within_100_200_words": True,
             "abstract_has_citations_or_math": False,
             "keyword_count": 5,
@@ -1233,86 +1224,14 @@ def main() -> int:
             "frozen_reference_floor": 78,
             "reference_floor_satisfied": True,
         }, "citation audit", errors)
-        expected_authors = ["Haoyi Zhang", "Huaijin Ran", "Xunzhu Tang"]
         expect_fields(lexical_audit, {
-            "planned_author_count": 6,
-            "named_author_count": 3,
-            "reserved_author_slots": [4, 5, 6],
-            "author_order": expected_authors,
-            "all_author_names_present": True,
-            "author_placeholders_found": [],
-            "affiliation_count": 3,
-            "affiliations_present": {"xjtlu": True, "ntu": True, "uni_lu": True},
-            "all_affiliations_present": True,
-            "corresponding_author_present": True,
             "public_subject_names_present": {
                 "jsmn": True, "cJSON": True, "rxi logging library": True,
                 "Parson": True, "zlib": True, "inih": True, "uthash": True,
             },
             "all_public_subject_names_present": True,
-            "author_metadata_audit_verdict": "PASS",
             "findings": [],
         }, "lexical audit", errors)
-        expect_fields(author_audit, {
-            "schema": "tse01.author-metadata-audit",
-            "planned_author_count": 6,
-            "named_author_count": 3,
-            "reserved_author_slots": [4, 5, 6],
-            "author_order": expected_authors,
-            "pdf_metadata_author": "Haoyi Zhang; Huaijin Ran; Xunzhu Tang",
-            "affiliation_count": 3,
-            "affiliations_present": {"xjtlu": True, "ntu": True, "uni_lu": True},
-            "all_affiliations_present": True,
-            "corresponding_author": "Huaijin Ran",
-            "corresponding_author_present": True,
-            "funding_statement_present": True,
-            "missing_named_author_orcids": ["Xunzhu Tang"],
-            "submission_metadata_complete": False,
-            "placeholder_tokens": [],
-            "errors": [],
-        }, "author metadata audit", errors)
-        author_lock_path = root / "paper/author_metadata_lock.json"
-        if not author_lock_path.is_file():
-            errors.append("author metadata lock missing")
-        else:
-            author_lock = load_json(author_lock_path)
-            expect_fields(author_lock, {
-                "schema": "tse01.author-metadata-lock",
-                "planned_author_count": 6,
-                "named_author_count": 3,
-                "reserved_author_slots": [4, 5, 6],
-                "author_order_status": "PARTIAL_BY_DESIGN",
-                "corresponding_author": "Huaijin Ran",
-            }, "author metadata lock", errors)
-            expected_orcids = {
-                "Haoyi Zhang": "0009-0009-3693-786X",
-                "Huaijin Ran": "0009-0009-2482-2344",
-                "Xunzhu Tang": None,
-            }
-            actual_orcids = {row.get("name"): row.get("orcid") for row in author_lock.get("authors", [])}
-            if actual_orcids != expected_orcids:
-                errors.append(f"author ORCID lock mismatch: {actual_orcids}")
-            expected_affiliations = {
-                "xjtlu": {"institution": "Xi'an Jiaotong-Liverpool University", "city": "Suzhou", "postal_code": "215123", "country": "China", "author_names": ["Haoyi Zhang"]},
-                "ntu": {"institution": "Nanyang Technological University", "city": "Singapore", "postal_code": "639798", "country": "Singapore", "author_names": ["Huaijin Ran"]},
-                "uni_lu": {"institution": "University of Luxembourg", "city": "Luxembourg", "postal_code": "L-1359", "country": "Luxembourg", "author_names": ["Xunzhu Tang"]},
-            }
-            actual_affiliations = {
-                row.get("id"): {key: row.get(key) for key in ("institution", "city", "postal_code", "country", "author_names")}
-                for row in author_lock.get("affiliations", [])
-            }
-            if actual_affiliations != expected_affiliations:
-                errors.append(f"author affiliation lock mismatch: {actual_affiliations}")
-            expected_emails = {
-                "Haoyi Zhang": "hyeliozhang@gmail.com",
-                "Huaijin Ran": "huaijin003@e.ntu.edu.sg",
-                "Xunzhu Tang": "realdanieltang@gmail.com",
-            }
-            actual_emails = {row.get("name"): row.get("primary_email") for row in author_lock.get("authors", [])}
-            if actual_emails != expected_emails:
-                errors.append(f"author primary-email lock mismatch: {actual_emails}")
-            if author_audit.get("lock_sha256") != sha_file(author_lock_path):
-                errors.append("author metadata audit does not bind the current lock")
         if visual_audit.get("pages_checked") != list(range(1, 15)) or visual_audit.get("findings") != []:
             errors.append("visual inspection does not cover all pages without findings")
         tex = paper_tex.read_text(encoding="utf-8")

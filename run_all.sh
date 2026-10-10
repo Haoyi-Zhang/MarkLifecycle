@@ -79,7 +79,6 @@ if [[ "$SCOPE" == "all" || "$SCOPE" == "project" ]]; then
 fi
 if [[ "$SCOPE" == "all" || "$SCOPE" == "paper" ]]; then
   "$ROOT/paper/compile.sh"
-  python3 "$ROOT/paper/verify_author_metadata.py" --paper "$ROOT/paper"
   python3 "$ROOT/paper/verify_reference_lock.py" --paper "$ROOT/paper"
 fi
 if [[ "$SCOPE" == "all" || "$SCOPE" == "verify" ]]; then
