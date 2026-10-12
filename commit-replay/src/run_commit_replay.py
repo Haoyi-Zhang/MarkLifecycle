@@ -768,10 +768,8 @@ def continuity(current_source: str, current_manifest: dict[str, Any], parent_sou
     }
     if parent_source is None or parent_manifest is None:
         return {"status": "GENESIS", "preserved": 28, "required": TRACE_THRESHOLD, "passed": True}
-    parent_observed, _ = parse_carriers(parent_source, parent_manifest)
     parent_ids = {
-        parent_manifest["carriers"][i]["carrier_id"]
-        for i, bit in enumerate(parent_observed) if bit is not None
+        carrier["carrier_id"] for carrier in parent_manifest["carriers"]
     }
     count = len(current_ids & parent_ids)
     return {"status": "MEASURED", "preserved": count, "required": TRACE_THRESHOLD, "passed": count >= TRACE_THRESHOLD}

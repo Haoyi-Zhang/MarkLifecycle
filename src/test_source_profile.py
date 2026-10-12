@@ -180,6 +180,27 @@ class SourceProfileTests(unittest.TestCase):
                 self.assertEqual(finite["relations"], project["relations"])
                 self.assertEqual(finite["verdict"], project["decision"])
 
+    def test_parent_continuity_counts_issued_inventory(self):
+        # Reuse existing bytes as a relation-module fixture only. This does
+        # not create a release or assert that after follows tolerated.
+        for subject in PROJECT_CHECKER.PROJECTS:
+            current_path, current_manifest_path = fixture("project", subject, "after")
+            parent_path, parent_manifest_path = fixture("project", subject, "tolerated")
+            current = current_path.read_text(encoding="utf-8")
+            parent = parent_path.read_text(encoding="utf-8")
+            current_manifest = read_json(current_manifest_path)
+            parent_manifest = read_json(parent_manifest_path)
+            with self.subTest(subject=subject):
+                self.assertEqual(len(PROJECT_CHECKER.visible_ids(parent, parent_manifest)), 26)
+                self.assertEqual(len(PROJECT_CHECKER.visible_ids(current, current_manifest)), 28)
+                expected = len(PROJECT_CHECKER.issued_ids(parent_manifest) &
+                               PROJECT_CHECKER.visible_ids(current, current_manifest))
+                self.assertEqual(expected, 28)
+                result = PROJECT_PRIMARY.continuity(
+                    current, current_manifest, parent, parent_manifest)
+                self.assertEqual(result["preserved"], expected)
+                self.assertTrue(result["passed"])
+
     def test_current_policy_binding_accepts_same_policy_not_migration(self):
         layer = ROOT / "artifact/commit-replay"
         environment = read_json(layer / "environment.json")

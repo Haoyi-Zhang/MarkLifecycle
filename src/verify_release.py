@@ -50,11 +50,13 @@ EXPECTED_RESULT_AGGREGATES = {
 }
 REVIEW_ROOT_ENTRIES = {"paper", "artifact", "REVIEW_PACKET_MANIFEST.json"}
 BASE_MANIFEST_EXCLUSIONS = {
+    "README.md",
     "artifact/release_manifest.json",
     "artifact/results/release_audit.json",
     "REVIEW_PACKET_MANIFEST.json",
 }
 REVIEW_MANIFEST_EXCLUSIONS = {
+    "README.md",
     "REVIEW_PACKET_MANIFEST.json",
     "artifact/results/release_audit.json",
 }

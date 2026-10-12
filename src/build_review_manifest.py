@@ -8,6 +8,7 @@ import json
 from pathlib import Path
 
 EXCLUDED_PATHS = {
+    "README.md",
     "REVIEW_PACKET_MANIFEST.json",
     "artifact/results/release_audit.json",
 }

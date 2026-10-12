@@ -96,7 +96,7 @@ any retained release, tamper, or availability-projection denominator.
 
 The text-only source-profile suite runs with
 `python -B -m unittest discover -s src -p 'test_source_profile.py' -v` from this
-directory. Its nine methods compare primary and independent source analysis on
+directory. Its ten methods compare primary and independent source analysis on
 all 172 current source/manifest pairs, test all 2,187 typed vectors and sixteen
 availability projections, and check current same-policy and incompatible-parent
 bindings. A single optional file-leading UTF-8 BOM is blanked in the lexical
@@ -110,6 +110,12 @@ records and invalidation on source, manifest, module, or policy changes. The
 cache exists only in the test harness; this is neither a full-certificate
 incremental verifier nor an executed policy migration or timing result. The
 suite forbids external-process creation and adds no compiler cells or releases.
+
+The metadata-only packaging regressions run with
+`python -B -m unittest discover -s src -p 'test_packaging_contract.py' -v`.
+Only the optional root `README.md` is outside exact manifest membership;
+`paper/README.md`, `artifact/README.md`, and research files remain required and
+byte-bound. The same rule applies to full releases and review manifests.
 
 `.github/workflows/scientific-checks.yml` is designed for this artifact directory
 as a flat repository root. On pushes to `main` or a manual dispatch, it generates

@@ -1001,7 +1001,7 @@ def make_local_gap_record() -> None:
 
 
 def make_release_manifest() -> None:
-    exclusions = {"artifact/release_manifest.json", "artifact/results/release_audit.json", "REVIEW_PACKET_MANIFEST.json"}
+    exclusions = {"README.md", "artifact/release_manifest.json", "artifact/results/release_audit.json", "REVIEW_PACKET_MANIFEST.json"}
     files = []
     for path in sorted(ROOT.rglob("*")):
         if not path.is_file() or path.is_symlink():

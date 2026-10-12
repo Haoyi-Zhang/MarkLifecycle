@@ -5,6 +5,7 @@ import copy
 import importlib.util
 import contextlib
 import io
+import json
 import shutil
 import sys
 import tempfile
@@ -15,6 +16,7 @@ from unittest.mock import patch
 import packaging_contract as contract
 import verify_release as verifier
 import build_review_manifest
+import make_release_materials as materials
 
 ROOT = Path(__file__).resolve().parents[2]
 spec = importlib.util.spec_from_file_location("packaging_reference_refresh", ROOT / "paper/refresh_reference_lock.py")
@@ -44,10 +46,10 @@ class PackagingContractTests(unittest.TestCase):
         # Copy inert evidence only. No executable, compiler or archive entrypoint
         # is launched; setUp forbids all external process creation. The copied
         # snapshot needs current packaging hashes, just like a delivered ZIP.
-        with tempfile.TemporaryDirectory(prefix=".packaging-test-", dir=ROOT) as directory:
+        with tempfile.TemporaryDirectory(prefix="pkg-") as directory:
             temporary = Path(directory).resolve()
-            self.assertTrue(temporary.is_relative_to(ROOT))
-            bundle = temporary / "arbitrary project extraction with spaces"
+            self.assertFalse(temporary.is_relative_to(ROOT))
+            bundle = temporary / "renamed bundle"
             bundle.mkdir()
             for name in ("paper", "artifact"):
                 shutil.copytree(ROOT / name, bundle / name)
@@ -82,6 +84,70 @@ class PackagingContractTests(unittest.TestCase):
         row["sha256"] = "0" * 64
         self.assertEqual(verifier.validate_hash_rows(root=ROOT, rows=[row], expected_paths={rel}, label="test", errors=errors), (1, 1))
         self.assertTrue(errors)
+
+    def owned_membership_fixture(self, root):
+        for relative, content in {
+            "paper/README.md": b"Owned paper overview.\n",
+            "artifact/README.md": b"Owned artifact overview.\n",
+            "paper/research.txt": b"Owned research record.\n",
+            "artifact/records.json": b'{"owned": true}\n',
+        }.items():
+            target = root / relative
+            target.parent.mkdir(parents=True, exist_ok=True)
+            target.write_bytes(content)
+        with patch.object(materials, "ROOT", root), patch.object(materials, "ART", root / "artifact"):
+            materials.make_release_manifest()
+        return json.loads((root / "artifact/release_manifest.json").read_text(encoding="utf-8"))["files"]
+
+    def membership_errors(self, root, rows):
+        expected = {path.relative_to(root).as_posix() for path in root.rglob("*")
+                    if path.is_file()} - verifier.BASE_MANIFEST_EXCLUSIONS
+        errors = []
+        verifier.validate_hash_rows(root=root, rows=rows, expected_paths=expected,
+                                    label="owned membership", errors=errors)
+        return errors
+
+    def test_only_root_overview_is_optional_in_exact_membership(self):
+        with tempfile.TemporaryDirectory(prefix="packaging-membership-") as directory:
+            root = Path(directory)
+            rows = self.owned_membership_fixture(root)
+            self.assertFalse(self.membership_errors(root, rows))
+            (root / "README.md").write_bytes(b"Owned optional overview.\n")
+            self.assertFalse(self.membership_errors(root, rows))
+            with patch.object(materials, "ROOT", root), patch.object(materials, "ART", root / "artifact"):
+                materials.make_release_manifest()
+            current = json.loads((root / "artifact/release_manifest.json").read_text(encoding="utf-8"))["files"]
+            self.assertEqual(current, rows)
+            self.assertNotIn("README.md", {row["path"] for row in current})
+            self.assertEqual(verifier.REVIEW_MANIFEST_EXCLUSIONS, build_review_manifest.EXCLUDED_PATHS)
+            with contextlib.redirect_stdout(io.StringIO()), patch.object(sys, "argv", ["build_review_manifest.py", "--root", str(root)]):
+                self.assertEqual(build_review_manifest.main(), 0)
+            review = json.loads((root / "REVIEW_PACKET_MANIFEST.json").read_text(encoding="utf-8"))
+            self.assertNotIn("README.md", {row["path"] for row in review["files"]})
+            self.assertIn("paper/README.md", {row["path"] for row in review["files"]})
+            self.assertIn("artifact/README.md", {row["path"] for row in review["files"]})
+
+    def test_nested_readmes_remain_required_and_byte_bound(self):
+        for relative in ("paper/README.md", "artifact/README.md"):
+            with self.subTest(relative=relative), tempfile.TemporaryDirectory(prefix="packaging-membership-") as directory:
+                root = Path(directory)
+                rows = self.owned_membership_fixture(root)
+                target = root / relative
+                target.write_bytes(b"Changed owned overview.\n")
+                self.assertTrue(self.membership_errors(root, rows))
+                target.unlink()
+                self.assertTrue(self.membership_errors(root, rows))
+
+    def test_research_files_remain_required_and_byte_bound(self):
+        for relative in ("paper/research.txt", "artifact/records.json"):
+            with self.subTest(relative=relative), tempfile.TemporaryDirectory(prefix="packaging-membership-") as directory:
+                root = Path(directory)
+                rows = self.owned_membership_fixture(root)
+                target = root / relative
+                target.write_bytes(b"Changed owned inert record.\n")
+                self.assertTrue(self.membership_errors(root, rows))
+                target.unlink()
+                self.assertTrue(self.membership_errors(root, rows))
 
     def test_truthful_disclosures_and_licensed_citations_are_allowed(self):
         text = "Generated-content disclosure: ChatGPT (OpenAI) assisted drafting. The cited OpenAI chain of thought material is licensed."

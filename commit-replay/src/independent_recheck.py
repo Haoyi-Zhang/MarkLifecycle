@@ -366,6 +366,11 @@ def visible_ids(source: str, manifest: dict[str, Any]) -> set[str]:
     return {manifest["carriers"][i]["carrier_id"] for i, value in enumerate(observed) if value is not None}
 
 
+def issued_ids(manifest: dict[str, Any]) -> set[str]:
+    """Parent continuity uses the issued inventory, not parent observations."""
+    return {carrier["carrier_id"] for carrier in manifest["carriers"]}
+
+
 def reference_a() -> bytes:
     output = bytearray()
     for text in A_CASES:
@@ -858,7 +863,7 @@ def recheck(root: Path) -> dict[str, Any]:
                         and policy_compatible
                     )
                 else:
-                    parent_ids = visible_ids(sources[(alias, parent_version)], manifests[(alias, parent_version)])
+                    parent_ids = issued_ids(manifests[(alias, parent_version)])
                     current_ids = visible_ids(source_text, manifest)
                     preserved = len(parent_ids & current_ids)
                     continuity_pass = preserved >= TRACE_THRESHOLD
