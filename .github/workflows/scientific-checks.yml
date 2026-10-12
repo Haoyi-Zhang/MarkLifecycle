@@ -28,8 +28,11 @@ jobs:
           ulimit -n 256
           ulimit -f 262144
           evidence="$RUNNER_TEMP/p035-scientific"
-          mkdir -p "$evidence/logs" "$evidence/flat-root"
-          ln -s "$GITHUB_WORKSPACE" "$evidence/flat-root/artifact"
+          mkdir -p "$evidence/logs" "$evidence/flat-root/artifact"
+          # The source-profile suite uses the documented paper/artifact layout.
+          # A symlink resolves back to the flattened checkout and loses that root.
+          cp -a "$GITHUB_WORKSPACE/." "$evidence/flat-root/artifact/"
+          cd "$evidence/flat-root/artifact"
           timeout --signal=TERM --kill-after=5s 30s python -B -m unittest discover \
             -s src -p 'test_source_profile.py' -v \
             > "$evidence/logs/source-profile.stdout.txt" 2> "$evidence/logs/source-profile.stderr.txt"
