@@ -12,9 +12,9 @@
       "sha256": "277c22ec61adcb9aefa2fde3ee2a38f498ae9f0cc9cebee3739052deb5dc38ff"
     },
     {
-      "bytes": 3117,
+      "bytes": 3336,
       "path": "artifact/.github/workflows/scientific-checks.yml",
-      "sha256": "94982aa1f213b9af3f8665318abf68fb3ff71917c71699bcf3e6b192fc66535b"
+      "sha256": "f5e5bd9304eee5c1f143da5e4c99575127991a27d233c2631c8950ad2b1c62a5"
     },
     {
       "bytes": 1914,
