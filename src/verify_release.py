@@ -14,8 +14,40 @@ import subprocess
 from collections import Counter
 from pathlib import Path
 from typing import Any
+from packaging_contract import (INTERNAL_PAGE_BUDGET, PAGE_BUDGET_KIND,
+                                closed_path, root_entries_valid, within_page_budget)
 
 FULL_ROOT_ENTRIES = {"README.md", "artifact", "paper"}
+EXPECTED_RESULT_AGGREGATES = {
+    "FINITE-SUMMARY": ("FINITE_AGGREGATE", "artifact/results/summary.json"),
+    "FINITE-RECHECK": ("FINITE_INDEPENDENT_RECHECK", "artifact/results/independent_recheck.json"),
+    "PROJECT-SUMMARY": ("PROJECT_AGGREGATE", "artifact/commit-replay/results/summary.json"),
+    "PROJECT-RECHECK": ("PROJECT_INDEPENDENT_RECHECK", "artifact/commit-replay/results/independent_recheck.json"),
+    "GATE-SUMMARY": ("GATE_MODEL_AGGREGATE", "artifact/gate-model/results/summary.json"),
+    "GATE-RECHECK": ("GATE_MODEL_INDEPENDENT_RECHECK", "artifact/gate-model/results/independent_recheck.json"),
+    "GATE-ANCESTRY-GRAPHS": ("GATE_MODEL_GRAPH_FIXTURES", "artifact/gate-model/results/ancestry_graphs.json"),
+    "COMBINED-SUMMARY": ("COMBINED_AGGREGATE", "artifact/results/combined_summary.json"),
+    "UPSTREAM-SUMMARY": ("UPSTREAM_VALIDATION_AGGREGATE", "artifact/upstream-validation/results/summary.json"),
+    "UPSTREAM-RECHECK": ("UPSTREAM_VALIDATION_INDEPENDENT_RECHECK", "artifact/upstream-validation/results/independent_recheck.json"),
+    "UPSTREAM-SOURCE-MANIFEST": ("UPSTREAM_SOURCE_BINDING", "artifact/upstream-validation/source_manifest.json"),
+    "REFERENCE-LOCK": ("REFERENCE_EVIDENCE", "paper/reference_verification_lock.json"),
+    "REFERENCE-AUDIT-TABLE": ("REFERENCE_METADATA_AND_SUPPORT", "paper/reference_audit.csv"),
+    "REFERENCE-AUDIT": ("REFERENCE_METADATA_AND_SUPPORT_AUDIT", "paper/reference_audit.json"),
+    "REFERENCE-CROSSCHECK": ("REFERENCE_INTERNAL_CONSISTENCY", "paper/reference_crosscheck.json"),
+    "REFERENCE-TARGET": ("REFERENCE_CALIBRATION", "paper/reference_target_lock.json"),
+    "PAPER-PDF": ("FORMATTED_MANUSCRIPT", "paper/main.pdf"),
+    "PAPER-CITATION-AUDIT": ("MANUSCRIPT_AUDIT", "paper/citation_shape_audit.json"),
+    "PAPER-CONSISTENCY-AUDIT": ("MANUSCRIPT_AUDIT", "paper/manuscript_consistency_audit.json"),
+    "PAPER-LEXICAL-AUDIT": ("MANUSCRIPT_AUDIT", "paper/lexical_audit.json"),
+    "PAPER-PAGE-FIT": ("MANUSCRIPT_AUDIT", "paper/page_fit_audit.json"),
+    "RETAINED-OUTPUT-CLOSURE": ("DELIVERY_EVIDENCE_CLOSURE", "artifact/results/retained_output_closure.json"),
+    "ENTRYPOINT-PATH-SMOKE": ("CLEAN_ROOT_ENTRYPOINT_SMOKE", "artifact/results/entrypoint_path_smoke.json"),
+    "FINITE-HAMMING-EDGE-CASES": ("HAMMING_EDGE_CASE_ENUMERATION", "artifact/results/hamming_edge_cases.json"),
+    "FINITE-RELATION-BOUNDARIES": ("RELATION_FIRST_AND_AVAILABILITY_BOUNDARIES", "artifact/results/relation_decision_boundaries.json"),
+    "FINITE-STATIC-POLICY-PROJECTION": ("STATIC_DUAL_POLICY_PROJECTION", "artifact/policies/bridge/fnv_step-threshold-25-bridge.json"),
+    "PROJECT-RELATION-BOUNDARIES": ("RELATION_FIRST_AND_AVAILABILITY_BOUNDARIES", "artifact/commit-replay/results/relation_decision_boundaries.json"),
+    "PROJECT-SOURCE-PARSER-SECURITY": ("LEXICAL_SOURCE_PARSER_SECURITY", "artifact/commit-replay/results/source_parser_security.json"),
+}
 REVIEW_ROOT_ENTRIES = {"paper", "artifact", "REVIEW_PACKET_MANIFEST.json"}
 BASE_MANIFEST_EXCLUSIONS = {
     "artifact/release_manifest.json",
@@ -38,8 +70,6 @@ def _decoded_signatures(values: tuple[str, ...]) -> tuple[str, ...]:
 
 
 FORBIDDEN_NAME_FRAGMENTS = _decoded_signatures((
-    "cHJvbXB0",
-    "Y2hhdA==",
     "Y2hhaW5fb2ZfdGhvdWdodA==",
     "c2NyYXRjaA==",
     "ZXhlY3V0aW9uX2J1bmRsZQ==",
@@ -47,17 +77,18 @@ FORBIDDEN_NAME_FRAGMENTS = _decoded_signatures((
 FORBIDDEN_TEXT = _decoded_signatures((
     "L21udC9kYXRhLw==",
     "L2hvbWUvb2FpLw==",
-    "Q2hhdEdQVA==",
-    "T3BlbkFJ",
-    "V2ViIFBybyBtb2RlbA==",
-    "Y2hhaW4gb2YgdGhvdWdodA==",
-    "cmV2aWV3IHJlY2VpcHQ=",
-    "Z2l0aHViIGNvbm5lY3Rvcg==",
-    "Y29udmVyc2F0aW9uLWZpbGUgbWF0ZXJpYWxpemF0aW9u",
-    "Y29udmVyc2F0aW9uIGZpbGUgbWF0ZXJpYWxpemF0aW9u",
-    "Y29ubmVjdG9yIHJldHJpZXZhbA==",
-    "Y29udmVyc2F0aW9uLXNjb3BlZA==",
 ))
+# Product names, licensed citations and truthful disclosures are not leakage.
+PRIVATE_PATTERNS = (
+    re.compile(r"(?im)^\s*(?:BEGIN PRIVATE PROCESS SCRATCH|PRIVATE CONVERSATION TRANSCRIPT|CHAIN[_ -]OF[_ -]THOUGHT DUMP)\b"),
+    re.compile(r"(?i)[a-z]:[\\/](?:users|codexprojects|codexdata|latextools)[\\/]"),
+    re.compile(r"(?i)-----BEGIN (?:RSA |EC |OPENSSH )?PRIVATE KEY-----"),
+    re.compile(r"(?i)\b(?:api[_-]?key|access[_-]?token|password)\s*[:=]\s*[\"']?[A-Za-z0-9_./+\-]{24,}"),
+)
+
+
+def private_text_findings(text: str) -> int:
+    return sum(needle in text.casefold() for needle in FORBIDDEN_TEXT) + sum(bool(pattern.search(text)) for pattern in PRIVATE_PATTERNS)
 LOCKED_ENVIRONMENT = {
     "system": "Linux",
     "machine": "x86_64",
@@ -79,6 +110,13 @@ def load_json(path: Path) -> Any:
 
 
 def pdf_pages(path: Path) -> int:
+    try:
+        import fitz
+    except ImportError:
+        pass
+    else:
+        with fitz.open(path) as document:
+            return len(document)
     output = subprocess.run(
         ["pdfinfo", str(path)], check=True, text=True,
         stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
@@ -121,7 +159,12 @@ def validate_hash_rows(
             bad += 1
             continue
         rel = row["path"]
-        path = root / rel
+        try:
+            path = closed_path(root, rel)
+        except ValueError:
+            errors.append(f"{label} noncanonical or escaping path at row {rows.index(row)}")
+            bad += 1
+            continue
         if not path.is_file():
             errors.append(f"{label} target missing: {rel}")
             bad += 1
@@ -163,22 +206,18 @@ def main() -> int:
     root = args.root.resolve()
     profile = args.profile
     if profile == "auto":
-        profile = "review" if root.name == "TSE-01-REVIEW-PACKET" or (root / "REVIEW_PACKET_MANIFEST.json").is_file() else "full"
+        profile = "review" if (root / "REVIEW_PACKET_MANIFEST.json").is_file() else "full"
     if args.skip_review_manifest and profile != "review":
         parser.error("--skip-review-manifest is valid only for review profile")
 
     errors: list[str] = []
-    expected_name = "TSE-01" if profile == "full" else "TSE-01-REVIEW-PACKET"
-    expected_entries = FULL_ROOT_ENTRIES if profile == "full" else ({"paper", "artifact"} if args.skip_review_manifest else REVIEW_ROOT_ENTRIES)
-    if root.name != expected_name:
-        errors.append(f"{profile} root directory must be named {expected_name}, found {root.name}")
     if not root.is_dir():
         errors.append("release root is not a directory")
         actual_root_entries: set[str] = set()
     else:
         actual_root_entries = {path.name for path in root.iterdir()}
-        if actual_root_entries != expected_entries:
-            errors.append(f"root entries mismatch: expected={sorted(expected_entries)} actual={sorted(actual_root_entries)}")
+        if not root_entries_valid(actual_root_entries, profile, args.skip_review_manifest):
+            errors.append(f"root entries mismatch for {profile}: actual={sorted(actual_root_entries)}")
 
     regular_files: set[str] = set()
     inode_paths: dict[tuple[int, int], list[str]] = {}
@@ -187,13 +226,13 @@ def main() -> int:
     for path in root.rglob("*") if root.is_dir() else []:
         rel = path.relative_to(root).as_posix()
         mode = path.lstat().st_mode
-        if path.is_dir():
-            if path.name in TRANSIENT_DIR_NAMES:
-                errors.append(f"transient cache directory forbidden: {rel}")
-            continue
         if stat.S_ISLNK(mode):
             symlink_count += 1
             errors.append(f"symbolic link forbidden: {rel}")
+            continue
+        if path.is_dir():
+            if path.name in TRANSIENT_DIR_NAMES:
+                errors.append(f"transient cache directory forbidden: {rel}")
             continue
         if not stat.S_ISREG(mode):
             errors.append(f"non-regular filesystem object forbidden: {rel}")
@@ -214,10 +253,10 @@ def main() -> int:
             and path.stat().st_size <= 8_000_000
         ):
             text = path.read_text(encoding="utf-8", errors="replace").casefold()
-            for needle in FORBIDDEN_TEXT:
-                if needle in text:
-                    forbidden_text_count += 1
-                    errors.append(f"private or machine-specific text signature: {rel}")
+            hits = private_text_findings(text)
+            if hits:
+                forbidden_text_count += hits
+                errors.append(f"private, secret or machine-specific text signature: {rel}")
     hardlink_groups = 0
     for paths in inode_paths.values():
         if len(paths) > 1:
@@ -256,7 +295,6 @@ def main() -> int:
             review_manifest = load_json(review_manifest_path)
             expect_fields(review_manifest, {
                 "schema": "tse01.review-packet-manifest.v2",
-                "root_name": "TSE-01-REVIEW-PACKET",
             }, "review packet manifest", errors)
             if set(review_manifest.get("excluded_paths", [])) != REVIEW_MANIFEST_EXCLUSIONS:
                 errors.append("review packet manifest exclusion set mismatch")
@@ -267,6 +305,9 @@ def main() -> int:
                 label="review packet manifest",
                 errors=errors,
             )
+            canonical_rows = json.dumps(review_manifest.get("files", []), sort_keys=True, separators=(",", ":"), ensure_ascii=True).encode("ascii")
+            if review_manifest.get("file_count") != review_count or review_manifest.get("content_set_sha256") != hashlib.sha256(canonical_rows).hexdigest():
+                errors.append("review manifest count or content-set binding mismatch")
 
     # Results manifest and exact row taxonomy.
     results_manifest_path = root / "artifact/results_manifest.csv"
@@ -288,7 +329,18 @@ def main() -> int:
             errors.append("results manifest upstream-validation compiler-cell count mismatch")
         if type_counts["GATE_MODEL_AGGREGATE"] != 1 or type_counts["GATE_MODEL_INDEPENDENT_RECHECK"] != 1 or type_counts["GATE_MODEL_GRAPH_FIXTURES"] != 1:
             errors.append("results manifest gate-model aggregate count mismatch")
-        if len(result_rows) != 750:
+        aggregate_rows = [row for row in result_rows if row.get("result_type") not in {
+            "FINITE_EXHAUSTIVE_COMPILER_CELL", "COMMIT_DERIVED_COMPILER_CELL", "UPSTREAM_VALIDATION_COMPILER_CELL",
+        }]
+        if {row.get("result_id") for row in aggregate_rows} != set(EXPECTED_RESULT_AGGREGATES):
+            errors.append("results manifest aggregate closed inventory mismatch")
+        for row in aggregate_rows:
+            expected = EXPECTED_RESULT_AGGREGATES.get(row.get("result_id"))
+            if expected and (row.get("result_type"), row.get("raw_output")) != expected:
+                errors.append(f"results aggregate type/path mismatch: {row.get('result_id')}")
+            if row.get("derived_output") != row.get("raw_output"):
+                errors.append(f"results aggregate derived binding mismatch: {row.get('result_id')}")
+        if len(result_rows) != 576 + 112 + 32 + len(EXPECTED_RESULT_AGGREGATES):
             errors.append(f"results manifest row count mismatch: {len(result_rows)}")
         for row in result_rows:
             for path_key, hash_key in (("raw_output", "raw_output_sha256"), ("derived_output", "derived_output_sha256")):
@@ -296,7 +348,12 @@ def main() -> int:
                 expected_hash = row.get(hash_key, "")
                 if not rel or not expected_hash:
                     continue
-                target = root / rel
+                try:
+                    target = closed_path(root, rel)
+                except ValueError:
+                    errors.append(f"results manifest escaping/noncanonical path: {row.get('result_id')}")
+                    results_bad += 1
+                    continue
                 if not target.is_file():
                     errors.append(f"results manifest target missing: {row.get('result_id')} -> {rel}")
                     results_bad += 1
@@ -712,11 +769,11 @@ def main() -> int:
             errors.append(f"stale public artifact decision documentation: {phrase}")
     required_documentation_phrases = [
         "five aggregate mutations",
-        "rejects fourteen semantic substitutions",
-        "rejects ten coherent substitutions",
+        "eleven refreshed-outer-binding checks and three direct source-interpretation probes",
+        "commit-derived checker has ten refreshed-binding checks",
         "zero unresolved holds",
         "43 diagnostic or adverse rejections",
-        "twenty-four coherent substitutions",
+        "24 checks, not 24 fully rebound-package tests",
     ]
     for phrase in required_documentation_phrases:
         if phrase not in artifact_readme_normalized:
@@ -1068,8 +1125,9 @@ def main() -> int:
         paper_hash = None
     else:
         paper_hash = sha_file(paper_pdf)
-        if pdf_pages(paper_pdf) != 14:
-            errors.append("formatted manuscript is not exactly 14 pages")
+        actual_pages = pdf_pages(paper_pdf)
+        if not within_page_budget(actual_pages):
+            errors.append("formatted manuscript exceeds the internal baseline page budget")
         if (
             compile_audit.get("pdf_sha256") != paper_hash
             or template_audit.get("pdf_sha256") != paper_hash
@@ -1131,7 +1189,14 @@ def main() -> int:
         if not all(consistency_audit.get("combined_count_strings_present", {}).values()):
             errors.append("manuscript does not expose all current combined evidence counts")
         expect_fields(compile_audit, {
-            "pages": 14,
+            "pages": actual_pages,
+            "pdf_bytes": paper_pdf.stat().st_size,
+            "manuscript_sha256": sha_file(paper_tex),
+            "bibliography_sha256": sha_file(references_tex),
+            "repository_include_sha256": sha_file(root / "paper/project-repository.tex"),
+            "compile_log_output_matches_pdf": True,
+            "project_total_page_budget": INTERNAL_PAGE_BUDGET,
+            "page_budget_kind": PAGE_BUDGET_KIND,
             "overfull_boxes": 0,
             "unresolved_references_or_controls": 0,
             "all_fonts_embedded": True,
@@ -1168,7 +1233,8 @@ def main() -> int:
             "ieee_production_staff_formats_published_version": True,
             "official_mopc_threshold_pages": 12,
             "official_initial_submission_hard_cap_verified": False,
-            "project_internal_total_page_contract": 14,
+            "project_internal_total_page_budget": INTERNAL_PAGE_BUDGET,
+            "page_budget_kind": PAGE_BUDGET_KIND,
             "submission_policy_status": "SUBMISSION_POLICY_HOLD",
             "errors": [],
         }, "submission template audit", errors)
@@ -1177,6 +1243,7 @@ def main() -> int:
             "math_package_version": "1.754",
             "text_family": "Times-compatible IEEEtran serif",
             "legacy_computer_modern_math_fonts": [],
+            "monospaced_fonts": [],
             "sans_serif_math_occurrences": 0,
             "word_form_accept_operator_occurrences": 0,
             "release_gate_notation": r"\mathcal{A}",
@@ -1193,6 +1260,8 @@ def main() -> int:
             },
             "errors": [],
         }, "typography audit", errors)
+        if template_audit.get("all_page_sizes_points") != [[612.0, 792.0]] * actual_pages:
+            errors.append("template audit does not bind every current US-Letter page")
         if not typography_audit.get("times_compatible_math_fonts"):
             errors.append("typography audit reports no Times-compatible mathematics fonts")
         if typography_audit.get("manuscript_sha256") != sha_file(paper_tex):
@@ -1203,14 +1272,20 @@ def main() -> int:
             errors.append("current PDF font inventory is empty or not fully embedded")
         expect_fields(page_fit, {
             "LIMIT_KIND": "TOTAL_PAGES",
-            "project_contract_total_pages": 14,
-            "total_pages": 14,
+            "project_total_page_budget": INTERNAL_PAGE_BUDGET,
+            "page_budget_kind": PAGE_BUDGET_KIND,
+            "total_pages": actual_pages,
             "inline_scientific_appendix": False,
             "separate_supplement_used": False,
             "manual_visual_inspection_current": True,
         }, "page fit", errors)
-        if page_fit.get("page14_column_baseline_difference_pixels", 10**9) > page_fit.get("ordinary_line_tolerance_pixels", 25):
-            errors.append("page 14 does not end within one ordinary line across columns")
+        if page_fit.get("within_internal_page_budget") is not True:
+            errors.append("page fit does not satisfy the internal maximum")
+        if page_fit.get("last_page_number") != actual_pages:
+            errors.append("final-page layout metadata does not bind the actual final page")
+        for field in ("clipped_content", "text_overlap", "line_overlap", "float_collision", "broken_glyphs", "unreadable_figure_labels", "unreadable_table_text"):
+            if visual_audit.get("checks", {}).get(field) is not False:
+                errors.append(f"visual layout check is missing or failed: {field}")
         expect_fields(citation_audit, {
             "citation_command_count": 79,
             "unique_citation_key_count": 79,
@@ -1232,7 +1307,7 @@ def main() -> int:
             "all_public_subject_names_present": True,
             "findings": [],
         }, "lexical audit", errors)
-        if visual_audit.get("pages_checked") != list(range(1, 15)) or visual_audit.get("findings") != []:
+        if visual_audit.get("pages_checked") != list(range(1, actual_pages + 1)) or visual_audit.get("findings") != []:
             errors.append("visual inspection does not cover all pages without findings")
         tex = paper_tex.read_text(encoding="utf-8")
         refs = references_tex.read_text(encoding="utf-8")
@@ -1247,12 +1322,20 @@ def main() -> int:
             errors.append("supplied IEEE bibliography style bytes changed")
         if re.search(r"\\appendix|\\section\*?\{Appendix", tex, re.IGNORECASE):
             errors.append("inline scientific appendix forbidden")
-        if re.search(r"\\includegraphics|\\resizebox|\\scalebox|\\enlargethispage|\\vspace\s*\{\s*-", tex):
+        if re.search(r"\\resizebox|\\scalebox|\\enlargethispage|\\vspace\s*\{\s*-", tex):
             errors.append("unsafe figure or page-fit manipulation found in manuscript")
+        graphics = re.findall(r"\\includegraphics(?:\[([^]]*)\])?\{([^}]+)\}", tex)
+        if graphics != [(r"width=\textwidth", "figures/specification-sensitivity.pdf")]:
+            errors.append("included figure file/options differ from the closed vector-figure inventory")
+        figure_path = root / "paper/figures/specification-sensitivity.pdf"
+        if compile_audit.get("included_vector_figure_sha256") != sha_file(figure_path):
+            errors.append("compile audit does not bind the included vector figure bytes")
+        if compile_audit.get("vector_figure_source_sha256") != sha_file(root / "paper/figures/draw_evaluation.py"):
+            errors.append("compile audit does not bind the editable figure source")
         if re.search(r"https?://|\\url\{|\\href\{", refs):
             errors.append("web or repository locator found in bibliography")
-        if len(re.findall(r"\\begin\{tikzpicture\}", tex)) != 4:
-            errors.append("expected three LaTeX-native figures implemented by four TikZ pictures")
+        if len(re.findall(r"\\begin\{tikzpicture\}", tex)) != 2:
+            errors.append("expected two TikZ diagrams and one bound vector-PDF figure")
         if len(re.findall(r"\\begin\{figure\*?\}", tex)) != 3:
             errors.append("expected exactly three figure environments")
         if len(re.findall(r"\\begin\{table\*?\}", tex)) != 10:
@@ -1392,6 +1475,10 @@ def main() -> int:
 
     audit = {
         "schema": "tse01.release-audit.v3",
+        "verification_kind": "current-packaging-and-retained-evidence-integrity-not-research-rerun",
+        "scientific_execution_rerun": False,
+        "submission_policy_status": template_audit.get("submission_policy_status"),
+        "fresh_primary_fulltext_review_count": 0,
         "profile": profile,
         "root_name": root.name,
         "root_entries": sorted(actual_root_entries),

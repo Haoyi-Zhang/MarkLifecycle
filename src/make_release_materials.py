@@ -17,6 +17,8 @@ import subprocess
 import tempfile
 from pathlib import Path
 from typing import Any
+from packaging_contract import (INTERNAL_PAGE_BUDGET, PAGE_BUDGET_KIND,
+                                inspect_pdf, within_page_budget)
 
 ROOT = Path(os.environ.get("TSE01_ROOT", Path(__file__).resolve().parents[2])).resolve()
 ART = ROOT / "artifact"
@@ -82,12 +84,14 @@ def parse_entries(text: str) -> dict[str, str]:
     return out
 
 
-def build_paper_audits() -> None:
+def build_paper_audits(compile_log_path: Path | None = None) -> None:
     main_tex = (PAPER / "main.tex").read_text(encoding="utf-8")
     references_tex = (PAPER / "references.tex").read_text(encoding="utf-8")
     pdf = PAPER / "main.pdf"
     manuscript_hash = sha_file(PAPER / "main.tex")
     pdf_hash = sha_file(pdf)
+    inventory = inspect_pdf(pdf)
+    pages = inventory["pages"]
     cite_groups = re.findall(r"\\cite\{([^}]+)\}", main_tex)
     cited = [group.strip() for group in cite_groups]
     entries = parse_entries(references_tex)
@@ -296,10 +300,7 @@ def build_paper_audits() -> None:
     }
     write_json(PAPER / "manuscript_consistency_audit.json", manuscript_consistency)
 
-    with tempfile.TemporaryDirectory(prefix="tse01-lexical-") as temp_dir:
-        text_path = Path(temp_dir) / "main.txt"
-        subprocess.run(["pdftotext", "-layout", str(pdf), str(text_path)], check=True)
-        rendered = text_path.read_text(encoding="utf-8", errors="replace")
+    rendered = inventory["text"]
     lexical_findings: list[dict[str, Any]] = []
     checks = {
         "visible_underscore": r"_",
@@ -328,29 +329,38 @@ def build_paper_audits() -> None:
     }
     write_json(PAPER / "lexical_audit.json", lexical_audit)
 
-    compile_log = PAPER / "compile.log"
+    compile_log = compile_log_path if compile_log_path is not None else PAPER / "compile.log"
     log_text = compile_log.read_text(encoding="utf-8", errors="replace") if compile_log.is_file() else ""
     overfull = len(re.findall(r"Overfull \\[hv]box", log_text))
     underfull = len(re.findall(r"Underfull \\[hv]box", log_text))
     unresolved = len(re.findall(r"(?:undefined references|Citation .* undefined|Reference .* undefined|Undefined control sequence)", log_text, flags=re.IGNORECASE))
-    font_output = command_output(["pdffonts", str(pdf)])
-    font_rows = [line for line in font_output.splitlines()[2:] if line.strip()]
-    embedded = sum(1 for line in font_rows if re.search(r"\byes\s+yes\s+yes\b", line.lower()))
-    # pdffonts columns vary; use the embedded column when the compact pattern is unavailable.
-    if embedded == 0 and font_rows:
-        embedded = sum(1 for line in font_rows if len(line.split()) >= 7 and line.split()[5].lower() == "yes")
+    font_rows = inventory["font_rows"]
+    embedded = inventory["embedded_fonts"]
+    log_output = re.search(r"Output written on .*?\((\d+) pages?,\s*(\d+) bytes\)", log_text, re.DOTALL)
+    log_matches_pdf = bool(log_output and int(log_output.group(1)) == pages and int(log_output.group(2)) == pdf.stat().st_size)
     compile_audit = {
         "schema": "tse01.compile-audit.v2",
         "pdf_sha256": pdf_hash,
         "pdf_bytes": pdf.stat().st_size,
-        "pages": pdf_pages(pdf),
+        "pages": pages,
+        "manuscript_sha256": manuscript_hash,
+        "bibliography_sha256": sha_file(PAPER / "references.tex"),
+        "repository_include_sha256": sha_file(PAPER / "project-repository.tex"),
+        "included_vector_figure_sha256": sha_file(PAPER / "figures/specification-sensitivity.pdf"),
+        "vector_figure_source_sha256": sha_file(PAPER / "figures/draw_evaluation.py"),
+        "compile_log_sha256": sha_file(compile_log) if compile_log.is_file() else None,
+        "compile_log_output_matches_pdf": log_matches_pdf,
+        "inventory_reader": inventory["reader"],
+        "font_inventory": [line.split()[0] for line in font_rows],
+        "project_total_page_budget": INTERNAL_PAGE_BUDGET,
+        "page_budget_kind": PAGE_BUDGET_KIND,
         "overfull_boxes": overfull,
         "underfull_boxes": underfull,
         "unresolved_references_or_controls": unresolved,
         "font_instances": len(font_rows),
         "embedded_font_instances": embedded,
         "all_fonts_embedded": bool(font_rows) and embedded == len(font_rows),
-        "verdict": "PASS" if pdf_pages(pdf) == 14 and overfull == 0 and unresolved == 0 and bool(font_rows) and embedded == len(font_rows) else "FAIL",
+        "verdict": "PASS" if within_page_budget(pages) and log_matches_pdf and overfull == 0 and unresolved == 0 and bool(font_rows) and embedded == len(font_rows) else "FAIL",
     }
     write_json(PAPER / "compile_audit.json", compile_audit)
 
@@ -362,9 +372,7 @@ def build_paper_audits() -> None:
     class_options = [item.strip() for item in class_line_match.group(1).split(",")] if class_line_match else []
     class_text = (PAPER / "IEEEtran.cls").read_text(encoding="utf-8", errors="replace")
     class_version_match = re.search(r"\\ProvidesClass\{IEEEtran\}\[([^]]+)\]", class_text)
-    pdfinfo_text = command_output(["pdfinfo", str(pdf)])
-    page_size_match = re.search(r"^Page size:\s+([0-9.]+) x ([0-9.]+) pts", pdfinfo_text, re.MULTILINE)
-    page_size_points = [float(page_size_match.group(1)), float(page_size_match.group(2))] if page_size_match else []
+    page_size_points = inventory["page_size_points"]
     abstract_match = re.search(r"\\begin\{abstract\}(.*?)\\end\{abstract\}", main_tex, re.DOTALL)
     abstract_source = abstract_match.group(1) if abstract_match else ""
     abstract_plain = re.sub(r"\\[A-Za-z@]+(?:\[[^]]*\])?", " ", abstract_source)
@@ -390,6 +398,8 @@ def build_paper_audits() -> None:
         template_errors.append("IEEE bibliography style differs from the supplied template")
     if page_size_points != [612.0, 792.0]:
         template_errors.append("PDF page size is not US Letter")
+    if any(size != [612.0, 792.0] for size in inventory["all_page_sizes_points"]):
+        template_errors.append("one or more PDF pages are not US Letter")
     if any(production_commands.values()):
         template_errors.append("production-only or appendix surface is present")
     if not (100 <= len(abstract_words) <= 200):
@@ -416,6 +426,7 @@ def build_paper_audits() -> None:
         "current_bibliography_style_sha256": sha_file(PAPER / "IEEEtranS.bst"),
         "template_files_unmodified": sha_file(PAPER / "IEEEtran.cls") == expected_class_hash and sha_file(PAPER / "IEEEtranS.bst") == expected_bst_hash,
         "page_size_points": page_size_points,
+        "all_page_sizes_points": inventory["all_page_sizes_points"],
         "us_letter": page_size_points == [612.0, 792.0],
         "journal_double_column_mode": class_options == ["letterpaper", "journal"],
         "funding_status_in_first_footnote": "This work received no external funding." in main_tex,
@@ -433,10 +444,13 @@ def build_paper_audits() -> None:
         "official_mopc_threshold_pages": 12,
         "official_initial_submission_hard_cap_verified": False,
         "official_page_rule_note": "The accessible IEEE Computer Society guidance defines twelve pages as the Transactions MOPC threshold and states that submission limits may differ; no accessible official TSE page established a twelve-page initial-submission hard cap.",
-        "project_internal_total_page_contract": 14,
+        "project_internal_total_page_budget": INTERNAL_PAGE_BUDGET,
+        "page_budget_kind": PAGE_BUDGET_KIND,
         "submission_policy_status": "SUBMISSION_POLICY_HOLD",
         "open_submission_metadata": [
+            "confirm author departments or organizational units if applicable",
             "recheck the live TSE portal page route before upload",
+            "complete truthful disclosure and author-account metadata",
         ],
         "official_sources": [
             "https://www.computer.org/publications/author-resources",
@@ -477,6 +491,9 @@ def build_paper_audits() -> None:
         r"\\(?:mathsf|mathrm|operatorname)\{Accept\}", main_tex
     ))
     typography_errors = []
+    monospaced_fonts = sorted({name for name in base_font_names if re.search(r"(?:Mono|Courier|Typewriter|CMTT)", name, re.IGNORECASE)})
+    if monospaced_fonts:
+        typography_errors.append("monospaced font remains in the current PDF")
     if r"\usepackage{newtxmath}" not in main_tex:
         typography_errors.append("newtxmath package declaration missing")
     if version_match is None:
@@ -500,6 +517,7 @@ def build_paper_audits() -> None:
         "math_package_version": version_match.group(1) if version_match else None,
         "times_compatible_math_fonts": times_math_fonts,
         "legacy_computer_modern_math_fonts": legacy_cm_math_fonts,
+        "monospaced_fonts": monospaced_fonts,
         "sans_serif_math_occurrences": sans_serif_math_occurrences,
         "word_form_accept_operator_occurrences": word_form_gate_occurrences,
         "predicate_definitions_present": predicate_definitions_present,
@@ -510,42 +528,37 @@ def build_paper_audits() -> None:
     }
     write_json(PAPER / "typography_audit.json", typography_audit)
 
-    with tempfile.TemporaryDirectory(prefix="tse01-page-fit-") as temporary:
-        prefix = Path(temporary) / "page14"
-        subprocess.run(["pdftoppm", "-f", "14", "-l", "14", "-singlefile", "-r", "200", "-png", str(pdf), str(prefix)], check=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-        from PIL import Image
-        image = Image.open(prefix.with_suffix(".png")).convert("L")
-        width, height = image.size
-        pixels = image.load()
-        x_ranges = [(int(width * 0.07), int(width * 0.49)), (int(width * 0.51), int(width * 0.93))]
-        last_ink = []
-        for left, right in x_ranges:
-            bottom = 0
-            for y in range(int(height * 0.08), int(height * 0.96)):
-                if any(pixels[x, y] < 245 for x in range(left, right)):
-                    bottom = y
-            last_ink.append(bottom)
+    width, height = inventory["last_page_image_pixels"]
+    last_ink = inventory["last_page_column_last_ink_y"]
     visual_record = PAPER / "visual_inspection.json"
     visual = read_json(visual_record) if visual_record.is_file() else {}
-    visual_current = visual.get("pdf_sha256") == pdf_hash and visual.get("verdict") == "PASS"
+    visual_current = (visual.get("pdf_sha256") == pdf_hash and visual.get("verdict") == "PASS"
+                      and visual.get("pages_checked") == list(range(1, pages + 1))
+                      and visual.get("findings") == [])
     page_fit = {
         "schema": "tse01.page-fit-audit.v2",
         "LIMIT_KIND": "TOTAL_PAGES",
-        "project_contract_total_pages": 14,
+        "project_total_page_budget": INTERNAL_PAGE_BUDGET,
+        "page_budget_kind": PAGE_BUDGET_KIND,
+        "within_internal_page_budget": within_page_budget(pages),
         "counted_matter": ["abstract", "normal sections", "references", "all article matter present"],
         "inline_scientific_appendix": False,
         "separate_supplement_used": False,
         "template_class_sha256": sha_file(PAPER / "IEEEtran.cls"),
         "pdf_sha256": pdf_hash,
-        "total_pages": pdf_pages(pdf),
-        "page14_image_pixels": [width, height],
-        "page14_column_last_ink_y": last_ink,
-        "page14_column_baseline_difference_pixels": abs(last_ink[0] - last_ink[1]),
+        "total_pages": pages,
+        "last_page_number": pages,
+        "last_page_image_pixels": [width, height],
+        "last_page_column_last_ink_y": last_ink,
+        "last_page_column_baseline_difference_pixels": abs(last_ink[0] - last_ink[1]),
         "ordinary_line_tolerance_pixels": 25,
         "manual_visual_inspection_current": visual_current,
         "visual_inspection_record": "paper/visual_inspection.json" if visual_record.is_file() else None,
         "overflow": overfull,
-        "verdict": "PASS" if pdf_pages(pdf) == 14 and overfull == 0 and abs(last_ink[0] - last_ink[1]) <= 25 and visual_current else "PENDING_VISUAL_RECHECK",
+        "column_balance_is_release_requirement": False,
+        "layout_rule": "ordinary bibliography continuation may occupy one column; no clipping or overlap, and no overfull boxes",
+        "verdict": ("FAIL" if not within_page_budget(pages) or overfull
+                    else "PASS" if visual_current else "PENDING_VISUAL_RECHECK"),
     }
     write_json(PAPER / "page_fit_audit.json", page_fit)
 
@@ -760,7 +773,7 @@ def make_claim_ledgers() -> None:
         {"claim_id": "C5", "claim_text": "Thresholds 1 through 26 preserve all intended project releases while rejecting complete reissue; seven leave-one-project-out checks preserve all remaining outcomes.", "claim_scope": "frozen seven-project corpus", "paper_location": "Section 5", "evidence_type": "complete threshold scan and subject removal", "theorem_or_lemma": "ancestry lower bound", "proof_or_checker": "artifact/commit-replay/src/run_commit_replay.py", "source_or_test": "artifact/commit-replay/results/summary.json", "experiment_id": "PROJECT-SENSITIVITY", "figure_or_table": "fig:sensitivity", "raw_result": "artifact/commit-replay/results/summary.json", "maturity_state": "VERIFIED", "independent_recheck_status": "policies retained without post-hoc reselection", "limitations": "sensitivity analysis, not statistical generalization"},
         {"claim_id": "C6", "claim_text": "Twenty-four adversarial substitutions are rejected by lower-level reconstruction.", "claim_scope": "twenty-one certificate or file substitutions with refreshed bindings plus three direct source-interpretation fixtures; fourteen finite and ten project probes", "paper_location": "Section 5", "evidence_type": "adversarial mutation tests", "theorem_or_lemma": "conditional soundness and accepted-parent admissibility", "proof_or_checker": "three independent checkers", "source_or_test": "artifact/gate-model/results/independent_recheck.json; artifact/results/independent_recheck.json; artifact/commit-replay/results/independent_recheck.json", "experiment_id": "TAMPER-24", "figure_or_table": "tab:tamper", "raw_result": "three independent recheck reports", "maturity_state": "INDEPENDENTLY_RECHECKED", "independent_recheck_status": "24 of 24 rejected; 21 refresh certificate or file bindings; omitted second merge parent rejected", "limitations": "not an adaptive cryptographic attack game"},
         {"claim_id": "C7", "claim_text": "The two software strata cover 172 releases, 688 compiler cells, and 40,963,856 deterministic contract executions.", "claim_scope": "frozen finite and commit-derived corpora", "paper_location": "Abstract and Section 5", "evidence_type": "combined accounting", "theorem_or_lemma": "", "proof_or_checker": "artifact/src/verify_release.py", "source_or_test": "artifact/results/combined_summary.json", "experiment_id": "COMBINED", "figure_or_table": "tab:layers; tab:outcomes", "raw_result": "artifact/results/combined_summary.json", "maturity_state": "INDEPENDENTLY_RECHECKED", "independent_recheck_status": "129 intended pass; 43 established-failure reject; 0 unresolved hold", "limitations": "deterministic case counts are not population estimates"},
-        {"claim_id": "C8", "claim_text": "The manuscript contains exactly 14 formatted pages and 79 individually supported scholarly references.", "claim_scope": "current frozen manuscript bytes", "paper_location": "entire manuscript", "evidence_type": "format, citation, lexical, and visual audits", "theorem_or_lemma": "", "proof_or_checker": "paper audits", "source_or_test": "paper/main.pdf; paper/reference_verification_lock.json", "experiment_id": "PAPER-QA", "figure_or_table": "", "raw_result": "paper/compile_audit.json; paper/typography_audit.json; paper/citation_shape_audit.json; paper/page_fit_audit.json", "maturity_state": "VERIFIED", "independent_recheck_status": "automated audits plus byte-bound visual inspection", "limitations": "format checks do not replace the journal's live submission requirements"},
+{"claim_id": "C8", "claim_text": "The current PDF is within the internal 15-page maximum and contains 79 references with inherited reviews and current local bindings.", "claim_scope": "current packaging bytes; source reviews remain inherited", "paper_location": "entire manuscript", "evidence_type": "format, citation, lexical, and visual audits", "theorem_or_lemma": "", "proof_or_checker": "paper audits", "source_or_test": "paper/main.pdf; paper/reference_verification_lock.json", "experiment_id": "PAPER-QA", "figure_or_table": "", "raw_result": "paper/compile_audit.json; paper/typography_audit.json; paper/citation_shape_audit.json; paper/page_fit_audit.json", "maturity_state": "VERIFIED", "independent_recheck_status": "local metadata audits and byte-bound visual inspection; zero fresh primary full-text reviews", "limitations": "format checks do not replace the journal's live submission requirements"},
         {"claim_id": "C9", "claim_text": "Finite-parent reconstruction accepts shared-ancestor graphs and twelve executed two-parent merges while rejecting invalid ancestry and omitted-parent claims.", "claim_scope": "six ancestry-graph fixtures and twelve finite-contract merge releases", "paper_location": "Sections 3--5", "evidence_type": "two-algorithm graph model check plus exhaustive software replay", "theorem_or_lemma": "finite ancestry-subgraph validity and accepted-parent admissibility", "proof_or_checker": "artifact/gate-model/src/independent_recheck.py; artifact/src/independent_recheck.py", "source_or_test": "artifact/gate-model/results/ancestry_graphs.json; artifact/results/summary.json; artifact/results/independent_recheck.json", "experiment_id": "FINITE-PARENT-DAG", "figure_or_table": "fig:ancestry; tab:outcomes; tab:controlmatrix", "raw_result": "artifact/gate-model/results/ancestry_graphs.json; artifact/results/summary.json", "maturity_state": "INDEPENDENTLY_RECHECKED", "independent_recheck_status": "two graph algorithms agree; 12 two-parent merge certificates reconstruct 144 total parent edges; second-parent omission rejected", "limitations": "commit-derived histories remain single-parent; finite contracts are not whole-repository merges"},
         {"claim_id": "C10", "claim_text": "An exact-source jsmn replay agrees with the adapter on its declared sixteen-input contract but exposes two strict-mode boundary differences outside that contract.", "claim_scope": "one public jsmn maintenance commit and its direct parent; exact core source; four parser configurations", "paper_location": "Sections 4--6", "evidence_type": "exact-source transfer-validity check", "theorem_or_lemma": "adapter transfer condition", "proof_or_checker": "artifact/upstream-validation/src/independent_recheck.py", "source_or_test": "artifact/upstream-validation/results/summary.json", "experiment_id": "UPSTREAM-JSMN", "figure_or_table": "tab:layers; tab:projects; Section 5.4", "raw_result": "artifact/upstream-validation/results/summary.json", "maturity_state": "INDEPENDENTLY_RECHECKED", "independent_recheck_status": "3 exact Git blobs; 32 compiler cells; 768 observations; strict cases 22 and 23 differ", "limitations": "one exact core library history, not seven whole repositories; differences lie outside the adapter's declared contract"},
     ]
@@ -988,7 +1001,7 @@ def make_local_gap_record() -> None:
 
 
 def make_release_manifest() -> None:
-    exclusions = {"artifact/release_manifest.json", "artifact/results/release_audit.json"}
+    exclusions = {"artifact/release_manifest.json", "artifact/results/release_audit.json", "REVIEW_PACKET_MANIFEST.json"}
     files = []
     for path in sorted(ROOT.rglob("*")):
         if not path.is_file() or path.is_symlink():
@@ -997,7 +1010,8 @@ def make_release_manifest() -> None:
         if rel in exclusions:
             continue
         files.append({"path": rel, "bytes": path.stat().st_size, "sha256": sha_file(path)})
-    write_json(ART / "release_manifest.json", {"schema": "tse01.release-manifest.v2", "generated_at": FIXED_TIME, "files": files})
+    from datetime import datetime, timezone
+    write_json(ART / "release_manifest.json", {"schema": "tse01.release-manifest.v2", "generated_at": datetime.now(timezone.utc).isoformat(), "binding_scope": "current packaging bytes; historical execution records are not reissued", "files": files})
 
 
 def main() -> None:

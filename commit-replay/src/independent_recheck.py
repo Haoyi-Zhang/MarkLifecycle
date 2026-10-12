@@ -247,8 +247,9 @@ EXPECTED_HELPER_BODY = {
 
 
 def erase_noncode(text: str) -> str:
-    """Independent lexical pass that preserves line and byte positions."""
+    """Independent lexical pass preserving lines and character offsets."""
     chars=list(text); mode="code"; i=0
+    if text[:1]=="\ufeff": chars[0]=" "
     while i < len(text):
         ch=text[i]; nxt=text[i+1] if i+1 < len(text) else ""
         if mode=="code":
@@ -298,6 +299,7 @@ def independent_manifest_errors(manifest: dict[str, Any]) -> list[str]:
 def inspect_source(source: str, manifest: dict[str, Any]) -> dict[str, Any]:
     code=erase_noncode(source)
     grammar=[]
+    if "\ufeff" in code: grammar.append("interior U+FEFF in active code is outside the locked source grammar")
     if re.search(r"\\\r?\n",source): grammar.append("line splicing is outside the locked source grammar")
     if "??" in source: grammar.append("trigraph-like tokens are outside the locked source grammar")
     if INDEPENDENT_UCE.search(source): grammar.append("universal-character escapes are outside the locked source grammar")

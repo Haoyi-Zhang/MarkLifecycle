@@ -202,6 +202,10 @@ ALLOWED_PREPROCESSOR_DIRECTIVES = [
 def strip_c_noncode(text: str) -> str:
     """Replace comments and string/character contents while preserving layout."""
     out = list(text)
+    # A single file-leading UTF-8 signature is not a C token. Keep offsets;
+    # interior U+FEFF remains visible for the admission check below.
+    if text.startswith("\ufeff"):
+        out[0] = " "
     i = 0
     state = "code"
     while i < len(text):
@@ -271,6 +275,8 @@ def validate_locked_helper_definitions(source: str) -> list[str]:
     code = strip_c_noncode(source)
     errors: list[str] = []
 
+    if "\ufeff" in code:
+        errors.append("interior U+FEFF in active code is outside the locked source grammar")
     if re.search(r"\\\r?\n", source):
         errors.append("line splicing is outside the locked source grammar")
     if "??" in source:

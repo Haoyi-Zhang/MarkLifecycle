@@ -25,7 +25,11 @@ python3 artifact/commit-replay/src/test_publication_protocol.py --root "$PWD"
 ```
 
 The primary and independent source parsers strip comments and string literals
-before recognizing issued helpers and carrier occurrences. The security test
+before recognizing issued helpers and carrier occurrences. Their admitted text
+profile permits one optional file-leading UTF-8 BOM, blanked without shifting
+character offsets, and rejects interior U+FEFF in active code. Comments and
+literals retain Unicode; this lexical view does not rewrite retained source or
+its hash bindings. The security test
 covers an all-carriers-commented copy, a fake helper in a comment, a string
 literal decoy, a helper rebinding, and an end-to-end controlled copy whose
 source, executable, output, and certificate bindings are refreshed. The latter
@@ -36,3 +40,10 @@ recovery and continuity.
 Project D (Parson) retains all sixty-five output byte strings. Every compiler
 cell compares the complete 2,145-byte output with the reference; the FNV-style
 summary remains diagnostic only and is not used as the behavior oracle.
+
+For a text-only check with no C compilation or program execution, run
+`python -B -m unittest discover -s artifact/src -p 'test_source_profile.py' -v`
+from the project root. This compares both current parsers on the same sources,
+checks BOM admission, and exercises a source-module-only cache in the test
+harness. Its call counts are not a full incremental-verification speedup; the
+existing threshold projection is not a dual-policy accepted release.

@@ -16,6 +16,17 @@ resolution does not depend on a parent-directory layout:
 ./artifact/run_all.sh --root "$PWD" --scope smoke
 ```
 
+The extraction-folder name is cosmetic. Closed-file release validation accepts
+the minimal sibling `paper/` and `artifact/` layout, with an optional root
+overview. A review profile additionally requires its content-set manifest.
+`python -B -m unittest discover -s artifact/src -p 'test_packaging_contract.py' -v`
+from a complete project root runs bounded packaging regressions without launching
+research programs. Current PDF audits use in-process PyMuPDF and Pillow; install
+those Python dependencies in the packaging environment. No experiment receipt or
+certificate is reissued by a packaging refresh. Inherited reference-review dates
+are distinct from current local bindings, and truthful required disclosures and
+licensed citations are not prohibited by the leakage guard.
+
 ## Evidence surfaces
 
 1. The gate model exhausts all three-valued vectors, Boolean completions,
@@ -82,6 +93,23 @@ No subjects or compilers execute: closed inventory fails with REJECT, missing
 records have no reconstructed verdict, and environment read exceptions remain
 exceptions. These tests do not establish end-to-end HOLD propagation or change
 any retained release, tamper, or availability-projection denominator.
+
+The text-only source-profile suite runs with
+`python -B -m unittest discover -s src -p 'test_source_profile.py' -v` from this
+directory. Its nine methods compare primary and independent source analysis on
+all 172 current source/manifest pairs, test all 2,187 typed vectors and sixteen
+availability projections, and check current same-policy and incompatible-parent
+bindings. A single optional file-leading UTF-8 BOM is blanked in the lexical
+view without shifting character offsets. Interior U+FEFF in active code is
+rejected; comments and literals are not subject to a blanket Unicode ban. Raw
+source bytes and their integrity bindings are unchanged.
+
+A same-information source-module cache comparison makes 56 uncached versus 28
+cached parser calls on two traversals of the 28 project inputs, with identical
+records and invalidation on source, manifest, module, or policy changes. The
+cache exists only in the test harness; this is neither a full-certificate
+incremental verifier nor an executed policy migration or timing result. The
+suite forbids external-process creation and adds no compiler cells or releases.
 
 `.github/workflows/scientific-checks.yml` is designed for this artifact directory
 as a flat repository root. On pushes to `main` or a manual dispatch, it generates

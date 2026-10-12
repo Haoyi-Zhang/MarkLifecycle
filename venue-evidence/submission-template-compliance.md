@@ -22,7 +22,8 @@ The current files match the supplied files byte for byte.
 - Visible authors for TSE single-anonymous review.
 - Corresponding author and no-funding statement in the first unnumbered footnote.
 - Two affiliation groups with institution, city, postal code, country, and e-mail addresses.
-- A 173-word self-contained abstract without citations or mathematical expressions.
+- A self-contained abstract without citations or mathematical expressions; its
+  current mechanically counted length is recorded in the template audit.
 - Five index terms.
 - Numbered references in order of first appearance.
 - Figures and tables embedded near their callouts.
@@ -42,7 +43,14 @@ IEEE staff prepare the published layout after acceptance; the author template do
 
 ## Page-policy distinction
 
-Accessible IEEE Computer Society guidance defines twelve formatted pages as the regular-Transactions mandatory-overlength threshold after final editing/layout and explicitly states that submission limits may differ. No accessible official TSE page established a twelve-page initial-submission hard cap. The project therefore retains the user-locked fourteen-page manuscript and records `SUBMISSION_POLICY_HOLD` until the live TSE submission route is checked.
+Current IEEE Computer Society author resources define twelve formatted pages as
+the regular-Transactions mandatory-overlength threshold after final editing/layout
+and state that submission limits may differ. The policy effective 18 February
+2018 says regular Transactions submissions may not exceed eighteen formatted
+pages; that dated statement does not establish current TSE-specific clearance.
+The current manuscript has fifteen pages under an internal baseline maximum of
+fifteen, not a forced equality or official hard cap. `SUBMISSION_POLICY_HOLD`
+remains until the applicable live TSE submission route is checked.
 
 ## Remaining author-side checks
 
@@ -55,5 +63,6 @@ Accessible IEEE Computer Society guidance defines twelve formatted pages as the 
 ## Official sources
 
 - IEEE Computer Society author resources: https://www.computer.org/publications/author-resources
+- Dated MOPC policy (effective 18 February 2018): https://ieeecs-media.computer.org/assets/pdf/MOPC_policy.pdf
 - IEEE Author Center article structure: https://journals.ieeeauthorcenter.ieee.org/create-your-ieee-journal-article/create-the-text-of-your-article/structure-your-article/
 - TSE call for papers: https://www.computer.org/digital-library/journals/ts/cfp-ieee-transactions-on-software-engineering

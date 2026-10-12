@@ -196,7 +196,7 @@
   "hold_reasons": [
     "Raw official page bytes were unavailable through the read-only web interface, so official page SHA-256 values could not be recorded.",
     "No submission action or portal verification was performed.",
-    "The manuscript uses the supplied IEEEtran letterpaper journal author template and contains fourteen pages under the user-locked internal contract. Accessible official Computer Society guidance establishes a twelve-page MOPC threshold and says submission limits may differ, but an explicit live TSE initial-submission hard cap was not verified; recheck the portal before upload."
+    "The current manuscript uses the supplied IEEEtran journal template and has fifteen pages, within the internal baseline maximum of fifteen. Current Computer Society guidance separates the twelve-page MOPC threshold from submission limits. The policy effective 18 February 2018 states eighteen pages for regular Transactions submissions, but current TSE-specific clearance remains unverified."
   ],
   "limit_kind": "NONE",
   "operational_fields": {
@@ -276,9 +276,11 @@
     "current_supplement_status": "NOT_USED",
     "essential_material_location": "NORMAL_SECTIONS_OF_MAIN_PDF",
     "inline_appendix": "FORBIDDEN",
-    "required_total_formatted_pages": 14,
     "separate_supplement": "ALLOWED_ONLY_FOR_GENUINELY_NONCRITICAL_SUPPORT",
-    "source": "USER_CORRECTION_2026-07-18"
+    "source": "USER_PACKAGING_REPAIR_2026-10-12",
+    "maximum_total_formatted_pages": 15,
+    "current_total_formatted_pages": 15,
+    "page_budget_kind": "INTERNAL_BASELINE_MAXIMUM_NOT_OFFICIAL_VENUE_LIMIT"
   },
   "retrieved_at": "2026-07-27T00:00:00Z",
   "review_model": "SINGLE_ANONYMOUS",
@@ -300,5 +302,15 @@
     "input": "USER_SUPPLIED_AUTHENTIC_OFFICIAL_TEMPLATE",
     "modified": false
   },
-  "venue": "IEEE Transactions on Software Engineering"
+  "venue": "IEEE Transactions on Software Engineering",
+  "current_page_policy_check": {
+    "checked_date": "2026-10-12",
+    "method": "read-only official web source content; no submission portal access",
+    "official_initial_submission_hard_cap_verified": false,
+    "sources": [
+      "https://www.computer.org/publications/author-resources",
+      "https://ieeecs-media.computer.org/assets/pdf/MOPC_policy.pdf"
+    ],
+    "note": "Dated 2018 maximum is historical guidance, not current TSE-specific clearance. Inherited fact retrieval dates/hashes are unchanged."
+  }
 }

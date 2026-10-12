@@ -623,6 +623,9 @@ PROJECT_HELPER_BODIES = {
 def strip_c_noncode(source: str) -> str:
     """Blank comments and string/character literals while preserving offsets."""
     out = list(source)
+    # One file-leading UTF-8 signature is admitted without shifting offsets.
+    if source.startswith("\ufeff"):
+        out[0] = " "
     state = "code"
     i = 0
     while i < len(source):
@@ -682,6 +685,7 @@ def analyze_project_source(source: str, manifest: dict[str, Any]) -> dict[str, A
     code = strip_c_noncode(source)
     errors: list[str] = []
     grammar_errors: list[str] = []
+    if "\ufeff" in code: grammar_errors.append("interior U+FEFF in active code is outside the locked source grammar")
     if re.search(r"\\\r?\n", source): grammar_errors.append("line splicing is outside the locked source grammar")
     if "??" in source: grammar_errors.append("trigraph-like tokens are outside the locked source grammar")
     if PROJECT_UCE.search(source): grammar_errors.append("universal-character escapes are outside the locked source grammar")

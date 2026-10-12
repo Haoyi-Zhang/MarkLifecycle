@@ -4,12 +4,12 @@
     {
       "anonymity": "single-anonymous; author-visible",
       "channel": "future IEEE journal submission interface; main manuscript file first; live route recheck required",
-      "current_status": "INTERNAL_COMPLETE_AT_14_PAGES; FOUR_AUTHORS_AND_TWO_AFFILIATIONS_BOUND; LIVE_LENGTH_ROUTE_AND_DISCLOSURES_UNRESOLVED",
+      "current_status": "CURRENT_PDF_15_PAGES_WITHIN_INTERNAL_MAXIMUM; FIVE_VISIBLE_AUTHORS_AND_FOUR_INSTITUTIONS; LIVE_TSE_RULES_AND_AUTHOR_DECLARATIONS_UNRESOLVED",
       "destination": "main manuscript",
       "format": "LaTeX manuscript source accepted by the portal and converted to PDF; frozen review PDF retained for internal verification",
       "freeze": "immutable review-packet snapshot",
       "material": "main PDF",
-      "page_treatment": "exactly 14 total formatted pages under the project contract; references and all article matter count",
+      "page_treatment": "at most 15 total formatted pages under the internal baseline budget; references and all article matter count; not an official TSE cap",
       "publication_route": "article if later eligible",
       "required_or_allowed": "REQUIRED_FOR_INTERNAL_HANDOFF",
       "reviewer_duty": "primary review surface"
@@ -17,9 +17,9 @@
     {
       "anonymity": "author-visible under the standing single-anonymous route",
       "channel": "future portal entry",
-      "current_status": "FOUR_NAMES_TWO_AFFILIATIONS_CONTACTS_CORRESPONDING_AUTHOR_AND_ALL_FOUR_ORCIDS_BOUND; NO_EXTERNAL_FUNDING_OR_PRIOR_PUBLICATION_OBLIGATION_DECLARED; CONTRIBUTIONS_CONFLICTS_ORGANIZATIONAL_UNITS_DISCLOSURE_AND_LIVE_PORTAL_FIELDS_PENDING",
+      "current_status": "FIVE_VISIBLE_NAMES_AND_FOUR_INSTITUTIONS_MATCH_CURRENT_SOURCE; AUTHOR_IDENTITY_CONSENT_CONTRIBUTIONS_ORCID_CONFLICTS_DISCLOSURE_AND_LIVE_PORTAL_FIELDS_REQUIRE_AUTHOR_VALIDATION",
       "destination": "future submission interface",
-      "format": "Haoyi Zhang (ORCID 0009-0009-3693-786X); TianFeng Liang (ORCID 0009-0000-5208-6414); Md Maruf Hasan (ORCID 0000-0001-9809-9376); Huaijin Ran (corresponding; ORCID 0009-0009-2482-2344); Xi'an Jiaotong-Liverpool University and Nanyang Technological University affiliations; primary author e-mails; author-declared no external funding, no prior-publication obligation, and no concurrent submission; remaining contribution, conflict, organizational-unit, institutional-approval, disclosure, and live portal fields",
+      "format": "Current source/PDF byline: Haoyi Zhang; Huaijin Ran; Xunzhu Tang; Kisub Kim; Tegawendé F. Bissyandé (corresponding). Current affiliation institutions: Xi'an Jiaotong-Liverpool University; Nanyang Technological University; University of Luxembourg; Daegu Gyeongbuk Institute of Science and Technology. This inventory does not certify identities, consent or ORCID/account metadata.",
       "freeze": "submission-time metadata freeze",
       "material": "author and submission metadata",
       "page_treatment": "not a substitute for the manuscript author block",
@@ -35,7 +35,7 @@
       "format": "IEEE numbered bibliography",
       "freeze": "with manuscript",
       "material": "references",
-      "page_treatment": "included in the exact 14-page total",
+      "page_treatment": "included in the internal maximum of 15 total pages",
       "publication_route": "article",
       "required_or_allowed": "REQUIRED_IN_MAIN_PDF",
       "reviewer_duty": "reviewed"
@@ -120,5 +120,6 @@
     }
   ],
   "schema": "tse01.submission-materials-map.v1",
-  "submission_policy_status": "SUBMISSION_POLICY_HOLD"
+  "submission_policy_status": "SUBMISSION_POLICY_HOLD",
+  "packaging_binding_date": "2026-10-12"
 }

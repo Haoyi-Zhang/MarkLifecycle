@@ -21,10 +21,9 @@ def main() -> int:
     args = parser.parse_args()
     source = args.root.resolve()
     destination = args.destination.resolve()
-    if source.name != "TSE-01":
-        raise SystemExit(f"full release root must be named TSE-01, found {source.name}")
-    if destination.name != "TSE-01-REVIEW-PACKET":
-        raise SystemExit(f"review destination must be named TSE-01-REVIEW-PACKET, found {destination.name}")
+    from packaging_contract import root_entries_valid
+    if not root_entries_valid({path.name for path in source.iterdir()}, "full"):
+        raise SystemExit("source must contain paper/ and artifact/, with only an optional README.md")
     if destination == source or source in destination.parents:
         raise SystemExit("review destination must be outside the full release root")
     verifier = source / "artifact/src/verify_retained_outputs.py"
@@ -33,7 +32,7 @@ def main() -> int:
         cwd=source, check=True,
     )
     if destination.exists():
-        shutil.rmtree(destination)
+        raise SystemExit("destination already exists; choose a new review-packet directory")
     destination.mkdir(parents=True)
     shutil.copytree(source / "paper", destination / "paper")
     shutil.copytree(source / "artifact", destination / "artifact")

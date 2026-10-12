@@ -26,8 +26,10 @@ def main() -> int:
     parser.add_argument("--root", type=Path, default=Path(__file__).resolve().parents[2])
     args = parser.parse_args()
     root = args.root.resolve()
-    if root.name != "TSE-01-REVIEW-PACKET":
-        raise SystemExit(f"review root must be named TSE-01-REVIEW-PACKET, found {root.name}")
+    from packaging_contract import root_entries_valid
+    entries = {path.name for path in root.iterdir()} - {"REVIEW_PACKET_MANIFEST.json"}
+    if not root_entries_valid(entries, "review", skip_manifest=True):
+        raise SystemExit("review root must contain paper/ and artifact/, with only an optional README.md")
     rows = []
     for path in sorted(root.rglob("*")):
         if not path.is_file() or path.is_symlink():
@@ -39,7 +41,7 @@ def main() -> int:
     canonical_rows = json.dumps(rows, sort_keys=True, separators=(",", ":"), ensure_ascii=True).encode("ascii")
     payload = {
         "schema": "tse01.review-packet-manifest.v2",
-        "root_name": "TSE-01-REVIEW-PACKET",
+        "root_name_role": "cosmetic; paths are relative to the extracted bundle root",
         "excluded_paths": sorted(EXCLUDED_PATHS),
         "file_count": len(rows),
         "content_set_sha256": hashlib.sha256(canonical_rows).hexdigest(),

@@ -32,7 +32,7 @@ if [[ "$SCOPE" == "smoke" ]]; then
   exit 0
 fi
 if [[ "$PROFILE" == "auto" ]]; then
-  if [[ "$(basename "$ROOT")" == "TSE-01-REVIEW-PACKET" || -f "$ROOT/REVIEW_PACKET_MANIFEST.json" ]]; then
+  if [[ -f "$ROOT/REVIEW_PACKET_MANIFEST.json" ]]; then
     PROFILE="review"
   else
     PROFILE="full"
