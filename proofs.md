@@ -97,6 +97,17 @@ intersections, rehashes all evidence, and follows every canonical parent digest.
 These are the seven conjuncts. The conclusion is complete only for the declared
 cases and compiler cells.
 
+The executable observation for behavior is the tuple (declared stdout, exit
+status, stderr), with reference tuple (reference bytes, zero, empty). A fresh
+nonzero exit or unexpected diagnostic therefore falsifies behavior even if its
+stdout matches. Executable reproduction and integrity remain distinct: matching
+two failing executions or consistently binding their bytes cannot turn that
+behavior coordinate true. The current implementation repairs omitted status/
+diagnostic checks; retained quiet zero-exit records give the same decisions.
+Eight unit controls and eight actual owned Python observations check this
+boundary, not a new compiler campaign or new release. Compilation/ELF execution
+are doubles in the observation-path harness. See observation-contract.md.
+
 ## Minimal relation basis
 
 For each relation r, the frozen control corpus contains a vector whose only

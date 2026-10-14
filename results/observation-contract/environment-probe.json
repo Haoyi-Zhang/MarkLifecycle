@@ -1,0 +1,26 @@
+{
+  "compiler_campaign_executed": false,
+  "install_performed": false,
+  "locked_historical_environment": "Linux x86_64; GCC Debian 14.2.0-19 and Clang 17.0.0",
+  "platform": "Windows-11-10.0.28000-SP0",
+  "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+  "read_only_commands": [
+    {
+      "argv": [
+        "C:\\windows\\system32\\wsl.EXE",
+        "--list",
+        "--quiet"
+      ],
+      "exit_code": 1,
+      "stderr_decoded_utf16": "未安装适用于 Linux 的 Windows 子系统。可通过运行 “wsl.exe --install” 进行安装。\r\r\n有关详细信息，请访问 https://aka.ms/wslinstall\r\r\n",
+      "stderr_sha256": "97fc49d5096be9494632d9f3364298114f0a3c58e2206cff53bb67c5c6c8f9fc",
+      "stdout_decoded_utf16": "",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "tools_on_path": {
+    "clang": null,
+    "gcc": null,
+    "wsl": "C:\\windows\\system32\\wsl.EXE"
+  }
+}

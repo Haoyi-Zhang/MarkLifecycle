@@ -1309,7 +1309,9 @@ def validate_certificate(
                             f"independent executable replay output-file mismatch: {compiler} {optimization}"
                         )
                     replay_mismatch = first_mismatch(reference, replay_execution.stdout)
-                    fresh_behavior_result = replay_mismatch is None and replay_ok
+                    # The declared observation includes normal termination and
+                    # no unexpected diagnostic, not stdout equality alone.
+                    fresh_behavior_result = replay_mismatch is None and replay_ok and replay_execution.stderr == b""
                     if replay_mismatch != mismatch:
                         record_claim_error(
                             f"independent executable replay counterexample mismatch: {compiler} {optimization}"

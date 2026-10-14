@@ -1,0 +1,63 @@
+{
+  "argv": [
+    "<PYTHON>",
+    "-B",
+    "-O",
+    "artifact/gate-model/src/test_gate_records.py",
+    "--out",
+    "<PRIVATE_OUTPUT>/model-optimized"
+  ],
+  "cwd": "<ARTIFACT_ROOT>",
+  "environment": {
+    "overrides": {
+      "PYTHONDONTWRITEBYTECODE": "1",
+      "PYTHONHASHSEED": "0",
+      "PYTHONPATH": "<ARTIFACT_ROOT>\\artifact\\src",
+      "PYTHONUTF8": "1",
+      "TEMP": "<PRIVATE_OUTPUT>\\temporary",
+      "TMP": "<PRIVATE_OUTPUT>\\temporary",
+      "TMPDIR": "<PRIVATE_OUTPUT>\\temporary"
+    },
+    "platform": "Windows-11-10.0.28000-SP0",
+    "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]"
+  },
+  "exit_code": 0,
+  "runner_sha256": "1323423778ac6975cf698dee20f1773f95ea3571d3101846056061b8729dfe06",
+  "source_sha256": {
+    "artifact/.github/scripts/check_repository.py": "4f99c3155f57d16acdd49b8a714811ee87082cb80c9ea5f80f4ab2c1910d13e1",
+    "artifact/commit-replay/src/independent_recheck.py": "6f716732761958a816adef204dac70b70658eb353aff728b8bfbc595a49d4549",
+    "artifact/commit-replay/src/run_commit_replay.py": "690b2d80090a2767baf804e6382a8a22ece051ecc7cc30deea6ee8b9c76161ba",
+    "artifact/commit-replay/src/test_publication_protocol.py": "5106b3380b7c4231f9907b708b47430fbdd09a402b24af3ea932ae2c7113244e",
+    "artifact/commit-replay/src/test_source_parser_security.py": "9b6b2aab58e0ebea5a65bc6510343d556461cd6d40930a559a00d8b677dabb48",
+    "artifact/gate-model/src/independent_recheck.py": "ed710ff295cc1b057f3b5d7fbff5037c149a66c40e50a9f76d36267f4b9d3a16",
+    "artifact/gate-model/src/run_gate_model.py": "cb729c5febbc09ca3802391d6fd0d82cf6ecaeae4dc4fedcc614344bce025202",
+    "artifact/gate-model/src/test_gate_records.py": "13ceeee154ca717832a5eb2be7defb1447d58f6f104c8e788bc3258c432a1916",
+    "artifact/src/build_review_manifest.py": "20ab8d596edae7a80f10f650eca942402ac2c012b72367482966448d0e96d3d9",
+    "artifact/src/build_review_packet.py": "ca887436601f803ea64455dedf63199b3a578b666b89dcaa838d62c811e9e84e",
+    "artifact/src/independent_recheck.py": "fb7a91af27508145c23a8e385104032f459b2bb48a7065bb9793bdb6e54bf7b8",
+    "artifact/src/make_release_materials.py": "1f7a969503c4e73f009745be048b7aaeae01e7b92021e9af75c899f981d848bd",
+    "artifact/src/owned_observation.py": "dd5142cd16e8ec4a8eedd199db56701c74ae7fb9911dc27e58d2c8190775d8f3",
+    "artifact/src/packaging_contract.py": "0321daf2e34864202b2a71b85675a588ecb2fa8ac4d804711bce588187a89b65",
+    "artifact/src/restore_retained_outputs.py": "93a81409b0262b179a270eebb3ed45d7e6f4fc0daf4add38cdd640cf7b0c7f14",
+    "artifact/src/run_experiments.py": "e2ada84abb7df0e2273e16817ad0537565296ff32bfa516da79c5db1b8111ece",
+    "artifact/src/run_owned_observations.py": "7b4657a3304f6e20926fb1a537276091fbe48ed54932db11e426eddc6f55f6ef",
+    "artifact/src/test_behavior_observation.py": "9b5354f944f0fd47b1794601b98e9ab77ca6e92f4cdf9d17f1ce9db1cca981fe",
+    "artifact/src/test_commit_release_binding.py": "5b0b5f29f109d695edc3cf14e46103c1af24b05c1209470905a722230e8255b0",
+    "artifact/src/test_entrypoint_paths.py": "778c345d0887523ddd20c82151db155159c77ace6178ef33d4e97794c309757b",
+    "artifact/src/test_packaging_contract.py": "fd2a7f0a7c47f51ea3f465039a5cc8d7f33c2cb70c53045431a50bdce54ee283",
+    "artifact/src/test_reconstruction_inventory.py": "761987dd80b49730dd546a1a108644ad8702511e4254a0e0506c0ae5e0d0cec4",
+    "artifact/src/test_source_profile.py": "3f16a4d9f775dc4ba8d654fd7b33f3902a8e287acb4523608bbe287467d078d5",
+    "artifact/src/tracecert.py": "936eff39721619b1c0e1863f60386b9284c7a7f217acf93dab7aa71ceb2f288f",
+    "artifact/src/verify_release.py": "2507fbf82ae330dbaa2a8c995bdf0622b6f703e6f2027d138068a72f060a0961",
+    "artifact/src/verify_retained_outputs.py": "d7539b0469f59e60842dd8469587d6ebe63a1b6c3557594135e7c20c289c771b",
+    "artifact/upstream-validation/src/independent_recheck.py": "134dc9782dea175c5ae4f55a9fc565d63671ceec00c6b4c615ca29d5fea4083c",
+    "artifact/upstream-validation/src/run_validation.py": "5d1580c1f302d40af3438bd5c8087a535a4ed35dfc9a8f071e392f9d8b110b2d",
+    "paper/figures/draw_evaluation.py": "d4069377ecf79d9b00ae4718dc5752d7957ff01bd740a30440645cbeb0f27e8e",
+    "paper/refresh_reference_lock.py": "4fd8267effda05d38599b7c744d3258f945f77a8cb37ba61f2b803a5774000d8",
+    "paper/update_reference_audits.py": "c765a0c5b0118cb89a4a15a4a9ca83336b97a189e49c88c652d7c332b9b19673",
+    "paper/verify_reference_lock.py": "3b10e8d8c916957474c3c990630a489db16ef892d4c54d3ce5614c9eaf39ee19"
+  },
+  "stderr": "",
+  "stdout": "{\"checker\": \"D:\\\\CodexProjects\\\\wg-check\\\\substantive-library\\\\P035\\\\artifact\\\\gate-model\\\\src\\\\independent_recheck.py\", \"elapsed_seconds\": 0.8818311999784783, \"regression_count\": 19, \"regressions\": [{\"errors\": [\"vector 0: vector\"], \"field\": \"vector\", \"file\": \"vectors.json\", \"name\": \"vector-label\", \"rejected\": true}, {\"errors\": [\"vector 1093: completion_count\"], \"field\": \"completion_count\", \"file\": \"vectors.json\", \"name\": \"completion-count\", \"rejected\": true}, {\"errors\": [\"vector 1093: boolean_completion_outcomes\"], \"field\": \"boolean_completion_outcomes\", \"file\": \"vectors.json\", \"name\": \"completion-outcomes\", \"rejected\": true}, {\"errors\": [\"vector 1093: closed_form_decision\"], \"field\": \"closed_form_decision\", \"file\": \"vectors.json\", \"name\": \"closed-form\", \"rejected\": true}, {\"errors\": [\"vector 1093: sound_pass\"], \"field\": \"sound_pass\", \"file\": \"vectors.json\", \"name\": \"sound-pass\", \"rejected\": true}, {\"errors\": [\"vector 1093: sound_reject\"], \"field\": \"sound_reject\", \"file\": \"vectors.json\", \"name\": \"sound-reject\", \"rejected\": true}, {\"errors\": [\"vector 1093: maximally_decisive\"], \"field\": \"maximally_decisive\", \"file\": \"vectors.json\", \"name\": \"maximality\", \"rejected\": true}, {\"errors\": [\"vector 1093: boolean_faithful\"], \"field\": \"boolean_faithful\", \"file\": \"vectors.json\", \"name\": \"faithfulness\", \"rejected\": true}, {\"errors\": [\"vector 1093: stable_under_refinement\"], \"field\": \"stable_under_refinement\", \"file\": \"vectors.json\", \"name\": \"refinement\", \"rejected\": true}, {\"errors\": [\"subset 1: mask\"], \"field\": \"mask\", \"file\": \"subset_gates.json\", \"name\": \"subset-mask\", \"rejected\": true}, {\"errors\": [\"subset 1: required_relations\"], \"field\": \"required_relations\", \"file\": \"subset_gates.json\", \"name\": \"subset-relations\", \"rejected\": true}, {\"errors\": [\"subset 1: relation_count\"], \"field\": \"relation_count\", \"file\": \"subset_gates.json\", \"name\": \"subset-count\", \"rejected\": true}, {\"errors\": [\"subset 1: accepted_isolating_controls\"], \"field\": \"accepted_isolating_controls\", \"file\": \"subset_gates.json\", \"name\": \"subset-controls\", \"rejected\": true}, {\"errors\": [\"failure set 1: mask\"], \"field\": \"mask\", \"file\": \"failure_sets.json\", \"name\": \"failure-mask\", \"rejected\": true}, {\"errors\": [\"failure set 1: failed_relations\"], \"field\": \"failed_relations\", \"file\": \"failure_sets.json\", \"name\": \"failure-relations\", \"rejected\": true}, {\"errors\": [\"failure set 1: full_gate_decision\"], \"field\": \"full_gate_decision\", \"file\": \"failure_sets.json\", \"name\": \"failure-decision\", \"rejected\": true}, {\"errors\": [\"failure set 1: minimum_witness_count\"], \"field\": \"minimum_witness_count\", \"file\": \"failure_sets.json\", \"name\": \"failure-witness-count\", \"rejected\": true}, {\"errors\": [\"isolating control 0: control\"], \"field\": \"control\", \"file\": \"isolating_controls.json\", \"name\": \"control-name\", \"rejected\": true}, {\"errors\": [\"isolating control 0: vector\"], \"field\": \"vector\", \"file\": \"isolating_controls.json\", \"name\": \"control-vector\", \"rejected\": true}], \"rejected_count\": 19, \"valid_baseline_passed\": true}\r\n",
+  "wall_seconds": 1.0330182000179775
+}

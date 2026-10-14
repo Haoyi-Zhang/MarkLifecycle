@@ -1,0 +1,61 @@
+{
+  "argv": [
+    "<PYTHON>",
+    "-B",
+    "-m",
+    "unittest",
+    "test_behavior_observation",
+    "-v"
+  ],
+  "cwd": "<ARTIFACT_ROOT>\\artifact\\src",
+  "environment": {
+    "overrides": {
+      "PYTHONDONTWRITEBYTECODE": "1",
+      "PYTHONHASHSEED": "0",
+      "PYTHONPATH": "<ARTIFACT_ROOT>\\artifact\\src",
+      "PYTHONUTF8": "1",
+      "TEMP": "<PRIVATE_OUTPUT>\\temporary",
+      "TMP": "<PRIVATE_OUTPUT>\\temporary",
+      "TMPDIR": "<PRIVATE_OUTPUT>\\temporary"
+    },
+    "platform": "Windows-11-10.0.28000-SP0",
+    "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]"
+  },
+  "exit_code": 1,
+  "runner_sha256": "1323423778ac6975cf698dee20f1773f95ea3571d3101846056061b8729dfe06",
+  "source_sha256": {
+    "artifact/.github/scripts/check_repository.py": "4f99c3155f57d16acdd49b8a714811ee87082cb80c9ea5f80f4ab2c1910d13e1",
+    "artifact/commit-replay/src/independent_recheck.py": "8f5e37e8ca730c53ea3fa3347777f655a27a18d30659cffc95b62db9e45c345d",
+    "artifact/commit-replay/src/run_commit_replay.py": "690b2d80090a2767baf804e6382a8a22ece051ecc7cc30deea6ee8b9c76161ba",
+    "artifact/commit-replay/src/test_publication_protocol.py": "5106b3380b7c4231f9907b708b47430fbdd09a402b24af3ea932ae2c7113244e",
+    "artifact/commit-replay/src/test_source_parser_security.py": "9b6b2aab58e0ebea5a65bc6510343d556461cd6d40930a559a00d8b677dabb48",
+    "artifact/gate-model/src/independent_recheck.py": "ed710ff295cc1b057f3b5d7fbff5037c149a66c40e50a9f76d36267f4b9d3a16",
+    "artifact/gate-model/src/run_gate_model.py": "cb729c5febbc09ca3802391d6fd0d82cf6ecaeae4dc4fedcc614344bce025202",
+    "artifact/gate-model/src/test_gate_records.py": "13ceeee154ca717832a5eb2be7defb1447d58f6f104c8e788bc3258c432a1916",
+    "artifact/src/build_review_manifest.py": "20ab8d596edae7a80f10f650eca942402ac2c012b72367482966448d0e96d3d9",
+    "artifact/src/build_review_packet.py": "ca887436601f803ea64455dedf63199b3a578b666b89dcaa838d62c811e9e84e",
+    "artifact/src/independent_recheck.py": "2799b86e65a5db6a7826093c5d3ece9d0e8360a4e7479e2634639df99f75abe4",
+    "artifact/src/make_release_materials.py": "1f7a969503c4e73f009745be048b7aaeae01e7b92021e9af75c899f981d848bd",
+    "artifact/src/packaging_contract.py": "0321daf2e34864202b2a71b85675a588ecb2fa8ac4d804711bce588187a89b65",
+    "artifact/src/restore_retained_outputs.py": "93a81409b0262b179a270eebb3ed45d7e6f4fc0daf4add38cdd640cf7b0c7f14",
+    "artifact/src/run_experiments.py": "93852e1cfb60a13a5e20af52366ddfc69bbe5b73b5cd535858a1c131cb89e5fa",
+    "artifact/src/test_behavior_observation.py": "9b5354f944f0fd47b1794601b98e9ab77ca6e92f4cdf9d17f1ce9db1cca981fe",
+    "artifact/src/test_commit_release_binding.py": "5b0b5f29f109d695edc3cf14e46103c1af24b05c1209470905a722230e8255b0",
+    "artifact/src/test_entrypoint_paths.py": "778c345d0887523ddd20c82151db155159c77ace6178ef33d4e97794c309757b",
+    "artifact/src/test_packaging_contract.py": "fd2a7f0a7c47f51ea3f465039a5cc8d7f33c2cb70c53045431a50bdce54ee283",
+    "artifact/src/test_reconstruction_inventory.py": "761987dd80b49730dd546a1a108644ad8702511e4254a0e0506c0ae5e0d0cec4",
+    "artifact/src/test_source_profile.py": "8964e545f0fe04ebc0fa62d4d61dde391421ecbc0ef5e9fc52a2758e1ab7148d",
+    "artifact/src/tracecert.py": "936eff39721619b1c0e1863f60386b9284c7a7f217acf93dab7aa71ceb2f288f",
+    "artifact/src/verify_release.py": "2507fbf82ae330dbaa2a8c995bdf0622b6f703e6f2027d138068a72f060a0961",
+    "artifact/src/verify_retained_outputs.py": "d7539b0469f59e60842dd8469587d6ebe63a1b6c3557594135e7c20c289c771b",
+    "artifact/upstream-validation/src/independent_recheck.py": "134dc9782dea175c5ae4f55a9fc565d63671ceec00c6b4c615ca29d5fea4083c",
+    "artifact/upstream-validation/src/run_validation.py": "5d1580c1f302d40af3438bd5c8087a535a4ed35dfc9a8f071e392f9d8b110b2d",
+    "paper/figures/draw_evaluation.py": "d4069377ecf79d9b00ae4718dc5752d7957ff01bd740a30440645cbeb0f27e8e",
+    "paper/refresh_reference_lock.py": "4fd8267effda05d38599b7c744d3258f945f77a8cb37ba61f2b803a5774000d8",
+    "paper/update_reference_audits.py": "c765a0c5b0118cb89a4a15a4a9ca83336b97a189e49c88c652d7c332b9b19673",
+    "paper/verify_reference_lock.py": "3b10e8d8c916957474c3c990630a489db16ef892d4c54d3ce5614c9eaf39ee19"
+  },
+  "stderr": "test_finite_clean_observation_passes (test_behavior_observation.BehaviorObservationTests.test_finite_clean_observation_passes) ... ok\r\ntest_finite_nonzero_exit_fails_behavior (test_behavior_observation.BehaviorObservationTests.test_finite_nonzero_exit_fails_behavior) ... ok\r\ntest_finite_unexpected_diagnostic_fails_behavior (test_behavior_observation.BehaviorObservationTests.test_finite_unexpected_diagnostic_fails_behavior) ... FAIL\r\ntest_finite_wrong_stdout_fails_behavior (test_behavior_observation.BehaviorObservationTests.test_finite_wrong_stdout_fails_behavior) ... ok\r\ntest_project_clean_observation_passes (test_behavior_observation.BehaviorObservationTests.test_project_clean_observation_passes) ... ok\r\ntest_project_nonzero_exit_fails_behavior (test_behavior_observation.BehaviorObservationTests.test_project_nonzero_exit_fails_behavior) ... FAIL\r\ntest_project_unexpected_diagnostic_fails_behavior (test_behavior_observation.BehaviorObservationTests.test_project_unexpected_diagnostic_fails_behavior) ... FAIL\r\ntest_project_wrong_stdout_fails_behavior (test_behavior_observation.BehaviorObservationTests.test_project_wrong_stdout_fails_behavior) ... ok\r\n\r\n======================================================================\r\nFAIL: test_finite_unexpected_diagnostic_fails_behavior (test_behavior_observation.BehaviorObservationTests.test_finite_unexpected_diagnostic_fails_behavior)\r\n----------------------------------------------------------------------\r\nTraceback (most recent call last):\r\n  File \"<ARTIFACT_ROOT>\\artifact\\src\\test_behavior_observation.py\", line 105, in test_finite_unexpected_diagnostic_fails_behavior\r\n    self.assertIs(finite_observation(stderr=b'owned diagnostic\\n')['relations']['behavior']['passed'], False)\r\nAssertionError: True is not False\r\n\r\n======================================================================\r\nFAIL: test_project_nonzero_exit_fails_behavior (test_behavior_observation.BehaviorObservationTests.test_project_nonzero_exit_fails_behavior)\r\n----------------------------------------------------------------------\r\nTraceback (most recent call last):\r\n  File \"<ARTIFACT_ROOT>\\artifact\\src\\test_behavior_observation.py\", line 120, in test_project_nonzero_exit_fails_behavior\r\n    self.assertIs(project_observation(returncode=2)['behavior_pass'], False)\r\nAssertionError: True is not False\r\n\r\n======================================================================\r\nFAIL: test_project_unexpected_diagnostic_fails_behavior (test_behavior_observation.BehaviorObservationTests.test_project_unexpected_diagnostic_fails_behavior)\r\n----------------------------------------------------------------------\r\nTraceback (most recent call last):\r\n  File \"<ARTIFACT_ROOT>\\artifact\\src\\test_behavior_observation.py\", line 117, in test_project_unexpected_diagnostic_fails_behavior\r\n    self.assertIs(project_observation(stderr=b'owned diagnostic\\n')['behavior_pass'], False)\r\nAssertionError: True is not False\r\n\r\n----------------------------------------------------------------------\r\nRan 8 tests in 0.560s\r\n\r\nFAILED (failures=3)\r\n",
+  "stdout": "",
+  "wall_seconds": 0.6817762999853585
+}

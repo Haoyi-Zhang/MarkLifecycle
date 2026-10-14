@@ -1,0 +1,299 @@
+{
+  "binding_scope": "Exact enumerated source/input and packaged-result bytes, not a full dependency closure or function-coverage claim. Commands also retain broader launch-time .py snapshots, not execution coverage.",
+  "current_environment": {
+    "compiler_campaign_executed": false,
+    "install_performed": false,
+    "locked_historical_environment": "Linux x86_64; GCC Debian 14.2.0-19 and Clang 17.0.0",
+    "platform": "Windows-11-10.0.28000-SP0",
+    "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+    "read_only_commands": [
+      {
+        "argv": [
+          "C:\\windows\\system32\\wsl.EXE",
+          "--list",
+          "--quiet"
+        ],
+        "exit_code": 1,
+        "stderr_decoded_utf16": "未安装适用于 Linux 的 Windows 子系统。可通过运行 “wsl.exe --install” 进行安装。\r\r\n有关详细信息，请访问 https://aka.ms/wslinstall\r\r\n",
+        "stderr_sha256": "97fc49d5096be9494632d9f3364298114f0a3c58e2206cff53bb67c5c6c8f9fc",
+        "stdout_decoded_utf16": "",
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    ],
+    "tools_on_path": {
+      "clang": null,
+      "gcc": null,
+      "wsl": "C:\\windows\\system32\\wsl.EXE"
+    }
+  },
+  "historical_before_issuer_sha256": "93852e1cfb60a13a5e20af52366ddfc69bbe5b73b5cd535858a1c131cb89e5fa",
+  "historical_environment_sha256": {
+    "artifact/commit-replay/environment.json": "e4a90501356bc80d35be690a9674bc8c1a964aaa85ca1b362ba0e4c28b35c2ee",
+    "artifact/environment.json": "52f726d860eeed25fd19ca136ba36c1877612f06ea5602e5ed46c2751f72b920"
+  },
+  "native_direct_source_input_sha256": {
+    "artifact/benchmark/reference/fnv_step.bin": "1c350da5c03f84956e8cac90222ac964eb3ecc7930f7cc20100e63bfb736a140",
+    "artifact/commit-replay/reference/project-A.bin": "4ba693b54d2c342548c6209f48bc85dd831aafdde61d30bf80cff23e44449043",
+    "artifact/commit-replay/src/independent_recheck.py": "6f716732761958a816adef204dac70b70658eb353aff728b8bfbc595a49d4549",
+    "artifact/src/independent_recheck.py": "fb7a91af27508145c23a8e385104032f459b2bb48a7065bb9793bdb6e54bf7b8",
+    "artifact/src/owned_observation.py": "dd5142cd16e8ec4a8eedd199db56701c74ae7fb9911dc27e58d2c8190775d8f3",
+    "artifact/src/run_experiments.py": "e2ada84abb7df0e2273e16817ad0537565296ff32bfa516da79c5db1b8111ece",
+    "artifact/src/run_owned_observations.py": "7b4657a3304f6e20926fb1a537276091fbe48ed54932db11e426eddc6f55f6ef",
+    "artifact/src/test_behavior_observation.py": "be57f2717ddec7b14ac451f4da783c55807e35d09200a7310f09c9e8c5094597"
+  },
+  "path_substitution": "<ARTIFACT_ROOT> is the project root containing artifact/ and paper/; <PRIVATE_OUTPUT> is a fresh writable result directory; <PYTHON> is Python 3.12.14; <ORIGINAL_READONLY> denotes the byte-verified prior source. Original absolute receipts are retained privately.",
+  "receipt_provenance": [
+    {
+      "private_sha256": "c25eaf7f16d7f8c7295e3a51d824166f1c360ed9bb12a70aabe4bdac2b340188",
+      "public_path": "artifact/results/observation-contract/commands/observation-red.json",
+      "public_sha256": "c561c8d2f4ef899b5ed060a65214b6bc673b87e4ce75befe1070b1872f6c5f91",
+      "transformation": "JSON formatting and machine-local path substitution only"
+    },
+    {
+      "private_sha256": "d8f1ef7bf3e149e2f59a4f1c348578b95c3a4e40f12752372c801381ac561e77",
+      "public_path": "artifact/results/observation-contract/commands/observation-red-optimized.json",
+      "public_sha256": "36911238bf248bae5e8f7aeb5d55646643359deeb0b3a4a4077c718b24a5934b",
+      "transformation": "JSON formatting and machine-local path substitution only"
+    },
+    {
+      "private_sha256": "857f3ab95ef5eb660a334145b25c2236d180107cf8c6d2f50bbee07aab49d5ca",
+      "public_path": "artifact/results/observation-contract/commands/observation-green.json",
+      "public_sha256": "393a5e7cd69dbef94d098d4b1e5e7d3128c04d2b40f48f048c286dc43c287ca8",
+      "transformation": "JSON formatting and machine-local path substitution only"
+    },
+    {
+      "private_sha256": "b218cc447ce0ad6e37bce032fe2264750dda8ba6672b555015f693616167bd7c",
+      "public_path": "artifact/results/observation-contract/commands/observation-green-optimized.json",
+      "public_sha256": "3734f0dd3055fd9c9007a9a856e14446f0936b309ae0aaff80bade260b63eb6f",
+      "transformation": "JSON formatting and machine-local path substitution only"
+    },
+    {
+      "private_sha256": "91fed9883d470223ac2a2e56fe43147c2ca1336ad0b0bd7e5bdcfc9c63873204",
+      "public_path": "artifact/results/observation-contract/commands/issuer-before-red.json",
+      "public_sha256": "776a688ec10150dfa5b1de79199da1bd6cad4b149be5dced0e910ee6a65d9144",
+      "transformation": "JSON formatting and machine-local path substitution only"
+    },
+    {
+      "private_sha256": "938834a22adf32043098c11b0d511a74ef03c348a5035adb69b7c6066f2ebdbb",
+      "public_path": "artifact/results/observation-contract/commands/issuer-before-red-optimized.json",
+      "public_sha256": "66b852f519ffb9f9eab649b1af15fc7ec3068ed1720ddac35c23b3af5e83eca6",
+      "transformation": "JSON formatting and machine-local path substitution only"
+    },
+    {
+      "private_sha256": "a8c229335402afb6c2dc87907d0174bb8545a6cab8adff7d3f7a8da85c6cedcb",
+      "public_path": "artifact/results/observation-contract/commands/selected-tests-current.json",
+      "public_sha256": "80e04089ac6951286b04f8ec9dc529353fe87e0569d9114ce8cbdeb07e4ccb57",
+      "transformation": "JSON formatting and machine-local path substitution only"
+    },
+    {
+      "private_sha256": "65cfd75fde716e48e5c4658b7cc98b0186b904084d020c9cd732e1450092aebc",
+      "public_path": "artifact/results/observation-contract/commands/selected-tests-current-optimized.json",
+      "public_sha256": "6131f637feadf7f1d0e641b36bc5071ea9b15a2f166e9909e299bafc2e387cca",
+      "transformation": "JSON formatting and machine-local path substitution only"
+    },
+    {
+      "private_sha256": "a9ac48c59f3d00330a4da6e7df86c71720d42a40d0cec86772b6cb6eda6568ce",
+      "public_path": "artifact/results/observation-contract/commands/owned-observations-current.json",
+      "public_sha256": "360cef106e2d06efcf6ecfd8611b52da9613bcd97295998fee8d44aaed7f506e",
+      "transformation": "JSON formatting and machine-local path substitution only"
+    },
+    {
+      "private_sha256": "7bd66afb12dcf72a9f340652462106bc6fbf225cdba4daa8d1cf78ee4481e52b",
+      "public_path": "artifact/results/observation-contract/commands/full-model-normal.json",
+      "public_sha256": "df42e17a36433996fbe1cd8980f66bd327a572d28e70d0172580e6878c586782",
+      "transformation": "JSON formatting and machine-local path substitution only"
+    },
+    {
+      "private_sha256": "652da4d1a9037eb5aca4f9305e50e316e24df38ac7b0de8f9bac8d305cf3e9ac",
+      "public_path": "artifact/results/observation-contract/commands/full-model-optimized.json",
+      "public_sha256": "148ea05a0c4325b9378e76b14b3a22b17416d21e386b652687fb646bb6740d3f",
+      "transformation": "JSON formatting and machine-local path substitution only"
+    },
+    {
+      "private_sha256": "21104396467931cafb25f68b0ca93a1bca1a31e762f7a0ad72f03b76c4639c07",
+      "public_path": "artifact/results/observation-contract/commands/retained-output-check.json",
+      "public_sha256": "34a2d52dab64eff26ab19af60a79c8366b8c1a71bc27e1f31520173c4a1ede1e",
+      "transformation": "JSON formatting and machine-local path substitution only"
+    },
+    {
+      "private_sha256": "b4e9528e48a1ffee1d18bdfb9d728764eaabcd551d4b29288ca39752881543b9",
+      "public_path": "artifact/results/observation-contract/commands/historical-data-recount-command.json",
+      "public_sha256": "926f3ec13eb0c7c9fcc24d850066156304ef2a437a1e3197c1b54e3666fa9d2f",
+      "transformation": "JSON formatting and machine-local path substitution only"
+    },
+    {
+      "private_sha256": "0f8edd9f893beaa9df69736c8cd35b78d57010960ccaa5b07dd180393b0f446b",
+      "public_path": "artifact/results/observation-contract/native/observations.json",
+      "public_sha256": "84dcde143c6dedbebe1efccd7cde1dd5c62dfb917114cacf6b486f81e42008ef",
+      "transformation": "JSON formatting and machine-local path substitution only"
+    },
+    {
+      "private_sha256": "1c350da5c03f84956e8cac90222ac964eb3ecc7930f7cc20100e63bfb736a140",
+      "public_path": "artifact/results/observation-contract/native/finite-clean.stdout.bin",
+      "public_sha256": "1c350da5c03f84956e8cac90222ac964eb3ecc7930f7cc20100e63bfb736a140",
+      "transformation": "none; exact byte copy"
+    },
+    {
+      "private_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "public_path": "artifact/results/observation-contract/native/finite-clean.stderr.bin",
+      "public_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "transformation": "none; exact byte copy"
+    },
+    {
+      "private_sha256": "1c350da5c03f84956e8cac90222ac964eb3ecc7930f7cc20100e63bfb736a140",
+      "public_path": "artifact/results/observation-contract/native/finite-exit.stdout.bin",
+      "public_sha256": "1c350da5c03f84956e8cac90222ac964eb3ecc7930f7cc20100e63bfb736a140",
+      "transformation": "none; exact byte copy"
+    },
+    {
+      "private_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "public_path": "artifact/results/observation-contract/native/finite-exit.stderr.bin",
+      "public_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "transformation": "none; exact byte copy"
+    },
+    {
+      "private_sha256": "1c350da5c03f84956e8cac90222ac964eb3ecc7930f7cc20100e63bfb736a140",
+      "public_path": "artifact/results/observation-contract/native/finite-diagnostic.stdout.bin",
+      "public_sha256": "1c350da5c03f84956e8cac90222ac964eb3ecc7930f7cc20100e63bfb736a140",
+      "transformation": "none; exact byte copy"
+    },
+    {
+      "private_sha256": "be72519a88eb466663a9745135c5adbeb1b4aafe4a1ca7067872ecb91e809d1e",
+      "public_path": "artifact/results/observation-contract/native/finite-diagnostic.stderr.bin",
+      "public_sha256": "be72519a88eb466663a9745135c5adbeb1b4aafe4a1ca7067872ecb91e809d1e",
+      "transformation": "none; exact byte copy"
+    },
+    {
+      "private_sha256": "4e713e70c6721f16dc6c9325726d88f78b108b1fa7f41eefb2f552978c0c2166",
+      "public_path": "artifact/results/observation-contract/native/finite-output.stdout.bin",
+      "public_sha256": "4e713e70c6721f16dc6c9325726d88f78b108b1fa7f41eefb2f552978c0c2166",
+      "transformation": "none; exact byte copy"
+    },
+    {
+      "private_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "public_path": "artifact/results/observation-contract/native/finite-output.stderr.bin",
+      "public_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "transformation": "none; exact byte copy"
+    },
+    {
+      "private_sha256": "4ba693b54d2c342548c6209f48bc85dd831aafdde61d30bf80cff23e44449043",
+      "public_path": "artifact/results/observation-contract/native/project-clean.stdout.bin",
+      "public_sha256": "4ba693b54d2c342548c6209f48bc85dd831aafdde61d30bf80cff23e44449043",
+      "transformation": "none; exact byte copy"
+    },
+    {
+      "private_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "public_path": "artifact/results/observation-contract/native/project-clean.stderr.bin",
+      "public_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "transformation": "none; exact byte copy"
+    },
+    {
+      "private_sha256": "4ba693b54d2c342548c6209f48bc85dd831aafdde61d30bf80cff23e44449043",
+      "public_path": "artifact/results/observation-contract/native/project-exit.stdout.bin",
+      "public_sha256": "4ba693b54d2c342548c6209f48bc85dd831aafdde61d30bf80cff23e44449043",
+      "transformation": "none; exact byte copy"
+    },
+    {
+      "private_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "public_path": "artifact/results/observation-contract/native/project-exit.stderr.bin",
+      "public_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "transformation": "none; exact byte copy"
+    },
+    {
+      "private_sha256": "4ba693b54d2c342548c6209f48bc85dd831aafdde61d30bf80cff23e44449043",
+      "public_path": "artifact/results/observation-contract/native/project-diagnostic.stdout.bin",
+      "public_sha256": "4ba693b54d2c342548c6209f48bc85dd831aafdde61d30bf80cff23e44449043",
+      "transformation": "none; exact byte copy"
+    },
+    {
+      "private_sha256": "be72519a88eb466663a9745135c5adbeb1b4aafe4a1ca7067872ecb91e809d1e",
+      "public_path": "artifact/results/observation-contract/native/project-diagnostic.stderr.bin",
+      "public_sha256": "be72519a88eb466663a9745135c5adbeb1b4aafe4a1ca7067872ecb91e809d1e",
+      "transformation": "none; exact byte copy"
+    },
+    {
+      "private_sha256": "97aaef06076c962f676a9ee6882b338cc95730a6fb380a09d3bcdec352dfa1bb",
+      "public_path": "artifact/results/observation-contract/native/project-output.stdout.bin",
+      "public_sha256": "97aaef06076c962f676a9ee6882b338cc95730a6fb380a09d3bcdec352dfa1bb",
+      "transformation": "none; exact byte copy"
+    },
+    {
+      "private_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "public_path": "artifact/results/observation-contract/native/project-output.stderr.bin",
+      "public_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "transformation": "none; exact byte copy"
+    },
+    {
+      "private_sha256": "b9a5562b5ace5882bbff1db5649e0d9b035df840d21b345b05f2b8785d402669",
+      "public_path": "artifact/results/observation-contract/historical-observation-recount.json",
+      "public_sha256": "090beafd78fd59f5dbbcfb58fea5e6558963699a3369ac1d9e40c698147f73ce",
+      "transformation": "JSON formatting and machine-local path substitution only"
+    },
+    {
+      "private_sha256": "06f37b331885079749be725d32299499aab5591edb5ff675bc55ce7e69e3c70d",
+      "public_path": "artifact/results/observation-contract/retained-output-check-report.json",
+      "public_sha256": "06f37b331885079749be725d32299499aab5591edb5ff675bc55ce7e69e3c70d",
+      "transformation": "JSON formatting and machine-local path substitution only"
+    },
+    {
+      "private_sha256": "96f8dbafee36d24e041c9bd41714a862cc1fa07fb27d8728316e6e6a1fcb5309",
+      "public_path": "artifact/results/observation-contract/environment-probe.json",
+      "public_sha256": "898ad45962cc47a062fcd4db397d2eb87c82b70f20a47639c5d7ac84b354ba6a",
+      "transformation": "JSON formatting and machine-local path substitution only"
+    },
+    {
+      "private_sha256": "06d7279bba883bc4a1a15c9f27619f26c3f4659f0dc0e211e357bc101559ca0c",
+      "public_path": "artifact/results/observation-contract/model/normal/regressions.json",
+      "public_sha256": "38c703323bde634756794bbc5cd6d76fcbf3c9e88e6bceb5df522a4b77bce98e",
+      "transformation": "JSON formatting and machine-local path substitution only"
+    },
+    {
+      "private_sha256": "303648f399f6444888166362357688b1fdbdcf87c7ec8d1a7db9cfc9460541b8",
+      "public_path": "artifact/results/observation-contract/model/normal/summary.json",
+      "public_sha256": "303648f399f6444888166362357688b1fdbdcf87c7ec8d1a7db9cfc9460541b8",
+      "transformation": "JSON formatting and machine-local path substitution only"
+    },
+    {
+      "private_sha256": "f9e4040a07eb3c7892ec27816200cfc8c5b3d405ea528fe5fa3f67d429f1ce4b",
+      "public_path": "artifact/results/observation-contract/model/normal/independent_recheck.json",
+      "public_sha256": "f9e4040a07eb3c7892ec27816200cfc8c5b3d405ea528fe5fa3f67d429f1ce4b",
+      "transformation": "JSON formatting and machine-local path substitution only"
+    },
+    {
+      "private_sha256": "b42eeed6d8639c4d2cebe1fa1026db02452f56e7dc39226b7d3e59afea8758f8",
+      "public_path": "artifact/results/observation-contract/model/optimized/regressions.json",
+      "public_sha256": "d5756a87f90957dd5a092d1b08738c6ed74119fa2245f194314c03ebbbef579f",
+      "transformation": "JSON formatting and machine-local path substitution only"
+    },
+    {
+      "private_sha256": "303648f399f6444888166362357688b1fdbdcf87c7ec8d1a7db9cfc9460541b8",
+      "public_path": "artifact/results/observation-contract/model/optimized/summary.json",
+      "public_sha256": "303648f399f6444888166362357688b1fdbdcf87c7ec8d1a7db9cfc9460541b8",
+      "transformation": "JSON formatting and machine-local path substitution only"
+    },
+    {
+      "private_sha256": "f9e4040a07eb3c7892ec27816200cfc8c5b3d405ea528fe5fa3f67d429f1ce4b",
+      "public_path": "artifact/results/observation-contract/model/optimized/independent_recheck.json",
+      "public_sha256": "f9e4040a07eb3c7892ec27816200cfc8c5b3d405ea528fe5fa3f67d429f1ce4b",
+      "transformation": "JSON formatting and machine-local path substitution only"
+    }
+  ],
+  "schema": "tracecert.observation-contract-bindings.v1",
+  "source_sha256": {
+    "artifact/commit-replay/src/independent_recheck.py": "6f716732761958a816adef204dac70b70658eb353aff728b8bfbc595a49d4549",
+    "artifact/commit-replay/src/run_commit_replay.py": "690b2d80090a2767baf804e6382a8a22ece051ecc7cc30deea6ee8b9c76161ba",
+    "artifact/gate-model/src/independent_recheck.py": "ed710ff295cc1b057f3b5d7fbff5037c149a66c40e50a9f76d36267f4b9d3a16",
+    "artifact/gate-model/src/run_gate_model.py": "cb729c5febbc09ca3802391d6fd0d82cf6ecaeae4dc4fedcc614344bce025202",
+    "artifact/gate-model/src/test_gate_records.py": "13ceeee154ca717832a5eb2be7defb1447d58f6f104c8e788bc3258c432a1916",
+    "artifact/src/independent_recheck.py": "fb7a91af27508145c23a8e385104032f459b2bb48a7065bb9793bdb6e54bf7b8",
+    "artifact/src/owned_observation.py": "dd5142cd16e8ec4a8eedd199db56701c74ae7fb9911dc27e58d2c8190775d8f3",
+    "artifact/src/run_experiments.py": "e2ada84abb7df0e2273e16817ad0537565296ff32bfa516da79c5db1b8111ece",
+    "artifact/src/run_owned_observations.py": "7b4657a3304f6e20926fb1a537276091fbe48ed54932db11e426eddc6f55f6ef",
+    "artifact/src/test_behavior_observation.py": "be57f2717ddec7b14ac451f4da783c55807e35d09200a7310f09c9e8c5094597",
+    "artifact/src/test_commit_release_binding.py": "5b0b5f29f109d695edc3cf14e46103c1af24b05c1209470905a722230e8255b0",
+    "artifact/src/test_reconstruction_inventory.py": "761987dd80b49730dd546a1a108644ad8702511e4254a0e0506c0ae5e0d0cec4",
+    "artifact/src/test_source_profile.py": "3f16a4d9f775dc4ba8d654fd7b33f3902a8e287acb4523608bbe287467d078d5",
+    "artifact/src/tracecert.py": "936eff39721619b1c0e1863f60386b9284c7a7f217acf93dab7aa71ceb2f288f",
+    "artifact/src/verify_retained_outputs.py": "d7539b0469f59e60842dd8469587d6ebe63a1b6c3557594135e7c20c289c771b"
+  }
+}

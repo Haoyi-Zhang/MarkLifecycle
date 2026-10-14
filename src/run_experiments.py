@@ -889,7 +889,10 @@ def run(root: Path) -> None:
                 }
 
             all_exec = all(r.get("status") == "EXECUTED" for r in tc_results)
-            behavior_pass = all_exec and all(bool(r.get("matches_reference")) for r in tc_results)
+            behavior_pass = all_exec and all(
+                r.get("matches_reference") is True and r.get("run_returncode") == 0 and r.get("stderr") == ""
+                for r in tc_results
+            )
             decode = observation["decode"]
             payload_pass = decode["status"] == "CERTIFIED_UNIQUE" and decode["payload_hex"] == manifest["payload_hex"]
             continuity_pass = all(

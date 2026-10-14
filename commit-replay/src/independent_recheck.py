@@ -784,11 +784,13 @@ def recheck(root: Path) -> dict[str, Any]:
             compile_fresh(compilation_sources[(alias, version)], fresh, compiler, optimization)
             fresh_rc, fresh_stdout, fresh_stderr = execute(fresh)
             executable_pass = fresh.read_bytes() == executable.read_bytes() and fresh_stdout == stored_stdout and fresh_rc == stored_rc and fresh_stderr == stored_stderr
-            behavior_pass = fresh_stdout == references[alias]
+            behavior_pass = fresh_stdout == references[alias] and fresh_rc == 0 and fresh_stderr == b""
             return {
                 "project": alias, "version": version, "compiler": compiler, "optimization": optimization,
                 "errors": cell_errors, "behavior_pass": behavior_pass, "executable_pass": executable_pass,
                 "stored_case_count": PROJECTS[alias]["cases"], "fresh_case_count": PROJECTS[alias]["cases"],
+                "fresh_returncode": fresh_rc, "fresh_stderr_sha256": sha_bytes(fresh_stderr),
+                "fresh_stdout_sha256": sha_bytes(fresh_stdout),
             }
 
         cell_tasks = [(alias, version, cell) for alias in PROJECTS for version in VERSIONS for cell in certs[(alias, version)]["compiler_cells"]]

@@ -96,13 +96,43 @@ any retained release, tamper, or availability-projection denominator.
 
 The text-only source-profile suite runs with
 `python -B -m unittest discover -s src -p 'test_source_profile.py' -v` from this
-directory. Its ten methods compare primary and independent source analysis on
+directory. Its eleven methods compare primary and independent source analysis on
 all 172 current source/manifest pairs, test all 2,187 typed vectors and sixteen
 availability projections, and check current same-policy and incompatible-parent
 bindings. A single optional file-leading UTF-8 BOM is blanked in the lexical
 view without shifting character offsets. Interior U+FEFF in active code is
 rejected; comments and literals are not subject to a blanket Unicode ban. Raw
 source bytes and their integrity bindings are unchanged.
+
+## Complete behavior observations
+
+Behavior requires matching output, zero exit status and no unexpected diagnostic.
+The current finite and project reconstruction paths now retain that distinction
+instead of labelling an output-matching failed execution behavior-true. Eight
+owned unit guards first exposed three failures in normal and optimized Python;
+all eight now pass. Two additional issuer-path controls check the real aggregate
+before any campaign-count publication. The 31-method source/observation/inventory/binding selection
+also passes in both modes. A harmless extra directive with or without a leading
+BOM remains rejected: that admission path was already correct and is not a new
+source-parser repair. [Method and result scope](observation-contract.md) explains
+the raw evidence and remaining compiler/HOLD/bridge/incremental gaps.
+
+From this artifact directory, reviewed benign entry points are:
+
+```sh
+PYTHONDONTWRITEBYTECODE=1 python -B -m unittest discover -s src -p 'test_behavior_observation.py' -v
+PYTHONDONTWRITEBYTECODE=1 python -B -O -m unittest discover -s src -p 'test_behavior_observation.py' -v
+PYTHONDONTWRITEBYTECODE=1 python -B src/run_owned_observations.py --output /absolute/fresh/owned-observations
+```
+
+The last command actually runs eight owned Python emitters; C compilation and
+ELF execution are test doubles in the reconstruction-path harness. It does not
+add releases or compiler cells. Current receipts and raw observations are under
+`results/observation-contract/`; earlier native compiler, public CI, timings,
+certificates and negative upstream records remain unchanged. The current host
+has no GCC/Clang on PATH or installed WSL; the locked Linux campaigns are not
+freshly validated here. Old package/reference audit hashes remain historical;
+they do not certify the updated source revision.
 
 A same-information source-module cache comparison makes 56 uncached versus 28
 cached parser calls on two traversals of the 28 project inputs, with identical
@@ -123,7 +153,7 @@ and independently reconstructs the finite gate model, runs the record regression
 and passively checks the 576 retained finite stdout bindings. It does not run
 the compiler-locked release campaigns, upstream programs, or paper builds.
 The job has a six-minute wall limit and explicit per-process limits, fails on
-check errors, and uploads raw outputs even after failure. The current Ubuntu
+check errors, and uploads raw outputs even after failure. The retained Ubuntu
 24.04 / Python 3.12 run passed the finite model and all 19 record regressions,
 and confirmed the bindings of 576 retained outputs. Raw records are retained
 in `results/current/`, with the larger finite-model JSON files losslessly

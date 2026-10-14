@@ -107,6 +107,16 @@ class SourceProfileTests(unittest.TestCase):
                     for errors in admissions(layer, case, manifest):
                         self.assertTrue(any("interior U+FEFF" in error for error in errors))
 
+    def test_leading_bom_does_not_admit_a_harmless_extra_directive(self):
+        # Metadata-only admission guard; no helper rebinding, compilation,
+        # executable substitution or exploit is constructed.
+        for layer, source, manifest in baseline_inputs():
+            for signature in ("", "\ufeff"):
+                candidate = signature + "#define PROFILE_NOTE 1\n" + source
+                with self.subTest(layer=layer, signature=bool(signature)):
+                    for errors in admissions(layer, candidate, manifest):
+                        self.assertTrue(any("preprocessor" in error for error in errors))
+
     def test_noncode_unicode_is_not_blanket_rejected(self):
         suffix = '\n/* café 中文 \ufeff */\n// \ufeff\nconst char *note = "中文 \ufeff";\n'
         for layer, source, manifest in baseline_inputs():
