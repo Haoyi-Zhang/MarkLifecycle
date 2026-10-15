@@ -5982,9 +5982,9 @@
       "sha256": "6ce8288ef08cf4554953b124f21575b720f792634bce90857ec898fe742f978a"
     },
     {
-      "bytes": 5126,
+      "bytes": 4947,
       "path": "artifact/observation-contract.md",
-      "sha256": "a6c69a53af92cff485fe6889bdf8b3b198cb299fcc6c3402638b49a66a2d16a4"
+      "sha256": "4ae7641f77e5fd470ffd0a2b34d0745f4cabf2b931f874608b01c0507612f7f7"
     },
     {
       "bytes": 3204,
@@ -15947,6 +15947,6 @@
       "sha256": "60ba18fa5d6abc41f140a7b57630472cd92422ec1ae8a8afccc4cab047421637"
     }
   ],
-  "generated_at": "2026-10-15T10:25:33.472797+00:00",
+  "generated_at": "2026-10-15T11:39:59.8817169+00:00",
   "schema": "tse01.release-manifest.v2"
 }

@@ -78,6 +78,4 @@ GCC Debian 14.2.0-19 and Clang 17.0.0. No tool was installed and no locked C
 campaign or fresh public CI was performed.
 `results/observation-contract/bindings.json` binds the current
 source/input bytes, environment and scope; broad command source snapshots are
-not function coverage. Formal AI-use disclosure is included in the manuscript;
-author consent, prior-work provenance and submission compliance remain human
-responsibilities, not results of these tests.
+not function coverage.
