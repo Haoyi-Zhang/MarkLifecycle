@@ -6062,9 +6062,9 @@
       "sha256": "6f1f08a5dc283cc146f95933209c4e4ddc421809c2e8a254debfb43475994314"
     },
     {
-      "bytes": 9266,
+      "bytes": 11899,
       "path": "artifact/README.md",
-      "sha256": "03ab1f11ff7e3aa85319827b2ef66da27368e9a1cd53e7c6aa74892f852c17ff"
+      "sha256": "b3334c2855a3834eb096772feab25bc97dd988af8ca765e5e9cc75718abefec2"
     },
     {
       "bytes": 5448,
@@ -15947,6 +15947,6 @@
       "sha256": "60ba18fa5d6abc41f140a7b57630472cd92422ec1ae8a8afccc4cab047421637"
     }
   ],
-  "generated_at": "2026-10-15T03:18:56.741070+00:00",
+  "generated_at": "2026-10-15T10:16:55.301724+00:00",
   "schema": "tse01.release-manifest.v2"
 }

@@ -1,7 +1,59 @@
 # Reproducibility artifact
 
-Run the complete pipeline from a project root containing sibling `artifact/`
-and `paper/` directories:
+## Standalone artifact checkout
+
+The public code repository is this directory flattened to the repository root;
+it does not supply a sibling `paper/`. For bounded checks, use Python 3.12
+(the scientific CI version); these commands use only the standard library and
+do not require a C compiler or third-party Python packages. From the directory
+containing `src/`, `gate-model/`, and `results_manifest.csv`:
+
+```sh
+export PYTHONDONTWRITEBYTECODE=1
+python3 -B -S -m unittest discover -s src -p 'test_reconstruction_inventory.py' -v
+python3 -B -S -m unittest discover -s src -p 'test_commit_release_binding.py' -v
+MODEL_ROOT=/absolute/fresh/gate-check
+python3 -B -S gate-model/src/run_gate_model.py --root "$MODEL_ROOT"
+python3 -B -S gate-model/src/independent_recheck.py --root "$MODEL_ROOT"
+```
+
+Choose a new `MODEL_ROOT` outside the checkout: the model scripts write JSON
+under `$MODEL_ROOT/artifact/gate-model/results/`. They enumerate finite records,
+not compiled releases. The two unit suites above use owned in-memory fixtures.
+No package installation is needed for these checks.
+
+Other bounded checks expect an enclosing `artifact/` directory even when no
+paper is used. Match the layout used in scientific CI by copying the standalone
+checkout into a fresh disposable workspace (POSIX shell):
+
+```sh
+WORK=/absolute/fresh/retained-check
+mkdir -p "$WORK/artifact"
+cp -a . "$WORK/artifact/"
+python3 -B -S "$WORK/artifact/src/verify_retained_outputs.py" \
+  --root "$WORK" --report "$WORK/retained-output-closure.json"
+python3 -B -S -m unittest discover -s "$WORK/artifact/src" -p 'test_source_profile.py' -v
+```
+
+The retained-output check reads the result manifest, certificates and 576
+stored `.out` files, and writes only the explicitly selected report. The
+source-profile suite reads retained source/manifest pairs and forbids external
+processes. Neither command rebuilds subjects. The packaging suite is different:
+it requires the actual sibling paper sources and packaging dependencies.
+
+## Complete project bundle
+
+The complete pipeline requires a project root containing sibling `artifact/`
+and `paper/` directories. Use a disposable copy: the pipeline regenerates model
+and compiler outputs, certificates, reports and packaging bindings, and removes
+paper build auxiliaries (including `main.bbl`) before scoped runs. It is not a
+read-only verifier of the retained package.
+
+Full finite/project reconstruction requires the locked Linux x86_64 toolchains
+recorded in `environment.json` and `commit-replay/environment.json`, not merely
+any compiler on PATH. Shell entrypoints require Bash. Paper/package checks also
+need the paper's TeX toolchain and PyMuPDF/Pillow as described below. From the
+disposable complete project root:
 
 ```sh
 ./artifact/run_all.sh --root "$PWD" --scope all
