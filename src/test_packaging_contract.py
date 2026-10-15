@@ -25,6 +25,13 @@ spec.loader.exec_module(reference)
 
 
 class PackagingContractTests(unittest.TestCase):
+    def test_current_claim_ledger_includes_observation_contract(self):
+        rows = [{"claim_id": f"C{i}"} for i in range(1, 12)]
+        self.assertTrue(contract.claim_ledger_valid(rows))
+        self.assertFalse(contract.claim_ledger_valid(rows[:-1]))
+        self.assertFalse(contract.claim_ledger_valid(rows[:-1] + [rows[0]]))
+        self.assertFalse(contract.claim_ledger_valid(rows + [{"claim_id": "C12"}]))
+
     def setUp(self):
         self.no_process = patch("subprocess.Popen", side_effect=AssertionError("metadata tests cannot launch programs"))
         self.no_process.start()

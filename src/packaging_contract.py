@@ -5,6 +5,12 @@ from pathlib import Path, PurePosixPath
 
 INTERNAL_PAGE_BUDGET = 15
 PAGE_BUDGET_KIND = "INTERNAL_BASELINE_MAXIMUM_NOT_OFFICIAL_VENUE_LIMIT"
+CLAIM_IDS = frozenset(f"C{i}" for i in range(1, 12))
+
+
+def claim_ledger_valid(rows: list[dict]) -> bool:
+    """Require each current scientific and observation-control claim exactly once."""
+    return len(rows) == len(CLAIM_IDS) and {row.get("claim_id") for row in rows} == CLAIM_IDS
 
 
 def within_page_budget(pages: int) -> bool:

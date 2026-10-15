@@ -15,7 +15,8 @@ from collections import Counter
 from pathlib import Path
 from typing import Any
 from packaging_contract import (INTERNAL_PAGE_BUDGET, PAGE_BUDGET_KIND,
-                                closed_path, root_entries_valid, within_page_budget)
+                                closed_path, root_entries_valid, within_page_budget,
+                                CLAIM_IDS, claim_ledger_valid)
 
 FULL_ROOT_ENTRIES = {"README.md", "artifact", "paper"}
 EXPECTED_RESULT_AGGREGATES = {
@@ -1455,7 +1456,7 @@ def main() -> int:
     # Public ledgers and local execution gaps.
     ledger_expectations = {
         "artifact/citation_support.csv": 79,
-        "artifact/claim_evidence_ledger.csv": 10,
+        "artifact/claim_evidence_ledger.csv": len(CLAIM_IDS),
         "artifact/correctness_correspondence.csv": 15,
         "artifact/external_resources.csv": 11,
     }
@@ -1465,6 +1466,8 @@ def main() -> int:
             errors.append(f"missing ledger: {rel}")
         elif len(read_csv(path)) != count:
             errors.append(f"ledger row count mismatch: {rel}")
+        elif rel == "artifact/claim_evidence_ledger.csv" and not claim_ledger_valid(read_csv(path)):
+            errors.append("claim ledger identity set is missing, duplicated or unexpected")
     gaps_path = root / "artifact/local_execution_gaps.json"
     gaps = load_json(gaps_path) if gaps_path.is_file() else {}
     if gaps.get("schema") != "tse01.local-execution-gaps.v1":

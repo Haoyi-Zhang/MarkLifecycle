@@ -777,6 +777,21 @@ def make_claim_ledgers() -> None:
         {"claim_id": "C9", "claim_text": "Finite-parent reconstruction accepts shared-ancestor graphs and twelve executed two-parent merges while rejecting invalid ancestry and omitted-parent claims.", "claim_scope": "six ancestry-graph fixtures and twelve finite-contract merge releases", "paper_location": "Sections 3--5", "evidence_type": "two-algorithm graph model check plus exhaustive software replay", "theorem_or_lemma": "finite ancestry-subgraph validity and accepted-parent admissibility", "proof_or_checker": "artifact/gate-model/src/independent_recheck.py; artifact/src/independent_recheck.py", "source_or_test": "artifact/gate-model/results/ancestry_graphs.json; artifact/results/summary.json; artifact/results/independent_recheck.json", "experiment_id": "FINITE-PARENT-DAG", "figure_or_table": "fig:ancestry; tab:outcomes; tab:controlmatrix", "raw_result": "artifact/gate-model/results/ancestry_graphs.json; artifact/results/summary.json", "maturity_state": "INDEPENDENTLY_RECHECKED", "independent_recheck_status": "two graph algorithms agree; 12 two-parent merge certificates reconstruct 144 total parent edges; second-parent omission rejected", "limitations": "commit-derived histories remain single-parent; finite contracts are not whole-repository merges"},
         {"claim_id": "C10", "claim_text": "An exact-source jsmn replay agrees with the adapter on its declared sixteen-input contract but exposes two strict-mode boundary differences outside that contract.", "claim_scope": "one public jsmn maintenance commit and its direct parent; exact core source; four parser configurations", "paper_location": "Sections 4--6", "evidence_type": "exact-source transfer-validity check", "theorem_or_lemma": "adapter transfer condition", "proof_or_checker": "artifact/upstream-validation/src/independent_recheck.py", "source_or_test": "artifact/upstream-validation/results/summary.json", "experiment_id": "UPSTREAM-JSMN", "figure_or_table": "tab:layers; tab:projects; Section 5.4", "raw_result": "artifact/upstream-validation/results/summary.json", "maturity_state": "INDEPENDENTLY_RECHECKED", "independent_recheck_status": "3 exact Git blobs; 32 compiler cells; 768 observations; strict cases 22 and 23 differ", "limitations": "one exact core library history, not seven whole repositories; differences lie outside the adapter's declared contract"},
     ]
+    rows.append({
+        "claim_id": "C11",
+        "claim_text": "Behavior reconstruction checks output plus exit status and diagnostics rather than output alone.",
+        "claim_scope": "owned observation controls through finite/project checker paths",
+        "paper_location": "Sections 3 and 5",
+        "evidence_type": "red-to-green unit and owned Python-process controls",
+        "theorem_or_lemma": "conditional finite-contract soundness",
+        "proof_or_checker": "artifact/src/test_behavior_observation.py; artifact/src/run_owned_observations.py",
+        "source_or_test": "artifact/results/observation-contract/",
+        "experiment_id": "OBSERVATION-CONTRACT", "figure_or_table": "fig:workflow",
+        "raw_result": "artifact/results/observation-contract/native/observations.json",
+        "maturity_state": "CONTROLLED_OBSERVATIONS_MEASURED",
+        "independent_recheck_status": "three checker red failures plus one issuer red failure; eight checker and two issuer controls; 31 selected tests in normal/optimized modes; eight actual Python subprocesses; zero fresh C cells",
+        "limitations": "compilation and ELF execution are doubles; locked Linux campaign not rerun; full HOLD/bridge/incremental gaps retained",
+    })
     write_csv(ART / "claim_evidence_ledger.csv", fields, rows)
 
     correspondence_fields = ["paper_item", "kind", "paper_location", "assumptions", "proof_location", "checker_or_test", "status", "notes"]
