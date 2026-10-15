@@ -15932,9 +15932,9 @@
       "sha256": "50a4fd251c4e9778d53b1c2f5c58f1f19ad06f803de377bb20b5dd8ed4e46325"
     },
     {
-      "bytes": 5546,
+      "bytes": 5374,
       "path": "paper/update_reference_audits.py",
-      "sha256": "c765a0c5b0118cb89a4a15a4a9ca83336b97a189e49c88c652d7c332b9b19673"
+      "sha256": "8327564f3d8889e0cec9437dec07f908f9dae0e73390bb695a9d6b1dff2f521a"
     },
     {
       "bytes": 6371,
@@ -15947,6 +15947,6 @@
       "sha256": "60ba18fa5d6abc41f140a7b57630472cd92422ec1ae8a8afccc4cab047421637"
     }
   ],
-  "generated_at": "2026-10-15T10:16:55.301724+00:00",
+  "generated_at": "2026-10-15T10:25:33.472797+00:00",
   "schema": "tse01.release-manifest.v2"
 }
