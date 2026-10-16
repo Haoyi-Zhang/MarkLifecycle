@@ -25,6 +25,26 @@ spec.loader.exec_module(reference)
 
 
 class PackagingContractTests(unittest.TestCase):
+    def test_generated_correspondence_preserves_conditional_proof_scope(self):
+        with patch.object(materials, "write_csv") as write:
+            materials.make_claim_ledgers()
+        rows = write.call_args_list[-1].args[2]
+        records = {row["paper_item"]: row for row in rows}
+        strengthening = records["Contract strengthening"]
+        self.assertIn("every original obligation and interpretation retained", strengthening["assumptions"])
+        substitution = records["Module substitution"]
+        self.assertEqual(substitution["status"], "CONDITIONAL_PROOF")
+        self.assertIn("does not establish", substitution["checker_or_test"])
+
+    def test_generated_strengthening_proof_preserves_original_interpretation(self):
+        with patch.object(Path, "write_text") as write:
+            materials.make_proofs()
+        proof = write.call_args.args[0]
+        self.assertIn("every original obligation and", proof)
+        self.assertIn("its interpretation is retained", proof)
+        self.assertIn("A'=A AND Q", proof)
+        self.assertIn("policy replacement rather than pure strengthening", proof)
+
     def test_current_claim_ledger_includes_observation_contract(self):
         rows = [{"claim_id": f"C{i}"} for i in range(1, 12)]
         self.assertTrue(contract.claim_ledger_valid(rows))

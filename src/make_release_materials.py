@@ -239,6 +239,7 @@ def build_paper_audits(compile_log_path: Path | None = None) -> None:
     novelty_calibration_phrases = [
         "three-valued conjunction is not presented as a new logic",
         "not an embedding scheme or new logic",
+        "the gate uses standard completion semantics",
     ]
     novelty_calibration_present = any(phrase in manuscript_casefold for phrase in novelty_calibration_phrases)
     if not novelty_calibration_present:
@@ -348,6 +349,11 @@ def build_paper_audits(compile_log_path: Path | None = None) -> None:
         "repository_include_sha256": sha_file(PAPER / "project-repository.tex"),
         "included_vector_figure_sha256": sha_file(PAPER / "figures/specification-sensitivity.pdf"),
         "vector_figure_source_sha256": sha_file(PAPER / "figures/draw_evaluation.py"),
+        "relation_diagrams": {
+            "source_sha256": sha_file(ART / "figures/build_figures.py"),
+            "pdf_sha256": {name: sha_file(PAPER / "figures" / (name + ".pdf"))
+                           for name in ("ancestry", "workflow")},
+        },
         "compile_log_sha256": sha_file(compile_log) if compile_log.is_file() else None,
         "compile_log_output_matches_pdf": log_matches_pdf,
         "inventory_reader": inventory["reader"],
@@ -808,8 +814,8 @@ def make_claim_ledgers() -> None:
         ("Accepted-parent admissibility", "proposition", "Section 4.2", "every named parent independently reconstructs to pass under its bound policy", "artifact/proofs.md#accepted-parent-admissibility", "rejected-parent graft substitutions in both software strata", "INDEPENDENTLY_RECHECKED", "digest validity alone is insufficient"),
         ("Conditional finite-contract soundness", "theorem", "Section 3.4", "hash, compiler, runtime, checker, issuance, finite-contract assumptions", "artifact/proofs.md#conditional-finite-contract-soundness", "both independent software checkers", "INDEPENDENTLY_RECHECKED", "bounded, not universal equivalence"),
         ("Minimal relation basis", "theorem", "Section 3.4", "one isolating witness per relation", "artifact/proofs.md#minimal-relation-basis", "gate and project subset sweeps", "INDEPENDENTLY_RECHECKED", "only the full relation set has zero false accepts"),
-        ("Contract strengthening", "proposition", "Section 3.4", "release bytes fixed", "artifact/proofs.md#contract-strengthening", "predicate construction", "VERIFIED", "new obligations cannot rescue rejection"),
-        ("Module substitution", "proposition", "Section 3.5", "conservative replacement and bound assumptions", "artifact/proofs.md#module-substitution", "static dual-policy projection independently recomputed from reconstructed evidence", "INDEPENDENTLY_RECHECKED", "no retroactive reinterpretation"),
+        ("Contract strengthening", "proposition", "Section 3.4", "release bytes fixed and every original obligation and interpretation retained", "artifact/proofs.md#contract-strengthening", "predicate construction", "VERIFIED", "new conjuncts cannot rescue rejection; changing a reference or inventory or parent meaning is policy replacement"),
+        ("Module substitution", "proposition", "Section 3.5", "conservative replacement and bound assumptions", "artifact/proofs.md#module-substitution", "conditional argument; continuity-only projection does not establish the conservativeness premise", "CONDITIONAL_PROOF", "no full target-policy integrity or lineage reconstruction in the projection"),
         ("Sound incremental reuse", "proposition", "Section 6.4", "complete dependency closure, module, and policy bindings unchanged", "artifact/proofs.md#sound-incremental-reuse", "dependency-closure rule and full-reconstruction reference semantics", "VERIFIED", "extension rule; no speedup measured"),
     ]
     write_csv(ART / "correctness_correspondence.csv", correspondence_fields, [dict(zip(correspondence_fields, row)) for row in items])
@@ -958,8 +964,11 @@ this argument.
 ## Contract strengthening
 
 Adding cases, compiler cells, bindings, or predecessor obligations adds
-conjuncts while release bytes remain fixed. Conjunction cannot turn false into
-true by adding obligations.
+conjuncts while release bytes remain fixed and every original obligation and
+its interpretation is retained. The strengthened gate is A'=A AND Q, so false
+A cannot become true A'. Changing a reference, the expected inventory, or a
+parent interpretation is a policy replacement rather than pure strengthening;
+fixed release bytes alone do not establish this premise.
 
 ## Module substitution
 

@@ -1328,7 +1328,9 @@ def main() -> int:
         if re.search(r"\\resizebox|\\scalebox|\\enlargethispage|\\vspace\s*\{\s*-", tex):
             errors.append("unsafe figure or page-fit manipulation found in manuscript")
         graphics = re.findall(r"\\includegraphics(?:\[([^]]*)\])?\{([^}]+)\}", tex)
-        if graphics != [(r"width=\textwidth", "figures/specification-sensitivity.pdf")]:
+        if graphics != [(r"width=\columnwidth", "figures/ancestry.pdf"),
+                        (r"width=\textwidth", "figures/workflow.pdf"),
+                        (r"width=\textwidth", "figures/specification-sensitivity.pdf")]:
             errors.append("included figure file/options differ from the closed vector-figure inventory")
         figure_path = root / "paper/figures/specification-sensitivity.pdf"
         if compile_audit.get("included_vector_figure_sha256") != sha_file(figure_path):
@@ -1337,8 +1339,17 @@ def main() -> int:
             errors.append("compile audit does not bind the editable figure source")
         if re.search(r"https?://|\\url\{|\\href\{", refs):
             errors.append("web or repository locator found in bibliography")
-        if len(re.findall(r"\\begin\{tikzpicture\}", tex)) != 2:
-            errors.append("expected two TikZ diagrams and one bound vector-PDF figure")
+        diagrams = compile_audit.get("relation_diagrams", {})
+        if diagrams.get("source_sha256") != sha_file(root / "artifact/figures/build_figures.py"):
+            errors.append("compile audit does not bind the direct relation-diagram source")
+        for name in ("ancestry", "workflow"):
+            paper_figure = root / "paper/figures" / (name + ".pdf")
+            artifact_figure = root / "artifact/figures" / (name + ".pdf")
+            if (diagrams.get("pdf_sha256", {}).get(name) != sha_file(paper_figure)
+                    or sha_file(paper_figure) != sha_file(artifact_figure)):
+                errors.append("relation diagram differs from its bound artifact copy: " + name)
+        if re.search(r"\\begin\{(?:tikzpicture|axis)\}", tex):
+            errors.append("unbound TeX drawing remains; expected three bound vector-PDF figures")
         if len(re.findall(r"\\begin\{figure\*?\}", tex)) != 3:
             errors.append("expected exactly three figure environments")
         if len(re.findall(r"\\begin\{table\*?\}", tex)) != 10:
