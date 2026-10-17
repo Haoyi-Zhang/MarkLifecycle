@@ -1123,6 +1123,7 @@ def main() -> int:
     paper_pdf = root / "paper/main.pdf"
     paper_tex = root / "paper/main.tex"
     references_tex = root / "paper/references.tex"
+    actual_pages: int | None = None
     if not paper_pdf.is_file() or not paper_tex.is_file() or not references_tex.is_file():
         errors.append("paper source, PDF, or bibliography missing")
         paper_hash = None
@@ -1514,7 +1515,8 @@ def main() -> int:
         "combined_compiler_cells": combined.get("combined", {}).get("compiler_cells"),
         "combined_contract_cases": combined.get("combined", {}).get("executed_contract_cases"),
         "paper_pdf_sha256": paper_hash,
-        "paper_pages": compile_audit.get("pages"),
+        "paper_pages": actual_pages,
+        "paper_pages_declared_in_compile_audit": compile_audit.get("pages"),
         "reference_count": citation_audit.get("bibliography_entry_count"),
         "symlink_count": symlink_count,
         "hardlink_group_count": hardlink_groups,

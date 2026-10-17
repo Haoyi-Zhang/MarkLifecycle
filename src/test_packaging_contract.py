@@ -83,6 +83,21 @@ class PackagingContractTests(unittest.TestCase):
             output = io.StringIO()
             with contextlib.redirect_stdout(output), patch.object(sys, "argv", ["verify_release.py", "--root", str(bundle)]):
                 self.assertEqual(verifier.main(), 0, output.getvalue())
+            measured_pages = verifier.pdf_pages(bundle / "paper/main.pdf")
+            audit_path = bundle / "artifact/results/release_audit.json"
+            self.assertEqual(json.loads(audit_path.read_text(encoding="utf-8"))["paper_pages"], measured_pages)
+            compile_path = bundle / "paper/compile_audit.json"
+            original_compile = compile_path.read_bytes()
+            stale_compile = json.loads(original_compile)
+            stale_compile["pages"] = measured_pages + 1
+            compile_path.write_text(json.dumps(stale_compile), encoding="utf-8")
+            with contextlib.redirect_stdout(output), patch.object(sys, "argv", ["verify_release.py", "--root", str(bundle)]):
+                self.assertEqual(verifier.main(), 1, output.getvalue())
+            failed = json.loads(audit_path.read_text(encoding="utf-8"))
+            self.assertEqual(failed["paper_pages"], measured_pages)
+            self.assertEqual(failed["paper_pages_declared_in_compile_audit"], measured_pages + 1)
+            self.assertTrue(any("compile audit mismatch: pages" in error for error in failed["errors"]))
+            compile_path.write_bytes(original_compile)
             with contextlib.redirect_stdout(output), patch.object(sys, "argv", ["build_review_manifest.py", "--root", str(bundle)]):
                 self.assertEqual(build_review_manifest.main(), 0, output.getvalue())
             with contextlib.redirect_stdout(output), patch.object(sys, "argv", ["verify_release.py", "--root", str(bundle)]):

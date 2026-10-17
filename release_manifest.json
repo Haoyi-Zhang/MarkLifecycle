@@ -15102,9 +15102,9 @@
       "sha256": "65c9d3b2d4bf4321befd6b90e5d1986e4cad621304cf94c2f77293bf4efe020a"
     },
     {
-      "bytes": 737719,
+      "bytes": 737703,
       "path": "artifact/results_manifest.csv",
-      "sha256": "d896869202c9c7bfb6821afe815c13ac92595c23248d78b731d17846dbe0fe4f"
+      "sha256": "3290eee67db4e35dde0f5758edc032e417e4bc2f1e02f7c95d01b813c86e39e8"
     },
     {
       "bytes": 3909,
@@ -15172,9 +15172,9 @@
       "sha256": "778c345d0887523ddd20c82151db155159c77ace6178ef33d4e97794c309757b"
     },
     {
-      "bytes": 12328,
+      "bytes": 13497,
       "path": "artifact/src/test_packaging_contract.py",
-      "sha256": "4bce573ed90a59702b715647ab77d6475dceffeeec779240449dc63e4ed51dd8"
+      "sha256": "f4125bc7fa8a7820165fb4336fc3b59b05d2083d794b00aea951dff9d26b6cc5"
     },
     {
       "bytes": 9808,
@@ -15192,9 +15192,9 @@
       "sha256": "936eff39721619b1c0e1863f60386b9284c7a7f217acf93dab7aa71ceb2f288f"
     },
     {
-      "bytes": 86769,
+      "bytes": 86864,
       "path": "artifact/src/verify_release.py",
-      "sha256": "d7ed599ef0edbe7c56a1b7cd2f743d3ad86349832037aec15969c64c4f4711b9"
+      "sha256": "5e7f4de5b3e062dae9a00646fbd30fdea9357ddf3fa20b6c403224784c3d44a0"
     },
     {
       "bytes": 5147,
@@ -15837,9 +15837,9 @@
       "sha256": "c4d23f44f0e36e740cde098e8987ed793d0e683ebec8e4782f339070c8285685"
     },
     {
-      "bytes": 666,
+      "bytes": 695,
       "path": "paper/citation_shape_audit.json",
-      "sha256": "9c7f22c6c08bb4a98de8b06dd053eee498bbc2b8138ed4f4d471d0088cba4ca7"
+      "sha256": "e286890a3aa80c0feccd353f475c767f4cb4ee8ffa5d8b4b2d69d7d32c44cdd9"
     },
     {
       "bytes": 1197,
@@ -15847,9 +15847,9 @@
       "sha256": "1c20ab0905430239f1fc384aefce210e94f614415ab0d2494c691d4ebbf39717"
     },
     {
-      "bytes": 2276,
+      "bytes": 3320,
       "path": "paper/compile_audit.json",
-      "sha256": "d22087ee8deb57dba551835a0451c1dc598576f4cec645ecc1637fe64633b06d"
+      "sha256": "fcf412a44611d606b34af7e13f704b69148f6ecc48a3b906e383efc393a3595f"
     },
     {
       "bytes": 7551,
@@ -15882,14 +15882,14 @@
       "sha256": "fca86cd4f041a5c5326295fa04dcce56eaf2c8a4bf3219549401235502f24c25"
     },
     {
-      "bytes": 410,
+      "bytes": 443,
       "path": "paper/lexical_audit.json",
-      "sha256": "05da9587c38ba243ee705b27da0b8a09fbeb6ed6eefd47dc51207c8259dcd06f"
+      "sha256": "4e74b05eba32400966ff14f0065bcc401a4f87b17f864d9d7df03178401233db"
     },
     {
       "bytes": 292647,
       "path": "paper/main.pdf",
-      "sha256": "d741d015f954a94967a68b76ed64841449043374f3ed53d3b47f65647cb41cac"
+      "sha256": "aab4013d6dc3ce9585d286d437b1df4b611f998016f90d1fc3a094496a0a2d0c"
     },
     {
       "bytes": 79038,
@@ -15897,14 +15897,14 @@
       "sha256": "409af04240eb7b3619ead518d466ce490d6d83974c965b79d95900f4ae12f477"
     },
     {
-      "bytes": 2843,
+      "bytes": 2870,
       "path": "paper/manuscript_consistency_audit.json",
-      "sha256": "7daee22fe28171ce0632af4ef84c2eb846c1c5b16e44ab48a0e5bf9966e8624a"
+      "sha256": "42a01bc8880e62fc5f5f59b95d6557b4209af7a5391e1bd86baab2d3bcd97ad8"
     },
     {
-      "bytes": 1202,
+      "bytes": 1220,
       "path": "paper/page_fit_audit.json",
-      "sha256": "797c275bbd46c0d3840929bc03e73749a6e9f5243825539269e5f9bde750388a"
+      "sha256": "221028619df46bb68467a0acf8a3e553a8f4c45403c4f37173c67c32667b7bae"
     },
     {
       "bytes": 140,
@@ -15922,29 +15922,29 @@
       "sha256": "cee36d24ec36657eb07b0c4be865b0f8a505e5fe4f264060d9ab9bb3c36eac85"
     },
     {
-      "bytes": 1226,
+      "bytes": 1206,
       "path": "paper/reference_audit.json",
-      "sha256": "ff0a3086e7f2b3b682cdbb274f38c33a52b4235b7cd538582a0c105f74f33bb3"
+      "sha256": "bf04983d6e8f9201c4890db656b8a883cd2657f444fb93faa2e9b37917c811ad"
     },
     {
-      "bytes": 53068,
+      "bytes": 53057,
       "path": "paper/reference_crosscheck.json",
-      "sha256": "33fa11ac75d0a49cb9711c999bf71d4d385bb40884c08119f159896daf897247"
+      "sha256": "a1464630d51d67d0427d8f02fd0b73c974478d5e543bfa5990764f94de02e0b1"
     },
     {
-      "bytes": 684,
+      "bytes": 672,
       "path": "paper/reference_lock_audit.json",
-      "sha256": "c1e2a816928d4867264bf4d3bf4f54d045415f7a2aba2b47ebf80a6c775dcafc"
+      "sha256": "7e40a4a1c368fcdfd240d090989607484e43f11602f087678bc666f2ead4ab8d"
     },
     {
-      "bytes": 15809,
+      "bytes": 15802,
       "path": "paper/reference_target_lock.json",
-      "sha256": "0776f4a5cb436d4171e6aa9b05389b242d0c443eae1076bda79e08cbc5d20dbc"
+      "sha256": "507e7acd82fc4a8e9c89dcf483fd5f94837cf3b3c1bd1d439575175b0883eb01"
     },
     {
-      "bytes": 127153,
+      "bytes": 126962,
       "path": "paper/reference_verification_lock.json",
-      "sha256": "d4a9a723d43bd57af7988249f5aa79a3956784b51c06d0c0c42c39711a0cfe1d"
+      "sha256": "5d05711a982713c907d6c58b9dbc029935f601573cf5262862f7aa31b9b7a461"
     },
     {
       "bytes": 16418,
@@ -15957,14 +15957,14 @@
       "sha256": "4fd8267effda05d38599b7c744d3258f945f77a8cb37ba61f2b803a5774000d8"
     },
     {
-      "bytes": 3784,
+      "bytes": 3804,
       "path": "paper/submission_template_audit.json",
-      "sha256": "5aa9ff8ac876ea31c5dc15a87ecc97cfb349971ef6d988aceaba7a59b25fe2b8"
+      "sha256": "8713867cc3f2543c00f9eafd4d5300a6eeb3c40abf51eb31bd9a624afaa036c1"
     },
     {
-      "bytes": 1026,
+      "bytes": 1054,
       "path": "paper/typography_audit.json",
-      "sha256": "b8054eac5685ff3b450c1ce108453f4d9c3d26ae6590c7ce7affb37afd3cac2e"
+      "sha256": "4baf9b0e44eebe0aeccd1f178cdb6cb10906b8cd4e0e4699184d559087dbeb95"
     },
     {
       "bytes": 5374,
@@ -15977,11 +15977,12 @@
       "sha256": "3b10e8d8c916957474c3c990630a489db16ef892d4c54d3ce5614c9eaf39ee19"
     },
     {
-      "bytes": 2428,
+      "bytes": 2832,
       "path": "paper/visual_inspection.json",
-      "sha256": "e87a6271fbec3dc6e8089097ca1bc6547a0c1ed08380597469d087d322ab5527"
+      "sha256": "3827dc7ac5b1b37814e28b5cd307b7994d2f04a1c5ae7217f9006a2cabcfb9a3"
     }
   ],
-  "generated_at": "2026-10-17T17:31:59.161194+00:00",
+  "generated_at": "2026-10-17T17:58:27.144019+00:00",
+  "prior_generated_at": "2026-10-17T17:31:59.161194+00:00",
   "schema": "tse01.release-manifest.v2"
 }
