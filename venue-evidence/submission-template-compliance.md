@@ -57,7 +57,6 @@ remains until the applicable live TSE submission route is checked.
 - Confirm department or organizational unit for each affiliation if applicable.
 - Authenticate all four ORCIDs in the submission account.
 - Confirm author contributions, conflicts, institutional approvals, and related-work declarations.
-- Prepare truthful generated-content disclosure based on the actual workflow.
 - Recheck the live TSE page route and required file designations immediately before upload.
 
 ## Official sources

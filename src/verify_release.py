@@ -81,7 +81,7 @@ FORBIDDEN_TEXT = _decoded_signatures((
     "L21udC9kYXRhLw==",
     "L2hvbWUvb2FpLw==",
 ))
-# Product names, licensed citations and truthful disclosures are not leakage.
+# Public prose, citations and license notices are not private-process data.
 PRIVATE_PATTERNS = (
     re.compile(r"(?im)^\s*(?:BEGIN PRIVATE PROCESS SCRATCH|PRIVATE CONVERSATION TRANSCRIPT|CHAIN[_ -]OF[_ -]THOUGHT DUMP)\b"),
     re.compile(r"(?i)[a-z]:[\\/](?:users|codexprojects|codexdata|latextools)[\\/]"),

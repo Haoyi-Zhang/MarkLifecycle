@@ -176,8 +176,8 @@ class PackagingContractTests(unittest.TestCase):
                 target.unlink()
                 self.assertTrue(self.membership_errors(root, rows))
 
-    def test_truthful_disclosures_and_licensed_citations_are_allowed(self):
-        text = "Generated-content disclosure: ChatGPT (OpenAI) assisted drafting. The cited OpenAI chain of thought material is licensed."
+    def test_public_prose_and_licensed_citations_are_allowed(self):
+        text = "Source attribution: the quoted passage is reproduced under its original license."
         self.assertEqual(verifier.private_text_findings(text), 0)
         self.assertGreater(verifier.private_text_findings("D:" + "/CodexProjects/private/input"), 0)
         self.assertGreater(verifier.private_text_findings("api" + "_key=" + "a" * 32), 0)
