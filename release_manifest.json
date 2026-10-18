@@ -15762,81 +15762,6 @@
       "sha256": "d9420f5c3fd3651455de1e54c4ab5af7aaca013d7f38557ad12141284faea1ae"
     },
     {
-      "bytes": 129,
-      "path": "artifact/venue-evidence/official-extracts/abstract_length.txt",
-      "sha256": "d76db77c084f455a7bd32029c19f52fdf0a0c25e676818369aeef128427829cd"
-    },
-    {
-      "bytes": 437,
-      "path": "artifact/venue-evidence/official-extracts/author_metadata.txt",
-      "sha256": "8ddc3bced3bca80360f7332f170868a54a41a63e7f00ff98e8bb8742205d77d6"
-    },
-    {
-      "bytes": 196,
-      "path": "artifact/venue-evidence/official-extracts/automated_content_disclosure.txt",
-      "sha256": "1ef421ab908433dd592f2a897aeaf045922c75f0181c050a53c49936b27f6d7d"
-    },
-    {
-      "bytes": 307,
-      "path": "artifact/venue-evidence/official-extracts/initial_submission_template_mode.txt",
-      "sha256": "d58b7daf387035c4537e6dd3ed6a5bee98abe834d8702497c1d6d4856adef7b3"
-    },
-    {
-      "bytes": 91,
-      "path": "artifact/venue-evidence/official-extracts/journal_template_required.txt",
-      "sha256": "0ade33c6d0031f058f40c1882d5ccf58407c5c40f1fa7c2e9ac7a9e3ae09344c"
-    },
-    {
-      "bytes": 176,
-      "path": "artifact/venue-evidence/official-extracts/manuscript_files.txt",
-      "sha256": "5a80b77a021f45db5d233761ba81ee534131b756926324dc6af86bd78104a379"
-    },
-    {
-      "bytes": 241,
-      "path": "artifact/venue-evidence/official-extracts/ntu_address.txt",
-      "sha256": "3f288239432b7b11e9cf90206b9a7a842a136d013024dfbe80f6ee12c10cc45d"
-    },
-    {
-      "bytes": 129,
-      "path": "artifact/venue-evidence/official-extracts/reference_order.txt",
-      "sha256": "b3149824129e39b9e6e4e6edb8e3a967fd527f0d5a446f85d80b750c8ae7bc6f"
-    },
-    {
-      "bytes": 185,
-      "path": "artifact/venue-evidence/official-extracts/regular_page_baseline.txt",
-      "sha256": "ee9d97071f34c1b0314e7bd57ab90ab7b494545b2a38d01ad32c955dc3e2cf21"
-    },
-    {
-      "bytes": 113,
-      "path": "artifact/venue-evidence/official-extracts/review_model.txt",
-      "sha256": "239957117ce05a40a93a29b3ecb0c9a5849a65bfa5faecb0445778e2cee2d3d5"
-    },
-    {
-      "bytes": 147,
-      "path": "artifact/venue-evidence/official-extracts/supplement_separate.txt",
-      "sha256": "bd83021c3bec6fd9baf586ad1e1393fe5cf0570bce3188a4f3cbca9f8b6bbeb8"
-    },
-    {
-      "bytes": 138,
-      "path": "artifact/venue-evidence/official-extracts/tse_scope.txt",
-      "sha256": "bf65f02972ffd30a7150d2e0f4a9d212e9df1911668d47658799838d18d3c584"
-    },
-    {
-      "bytes": 149,
-      "path": "artifact/venue-evidence/official-extracts/xjtlu_address.txt",
-      "sha256": "9ea02ff838c844dbbff92fe389056be6026202b176c659fb426763ebd5ac67ff"
-    },
-    {
-      "bytes": 16924,
-      "path": "artifact/venue-evidence/official-lock.json",
-      "sha256": "93216677bea7b5c6677925287e7418260928751bc5e2e106d46b9021a0490051"
-    },
-    {
-      "bytes": 3243,
-      "path": "artifact/venue-evidence/submission-template-compliance.md",
-      "sha256": "c4d23f44f0e36e740cde098e8987ed793d0e683ebec8e4782f339070c8285685"
-    },
-    {
       "bytes": 695,
       "path": "paper/citation_shape_audit.json",
       "sha256": "e286890a3aa80c0feccd353f475c767f4cb4ee8ffa5d8b4b2d69d7d32c44cdd9"
@@ -15982,7 +15907,7 @@
       "sha256": "3827dc7ac5b1b37814e28b5cd307b7994d2f04a1c5ae7217f9006a2cabcfb9a3"
     }
   ],
-  "generated_at": "2026-10-17T17:58:27.144019+00:00",
+  "generated_at": "2026-10-18T12:24:11.885807+00:00",
   "prior_generated_at": "2026-10-17T17:31:59.161194+00:00",
   "schema": "tse01.release-manifest.v2"
 }

@@ -1,1 +1,0 @@
-TSE seeks well-defined theoretical results and empirical studies with potential impact on software construction, analysis, or management.
