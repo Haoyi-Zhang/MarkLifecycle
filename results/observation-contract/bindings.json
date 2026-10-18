@@ -100,14 +100,16 @@
     {
       "private_sha256": "7bd66afb12dcf72a9f340652462106bc6fbf225cdba4daa8d1cf78ee4481e52b",
       "public_path": "artifact/results/observation-contract/commands/full-model-normal.json",
-      "public_sha256": "df42e17a36433996fbe1cd8980f66bd327a572d28e70d0172580e6878c586782",
-      "transformation": "JSON formatting and machine-local path substitution only"
+      "public_sha256": "abe78bd2256d39081621bf16329fbf331d6c059b5b69267382e2ef476c364323",
+      "transformation": "JSON formatting and machine-local path substitution only",
+      "recorded_public_sha256": "df42e17a36433996fbe1cd8980f66bd327a572d28e70d0172580e6878c586782"
     },
     {
       "private_sha256": "652da4d1a9037eb5aca4f9305e50e316e24df38ac7b0de8f9bac8d305cf3e9ac",
       "public_path": "artifact/results/observation-contract/commands/full-model-optimized.json",
-      "public_sha256": "148ea05a0c4325b9378e76b14b3a22b17416d21e386b652687fb646bb6740d3f",
-      "transformation": "JSON formatting and machine-local path substitution only"
+      "public_sha256": "34f36437c2eb7e61419bcff8c9332b576ce44a1c83b9c8d21af56e6e0415fd15",
+      "transformation": "JSON formatting and machine-local path substitution only",
+      "recorded_public_sha256": "148ea05a0c4325b9378e76b14b3a22b17416d21e386b652687fb646bb6740d3f"
     },
     {
       "private_sha256": "21104396467931cafb25f68b0ca93a1bca1a31e762f7a0ad72f03b76c4639c07",

@@ -6087,9 +6087,9 @@
       "sha256": "6f1f08a5dc283cc146f95933209c4e4ddc421809c2e8a254debfb43475994314"
     },
     {
-      "bytes": 11899,
+      "bytes": 12419,
       "path": "artifact/README.md",
-      "sha256": "b3334c2855a3834eb096772feab25bc97dd988af8ca765e5e9cc75718abefec2"
+      "sha256": "25c59c43d35da1f07ce82e86eb857e2957119807dd221704163d8e6e91090180"
     },
     {
       "bytes": 5448,
@@ -6232,19 +6232,19 @@
       "sha256": "2a5bcb6e0c7578a8596e9e47a5559b085f3d09fa072c2659bd1767a952ff8716"
     },
     {
-      "bytes": 19109,
+      "bytes": 19311,
       "path": "artifact/results/observation-contract/bindings.json",
-      "sha256": "1741691f676725393da0116b29df3a855bfcb7ebf0b21d1a66d5dc1a902222f7"
+      "sha256": "37e22a8df2b3565861c0e52b4eb3e6382c423b6a32c611eb8eb1010e5e104d28"
     },
     {
-      "bytes": 7981,
+      "bytes": 7977,
       "path": "artifact/results/observation-contract/commands/full-model-normal.json",
-      "sha256": "df42e17a36433996fbe1cd8980f66bd327a572d28e70d0172580e6878c586782"
+      "sha256": "abe78bd2256d39081621bf16329fbf331d6c059b5b69267382e2ef476c364323"
     },
     {
-      "bytes": 7995,
+      "bytes": 7991,
       "path": "artifact/results/observation-contract/commands/full-model-optimized.json",
-      "sha256": "148ea05a0c4325b9378e76b14b3a22b17416d21e386b652687fb646bb6740d3f"
+      "sha256": "34f36437c2eb7e61419bcff8c9332b576ce44a1c83b9c8d21af56e6e0415fd15"
     },
     {
       "bytes": 4765,

@@ -210,3 +210,7 @@ check errors, and uploads raw outputs even after failure. The retained Ubuntu
 and confirmed the bindings of 576 retained outputs. Raw records are retained
 in `results/current/`, with the larger finite-model JSON files losslessly
 compressed as `.gz`. This is not a fresh compiler or subject-program run.
+
+## Portable path notation
+
+Published execution records use `<PYTHON_ROOT>`, `<NODE_ROOT>`, `<RUNTIME_ROOT>` and `<PROJECTS_ROOT>` for machine-local installation and workspace prefixes. These are path aliases, not literal directories; substitute the corresponding local roots when replaying a command. Recorded interpreter and dependency versions, inputs, measurements and outcomes are unchanged. File inventories bind the published portable serializations; any `recorded_` identity denotes the pre-normalization bytes.
