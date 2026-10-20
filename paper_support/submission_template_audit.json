@@ -1,0 +1,130 @@
+{
+  "abstract_has_citations_or_math": false,
+  "abstract_within_100_200_words": true,
+  "abstract_word_count": 159,
+  "all_page_sizes_points": [
+    [
+      612.0,
+      792.0
+    ],
+    [
+      612.0,
+      792.0
+    ],
+    [
+      612.0,
+      792.0
+    ],
+    [
+      612.0,
+      792.0
+    ],
+    [
+      612.0,
+      792.0
+    ],
+    [
+      612.0,
+      792.0
+    ],
+    [
+      612.0,
+      792.0
+    ],
+    [
+      612.0,
+      792.0
+    ],
+    [
+      612.0,
+      792.0
+    ],
+    [
+      612.0,
+      792.0
+    ],
+    [
+      612.0,
+      792.0
+    ],
+    [
+      612.0,
+      792.0
+    ],
+    [
+      612.0,
+      792.0
+    ],
+    [
+      612.0,
+      792.0
+    ],
+    [
+      612.0,
+      792.0
+    ]
+  ],
+  "article_type": "Regular research article",
+  "author_biographies_present": false,
+  "binding_refresh_date": "2026-10-18",
+  "biographies_required_for_initial_submission": false,
+  "class_version": "2015/08/26 V1.8b by Michael Shell",
+  "current_bibliography_style_sha256": "fca86cd4f041a5c5326295fa04dcce56eaf2c8a4bf3219549401235502f24c25",
+  "current_class_sha256": "c972aca108fda004c3514d63658e02816da2e54d9a1451e870b9bd970e003f55",
+  "documentclass": "IEEEtran",
+  "documentclass_options": [
+    "letterpaper",
+    "journal"
+  ],
+  "errors": [],
+  "funding_status_in_first_footnote": true,
+  "ieee_production_staff_formats_published_version": true,
+  "journal_double_column_mode": true,
+  "keyword_count": 5,
+  "keywords": [
+    "software watermarking",
+    "software evolution",
+    "translation validation",
+    "software provenance",
+    "reproducible builds"
+  ],
+  "manuscript_sha256": "409af04240eb7b3619ead518d466ce490d6d83974c965b79d95900f4ae12f477",
+  "manuscript_stage": "initial peer-review submission",
+  "official_initial_submission_hard_cap_verified": false,
+  "official_mopc_threshold_pages": 12,
+  "official_page_rule_note": "The accessible IEEE Computer Society guidance defines twelve pages as the Transactions MOPC threshold and states that submission limits may differ; no accessible official TSE page established a twelve-page initial-submission hard cap.",
+  "official_sources": [
+    "https://www.computer.org/publications/author-resources",
+    "https://journals.ieeeauthorcenter.ieee.org/create-your-ieee-journal-article/create-the-text-of-your-article/structure-your-article/",
+    "https://www.computer.org/digital-library/journals/ts/cfp-ieee-transactions-on-software-engineering"
+  ],
+  "open_submission_metadata": [
+    "confirm author departments or organizational units if applicable",
+    "recheck the live TSE portal page route before upload",
+    "complete truthful disclosure and author-account metadata"
+  ],
+  "page_budget_kind": "INTERNAL_BASELINE_MAXIMUM_NOT_OFFICIAL_VENUE_LIMIT",
+  "page_size_points": [
+    612.0,
+    792.0
+  ],
+  "pdf_sha256": "aab4013d6dc3ce9585d286d437b1df4b611f998016f90d1fc3a094496a0a2d0c",
+  "production_only_elements_present": {
+    "author_biographies": false,
+    "inline_appendix": false,
+    "publication_id": false,
+    "publisher_issue_metadata": false,
+    "running_head": false
+  },
+  "project_internal_total_page_budget": 15,
+  "received_revised_accepted_dates_authored": false,
+  "schema": "tse01.submission-template-audit.v1",
+  "submission_policy_status": "SUBMISSION_POLICY_HOLD",
+  "supplied_bibliography_style_sha256": "fca86cd4f041a5c5326295fa04dcce56eaf2c8a4bf3219549401235502f24c25",
+  "supplied_class_sha256": "c972aca108fda004c3514d63658e02816da2e54d9a1451e870b9bd970e003f55",
+  "template_files_unmodified": true,
+  "template_is_author_submission_format_not_ieee_final_layout": true,
+  "us_letter": true,
+  "venue": "IEEE Transactions on Software Engineering",
+  "verdict": "PASS"
+}

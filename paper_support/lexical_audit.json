@@ -1,0 +1,17 @@
+{
+  "all_public_subject_names_present": true,
+  "binding_refresh_date": "2026-10-18",
+  "findings": [],
+  "pdf_sha256": "aab4013d6dc3ce9585d286d437b1df4b611f998016f90d1fc3a094496a0a2d0c",
+  "public_subject_names_present": {
+    "Parson": true,
+    "cJSON": true,
+    "inih": true,
+    "jsmn": true,
+    "rxi logging library": true,
+    "uthash": true,
+    "zlib": true
+  },
+  "schema": "tse01.lexical-audit.v5",
+  "verdict": "PASS"
+}

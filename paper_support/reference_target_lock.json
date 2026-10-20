@@ -1,0 +1,404 @@
+{
+  "article_type": "regular research article",
+  "citation_shape_rule": "One concrete support sentence uses one most-direct citation; no manuscript sentence may contain more than one citation command, and multi-key commands, adjacent piles, ranges, and paragraph-final stacks are rejected.",
+  "count_method": "Complete bibliography traversal with contiguous terminal-number verification; no metadata-based count estimates.",
+  "counts_sorted": [
+    29,
+    55,
+    60,
+    62,
+    69,
+    76,
+    79,
+    81,
+    103,
+    108,
+    112,
+    113
+  ],
+  "current_citation_count": 79,
+  "current_manuscript_sha256": "409af04240eb7b3619ead518d466ce490d6d83974c965b79d95900f4ae12f477",
+  "current_reference_count": 79,
+  "current_source_reference_count_at_lock": 18,
+  "floor_policy": "The manuscript must use at least the ceiling of the verified median (78). This is a coverage floor, not permission to pad. Every retained item must be a genuine scholarly publication, strongly related, individually cited by a sentence-level claim, and represented in citation_support.csv.",
+  "floor_rule": "The manuscript must contain at least the ceiling of the verified median (78). The P75 is descriptive, never a quota, and every retained reference must independently satisfy relevance and sentence-level support.",
+  "frozen_at": "2026-07-19T00:00:00+09:00",
+  "frozen_reference_floor": 78,
+  "inspection_method": {
+    "no_estimation": true,
+    "pdf_screenshot_attempt": "attempted for each PDF as required by the environment; web screenshot cache misses prevented image capture, so parsed PDF text and terminal entries were used and the limitation is recorded rather than concealed",
+    "primary": "full-text bibliography traversal and terminal-number verification"
+  },
+  "manuscript_eligibility_rule": "Only genuine, verified, strongly related scholarly papers are eligible; websites, repositories, documentation, standards pages, product pages, blogs, and padding are excluded.",
+  "manuscript_reference_count_after_revision": 79,
+  "median": 77.5,
+  "median_reference_count": 77.5,
+  "numeric_reference_floor": 78,
+  "p75": 104.25,
+  "p75_reference_count_linear": 104.25,
+  "papers": [
+    {
+      "doi": "10.1109/TSE.2023.3278129",
+      "inspection": "complete bibliography inspected; contiguous terminal entry [112]",
+      "reference_count": 112,
+      "relationship": "dependency and release evolution; empirical TSE evaluation",
+      "source_url": "author manuscript / TSE record",
+      "title": "Automating Dependency Updates in Practice: An Exploratory Study on GitHub Dependabot",
+      "year": 2023
+    },
+    {
+      "doi": "10.1109/TSE.2020.3007722",
+      "inspection": "complete bibliography inspected; contiguous terminal entry [76]",
+      "reference_count": 76,
+      "relationship": "refactoring history and transformation mapping",
+      "source_url": "https://users.encs.concordia.ca/~nikolaos/publications/TSE_2020.pdf",
+      "title": "RefactoringMiner 2.0",
+      "year": 2022
+    },
+    {
+      "doi": "10.1109/TSE.2020.2968072",
+      "inspection": "complete bibliography inspected; contiguous terminal entry [29]",
+      "reference_count": 29,
+      "relationship": "refactoring detection and source correspondence",
+      "source_url": "author manuscript / TSE record",
+      "title": "RefDiff 2.0: A Multi-Language Refactoring Detection Tool",
+      "year": 2021
+    },
+    {
+      "doi": "10.1109/TSE.2021.3087402",
+      "inspection": "complete bibliography inspected; contiguous terminal entry [103]",
+      "reference_count": 103,
+      "relationship": "realism, data leakage, and overfitting threats in TSE evaluation",
+      "source_url": "author manuscript / TSE record",
+      "title": "Deep Learning Based Vulnerability Detection: Are We There Yet?",
+      "year": 2022
+    },
+    {
+      "doi": "10.1109/TSE.2022.3147265",
+      "inspection": "complete bibliography inspected; contiguous terminal entry [81]",
+      "reference_count": 81,
+      "relationship": "C maintenance changes, baselines, ablations, and cross-project evaluation",
+      "source_url": "author manuscript / TSE record",
+      "title": "Neural Transfer Learning for Repairing Security Vulnerabilities in C Code",
+      "year": 2023
+    },
+    {
+      "doi": "10.1109/TSE.2022.3140510",
+      "inspection": "complete bibliography inspected; contiguous terminal entry [69]",
+      "reference_count": 69,
+      "relationship": "mutation controls, cross-project analysis, and ablations",
+      "source_url": "author manuscript / TSE record",
+      "title": "Cerebro: Static Subsuming Mutant Selection",
+      "year": 2023
+    },
+    {
+      "doi": "10.1109/TSE.2022.3143766",
+      "inspection": "complete bibliography inspected; contiguous terminal entry [55]",
+      "reference_count": 55,
+      "relationship": "real-history replay and structure-preserving transformation evaluation",
+      "source_url": "author manuscript / TSE record",
+      "title": "Spork: Structured Merge for Java with Formatting Preservation",
+      "year": 2023
+    },
+    {
+      "doi": "10.1109/TSE.2022.3140868",
+      "inspection": "complete bibliography inspected; contiguous terminal entry [108]",
+      "reference_count": 108,
+      "relationship": "software lifecycle histories, threats, and practical implications",
+      "source_url": "author manuscript / TSE record",
+      "title": "The Secret Life of Software Vulnerabilities: A Large-Scale Empirical Study",
+      "year": 2023
+    },
+    {
+      "doi": "10.1109/TSE.2023.3275380",
+      "inspection": "complete bibliography inspected; contiguous terminal entry [113]",
+      "reference_count": 113,
+      "relationship": "code-transform corpora, baselines, and validity",
+      "source_url": "author manuscript / TSE record",
+      "title": "Learning the Relation between Code Features and Code Transforms with Structured Prediction",
+      "year": 2023
+    },
+    {
+      "doi": "10.1109/TSE.2025.3541166",
+      "inspection": "complete bibliography inspected; contiguous terminal entry [79]",
+      "reference_count": 79,
+      "relationship": "maintenance evaluation breadth and project-wise reliability analysis",
+      "source_url": "author manuscript / TSE record",
+      "title": "Automated Test Case Repair Using Language Models",
+      "year": 2025
+    },
+    {
+      "doi": "10.1109/TSE.2024.3423769",
+      "inspection": "complete bibliography inspected; contiguous terminal entry [60]",
+      "reference_count": 60,
+      "relationship": "C/C++ transformations, semantic preservation, and baseline comparison",
+      "source_url": "author manuscript / TSE record",
+      "title": "Supersonic: Learning to Generate Source Code Optimizations in C/C++",
+      "year": 2024
+    },
+    {
+      "doi": "10.1109/TSE.2022.3171404",
+      "inspection": "complete bibliography inspected; contiguous terminal entry [62]",
+      "reference_count": 62,
+      "relationship": "consistency-preserving transformations, baselines, and adverse cases",
+      "source_url": "author manuscript / TSE record",
+      "title": "We're Not Gonna Break It! Consistency-Preserving Operators for Efficient Product Line Configuration",
+      "year": 2023
+    }
+  ],
+  "prior_rendered_checkpoint_reference_count": 68,
+  "quantile_method": "linear interpolation at (n-1)q, equivalent to NumPy default method=linear",
+  "reference_counts_sorted": [
+    29,
+    55,
+    60,
+    62,
+    69,
+    76,
+    79,
+    81,
+    103,
+    108,
+    112,
+    113
+  ],
+  "sample_definition": "Twelve recent TSE papers closest in lifecycle transformation, realistic software-artifact evaluation, baselines/ablations, adverse cases, or validity analysis. The complete numbered bibliography of each full text was inspected; counts use the terminal reference number after confirming numbering begins at one and is contiguous.",
+  "sample_size": 12,
+  "samples": [
+    {
+      "authors": [
+        "Runzhi He",
+        "Hao He",
+        "Yuxia Zhang",
+        "Minghui Zhou"
+      ],
+      "count": 112,
+      "doi": "10.1109/TSE.2023.3278129",
+      "fulltext": "author manuscript / TSE record",
+      "id": "TSE_DEPENDABOT_2023",
+      "issue": 8,
+      "pages": "4004--4022",
+      "relationship": "dependency and release evolution; empirical TSE evaluation",
+      "terminal": "[112]",
+      "title": "Automating Dependency Updates in Practice: An Exploratory Study on GitHub Dependabot",
+      "volume": 49,
+      "year": 2023
+    },
+    {
+      "authors": [
+        "Nikolaos Tsantalis",
+        "Ameya Ketkar",
+        "Danny Dig"
+      ],
+      "count": 76,
+      "doi": "10.1109/TSE.2020.3007722",
+      "fulltext": "https://users.encs.concordia.ca/~nikolaos/publications/TSE_2020.pdf",
+      "id": "TSE_REFACTORINGMINER_2022",
+      "issue": 3,
+      "pages": "930--950",
+      "relationship": "refactoring history and transformation mapping",
+      "terminal": "[76]",
+      "title": "RefactoringMiner 2.0",
+      "volume": 48,
+      "year": 2022
+    },
+    {
+      "authors": [
+        "Danilo Silva",
+        "Joao Paulo da Silva",
+        "Gustavo Santos",
+        "Ricardo Terra",
+        "Marco Tulio Valente"
+      ],
+      "count": 29,
+      "doi": "10.1109/TSE.2020.2968072",
+      "fulltext": "author manuscript / TSE record",
+      "id": "TSE_REFDIFF_2021",
+      "issue": 12,
+      "pages": "2786--2802",
+      "relationship": "refactoring detection and source correspondence",
+      "terminal": "[29]",
+      "title": "RefDiff 2.0: A Multi-Language Refactoring Detection Tool",
+      "volume": 47,
+      "year": 2021
+    },
+    {
+      "authors": [
+        "Saikat Chakraborty",
+        "Rahul Krishna",
+        "Yangruibo Ding",
+        "Baishakhi Ray"
+      ],
+      "count": 103,
+      "doi": "10.1109/TSE.2021.3087402",
+      "fulltext": "author manuscript / TSE record",
+      "id": "TSE_REVEAL_2022",
+      "issue": 9,
+      "pages": "3280--3296",
+      "relationship": "realism, data leakage, and overfitting threats in TSE evaluation",
+      "terminal": "[103]",
+      "title": "Deep Learning Based Vulnerability Detection: Are We There Yet?",
+      "volume": 48,
+      "year": 2022
+    },
+    {
+      "authors": [
+        "Zimin Chen",
+        "Steve Kommrusch",
+        "Martin Monperrus"
+      ],
+      "count": 81,
+      "doi": "10.1109/TSE.2022.3147265",
+      "fulltext": "author manuscript / TSE record",
+      "id": "TSE_VREPAIR_2023",
+      "issue": 1,
+      "pages": "147--165",
+      "relationship": "C maintenance changes, baselines, ablations, and cross-project evaluation",
+      "terminal": "[81]",
+      "title": "Neural Transfer Learning for Repairing Security Vulnerabilities in C Code",
+      "volume": 49,
+      "year": 2023
+    },
+    {
+      "authors": [
+        "Aayush Garg",
+        "Milos Ojdanic",
+        "Renzo Degiovanni",
+        "Thierry Titcheu Chekam",
+        "Mike Papadakis",
+        "Yves Le Traon"
+      ],
+      "count": 69,
+      "doi": "10.1109/TSE.2022.3140510",
+      "fulltext": "author manuscript / TSE record",
+      "id": "TSE_CEREBRO_2023",
+      "issue": 1,
+      "pages": "24--43",
+      "relationship": "mutation controls, cross-project analysis, and ablations",
+      "terminal": "[69]",
+      "title": "Cerebro: Static Subsuming Mutant Selection",
+      "volume": 49,
+      "year": 2023
+    },
+    {
+      "authors": [
+        "Simon Lars\u00e9n",
+        "Jean-R\u00e9my Falleri",
+        "Benoit Baudry",
+        "Martin Monperrus"
+      ],
+      "count": 55,
+      "doi": "10.1109/TSE.2022.3143766",
+      "fulltext": "author manuscript / TSE record",
+      "id": "TSE_SPORK_2023",
+      "issue": 1,
+      "pages": "64--83",
+      "relationship": "real-history replay and structure-preserving transformation evaluation",
+      "terminal": "[55]",
+      "title": "Spork: Structured Merge for Java with Formatting Preservation",
+      "volume": 49,
+      "year": 2023
+    },
+    {
+      "authors": [
+        "Emanuele Iannone",
+        "Roberta Guadagni",
+        "Filomena Ferrucci",
+        "Andrea De Lucia",
+        "Fabio Palomba"
+      ],
+      "count": 108,
+      "doi": "10.1109/TSE.2022.3140868",
+      "fulltext": "author manuscript / TSE record",
+      "id": "TSE_SECRET_LIFE_2023",
+      "issue": 1,
+      "pages": "44--63",
+      "relationship": "software lifecycle histories, threats, and practical implications",
+      "terminal": "[108]",
+      "title": "The Secret Life of Software Vulnerabilities: A Large-Scale Empirical Study",
+      "volume": 49,
+      "year": 2023
+    },
+    {
+      "authors": [
+        "Zhongxing Yu",
+        "Matias Martinez",
+        "Zimin Chen",
+        "Tegawende F. Bissyande",
+        "Martin Monperrus"
+      ],
+      "count": 113,
+      "doi": "10.1109/TSE.2023.3275380",
+      "fulltext": "author manuscript / TSE record",
+      "id": "TSE_STRUCTURED_TRANSFORMS_2023",
+      "issue": 7,
+      "pages": "3872--3900",
+      "relationship": "code-transform corpora, baselines, and validity",
+      "terminal": "[113]",
+      "title": "Learning the Relation between Code Features and Code Transforms with Structured Prediction",
+      "volume": 49,
+      "year": 2023
+    },
+    {
+      "authors": [
+        "Ahmadreza Saboor Yaraghi",
+        "Darren Holden",
+        "Nafiseh Kahani",
+        "Lionel Briand"
+      ],
+      "count": 79,
+      "doi": "10.1109/TSE.2025.3541166",
+      "fulltext": "author manuscript / TSE record",
+      "id": "TSE_TEST_REPAIR_2025",
+      "issue": 4,
+      "pages": "1104--1133",
+      "relationship": "maintenance evaluation breadth and project-wise reliability analysis",
+      "terminal": "[79]",
+      "title": "Automated Test Case Repair Using Language Models",
+      "volume": 51,
+      "year": 2025
+    },
+    {
+      "authors": [
+        "Zimin Chen",
+        "Sen Fang",
+        "Martin Monperrus"
+      ],
+      "count": 60,
+      "doi": "10.1109/TSE.2024.3423769",
+      "fulltext": "author manuscript / TSE record",
+      "id": "TSE_SUPERSONIC_2024",
+      "issue": 11,
+      "pages": "2849--2864",
+      "relationship": "C/C++ transformations, semantic preservation, and baseline comparison",
+      "terminal": "[60]",
+      "title": "Supersonic: Learning to Generate Source Code Optimizations in C/C++",
+      "volume": 50,
+      "year": 2024
+    },
+    {
+      "authors": [
+        "Jose-Miguel Horcas",
+        "Daniel Struber",
+        "Alexandru Burdusel",
+        "Jabier Martinez",
+        "Steffen Zschaler"
+      ],
+      "count": 62,
+      "doi": "10.1109/TSE.2022.3171404",
+      "fulltext": "author manuscript / TSE record",
+      "id": "TSE_CPCO_2023",
+      "issue": 3,
+      "pages": "1102--1117",
+      "relationship": "consistency-preserving transformations, baselines, and adverse cases",
+      "terminal": "[62]",
+      "title": "We're Not Gonna Break It! Consistency-Preserving Operators for Efficient Product Line Configuration",
+      "volume": 49,
+      "year": 2023
+    }
+  ],
+  "schema": "tse01.reference-target-lock.v2",
+  "selection_rule": "Twelve recent TSE papers closest in lifecycle transformation, realistic software-artifact evaluation, baselines/ablations, adverse cases, or validity analysis. The complete numbered bibliography of each full text was inspected; counts use the terminal reference number after confirming numbering begins at one and is contiguous.",
+  "status": "FROZEN_BEFORE_SUBSTANTIVE_REWRITE_AND_ENFORCED",
+  "venue": "IEEE Transactions on Software Engineering"
+}

@@ -31,16 +31,16 @@ EXPECTED_RESULT_AGGREGATES = {
     "UPSTREAM-SUMMARY": ("UPSTREAM_VALIDATION_AGGREGATE", "artifact/upstream-validation/results/summary.json"),
     "UPSTREAM-RECHECK": ("UPSTREAM_VALIDATION_INDEPENDENT_RECHECK", "artifact/upstream-validation/results/independent_recheck.json"),
     "UPSTREAM-SOURCE-MANIFEST": ("UPSTREAM_SOURCE_BINDING", "artifact/upstream-validation/source_manifest.json"),
-    "REFERENCE-LOCK": ("REFERENCE_EVIDENCE", "paper/reference_verification_lock.json"),
+    "REFERENCE-LOCK": ("REFERENCE_EVIDENCE", "artifact/paper_support/reference_verification_lock.json"),
     "REFERENCE-AUDIT-TABLE": ("REFERENCE_METADATA_AND_SUPPORT", "paper/reference_audit.csv"),
-    "REFERENCE-AUDIT": ("REFERENCE_METADATA_AND_SUPPORT_AUDIT", "paper/reference_audit.json"),
-    "REFERENCE-CROSSCHECK": ("REFERENCE_INTERNAL_CONSISTENCY", "paper/reference_crosscheck.json"),
-    "REFERENCE-TARGET": ("REFERENCE_CALIBRATION", "paper/reference_target_lock.json"),
+    "REFERENCE-AUDIT": ("REFERENCE_METADATA_AND_SUPPORT_AUDIT", "artifact/paper_support/reference_audit.json"),
+    "REFERENCE-CROSSCHECK": ("REFERENCE_INTERNAL_CONSISTENCY", "artifact/paper_support/reference_crosscheck.json"),
+    "REFERENCE-TARGET": ("REFERENCE_CALIBRATION", "artifact/paper_support/reference_target_lock.json"),
     "PAPER-PDF": ("FORMATTED_MANUSCRIPT", "paper/main.pdf"),
-    "PAPER-CITATION-AUDIT": ("MANUSCRIPT_AUDIT", "paper/citation_shape_audit.json"),
-    "PAPER-CONSISTENCY-AUDIT": ("MANUSCRIPT_AUDIT", "paper/manuscript_consistency_audit.json"),
-    "PAPER-LEXICAL-AUDIT": ("MANUSCRIPT_AUDIT", "paper/lexical_audit.json"),
-    "PAPER-PAGE-FIT": ("MANUSCRIPT_AUDIT", "paper/page_fit_audit.json"),
+    "PAPER-CITATION-AUDIT": ("MANUSCRIPT_AUDIT", "artifact/paper_support/citation_shape_audit.json"),
+    "PAPER-CONSISTENCY-AUDIT": ("MANUSCRIPT_AUDIT", "artifact/paper_support/manuscript_consistency_audit.json"),
+    "PAPER-LEXICAL-AUDIT": ("MANUSCRIPT_AUDIT", "artifact/paper_support/lexical_audit.json"),
+    "PAPER-PAGE-FIT": ("MANUSCRIPT_AUDIT", "artifact/paper_support/page_fit_audit.json"),
     "RETAINED-OUTPUT-CLOSURE": ("DELIVERY_EVIDENCE_CLOSURE", "artifact/results/retained_output_closure.json"),
     "ENTRYPOINT-PATH-SMOKE": ("CLEAN_ROOT_ENTRYPOINT_SMOKE", "artifact/results/entrypoint_path_smoke.json"),
     "FINITE-HAMMING-EDGE-CASES": ("HAMMING_EDGE_CASE_ENUMERATION", "artifact/results/hamming_edge_cases.json"),
@@ -1110,15 +1110,15 @@ def main() -> int:
         errors.append("upstream exact source manifest is incomplete or contains a blob mismatch")
 
     # Paper, reference, lexical, and visual audits.
-    compile_audit = check_pass_audit(root, "paper/compile_audit.json", "tse01.compile-audit.v2", errors)
-    template_audit = check_pass_audit(root, "paper/submission_template_audit.json", "tse01.submission-template-audit.v1", errors)
-    typography_audit = check_pass_audit(root, "paper/typography_audit.json", "tse01.typography-audit.v1", errors)
-    citation_audit = check_pass_audit(root, "paper/citation_shape_audit.json", "tse01.citation-shape-audit.v2", errors)
-    consistency_audit = check_pass_audit(root, "paper/manuscript_consistency_audit.json", "tse01.manuscript-consistency-audit.v1", errors)
-    lexical_audit = check_pass_audit(root, "paper/lexical_audit.json", "tse01.lexical-audit.v5", errors)
-    page_fit = check_pass_audit(root, "paper/page_fit_audit.json", "tse01.page-fit-audit.v2", errors)
-    reference_audit = check_pass_audit(root, "paper/reference_lock_audit.json", "tse01.reference-lock-audit.v1", errors)
-    visual_audit = check_pass_audit(root, "paper/visual_inspection.json", "tse01.visual-inspection.v1", errors)
+    compile_audit = check_pass_audit(root, "artifact/paper_support/compile_audit.json", "tse01.compile-audit.v2", errors)
+    template_audit = check_pass_audit(root, "artifact/paper_support/submission_template_audit.json", "tse01.submission-template-audit.v1", errors)
+    typography_audit = check_pass_audit(root, "artifact/paper_support/typography_audit.json", "tse01.typography-audit.v1", errors)
+    citation_audit = check_pass_audit(root, "artifact/paper_support/citation_shape_audit.json", "tse01.citation-shape-audit.v2", errors)
+    consistency_audit = check_pass_audit(root, "artifact/paper_support/manuscript_consistency_audit.json", "tse01.manuscript-consistency-audit.v1", errors)
+    lexical_audit = check_pass_audit(root, "artifact/paper_support/lexical_audit.json", "tse01.lexical-audit.v5", errors)
+    page_fit = check_pass_audit(root, "artifact/paper_support/page_fit_audit.json", "tse01.page-fit-audit.v2", errors)
+    reference_audit = check_pass_audit(root, "artifact/paper_support/reference_lock_audit.json", "tse01.reference-lock-audit.v1", errors)
+    visual_audit = check_pass_audit(root, "artifact/paper_support/visual_inspection.json", "tse01.visual-inspection.v1", errors)
 
     paper_pdf = root / "paper/main.pdf"
     paper_tex = root / "paper/main.tex"
@@ -1361,8 +1361,8 @@ def main() -> int:
             errors.append("separate manuscript supplement unexpectedly present")
 
     # Reference calibration and frozen sentence bindings.
-    target_path = root / "paper/reference_target_lock.json"
-    lock_path = root / "paper/reference_verification_lock.json"
+    target_path = root / "artifact/paper_support/reference_target_lock.json"
+    lock_path = root / "artifact/paper_support/reference_verification_lock.json"
     target = load_json(target_path) if target_path.is_file() else {}
     lock = load_json(lock_path) if lock_path.is_file() else {}
     expect_fields(target, {
@@ -1418,7 +1418,7 @@ def main() -> int:
             errors.append(f"reference audit uses a nonpersistent identifier: {key}")
     if lock.get("verification_date") != "2026-09-24" or lock.get("verification_verdict") != "PASS":
         errors.append("reference verification lock lacks the current audit binding")
-    second_path = root / "paper/reference_audit.json"
+    second_path = root / "artifact/paper_support/reference_audit.json"
     second = load_json(second_path) if second_path.is_file() else {}
     expect_fields(second, {
         "schema": "tse01.reference-audit",
@@ -1436,11 +1436,11 @@ def main() -> int:
         errors.append("reference audit bibliography binding mismatch")
     if second.get("manuscript_sha256") != sha_file(root / "paper/main.tex"):
         errors.append("reference audit manuscript binding mismatch")
-    if second.get("reference_lock_sha256") != sha_file(root / "paper/reference_verification_lock.json"):
+    if second.get("reference_lock_sha256") != sha_file(root / "artifact/paper_support/reference_verification_lock.json"):
         errors.append("reference audit lock binding mismatch")
     if second.get("audit_csv_sha256") != sha_file(root / "paper/reference_audit.csv"):
         errors.append("reference audit CSV binding mismatch")
-    cross_path = root / "paper/reference_crosscheck.json"
+    cross_path = root / "artifact/paper_support/reference_crosscheck.json"
     cross = load_json(cross_path) if cross_path.is_file() else {}
     expect_fields(cross, {
         "schema": "tse01.reference-crosscheck",
@@ -1454,7 +1454,7 @@ def main() -> int:
     }, "reference crosscheck", errors)
     if cross.get("errors") != [] or len(cross.get("rows", [])) != 79:
         errors.append("reference crosscheck contains failures or incomplete rows")
-    if cross.get("lock_sha256") != sha_file(root / "paper/reference_verification_lock.json"):
+    if cross.get("lock_sha256") != sha_file(root / "artifact/paper_support/reference_verification_lock.json"):
         errors.append("reference crosscheck lock binding mismatch")
     if cross.get("bibliography_sha256") != sha_file(root / "paper/references.tex"):
         errors.append("reference crosscheck bibliography binding mismatch")

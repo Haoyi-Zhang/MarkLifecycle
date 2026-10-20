@@ -1,0 +1,99 @@
+{
+  "abstract_relation_terms_present": [
+    "behavior",
+    "recovery",
+    "continuity",
+    "source conformance",
+    "executable reproduction",
+    "integrity",
+    "lineage"
+  ],
+  "abstract_within_official_100_200_word_range": true,
+  "abstract_word_count": 169,
+  "acceptance_equation_relation_macros": [
+    "\\Beh(r)",
+    "\\Rec(r)",
+    "\\Cont(r)",
+    "\\Src(r)",
+    "\\Exe(r)",
+    "\\Intg(r)",
+    "\\Line(r)"
+  ],
+  "binding_refresh_date": "2026-10-18",
+  "combined_count_strings_present": {
+    "compiler_cells": true,
+    "executed_contract_cases": true,
+    "pass_count": true,
+    "reject_count": true,
+    "release_count": true,
+    "semantic_tamper_tests": true
+  },
+  "combined_counts": {
+    "compiler_cells": 688,
+    "executed_contract_cases": 40963856,
+    "hold_count": 0,
+    "pass_count": 129,
+    "reject_count": 43,
+    "release_count": 172,
+    "semantic_tamper_tests": 24
+  },
+  "conclusion_relation_terms_present": [
+    "behavior",
+    "recovery",
+    "continuity",
+    "source conformance",
+    "executable reproduction",
+    "integrity",
+    "lineage"
+  ],
+  "errors": [],
+  "expected_top_level_section_sequence": [
+    "Introduction",
+    "From Watermark Detection to Release Assurance",
+    "Lifecycle-Assurance Model",
+    "Implementation and Study Design",
+    "Results",
+    "Engineering Implications and Validity",
+    "Conclusion"
+  ],
+  "finite_multi_parent_release_count": 12,
+  "finite_parent_edge_count": 144,
+  "floats_flushed_before_conclusion": true,
+  "manuscript_sha256": "409af04240eb7b3619ead518d466ce490d6d83974c965b79d95900f4ae12f477",
+  "mechanical_phrase_hits": [],
+  "named_engineering_baselines_present": {
+    "behavior plus executable reproduction and integrity": true,
+    "behavior plus recovery falsely accepts five controls": true,
+    "recovery plus integrity and lineage": true
+  },
+  "novelty_calibration_present": true,
+  "parent_scope_statements": {
+    "The finite stratum executes twelve two-parent diamond merges": true,
+    "The finite stratum exercises one- and two-parent sets": true,
+    "the commit-derived histories remain single-parent": true,
+    "the commit-derived stratum uses one": true
+  },
+  "project_parent_mode": "singleton",
+  "relation_count": 7,
+  "relation_terms": [
+    "behavior",
+    "recovery",
+    "continuity",
+    "source conformance",
+    "executable reproduction",
+    "integrity",
+    "lineage"
+  ],
+  "schema": "tse01.manuscript-consistency-audit.v1",
+  "stale_parent_scope_phrases_found": [],
+  "top_level_section_sequence": [
+    "Introduction",
+    "From Watermark Detection to Release Assurance",
+    "Lifecycle-Assurance Model",
+    "Implementation and Study Design",
+    "Results",
+    "Engineering Implications and Validity",
+    "Conclusion"
+  ],
+  "verdict": "PASS"
+}

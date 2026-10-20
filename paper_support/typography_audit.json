@@ -1,0 +1,37 @@
+{
+  "all_fonts_embedded": true,
+  "binding_refresh_date": "2026-10-18",
+  "errors": [],
+  "legacy_computer_modern_math_fonts": [],
+  "manuscript_sha256": "409af04240eb7b3619ead518d466ce490d6d83974c965b79d95900f4ae12f477",
+  "math_package": "newtxmath",
+  "math_package_version": "1.754",
+  "monospaced_fonts": [],
+  "pdf_sha256": "aab4013d6dc3ce9585d286d437b1df4b611f998016f90d1fc3a094496a0a2d0c",
+  "predicate_definitions_present": {
+    "behavior": true,
+    "continuity": true,
+    "executable": true,
+    "integrity": true,
+    "lineage": true,
+    "recovery": true,
+    "release_gate": true,
+    "source": true
+  },
+  "release_gate_notation": "\\mathcal{A}",
+  "sans_serif_math_occurrences": 0,
+  "schema": "tse01.typography-audit.v1",
+  "text_family": "Times-compatible IEEEtran serif",
+  "times_compatible_math_fonts": [
+    "NewTXMI",
+    "NewTXMI5",
+    "NewTXMI7",
+    "TeXGyreTermesX-Regular",
+    "txexs",
+    "txmiaX",
+    "txsym",
+    "txsys"
+  ],
+  "verdict": "PASS",
+  "word_form_accept_operator_occurrences": 0
+}

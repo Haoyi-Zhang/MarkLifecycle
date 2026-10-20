@@ -95,8 +95,8 @@ def build_paper_audits(compile_log_path: Path | None = None) -> None:
     cite_groups = re.findall(r"\\cite\{([^}]+)\}", main_tex)
     cited = [group.strip() for group in cite_groups]
     entries = parse_entries(references_tex)
-    reference_lock = read_json(PAPER / "reference_verification_lock.json")
-    target_lock = read_json(PAPER / "reference_target_lock.json")
+    reference_lock = read_json(ART / "paper_support/reference_verification_lock.json")
+    target_lock = read_json(ART / "paper_support/reference_target_lock.json")
     citation_errors: list[str] = []
     if any("," in group or ";" in group for group in cited): citation_errors.append("multi-key citation command")
     if re.search(r"\\cite\{[^}]+\}\s*\\cite\{", main_tex): citation_errors.append("adjacent citation pile")
@@ -130,7 +130,7 @@ def build_paper_audits(compile_log_path: Path | None = None) -> None:
         "errors": citation_errors,
         "verdict": "PASS" if not citation_errors else "FAIL",
     }
-    write_json(PAPER / "citation_shape_audit.json", citation_audit)
+    write_json(ART / "paper_support/citation_shape_audit.json", citation_audit)
 
     # Bind the manuscript's scientific vocabulary and executed parent-set scope
     # to the current evidence.  This catches stale prose left behind after an
@@ -299,7 +299,7 @@ def build_paper_audits(compile_log_path: Path | None = None) -> None:
         "errors": consistency_errors,
         "verdict": "PASS" if not consistency_errors else "FAIL",
     }
-    write_json(PAPER / "manuscript_consistency_audit.json", manuscript_consistency)
+    write_json(ART / "paper_support/manuscript_consistency_audit.json", manuscript_consistency)
 
     rendered = inventory["text"]
     lexical_findings: list[dict[str, Any]] = []
@@ -328,7 +328,7 @@ def build_paper_audits(compile_log_path: Path | None = None) -> None:
             and all(public_subject_names_present.values())
         ) else "FAIL",
     }
-    write_json(PAPER / "lexical_audit.json", lexical_audit)
+    write_json(ART / "paper_support/lexical_audit.json", lexical_audit)
 
     compile_log = compile_log_path if compile_log_path is not None else PAPER / "compile.log"
     log_text = compile_log.read_text(encoding="utf-8", errors="replace") if compile_log.is_file() else ""
@@ -368,7 +368,7 @@ def build_paper_audits(compile_log_path: Path | None = None) -> None:
         "all_fonts_embedded": bool(font_rows) and embedded == len(font_rows),
         "verdict": "PASS" if within_page_budget(pages) and log_matches_pdf and overfull == 0 and unresolved == 0 and bool(font_rows) and embedded == len(font_rows) else "FAIL",
     }
-    write_json(PAPER / "compile_audit.json", compile_audit)
+    write_json(ART / "paper_support/compile_audit.json", compile_audit)
 
     # Initial-submission template audit.  This intentionally distinguishes the
     # author manuscript from IEEE production output: the journal template is
@@ -466,7 +466,7 @@ def build_paper_audits(compile_log_path: Path | None = None) -> None:
         "errors": template_errors,
         "verdict": "PASS" if not template_errors else "FAIL",
     }
-    write_json(PAPER / "submission_template_audit.json", submission_template_audit)
+    write_json(ART / "paper_support/submission_template_audit.json", submission_template_audit)
 
     font_names = [line.split()[0] for line in font_rows]
     base_font_names = [name.split("+", 1)[-1] for name in font_names]
@@ -532,11 +532,11 @@ def build_paper_audits(compile_log_path: Path | None = None) -> None:
         "errors": typography_errors,
         "verdict": "PASS" if not typography_errors and bool(font_rows) and embedded == len(font_rows) else "FAIL",
     }
-    write_json(PAPER / "typography_audit.json", typography_audit)
+    write_json(ART / "paper_support/typography_audit.json", typography_audit)
 
     width, height = inventory["last_page_image_pixels"]
     last_ink = inventory["last_page_column_last_ink_y"]
-    visual_record = PAPER / "visual_inspection.json"
+    visual_record = ART / "paper_support/visual_inspection.json"
     visual = read_json(visual_record) if visual_record.is_file() else {}
     visual_current = (visual.get("pdf_sha256") == pdf_hash and visual.get("verdict") == "PASS"
                       and visual.get("pages_checked") == list(range(1, pages + 1))
@@ -559,18 +559,18 @@ def build_paper_audits(compile_log_path: Path | None = None) -> None:
         "last_page_column_baseline_difference_pixels": abs(last_ink[0] - last_ink[1]),
         "ordinary_line_tolerance_pixels": 25,
         "manual_visual_inspection_current": visual_current,
-        "visual_inspection_record": "paper/visual_inspection.json" if visual_record.is_file() else None,
+        "visual_inspection_record": "artifact/paper_support/visual_inspection.json" if visual_record.is_file() else None,
         "overflow": overfull,
         "column_balance_is_release_requirement": False,
         "layout_rule": "ordinary bibliography continuation may occupy one column; no clipping or overlap, and no overfull boxes",
         "verdict": ("FAIL" if not within_page_budget(pages) or overfull
                     else "PASS" if visual_current else "PENDING_VISUAL_RECHECK"),
     }
-    write_json(PAPER / "page_fit_audit.json", page_fit)
+    write_json(ART / "paper_support/page_fit_audit.json", page_fit)
 
 
 def make_citation_support() -> None:
-    lock = read_json(PAPER / "reference_verification_lock.json")
+    lock = read_json(ART / "paper_support/reference_verification_lock.json")
     rows = []
     for record in lock["records"]:
         rows.append({
@@ -740,16 +740,16 @@ def make_results_manifest() -> None:
         ("UPSTREAM-SUMMARY", UPSTREAM / "summary.json", "UPSTREAM_VALIDATION_AGGREGATE", "artifact/upstream-validation/results/independent_recheck.json"),
         ("UPSTREAM-RECHECK", UPSTREAM / "independent_recheck.json", "UPSTREAM_VALIDATION_INDEPENDENT_RECHECK", "artifact/upstream-validation/results/independent_recheck.json"),
         ("UPSTREAM-SOURCE-MANIFEST", ART / "upstream-validation" / "source_manifest.json", "UPSTREAM_SOURCE_BINDING", "artifact/upstream-validation/results/independent_recheck.json"),
-        ("REFERENCE-LOCK", PAPER / "reference_verification_lock.json", "REFERENCE_EVIDENCE", "paper/reference_lock_audit.json"),
-        ("REFERENCE-AUDIT-TABLE", PAPER / "reference_audit.csv", "REFERENCE_METADATA_AND_SUPPORT", "paper/reference_lock_audit.json"),
-        ("REFERENCE-AUDIT", PAPER / "reference_audit.json", "REFERENCE_METADATA_AND_SUPPORT_AUDIT", "paper/reference_lock_audit.json"),
-        ("REFERENCE-CROSSCHECK", PAPER / "reference_crosscheck.json", "REFERENCE_INTERNAL_CONSISTENCY", "paper/reference_lock_audit.json"),
-        ("REFERENCE-TARGET", PAPER / "reference_target_lock.json", "REFERENCE_CALIBRATION", "paper/reference_lock_audit.json"),
-        ("PAPER-PDF", PAPER / "main.pdf", "FORMATTED_MANUSCRIPT", "paper/compile_audit.json"),
-        ("PAPER-CITATION-AUDIT", PAPER / "citation_shape_audit.json", "MANUSCRIPT_AUDIT", "paper/reference_lock_audit.json"),
-        ("PAPER-CONSISTENCY-AUDIT", PAPER / "manuscript_consistency_audit.json", "MANUSCRIPT_AUDIT", "paper/manuscript_consistency_audit.json"),
-        ("PAPER-LEXICAL-AUDIT", PAPER / "lexical_audit.json", "MANUSCRIPT_AUDIT", "paper/lexical_audit.json"),
-        ("PAPER-PAGE-FIT", PAPER / "page_fit_audit.json", "MANUSCRIPT_AUDIT", "paper/visual_inspection.json"),
+        ("REFERENCE-LOCK", ART / "paper_support/reference_verification_lock.json", "REFERENCE_EVIDENCE", "artifact/paper_support/reference_lock_audit.json"),
+        ("REFERENCE-AUDIT-TABLE", PAPER / "reference_audit.csv", "REFERENCE_METADATA_AND_SUPPORT", "artifact/paper_support/reference_lock_audit.json"),
+        ("REFERENCE-AUDIT", ART / "paper_support/reference_audit.json", "REFERENCE_METADATA_AND_SUPPORT_AUDIT", "artifact/paper_support/reference_lock_audit.json"),
+        ("REFERENCE-CROSSCHECK", ART / "paper_support/reference_crosscheck.json", "REFERENCE_INTERNAL_CONSISTENCY", "artifact/paper_support/reference_lock_audit.json"),
+        ("REFERENCE-TARGET", ART / "paper_support/reference_target_lock.json", "REFERENCE_CALIBRATION", "artifact/paper_support/reference_lock_audit.json"),
+        ("PAPER-PDF", PAPER / "main.pdf", "FORMATTED_MANUSCRIPT", "artifact/paper_support/compile_audit.json"),
+        ("PAPER-CITATION-AUDIT", ART / "paper_support/citation_shape_audit.json", "MANUSCRIPT_AUDIT", "artifact/paper_support/reference_lock_audit.json"),
+        ("PAPER-CONSISTENCY-AUDIT", ART / "paper_support/manuscript_consistency_audit.json", "MANUSCRIPT_AUDIT", "artifact/paper_support/manuscript_consistency_audit.json"),
+        ("PAPER-LEXICAL-AUDIT", ART / "paper_support/lexical_audit.json", "MANUSCRIPT_AUDIT", "artifact/paper_support/lexical_audit.json"),
+        ("PAPER-PAGE-FIT", ART / "paper_support/page_fit_audit.json", "MANUSCRIPT_AUDIT", "artifact/paper_support/visual_inspection.json"),
         ("RETAINED-OUTPUT-CLOSURE", FINITE / "retained_output_closure.json", "DELIVERY_EVIDENCE_CLOSURE", "artifact/results/retained_output_closure.json"),
         ("ENTRYPOINT-PATH-SMOKE", FINITE / "entrypoint_path_smoke.json", "CLEAN_ROOT_ENTRYPOINT_SMOKE", "artifact/results/entrypoint_path_smoke.json"),
         ("FINITE-HAMMING-EDGE-CASES", FINITE / "hamming_edge_cases.json", "HAMMING_EDGE_CASE_ENUMERATION", "artifact/results/independent_recheck.json"),
@@ -779,7 +779,7 @@ def make_claim_ledgers() -> None:
         {"claim_id": "C5", "claim_text": "Thresholds 1 through 26 preserve all intended project releases while rejecting complete reissue; seven leave-one-project-out checks preserve all remaining outcomes.", "claim_scope": "frozen seven-project corpus", "paper_location": "Section 5", "evidence_type": "complete threshold scan and subject removal", "theorem_or_lemma": "ancestry lower bound", "proof_or_checker": "artifact/commit-replay/src/run_commit_replay.py", "source_or_test": "artifact/commit-replay/results/summary.json", "experiment_id": "PROJECT-SENSITIVITY", "figure_or_table": "fig:sensitivity", "raw_result": "artifact/commit-replay/results/summary.json", "maturity_state": "VERIFIED", "independent_recheck_status": "policies retained without post-hoc reselection", "limitations": "sensitivity analysis, not statistical generalization"},
         {"claim_id": "C6", "claim_text": "Twenty-four adversarial substitutions are rejected by lower-level reconstruction.", "claim_scope": "twenty-one certificate or file substitutions with refreshed bindings plus three direct source-interpretation fixtures; fourteen finite and ten project probes", "paper_location": "Section 5", "evidence_type": "adversarial mutation tests", "theorem_or_lemma": "conditional soundness and accepted-parent admissibility", "proof_or_checker": "three independent checkers", "source_or_test": "artifact/gate-model/results/independent_recheck.json; artifact/results/independent_recheck.json; artifact/commit-replay/results/independent_recheck.json", "experiment_id": "TAMPER-24", "figure_or_table": "tab:tamper", "raw_result": "three independent recheck reports", "maturity_state": "INDEPENDENTLY_RECHECKED", "independent_recheck_status": "24 of 24 rejected; 21 refresh certificate or file bindings; omitted second merge parent rejected", "limitations": "not an adaptive cryptographic attack game"},
         {"claim_id": "C7", "claim_text": "The two software strata cover 172 releases, 688 compiler cells, and 40,963,856 deterministic contract executions.", "claim_scope": "frozen finite and commit-derived corpora", "paper_location": "Abstract and Section 5", "evidence_type": "combined accounting", "theorem_or_lemma": "", "proof_or_checker": "artifact/src/verify_release.py", "source_or_test": "artifact/results/combined_summary.json", "experiment_id": "COMBINED", "figure_or_table": "tab:layers; tab:outcomes", "raw_result": "artifact/results/combined_summary.json", "maturity_state": "INDEPENDENTLY_RECHECKED", "independent_recheck_status": "129 intended pass; 43 established-failure reject; 0 unresolved hold", "limitations": "deterministic case counts are not population estimates"},
-{"claim_id": "C8", "claim_text": "The current PDF is within the internal 15-page maximum and contains 79 references with inherited reviews and current local bindings.", "claim_scope": "current packaging bytes; source reviews remain inherited", "paper_location": "entire manuscript", "evidence_type": "format, citation, lexical, and visual audits", "theorem_or_lemma": "", "proof_or_checker": "paper audits", "source_or_test": "paper/main.pdf; paper/reference_verification_lock.json", "experiment_id": "PAPER-QA", "figure_or_table": "", "raw_result": "paper/compile_audit.json; paper/typography_audit.json; paper/citation_shape_audit.json; paper/page_fit_audit.json", "maturity_state": "VERIFIED", "independent_recheck_status": "local metadata audits and byte-bound visual inspection; zero fresh primary full-text reviews", "limitations": "format checks do not replace the journal's live submission requirements"},
+{"claim_id": "C8", "claim_text": "The current PDF is within the internal 15-page maximum and contains 79 references with inherited reviews and current local bindings.", "claim_scope": "current packaging bytes; source reviews remain inherited", "paper_location": "entire manuscript", "evidence_type": "format, citation, lexical, and visual audits", "theorem_or_lemma": "", "proof_or_checker": "paper audits", "source_or_test": "paper/main.pdf; artifact/paper_support/reference_verification_lock.json", "experiment_id": "PAPER-QA", "figure_or_table": "", "raw_result": "artifact/paper_support/compile_audit.json; artifact/paper_support/typography_audit.json; artifact/paper_support/citation_shape_audit.json; artifact/paper_support/page_fit_audit.json", "maturity_state": "VERIFIED", "independent_recheck_status": "local metadata audits and byte-bound visual inspection; zero fresh primary full-text reviews", "limitations": "format checks do not replace the journal's live submission requirements"},
         {"claim_id": "C9", "claim_text": "Finite-parent reconstruction accepts shared-ancestor graphs and twelve executed two-parent merges while rejecting invalid ancestry and omitted-parent claims.", "claim_scope": "six ancestry-graph fixtures and twelve finite-contract merge releases", "paper_location": "Sections 3--5", "evidence_type": "two-algorithm graph model check plus exhaustive software replay", "theorem_or_lemma": "finite ancestry-subgraph validity and accepted-parent admissibility", "proof_or_checker": "artifact/gate-model/src/independent_recheck.py; artifact/src/independent_recheck.py", "source_or_test": "artifact/gate-model/results/ancestry_graphs.json; artifact/results/summary.json; artifact/results/independent_recheck.json", "experiment_id": "FINITE-PARENT-DAG", "figure_or_table": "fig:ancestry; tab:outcomes; tab:controlmatrix", "raw_result": "artifact/gate-model/results/ancestry_graphs.json; artifact/results/summary.json", "maturity_state": "INDEPENDENTLY_RECHECKED", "independent_recheck_status": "two graph algorithms agree; 12 two-parent merge certificates reconstruct 144 total parent edges; second-parent omission rejected", "limitations": "commit-derived histories remain single-parent; finite contracts are not whole-repository merges"},
         {"claim_id": "C10", "claim_text": "An exact-source jsmn replay agrees with the adapter on its declared sixteen-input contract but exposes two strict-mode boundary differences outside that contract.", "claim_scope": "one public jsmn maintenance commit and its direct parent; exact core source; four parser configurations", "paper_location": "Sections 4--6", "evidence_type": "exact-source transfer-validity check", "theorem_or_lemma": "adapter transfer condition", "proof_or_checker": "artifact/upstream-validation/src/independent_recheck.py", "source_or_test": "artifact/upstream-validation/results/summary.json", "experiment_id": "UPSTREAM-JSMN", "figure_or_table": "tab:layers; tab:projects; Section 5.4", "raw_result": "artifact/upstream-validation/results/summary.json", "maturity_state": "INDEPENDENTLY_RECHECKED", "independent_recheck_status": "3 exact Git blobs; 32 compiler cells; 768 observations; strict cases 22 and 23 differ", "limitations": "one exact core library history, not seven whole repositories; differences lie outside the adapter's declared contract"},
     ]
@@ -990,7 +990,7 @@ does not satisfy the premise.
     (ART / "proofs.md").write_text(text, encoding="utf-8")
 
 def update_target_lock() -> None:
-    path = PAPER / "reference_target_lock.json"
+    path = ART / "paper_support/reference_target_lock.json"
     target = read_json(path)
     reference_count = len(parse_entries((PAPER / "references.tex").read_text(encoding="utf-8")))
     citation_count = len(re.findall(r"\\cite\{[^}]+\}", (PAPER / "main.tex").read_text(encoding="utf-8")))
@@ -1058,7 +1058,7 @@ def main() -> None:
         "gate_vectors": read_json(GATE / "independent_recheck.json")["three_valued_vectors_rechecked"],
         "finite_certificates": read_json(FINITE / "independent_recheck.json")["certificate_count"],
         "project_certificates": read_json(PROJECT / "independent_recheck.json")["certificates_rechecked"],
-        "reference_count": read_json(PAPER / "reference_verification_lock.json")["reference_count"],
+        "reference_count": read_json(ART / "paper_support/reference_verification_lock.json")["reference_count"],
         "paper_pages": pdf_pages(PAPER / "main.pdf"),
         "release_manifest_entries": len(read_json(ART / "release_manifest.json")["files"]),
     }, sort_keys=True))

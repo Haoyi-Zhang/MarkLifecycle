@@ -86,7 +86,7 @@ class PackagingContractTests(unittest.TestCase):
             measured_pages = verifier.pdf_pages(bundle / "paper/main.pdf")
             audit_path = bundle / "artifact/results/release_audit.json"
             self.assertEqual(json.loads(audit_path.read_text(encoding="utf-8"))["paper_pages"], measured_pages)
-            compile_path = bundle / "paper/compile_audit.json"
+            compile_path = bundle / "artifact/paper_support/compile_audit.json"
             original_compile = compile_path.read_bytes()
             stale_compile = json.loads(original_compile)
             stale_compile["pages"] = measured_pages + 1

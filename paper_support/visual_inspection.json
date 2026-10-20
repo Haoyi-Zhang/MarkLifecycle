@@ -1,0 +1,110 @@
+{
+  "checks": {
+    "author_block_collision": false,
+    "broken_glyphs": false,
+    "clipped_content": false,
+    "float_collision": false,
+    "last_page_bibliography_continuation_normal": true,
+    "line_overlap": false,
+    "mathematics_typeface_mismatch": false,
+    "module_overlap": false,
+    "reference_number_jump_or_hidden_entry": false,
+    "text_overlap": false,
+    "unreadable_figure_labels": false,
+    "unreadable_table_text": false
+  },
+  "comparison_receipt": "Current native PDF is byte-identical to the installed PDF; prior installed 15-page PDF has identical text and page pixels",
+  "current_binding_basis": "Current 15-page native PDF; actual contact-sheet review of every page and final-page detail; no new scientific review",
+  "dpi": 72,
+  "figures": [
+    {
+      "notes": "Release boxes, edge labels and dashed origin-retention annotation remain legible and separated.",
+      "number": 1,
+      "page": 5,
+      "verdict": "PASS"
+    },
+    {
+      "notes": "Seven reconstruction modules, arrows, dashed boundary and typed outcome are legible and separated.",
+      "number": 2,
+      "page": 7,
+      "verdict": "PASS"
+    },
+    {
+      "notes": "Both specification-sensitivity panels, axes, ticks, legends, panel labels and adjacent tables are legible and separated.",
+      "number": 3,
+      "page": 11,
+      "verdict": "PASS"
+    }
+  ],
+  "findings": [],
+  "inspection_date": "2026-10-18",
+  "inspection_modes": [
+    "All 15 current native pages actually viewed in labeled 2-by-2 contact sheets",
+    "Current final bibliography page actually viewed at 150 dpi"
+  ],
+  "last_page_detail_dpi": 150,
+  "layout_note": "Normal left-then-right bibliography continuation, no observed clipping, overlap or unreadable labels",
+  "newly_viewed_changed_page_bands": [],
+  "newly_viewed_contact_sheet_pages": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15
+  ],
+  "newly_viewed_full_size_pages": [
+    15
+  ],
+  "pages_checked": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15
+  ],
+  "pdf_sha256": "aab4013d6dc3ce9585d286d437b1df4b611f998016f90d1fc3a094496a0a2d0c",
+  "pixel_identical_prior_review_carried_forward_pages": [],
+  "prior_inspection": {
+    "inspection_date": "2026-10-16",
+    "inspection_modes": [
+      "All15 final pages actually viewed in labeled 1.45-scale contact sheets",
+      "Both direct Python relation diagrams individually viewed at2.5scale"
+    ],
+    "pdf_sha256": "cf19ce4a6f7a5342f85f9c788148bc4615df3dcbbf89e4ccb086b704a840b3e5"
+  },
+  "renderer": "PyMuPDF 1.28.2",
+  "schema": "tse01.visual-inspection.v1",
+  "tables_checked": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+  ],
+  "verdict": "PASS"
+}

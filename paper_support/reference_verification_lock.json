@@ -1,0 +1,2443 @@
+{
+  "bibliography_sha256": "9ba2e1685119f890c0e725a8b2eb6126b961a7ce63621887b4771d5f5ab3e08e",
+  "binding_note": "The final scholarly metadata and identifiers are preserved; this operation updates only current manuscript, entry, location, and support-sentence byte bindings.",
+  "binding_refresh_date": "2026-10-18",
+  "binding_scope": "local byte and citation-position refresh only; inherited review provenance preserved",
+  "citation_order": [
+    "r44",
+    "r17",
+    "r18",
+    "r51",
+    "r25",
+    "r32",
+    "r60",
+    "r55",
+    "r71",
+    "r31",
+    "r82",
+    "r14",
+    "r21",
+    "r61",
+    "r16",
+    "r76",
+    "r15",
+    "r48",
+    "r56",
+    "r54",
+    "r53",
+    "r52",
+    "r08",
+    "r12",
+    "r24",
+    "r47",
+    "r37",
+    "r74",
+    "r73",
+    "r68",
+    "r20",
+    "r04",
+    "r38",
+    "r22",
+    "r03",
+    "r62",
+    "r72",
+    "r42",
+    "r33",
+    "r75",
+    "r46",
+    "r29",
+    "r39",
+    "r67",
+    "r35",
+    "r59",
+    "r30",
+    "r40",
+    "r58",
+    "r63",
+    "r79",
+    "r43",
+    "r69",
+    "r64",
+    "r45",
+    "r70",
+    "r78",
+    "r06",
+    "r65",
+    "r26",
+    "r27",
+    "r13",
+    "r05",
+    "r50",
+    "r49",
+    "r11",
+    "r19",
+    "r23",
+    "r36",
+    "r01",
+    "r02",
+    "r77",
+    "r66",
+    "r57",
+    "r34",
+    "r83",
+    "r84",
+    "r85",
+    "r86"
+  ],
+  "fresh_primary_fulltext_review_count": 0,
+  "frozen_at": "2026-09-24T00:00:00-07:00",
+  "manuscript_sha256": "409af04240eb7b3619ead518d466ce490d6d83974c965b79d95900f4ae12f477",
+  "records": [
+    {
+      "authors": "M. M. Lehman",
+      "entry": "M. M. Lehman, ``Programs, life cycles, and laws of software evolution,'' Proceedings of the IEEE, vol. 68, no. 9, pp. 1060--1076, 1980.",
+      "entry_sha256": "90f9541eb5950729762452db1e1386fbfe72cd1a385de3c164b7ff40e37e87c8",
+      "key": "r44",
+      "manuscript_location": "paper/main.tex:64",
+      "scholarly_identifier": "DOI:10.1109/PROC.1980.11805",
+      "source_locator": "https://doi.org/10.1109/PROC.1980.11805",
+      "support_sentence": "Long-lived software changes because useful systems adapt to new environments, requirements, and dependencies \\cite{r44}.",
+      "support_sentence_sha256": "ff3cabeb756ac0811ea330998b4e652fbb04f6cb93fb0a047f586d07f8bd2654",
+      "title": "Programs, life cycles, and laws of software evolution",
+      "verification": {
+        "action": "metadata and direct local support verified for the final manuscript",
+        "basis": "persistent DBLP/DOI records plus publisher, proceedings, author, or institutional evidence where accessible",
+        "date": "2026-09-24",
+        "local_support_verdict": "PASS",
+        "metadata_verdict": "PASS"
+      },
+      "verification_status": "MANUALLY_VERIFIED_EXACT_METADATA_AND_LOCAL_SUPPORT",
+      "verified_fields": [
+        "title",
+        "authors",
+        "venue",
+        "year",
+        "pages_or_article_number",
+        "nearby_support_sentence"
+      ],
+      "year": "1980"
+    },
+    {
+      "authors": "C. S. Collberg and C. Thomborson",
+      "entry": "C. S. Collberg and C. Thomborson, ``Software watermarking: Models and dynamic embeddings,'' in Proceedings of the 26th ACM SIGPLAN-SIGACT Symposium on Principles of Programming Languages, 1999, pp. 311--324.",
+      "entry_sha256": "13f60dbb8f524c3693a6a92a41202912acba0d5a07a1f9c47d899e41365c0e0d",
+      "key": "r17",
+      "manuscript_location": "paper/main.tex:64",
+      "scholarly_identifier": "DBLP:conf/popl/CollbergT99",
+      "source_locator": "https://dblp.org/rec/conf/popl/CollbergT99",
+      "support_sentence": "Code watermarking instead begins with an identifier embedded for later detection under a chosen representation and attack model \\cite{r17}.",
+      "support_sentence_sha256": "b8bdfdc924fd8bf5c3f1432d598dbd4e2503dae01d19a0426783da6281add9cc",
+      "title": "Software watermarking: Models and dynamic embeddings",
+      "verification": {
+        "action": "metadata and direct local support verified for the final manuscript",
+        "basis": "persistent DBLP/DOI records plus publisher, proceedings, author, or institutional evidence where accessible",
+        "date": "2026-09-24",
+        "local_support_verdict": "PASS",
+        "metadata_verdict": "PASS"
+      },
+      "verification_status": "MANUALLY_VERIFIED_EXACT_METADATA_AND_LOCAL_SUPPORT",
+      "verified_fields": [
+        "title",
+        "authors",
+        "venue",
+        "year",
+        "pages_or_article_number",
+        "nearby_support_sentence"
+      ],
+      "year": "1999"
+    },
+    {
+      "authors": "C. S. Collberg and C. Thomborson",
+      "entry": "C. S. Collberg and C. Thomborson, ``Watermarking, tamper-proofing, and obfuscation---tools for software protection,'' IEEE Transactions on Software Engineering, vol. 28, no. 8, pp. 735--746, 2002.",
+      "entry_sha256": "306ecc66aa3e81b86f7f967a18b620a265ad9fa0ab430bf81a8642223cb5ae49",
+      "key": "r18",
+      "manuscript_location": "paper/main.tex:64",
+      "scholarly_identifier": "DBLP:journals/tse/CollbergT02",
+      "source_locator": "https://dblp.org/rec/journals/tse/CollbergT02",
+      "support_sentence": "Software-protection work covers watermarking, tamper-proofing, and obfuscation \\cite{r18}.",
+      "support_sentence_sha256": "31a9d71efe0747af531549ecdd20ea7ba0ea2af3e58fcbfe270ac11979a99a5b",
+      "title": "Watermarking, tamper-proofing, and obfuscation---tools for software protection",
+      "verification": {
+        "action": "metadata and direct local support verified for the final manuscript",
+        "basis": "persistent DBLP/DOI records plus publisher, proceedings, author, or institutional evidence where accessible",
+        "date": "2026-09-24",
+        "local_support_verdict": "PASS",
+        "metadata_verdict": "PASS"
+      },
+      "verification_status": "MANUALLY_VERIFIED_EXACT_METADATA_AND_LOCAL_SUPPORT",
+      "verified_fields": [
+        "title",
+        "authors",
+        "venue",
+        "year",
+        "pages_or_article_number",
+        "nearby_support_sentence"
+      ],
+      "year": "2002"
+    },
+    {
+      "authors": "E. R. Murphy-Hill, C. Parnin, and A. P. Black",
+      "entry": "E. R. Murphy-Hill, C. Parnin, and A. P. Black, ``How we refactor, and how we know it,'' IEEE Transactions on Software Engineering, vol. 38, no. 1, pp. 5--18, 2012.",
+      "entry_sha256": "7ec1310260e64b46e038de18157d9af05b1fe7f1e9cfc2243eb837c8d399d5d3",
+      "key": "r51",
+      "manuscript_location": "paper/main.tex:66",
+      "scholarly_identifier": "DBLP:journals/tse/Murphy-HillPB12",
+      "source_locator": "https://dblp.org/rec/journals/tse/Murphy-HillPB12",
+      "support_sentence": "Refactoring practice mixes manual and tool-assisted changes \\cite{r51}.",
+      "support_sentence_sha256": "e76c9c364e44d39e4974b55a4b2b379fc81536d66f4ed6d5730b7f6c23f43d9e",
+      "title": "How we refactor, and how we know it",
+      "verification": {
+        "action": "metadata and direct local support verified for the final manuscript",
+        "basis": "persistent DBLP/DOI records plus publisher, proceedings, author, or institutional evidence where accessible",
+        "date": "2026-09-24",
+        "local_support_verdict": "PASS",
+        "metadata_verdict": "PASS"
+      },
+      "verification_status": "MANUALLY_VERIFIED_EXACT_METADATA_AND_LOCAL_SUPPORT",
+      "verified_fields": [
+        "title",
+        "authors",
+        "venue",
+        "year",
+        "pages_or_article_number",
+        "nearby_support_sentence"
+      ],
+      "year": "2012"
+    },
+    {
+      "authors": "D. Dig and R. Johnson",
+      "entry": "D. Dig and R. Johnson, ``How do APIs evolve? a story of refactoring,'' Journal of Software Maintenance and Evolution: Research and Practice, vol. 18, no. 2, pp. 83--107, 2006.",
+      "entry_sha256": "a6636ec0afba805cca517aa5f0b65838ae158454cf8bcc58f49f69ba991f917b",
+      "key": "r25",
+      "manuscript_location": "paper/main.tex:66",
+      "scholarly_identifier": "DBLP:journals/smr/DigJ06",
+      "source_locator": "https://dblp.org/rec/journals/smr/DigJ06",
+      "support_sentence": "Interfaces evolve through structural changes that impose migration work even when maintainers intend to preserve behavior \\cite{r25}.",
+      "support_sentence_sha256": "b1147b32359897d28a72d7d66aa0b076f5691aa9bfbc705a195bbc3ebd83fcdf",
+      "title": "How do APIs evolve? a story of refactoring",
+      "verification": {
+        "action": "metadata and direct local support verified for the final manuscript",
+        "basis": "persistent DBLP/DOI records plus publisher, proceedings, author, or institutional evidence where accessible",
+        "date": "2026-09-24",
+        "local_support_verdict": "PASS",
+        "metadata_verdict": "PASS"
+      },
+      "verification_status": "MANUALLY_VERIFIED_EXACT_METADATA_AND_LOCAL_SUPPORT",
+      "verified_fields": [
+        "title",
+        "authors",
+        "venue",
+        "year",
+        "pages_or_article_number",
+        "nearby_support_sentence"
+      ],
+      "year": "2006"
+    },
+    {
+      "authors": "R. He, H. He, Y. Zhang, and M. Zhou",
+      "entry": "R. He, H. He, Y. Zhang, and M. Zhou, ``Automating dependency updates in practice: An exploratory study on GitHub Dependabot,'' IEEE Transactions on Software Engineering, vol. 49, no. 8, pp. 4004--4022, 2023.",
+      "entry_sha256": "d4410f46fca3b97740ab8f62e6830d1538d89754189bf27e8e1912eed5d2d228",
+      "key": "r32",
+      "manuscript_location": "paper/main.tex:66",
+      "scholarly_identifier": "DBLP:journals/tse/HeHZZ23",
+      "source_locator": "https://dblp.org/rec/journals/tse/HeHZZ23",
+      "support_sentence": "Dependency bots repeatedly submit update pull requests \\cite{r32}.",
+      "support_sentence_sha256": "df21c91dcedb2af3afe92acbb318df0b50e645b30717db18c1e3335990df183e",
+      "title": "Automating dependency updates in practice: An exploratory study on GitHub Dependabot",
+      "verification": {
+        "action": "metadata and direct local support verified for the final manuscript",
+        "basis": "persistent DBLP/DOI records plus publisher, proceedings, author, or institutional evidence where accessible",
+        "date": "2026-09-24",
+        "local_support_verdict": "PASS",
+        "metadata_verdict": "PASS"
+      },
+      "verification_status": "MANUALLY_VERIFIED_EXACT_METADATA_AND_LOCAL_SUPPORT",
+      "verified_fields": [
+        "title",
+        "authors",
+        "venue",
+        "year",
+        "pages_or_article_number",
+        "nearby_support_sentence"
+      ],
+      "year": "2023"
+    },
+    {
+      "authors": "A. Pnueli, M. Siegel, and E. Singerman",
+      "entry": "A. Pnueli, M. Siegel, and E. Singerman, ``Translation validation,'' in Tools and Algorithms for the Construction and Analysis of Systems, 1998, pp. 151--166.",
+      "entry_sha256": "f9172cd518186464476a40b989c73e8c7c9a4bcc5c987bb5c915c2b4bdd2e113",
+      "key": "r60",
+      "manuscript_location": "paper/main.tex:70",
+      "scholarly_identifier": "DBLP:conf/tacas/PnueliSS98",
+      "source_locator": "https://dblp.org/rec/conf/tacas/PnueliSS98",
+      "support_sentence": "Translation validation provides the methodological starting point: validate the realized transformation instead of trusting an entire transformer class \\cite{r60}.",
+      "support_sentence_sha256": "60b55795f182a412bde66e721a23f9fd8eb5cccba05a9020c4d73430d5673c0b",
+      "title": "Translation validation",
+      "verification": {
+        "action": "metadata and direct local support verified for the final manuscript",
+        "basis": "persistent DBLP/DOI records plus publisher, proceedings, author, or institutional evidence where accessible",
+        "date": "2026-09-24",
+        "local_support_verdict": "PASS",
+        "metadata_verdict": "PASS"
+      },
+      "verification_status": "MANUALLY_VERIFIED_EXACT_METADATA_AND_LOCAL_SUPPORT",
+      "verified_fields": [
+        "title",
+        "authors",
+        "venue",
+        "year",
+        "pages_or_article_number",
+        "nearby_support_sentence"
+      ],
+      "year": "1998"
+    },
+    {
+      "authors": "G. C. Necula",
+      "entry": "G. C. Necula, ``Translation validation for an optimizing compiler,'' in Proceedings of the ACM SIGPLAN Conference on Programming Language Design and Implementation, 2000, pp. 83--94.",
+      "entry_sha256": "51eceb1aceea462aacc7835baa9fc8acf23ef958419bc47d36a1274b480ca95e",
+      "key": "r55",
+      "manuscript_location": "paper/main.tex:70",
+      "scholarly_identifier": "DBLP:conf/pldi/Necula00",
+      "source_locator": "https://dblp.org/rec/conf/pldi/Necula00",
+      "support_sentence": "Translation validation checks a concrete source--target instance \\cite{r55}.",
+      "support_sentence_sha256": "dbc48ae695bbedb94c0a20011d3b7d1d1821a268006a6afba8bef98ee7232ff6",
+      "title": "Translation validation for an optimizing compiler",
+      "verification": {
+        "action": "metadata and direct local support verified for the final manuscript",
+        "basis": "persistent DBLP/DOI records plus publisher, proceedings, author, or institutional evidence where accessible",
+        "date": "2026-09-24",
+        "local_support_verdict": "PASS",
+        "metadata_verdict": "PASS"
+      },
+      "verification_status": "MANUALLY_VERIFIED_EXACT_METADATA_AND_LOCAL_SUPPORT",
+      "verified_fields": [
+        "title",
+        "authors",
+        "venue",
+        "year",
+        "pages_or_article_number",
+        "nearby_support_sentence"
+      ],
+      "year": "2000"
+    },
+    {
+      "authors": "S. Torres-Arias, H. Afzali, T. K. Kuppusamy, R. Curtmola, and J. Cappos",
+      "entry": "S. Torres-Arias, H. Afzali, T. K. Kuppusamy, R. Curtmola, and J. Cappos, ``in-toto: Providing farm-to-table guarantees for bits and bytes,'' in Proceedings of the 28th USENIX Security Symposium, 2019, pp. 1393--1410.",
+      "entry_sha256": "a4055cdd04c2ee559c57aafb09ff3dabcb9bd66fd033c5208ce42b958683c9b7",
+      "key": "r71",
+      "manuscript_location": "paper/main.tex:70",
+      "scholarly_identifier": "DBLP:conf/uss/Torres-AriasAKC19",
+      "source_locator": "https://dblp.org/rec/conf/uss/Torres-AriasAKC19",
+      "support_sentence": "Supply-chain provenance adds the need to bind materials, steps, and products rather than merely describe them \\cite{r71}.",
+      "support_sentence_sha256": "8a64556667b091b4d2e4c4eb871afa881e2cfde2bb2ffdbe87177305efb2de8f",
+      "title": "in-toto: Providing farm-to-table guarantees for bits and bytes",
+      "verification": {
+        "action": "metadata and direct local support verified for the final manuscript",
+        "basis": "persistent DBLP/DOI records plus publisher, proceedings, author, or institutional evidence where accessible",
+        "date": "2026-09-24",
+        "local_support_verdict": "PASS",
+        "metadata_verdict": "PASS"
+      },
+      "verification_status": "MANUALLY_VERIFIED_EXACT_METADATA_AND_LOCAL_SUPPORT",
+      "verified_fields": [
+        "title",
+        "authors",
+        "venue",
+        "year",
+        "pages_or_article_number",
+        "nearby_support_sentence"
+      ],
+      "year": "2019"
+    },
+    {
+      "authors": "R. W. Hamming",
+      "current_support_review": {
+        "basis": "Narrowed exact-condition wording to the sufficient error-and-erasure guarantee actually proved in Lemma1; inherited Hamming metadata unchanged",
+        "date": "2026-10-16",
+        "scope": "Targeted claim correction; no fresh all-reference full-text certification"
+      },
+      "entry": "R. W. Hamming, ``Error detecting and error correcting codes,'' Bell System Technical Journal, vol. 29, no. 2, pp. 147--160, 1950.",
+      "entry_sha256": "ce3f8b1d27283013883f44c8f9f637932eae984e8873196ff5d79d633294ce5d",
+      "key": "r31",
+      "manuscript_location": "paper/main.tex:70",
+      "scholarly_identifier": "DOI:10.1002/j.1538-7305.1950.tb00463.x",
+      "source_locator": "https://doi.org/10.1002/j.1538-7305.1950.tb00463.x",
+      "support_sentence": "Hamming distance supplies a sufficient error-and-erasure bound for unique recovery \\cite{r31}.",
+      "support_sentence_sha256": "6a5fe4ad80f6e6512374b0b623a8d8ee40e4d8cf1247a4b6fb990274c536e366",
+      "title": "Error detecting and error correcting codes",
+      "verification": {
+        "action": "metadata and direct local support verified for the final manuscript",
+        "basis": "persistent DBLP/DOI records plus publisher, proceedings, author, or institutional evidence where accessible",
+        "date": "2026-09-24",
+        "local_support_verdict": "PASS",
+        "metadata_verdict": "PASS"
+      },
+      "verification_status": "MANUALLY_VERIFIED_EXACT_METADATA_AND_LOCAL_SUPPORT",
+      "verified_fields": [
+        "title",
+        "authors",
+        "venue",
+        "year",
+        "pages_or_article_number",
+        "nearby_support_sentence"
+      ],
+      "year": "1950"
+    },
+    {
+      "authors": "G. C. Necula",
+      "entry": "G. C. Necula, ``Proof-carrying code,'' in Proceedings of the 24th ACM SIGPLAN-SIGACT Symposium on Principles of Programming Languages, 1997, pp. 106--119.",
+      "entry_sha256": "d1d826f619514fe139e1a9d3ce9a3479d63aace4ae7de44f2a13465b3a2dfbcf",
+      "key": "r82",
+      "manuscript_location": "paper/main.tex:70",
+      "scholarly_identifier": "DBLP:conf/popl/Necula97",
+      "source_locator": "https://dblp.org/rec/conf/popl/Necula97",
+      "support_sentence": "Proof-carrying code contributes the complementary principle that producer-supplied evidence is useful only after an independent checker applies an explicit policy \\cite{r82}.",
+      "support_sentence_sha256": "69675443da5aeb5691626180fe4e1e08f0ea81f357c3fc31edc27facffdda614",
+      "title": "Proof-carrying code",
+      "verification": {
+        "action": "metadata and direct local support verified for the final manuscript",
+        "basis": "persistent DBLP/DOI records plus publisher, proceedings, author, or institutional evidence where accessible",
+        "date": "2026-09-24",
+        "local_support_verdict": "PASS",
+        "metadata_verdict": "PASS"
+      },
+      "verification_status": "MANUALLY_VERIFIED_EXACT_METADATA_AND_LOCAL_SUPPORT",
+      "verified_fields": [
+        "title",
+        "authors",
+        "venue",
+        "year",
+        "pages_or_article_number",
+        "nearby_support_sentence"
+      ],
+      "year": "1997"
+    },
+    {
+      "authors": "C. S. Collberg, E. Carter, S. K. Debray, A. Huntwork, J. D. Kececioglu, C. Linn, and M. Stepp",
+      "entry": "C. S. Collberg, E. Carter, S. K. Debray, A. Huntwork, J. D. Kececioglu, C. Linn, and M. Stepp, ``Dynamic path-based software watermarking,'' in Proceedings of the ACM SIGPLAN Conference on Programming Language Design and Implementation, 2004, pp. 107--118.",
+      "entry_sha256": "4aaf37b8e1ba838cb8cdf68c504f0c33e570e7a575f19868c18d0d0f887ef8be",
+      "key": "r14",
+      "manuscript_location": "paper/main.tex:86",
+      "scholarly_identifier": "DBLP:conf/pldi/CollbergCDHKLS04",
+      "source_locator": "https://dblp.org/rec/conf/pldi/CollbergCDHKLS04",
+      "support_sentence": "Dynamic paths encode identity in execution graphs \\cite{r14}.",
+      "support_sentence_sha256": "8eb9e6543edc30aceb17e3db08c371f263269e256ee4fd16084c08b87fad9fa5",
+      "title": "Dynamic path-based software watermarking",
+      "verification": {
+        "action": "metadata and direct local support verified for the final manuscript",
+        "basis": "persistent DBLP/DOI records plus publisher, proceedings, author, or institutional evidence where accessible",
+        "date": "2026-09-24",
+        "local_support_verdict": "PASS",
+        "metadata_verdict": "PASS"
+      },
+      "verification_status": "MANUALLY_VERIFIED_EXACT_METADATA_AND_LOCAL_SUPPORT",
+      "verified_fields": [
+        "title",
+        "authors",
+        "venue",
+        "year",
+        "pages_or_article_number",
+        "nearby_support_sentence"
+      ],
+      "year": "2004"
+    },
+    {
+      "authors": "P. Cousot and R. Cousot",
+      "entry": "P. Cousot and R. Cousot, ``An abstract interpretation-based framework for software watermarking,'' in Proceedings of the 31st ACM SIGPLAN-SIGACT Symposium on Principles of Programming Languages, 2004, pp. 173--185.",
+      "entry_sha256": "195319533b89850d3bd4b795a63a33a3d0bf77d28bb17e06c74450671d346eab",
+      "key": "r21",
+      "manuscript_location": "paper/main.tex:86",
+      "scholarly_identifier": "DBLP:conf/popl/CousotC04",
+      "source_locator": "https://dblp.org/rec/conf/popl/CousotC04",
+      "support_sentence": "Abstract interpretation tracks selected observables through transformations \\cite{r21}.",
+      "support_sentence_sha256": "15ee4e1a076562fd1d848cbdf96d65a65e8c2b0400b68da17297c058c03892e3",
+      "title": "An abstract interpretation-based framework for software watermarking",
+      "verification": {
+        "action": "metadata and direct local support verified for the final manuscript",
+        "basis": "persistent DBLP/DOI records plus publisher, proceedings, author, or institutional evidence where accessible",
+        "date": "2026-09-24",
+        "local_support_verdict": "PASS",
+        "metadata_verdict": "PASS"
+      },
+      "verification_status": "MANUALLY_VERIFIED_EXACT_METADATA_AND_LOCAL_SUPPORT",
+      "verified_fields": [
+        "title",
+        "authors",
+        "venue",
+        "year",
+        "pages_or_article_number",
+        "nearby_support_sentence"
+      ],
+      "year": "2004"
+    },
+    {
+      "authors": "M. Dalla Preda and M. Pasqua",
+      "entry": "M. Dalla Preda and M. Pasqua, ``Semantics-based software watermarking by abstract interpretation,'' Mathematical Structures in Computer Science, vol. 29, no. 2, pp. 339--388, 2019.",
+      "entry_sha256": "77522c87bc28f3ba273006e7e60a9caf34ccff3ad4d435715f3cc6f78ae29b90",
+      "key": "r61",
+      "manuscript_location": "paper/main.tex:86",
+      "scholarly_identifier": "DBLP:journals/mscs/PredaP19",
+      "source_locator": "https://dblp.org/rec/journals/mscs/PredaP19",
+      "support_sentence": "Semantics-based schemes instantiate that relation at a chosen abstraction \\cite{r61}.",
+      "support_sentence_sha256": "e4485abc1d867942d5af03cd9f53680f2036106f8a8029c690ba35126b3d850d",
+      "title": "Semantics-based software watermarking by abstract interpretation",
+      "verification": {
+        "action": "metadata and direct local support verified for the final manuscript",
+        "basis": "persistent DBLP/DOI records plus publisher, proceedings, author, or institutional evidence where accessible",
+        "date": "2026-09-24",
+        "local_support_verdict": "PASS",
+        "metadata_verdict": "PASS"
+      },
+      "verification_status": "MANUALLY_VERIFIED_EXACT_METADATA_AND_LOCAL_SUPPORT",
+      "verified_fields": [
+        "title",
+        "authors",
+        "venue",
+        "year",
+        "pages_or_article_number",
+        "nearby_support_sentence"
+      ],
+      "year": "2019"
+    },
+    {
+      "authors": "C. S. Collberg and T. R. Sahoo",
+      "entry": "C. S. Collberg and T. R. Sahoo, ``Software watermarking in the frequency domain: Implementation, analysis, and attacks,'' Journal of Computer Security, vol. 13, no. 5, pp. 721--755, 2005.",
+      "entry_sha256": "13305c847728b73658a118ccba3da6f861de65861fb7a452e01506397b345fc7",
+      "key": "r16",
+      "manuscript_location": "paper/main.tex:86",
+      "scholarly_identifier": "DBLP:journals/jcs/CollbergS05",
+      "source_locator": "https://dblp.org/rec/journals/jcs/CollbergS05",
+      "support_sentence": "Frequency-domain designs move the signal into another representation \\cite{r16}.",
+      "support_sentence_sha256": "5fd492eac57c13af4a30f8ac36c826a7e76583bd57745943ee8cd89c3b207ab2",
+      "title": "Software watermarking in the frequency domain: Implementation, analysis, and attacks",
+      "verification": {
+        "action": "metadata and direct local support verified for the final manuscript",
+        "basis": "persistent DBLP/DOI records plus publisher, proceedings, author, or institutional evidence where accessible",
+        "date": "2026-09-24",
+        "local_support_verdict": "PASS",
+        "metadata_verdict": "PASS"
+      },
+      "verification_status": "MANUALLY_VERIFIED_EXACT_METADATA_AND_LOCAL_SUPPORT",
+      "verified_fields": [
+        "title",
+        "authors",
+        "venue",
+        "year",
+        "pages_or_article_number",
+        "nearby_support_sentence"
+      ],
+      "year": "2005"
+    },
+    {
+      "authors": "R. Venkatesan, V. V. Vazirani, and S. Sinha",
+      "entry": "R. Venkatesan, V. V. Vazirani, and S. Sinha, ``A graph theoretic approach to software watermarking,'' in Information Hiding, 2001, pp. 157--168.",
+      "entry_sha256": "8694acab4ed148dd9899c04b61ed946e9cf50ed04cdfe56eb880f7a00c09255f",
+      "key": "r76",
+      "manuscript_location": "paper/main.tex:86",
+      "scholarly_identifier": "DBLP:conf/ih/VenkatesanVS01",
+      "source_locator": "https://dblp.org/rec/conf/ih/VenkatesanVS01",
+      "support_sentence": "Graph-theoretic constructions make it discrete \\cite{r76}.",
+      "support_sentence_sha256": "cf412d96cafe1755e3ef48642ccb07c83bce2695d12ccf4af6049c16154b0c9e",
+      "title": "A graph theoretic approach to software watermarking",
+      "verification": {
+        "action": "metadata and direct local support verified for the final manuscript",
+        "basis": "persistent DBLP/DOI records plus publisher, proceedings, author, or institutional evidence where accessible",
+        "date": "2026-09-24",
+        "local_support_verdict": "PASS",
+        "metadata_verdict": "PASS"
+      },
+      "verification_status": "MANUALLY_VERIFIED_EXACT_METADATA_AND_LOCAL_SUPPORT",
+      "verified_fields": [
+        "title",
+        "authors",
+        "venue",
+        "year",
+        "pages_or_article_number",
+        "nearby_support_sentence"
+      ],
+      "year": "2001"
+    },
+    {
+      "authors": "C. S. Collberg, A. Huntwork, E. Carter, and G. M. Townsend",
+      "entry": "C. S. Collberg, A. Huntwork, E. Carter, and G. M. Townsend, ``Graph theoretic software watermarks: Implementation, analysis, and attacks,'' in Information Hiding, 2004, pp. 192--207.",
+      "entry_sha256": "98fd7ea379bb9ce067a91bd04edf3923cb5b264e66318ef4fafe820c375a44ac",
+      "key": "r15",
+      "manuscript_location": "paper/main.tex:86",
+      "scholarly_identifier": "DBLP:conf/ih/CollbergHCT04",
+      "source_locator": "https://dblp.org/rec/conf/ih/CollbergHCT04",
+      "support_sentence": "Tool implementations expose capacity and attack trade-offs \\cite{r15}.",
+      "support_sentence_sha256": "f99e08e6385e475046c96827a2780a8db5da2dfc2f79a6ad0a72ad16a23bdaac",
+      "title": "Graph theoretic software watermarks: Implementation, analysis, and attacks",
+      "verification": {
+        "action": "metadata and direct local support verified for the final manuscript",
+        "basis": "persistent DBLP/DOI records plus publisher, proceedings, author, or institutional evidence where accessible",
+        "date": "2026-09-24",
+        "local_support_verdict": "PASS",
+        "metadata_verdict": "PASS"
+      },
+      "verification_status": "MANUALLY_VERIFIED_EXACT_METADATA_AND_LOCAL_SUPPORT",
+      "verified_fields": [
+        "title",
+        "authors",
+        "venue",
+        "year",
+        "pages_or_article_number",
+        "nearby_support_sentence"
+      ],
+      "year": "2004"
+    },
+    {
+      "authors": "A. Monden, H. Iida, K. Matsumoto, K. Inoue, and K. Torii",
+      "current_metadata_correction": {
+        "date": "2026-10-15",
+        "field": "author order",
+        "scope": "Original author order read directly; not a fresh full-paper or all-reference interpretation review.",
+        "source": "https://naist.repo.nii.ac.jp/record/5162/files/10061_12769.pdf",
+        "source_representation": "NAIST deposited COMPSAC2000 manuscript; physicalpage2 author block,physicalpage5 Section4.1"
+      },
+      "entry": "A. Monden, H. Iida, K. Matsumoto, K. Inoue, and K. Torii, ``A practical method for watermarking Java programs,'' in Proceedings of the 24th Annual International Computer Software and Applications Conference, 2000, pp. 191--197.",
+      "entry_sha256": "07a9ee3b26491c8b6e760b80c9837f95d707a6e5f1d0feb0ab647eed5ab86830",
+      "key": "r48",
+      "manuscript_location": "paper/main.tex:86",
+      "scholarly_identifier": "DBLP:conf/compsac/MondenIMTI00",
+      "source_locator": "https://dblp.org/rec/conf/compsac/MondenIMTI00",
+      "support_sentence": "Managed-language experiments show that obfuscation survival must be measured \\cite{r48}.",
+      "support_sentence_sha256": "e1547185c966553c968c83a5a58bb630f83da4b540a402e2647a2e4039b39809",
+      "title": "A practical method for watermarking Java programs",
+      "verification": {
+        "action": "metadata and direct local support verified for the final manuscript",
+        "basis": "persistent DBLP/DOI records plus publisher, proceedings, author, or institutional evidence where accessible",
+        "date": "2026-09-24",
+        "local_support_verdict": "PASS",
+        "metadata_verdict": "PASS"
+      },
+      "verification_status": "MANUALLY_VERIFIED_EXACT_METADATA_AND_LOCAL_SUPPORT",
+      "verified_fields": [
+        "title",
+        "authors",
+        "venue",
+        "year",
+        "pages_or_article_number",
+        "nearby_support_sentence"
+      ],
+      "year": "2000"
+    },
+    {
+      "authors": "J. Palsberg, S. Krishnaswamy, M. Kwon, D. Ma, Q. Shao, and Y. Zhang",
+      "entry": "J. Palsberg, S. Krishnaswamy, M. Kwon, D. Ma, Q. Shao, and Y. Zhang, ``Experience with software watermarking,'' in Proceedings of the 16th Annual Computer Security Applications Conference, 2000, pp. 308--316.",
+      "entry_sha256": "3cee9b8e729b6d481b9560f7d7af0c9402240dc4ea1e8c2c19ba2e1800563959",
+      "key": "r56",
+      "manuscript_location": "paper/main.tex:86",
+      "scholarly_identifier": "DBLP:conf/acsac/PalsbergKKMSZ00",
+      "source_locator": "https://dblp.org/rec/conf/acsac/PalsbergKKMSZ00",
+      "support_sentence": "Experience reports tie results to both transformation and detector \\cite{r56}.",
+      "support_sentence_sha256": "e3f4f405d5b724c4ec3255d83e8f0cfa23b1948514b905e54facd2b68ceead47",
+      "title": "Experience with software watermarking",
+      "verification": {
+        "action": "metadata and direct local support verified for the final manuscript",
+        "basis": "persistent DBLP/DOI records plus publisher, proceedings, author, or institutional evidence where accessible",
+        "date": "2026-09-24",
+        "local_support_verdict": "PASS",
+        "metadata_verdict": "PASS"
+      },
+      "verification_status": "MANUALLY_VERIFIED_EXACT_METADATA_AND_LOCAL_SUPPORT",
+      "verified_fields": [
+        "title",
+        "authors",
+        "venue",
+        "year",
+        "pages_or_article_number",
+        "nearby_support_sentence"
+      ],
+      "year": "2000"
+    },
+    {
+      "authors": "J. Nagra and C. D. Thomborson",
+      "current_primary_support_review": {
+        "actual_read_scope": "Actual2004Nagra/Thomborsonoriginal Sections3,4.3and5",
+        "current_role": "Watermark encoding uses relative thread-execution order and controlled contention;no unsupported local-removal superiority is asserted.",
+        "prior_support_sentence": "Threaded designs spread state so one local removal is less decisive \\cite{r54}.",
+        "reading_scope": "selected actual original passage,not whole-source certification",
+        "source": "https://www.cs.auckland.ac.nz/~cthombor/Pubs/nagra04threading.pdf"
+      },
+      "entry": "J. Nagra and C. D. Thomborson, ``Threading software watermarks,'' in Information Hiding, 2004, pp. 208--223.",
+      "entry_sha256": "38f22ff7a6163803326812bfade06a56cbbb96e5f4c771fbc629da2785a2a80b",
+      "key": "r54",
+      "manuscript_location": "paper/main.tex:86",
+      "scholarly_identifier": "DBLP:conf/ih/NagraT04",
+      "source_locator": "https://dblp.org/rec/conf/ih/NagraT04",
+      "support_sentence": "Thread-contention watermarking encodes a mark in the order of thread execution \\cite{r54}.",
+      "support_sentence_sha256": "cd4d051d039668cd25b3e9b2dd1c3cad6ce2d87609ca0699704ec84e417d981d",
+      "title": "Threading software watermarks",
+      "verification": {
+        "action": "metadata and direct local support verified for the final manuscript",
+        "basis": "persistent DBLP/DOI records plus publisher, proceedings, author, or institutional evidence where accessible",
+        "date": "2026-09-24",
+        "local_support_verdict": "PASS",
+        "metadata_verdict": "PASS"
+      },
+      "verification_status": "MANUALLY_VERIFIED_EXACT_METADATA_AND_LOCAL_SUPPORT",
+      "verified_fields": [
+        "title",
+        "authors",
+        "venue",
+        "year",
+        "pages_or_article_number",
+        "nearby_support_sentence"
+      ],
+      "year": "2004"
+    },
+    {
+      "authors": "G. Myles and C. S. Collberg",
+      "entry": "G. Myles and C. S. Collberg, ``K-gram based software birthmarks,'' in Proceedings of the ACM Symposium on Applied Computing, 2005, pp. 314--318.",
+      "entry_sha256": "fff0fc26383c41016bb43844ff9fdb83cb40d895d9ee315aacbe75331b9626d5",
+      "key": "r53",
+      "manuscript_location": "paper/main.tex:88",
+      "scholarly_identifier": "DBLP:conf/sac/MylesC05",
+      "source_locator": "https://dblp.org/rec/conf/sac/MylesC05",
+      "support_sentence": "Instruction grams give a static theft signature \\cite{r53}.",
+      "support_sentence_sha256": "a743f450200b658350bd7cc833725d4f5bd90359dcb1342cd2f31adaa4c25984",
+      "title": "K-gram based software birthmarks",
+      "verification": {
+        "action": "metadata and direct local support verified for the final manuscript",
+        "basis": "persistent DBLP/DOI records plus publisher, proceedings, author, or institutional evidence where accessible",
+        "date": "2026-09-24",
+        "local_support_verdict": "PASS",
+        "metadata_verdict": "PASS"
+      },
+      "verification_status": "MANUALLY_VERIFIED_EXACT_METADATA_AND_LOCAL_SUPPORT",
+      "verified_fields": [
+        "title",
+        "authors",
+        "venue",
+        "year",
+        "pages_or_article_number",
+        "nearby_support_sentence"
+      ],
+      "year": "2005"
+    },
+    {
+      "authors": "G. Myles and C. S. Collberg",
+      "entry": "G. Myles and C. S. Collberg, ``Detecting software theft via whole program path birthmarks,'' in Information Security, 2004, pp. 404--415.",
+      "entry_sha256": "d16ecfdc07af908fcd179966c5b1fe45dfc96b0f1c195b196281f00b84496e85",
+      "key": "r52",
+      "manuscript_location": "paper/main.tex:88",
+      "scholarly_identifier": "DBLP:conf/isw/MylesC04",
+      "source_locator": "https://dblp.org/rec/conf/isw/MylesC04",
+      "support_sentence": "Whole-program paths give a dynamic signature \\cite{r52}.",
+      "support_sentence_sha256": "6453ab6aefb84d629e6d96f3e3301ed4579be5c36fbad969a15a4aa983e1f00b",
+      "title": "Detecting software theft via whole program path birthmarks",
+      "verification": {
+        "action": "metadata and direct local support verified for the final manuscript",
+        "basis": "persistent DBLP/DOI records plus publisher, proceedings, author, or institutional evidence where accessible",
+        "date": "2026-09-24",
+        "local_support_verdict": "PASS",
+        "metadata_verdict": "PASS"
+      },
+      "verification_status": "MANUALLY_VERIFIED_EXACT_METADATA_AND_LOCAL_SUPPORT",
+      "verified_fields": [
+        "title",
+        "authors",
+        "venue",
+        "year",
+        "pages_or_article_number",
+        "nearby_support_sentence"
+      ],
+      "year": "2004"
+    },
+    {
+      "authors": "P. P. F. Chan, L. C. K. Hui, and S.-M. Yiu",
+      "entry": "P. P. F. Chan, L. C. K. Hui, and S.-M. Yiu, ``Heap graph based software theft detection,'' IEEE Transactions on Information Forensics and Security, vol. 8, no. 1, pp. 101--110, 2013.",
+      "entry_sha256": "2dac45dfab7d0bf6ae62bda8477bebe01019b32473c8e71eb69d9ab716783aae",
+      "key": "r08",
+      "manuscript_location": "paper/main.tex:88",
+      "scholarly_identifier": "DBLP:journals/tifs/ChanHY13",
+      "source_locator": "https://dblp.org/rec/journals/tifs/ChanHY13",
+      "support_sentence": "Heap graphs give a structural runtime signature \\cite{r08}.",
+      "support_sentence_sha256": "ca54e69fa7c7175f1e512c1f64e427b899311bebbe45a17b5ed3668ae9662aa3",
+      "title": "Heap graph based software theft detection",
+      "verification": {
+        "action": "metadata and direct local support verified for the final manuscript",
+        "basis": "persistent DBLP/DOI records plus publisher, proceedings, author, or institutional evidence where accessible",
+        "date": "2026-09-24",
+        "local_support_verdict": "PASS",
+        "metadata_verdict": "PASS"
+      },
+      "verification_status": "MANUALLY_VERIFIED_EXACT_METADATA_AND_LOCAL_SUPPORT",
+      "verified_fields": [
+        "title",
+        "authors",
+        "venue",
+        "year",
+        "pages_or_article_number",
+        "nearby_support_sentence"
+      ],
+      "year": "2013"
+    },
+    {
+      "authors": "M. Chroni, S. D. Nikolopoulos, and L. Palios",
+      "current_support_review": {
+        "basis": "Author preprint arXiv1712.08482 abstract distinguishes integer-embedding graph watermarks from natural-feature birthmarks; identity unchanged",
+        "date": "2026-10-16",
+        "scope": "Targeted claim correction; no fresh all-reference full-text certification"
+      },
+      "entry": "M. Chroni, S. D. Nikolopoulos, and L. Palios, ``Encoding watermark numbers as reducible permutation graphs using self-inverting permutations,'' Discrete Applied Mathematics, vol. 250, pp. 145--164, 2018.",
+      "entry_sha256": "811750d3a03cf43a8f2e821e84a13af7666a5954573908f85a35c3ecbe0a2ebc",
+      "key": "r12",
+      "manuscript_location": "paper/main.tex:88",
+      "scholarly_identifier": "DBLP:journals/dam/ChroniNP18",
+      "source_locator": "https://dblp.org/rec/journals/dam/ChroniNP18",
+      "support_sentence": "In contrast to birthmarks, graph-based watermarking encodes watermark integers as reducible permutation graphs \\cite{r12}.",
+      "support_sentence_sha256": "603deff823f21045b35153b5723e6a30ea99b69a89a1afc34e614c9d9c156fd8",
+      "title": "Encoding watermark numbers as reducible permutation graphs using self-inverting permutations",
+      "verification": {
+        "action": "metadata and direct local support verified for the final manuscript",
+        "basis": "persistent DBLP/DOI records plus publisher, proceedings, author, or institutional evidence where accessible",
+        "date": "2026-09-24",
+        "local_support_verdict": "PASS",
+        "metadata_verdict": "PASS"
+      },
+      "verification_status": "MANUALLY_VERIFIED_EXACT_METADATA_AND_LOCAL_SUPPORT",
+      "verified_fields": [
+        "title",
+        "authors",
+        "venue",
+        "year",
+        "pages_or_article_number",
+        "nearby_support_sentence"
+      ],
+      "year": "2018"
+    },
+    {
+      "authors": "A. Dey, S. Bhattacharya, and N. Chaki",
+      "entry": "A. Dey, S. Bhattacharya, and N. Chaki, ``Software watermarking: Progress and challenges,'' INAE Letters, vol. 4, no. 1, pp. 65--75, 2019.",
+      "entry_sha256": "f0a109b80742b1bd656653cbcd74fadd1ae7d0280f6a16b2c809a058a06b29d4",
+      "key": "r24",
+      "manuscript_location": "paper/main.tex:88",
+      "scholarly_identifier": "DOI:10.1007/s41403-018-0058-8",
+      "source_locator": "https://doi.org/10.1007/s41403-018-0058-8",
+      "support_sentence": "A survey states the common boundary: robustness is relative to a carrier and attack model \\cite{r24}.",
+      "support_sentence_sha256": "33d027ac8f365c5e58e4737a7e5c101bf32bfa2f39b8066f033766c530ec29b9",
+      "title": "Software watermarking: Progress and challenges",
+      "verification": {
+        "action": "metadata and direct local support verified for the final manuscript",
+        "basis": "persistent DBLP/DOI records plus publisher, proceedings, author, or institutional evidence where accessible",
+        "date": "2026-09-24",
+        "local_support_verdict": "PASS",
+        "metadata_verdict": "PASS"
+      },
+      "verification_status": "MANUALLY_VERIFIED_EXACT_METADATA_AND_LOCAL_SUPPORT",
+      "verified_fields": [
+        "title",
+        "authors",
+        "venue",
+        "year",
+        "pages_or_article_number",
+        "nearby_support_sentence"
+      ],
+      "year": "2019"
+    },
+    {
+      "authors": "T. Mens and T. Tourwe",
+      "entry": "T. Mens and T. Tourw{\\'e}, ``A survey of software refactoring,'' IEEE Transactions on Software Engineering, vol. 30, no. 2, pp. 126--139, 2004.",
+      "entry_sha256": "84027ada59e4c25287ef89728fc7cbf49dceef0e93526fa1bfb321e2cf317aa2",
+      "key": "r47",
+      "manuscript_location": "paper/main.tex:91",
+      "scholarly_identifier": "DBLP:journals/tse/MensT04",
+      "source_locator": "https://dblp.org/rec/journals/tse/MensT04",
+      "support_sentence": "Refactoring research separates behavior-preserving intent from recognizing a concrete edit \\cite{r47}.",
+      "support_sentence_sha256": "6af9897940781b9501fc06811b44df775e44bc8a0575e018b820b48758d774c2",
+      "title": "A survey of software refactoring",
+      "verification": {
+        "action": "metadata and direct local support verified for the final manuscript",
+        "basis": "persistent DBLP/DOI records plus publisher, proceedings, author, or institutional evidence where accessible",
+        "date": "2026-09-24",
+        "local_support_verdict": "PASS",
+        "metadata_verdict": "PASS"
+      },
+      "verification_status": "MANUALLY_VERIFIED_EXACT_METADATA_AND_LOCAL_SUPPORT",
+      "verified_fields": [
+        "title",
+        "authors",
+        "venue",
+        "year",
+        "pages_or_article_number",
+        "nearby_support_sentence"
+      ],
+      "year": "2004"
+    },
+    {
+      "authors": "M. Kim, T. Zimmermann, and N. Nagappan",
+      "entry": "M. Kim, T. Zimmermann, and N. Nagappan, ``An empirical study of refactoring challenges and benefits at Microsoft,'' IEEE Transactions on Software Engineering, vol. 40, no. 7, pp. 633--649, 2014.",
+      "entry_sha256": "e1dd645fda20a6af67f6144811fc7e9c19442eba8bfbf0c4485d183e4cc90dae",
+      "key": "r37",
+      "manuscript_location": "paper/main.tex:91",
+      "scholarly_identifier": "DBLP:journals/tse/KimZN14",
+      "source_locator": "https://dblp.org/rec/journals/tse/KimZN14",
+      "support_sentence": "Industrial studies also expose coordination costs \\cite{r37}.",
+      "support_sentence_sha256": "ea69f2b5ca924f71f22c807a21a9833eec5170e8cb409fc62c291af4642cca89",
+      "title": "An empirical study of refactoring challenges and benefits at Microsoft",
+      "verification": {
+        "action": "metadata and direct local support verified for the final manuscript",
+        "basis": "persistent DBLP/DOI records plus publisher, proceedings, author, or institutional evidence where accessible",
+        "date": "2026-09-24",
+        "local_support_verdict": "PASS",
+        "metadata_verdict": "PASS"
+      },
+      "verification_status": "MANUALLY_VERIFIED_EXACT_METADATA_AND_LOCAL_SUPPORT",
+      "verified_fields": [
+        "title",
+        "authors",
+        "venue",
+        "year",
+        "pages_or_article_number",
+        "nearby_support_sentence"
+      ],
+      "year": "2014"
+    },
+    {
+      "authors": "M. Vakilian, N. Chen, S. Negara, B. A. Rajkumar, B. P. Bailey, and R. E. Johnson",
+      "entry": "M. Vakilian, N. Chen, S. Negara, B. A. Rajkumar, B. P. Bailey, and R. E. Johnson, ``Use, disuse, and misuse of automated refactorings,'' in Proceedings of the 34th International Conference on Software Engineering, 2012, pp. 233--243.",
+      "entry_sha256": "dd6841c85722772bb2a51d80f9b35ebb82b856e2bccb07e40054393fe0d74360",
+      "key": "r74",
+      "manuscript_location": "paper/main.tex:91",
+      "scholarly_identifier": "DOI:10.1109/ICSE.2012.6227190",
+      "source_locator": "https://doi.org/10.1109/ICSE.2012.6227190",
+      "support_sentence": "Automated refactorings remain selective enough to be misapplied \\cite{r74}.",
+      "support_sentence_sha256": "07ce74d09baa51128ca666cae77a2fb77857ea39e77ad5386ef9569738b583ec",
+      "title": "Use, disuse, and misuse of automated refactorings",
+      "verification": {
+        "action": "metadata and direct local support verified for the final manuscript",
+        "basis": "persistent DBLP/DOI records plus publisher, proceedings, author, or institutional evidence where accessible",
+        "date": "2026-09-24",
+        "local_support_verdict": "PASS",
+        "metadata_verdict": "PASS"
+      },
+      "verification_status": "MANUALLY_VERIFIED_EXACT_METADATA_AND_LOCAL_SUPPORT",
+      "verified_fields": [
+        "title",
+        "authors",
+        "venue",
+        "year",
+        "pages_or_article_number",
+        "nearby_support_sentence"
+      ],
+      "year": "2012"
+    },
+    {
+      "authors": "N. Tsantalis, M. Mansouri, L. M. Eshkevari, D. Mazinanian, and D. Dig",
+      "entry": "N. Tsantalis, M. Mansouri, L. M. Eshkevari, D. Mazinanian, and D. Dig, ``Accurate and efficient refactoring detection in commit history,'' in Proceedings of the 40th International Conference on Software Engineering, 2018, pp. 483--494.",
+      "entry_sha256": "f2b13d2cac4607218ed335f6fa1255399adee5e4e46dec450e172583ba8459a3",
+      "key": "r73",
+      "manuscript_location": "paper/main.tex:91",
+      "scholarly_identifier": "DBLP:conf/icse/TsantalisMEMD18",
+      "source_locator": "https://dblp.org/rec/conf/icse/TsantalisMEMD18",
+      "support_sentence": "Commit-level detectors improve candidate mappings \\cite{r73}.",
+      "support_sentence_sha256": "b73f5e8f17a7058b9b42fba0df23c54ad7353599ac92596fc94392a626138436",
+      "title": "Accurate and efficient refactoring detection in commit history",
+      "verification": {
+        "action": "metadata and direct local support verified for the final manuscript",
+        "basis": "persistent DBLP/DOI records plus publisher, proceedings, author, or institutional evidence where accessible",
+        "date": "2026-09-24",
+        "local_support_verdict": "PASS",
+        "metadata_verdict": "PASS"
+      },
+      "verification_status": "MANUALLY_VERIFIED_EXACT_METADATA_AND_LOCAL_SUPPORT",
+      "verified_fields": [
+        "title",
+        "authors",
+        "venue",
+        "year",
+        "pages_or_article_number",
+        "nearby_support_sentence"
+      ],
+      "year": "2018"
+    },
+    {
+      "authors": "D. Silva, J. P. da Silva, G. J. de Souza Santos, R. Terra, and M. T. Valente",
+      "entry": "D. Silva, J. P. da Silva, G. J. de Souza Santos, R. Terra, and M. T. Valente, ``RefDiff 2.0: A multi-language refactoring detection tool,'' IEEE Transactions on Software Engineering, vol. 47, no. 12, pp. 2786--2802, 2021.",
+      "entry_sha256": "d5840543aa59e390ec8574ea93d1d467413d8d8767db06e1dffc9cefe814ce39",
+      "key": "r68",
+      "manuscript_location": "paper/main.tex:91",
+      "scholarly_identifier": "DBLP:journals/tse/SilvaSSTV21",
+      "source_locator": "https://dblp.org/rec/journals/tse/SilvaSSTV21",
+      "support_sentence": "Multi-language detectors extend them across more histories \\cite{r68}.",
+      "support_sentence_sha256": "d6882596fec33352921e283022db0f4eaae615cf8251ae5ba12595e310e75e00",
+      "title": "RefDiff 2.0: A multi-language refactoring detection tool",
+      "verification": {
+        "action": "metadata and direct local support verified for the final manuscript",
+        "basis": "persistent DBLP/DOI records plus publisher, proceedings, author, or institutional evidence where accessible",
+        "date": "2026-09-24",
+        "local_support_verdict": "PASS",
+        "metadata_verdict": "PASS"
+      },
+      "verification_status": "MANUALLY_VERIFIED_EXACT_METADATA_AND_LOCAL_SUPPORT",
+      "verified_fields": [
+        "title",
+        "authors",
+        "venue",
+        "year",
+        "pages_or_article_number",
+        "nearby_support_sentence"
+      ],
+      "year": "2021"
+    },
+    {
+      "authors": "B. E. Cossette and R. J. Walker",
+      "current_primary_support_review": {
+        "actual_read_scope": "Author-authorized minor revision of FSE2012 in2014thesis, physical23publication relationship and107–111(print94–98)§5.1.2; explicit code-comment/release-document versus available replacement comparisons.",
+        "current_role": "Documented replacement advice can disagree with available evolved-library replacements; not an observed client-edit corpus.",
+        "prior_support_sentence": "Migration studies find differences between documented and actual client changes \\cite{r20}.",
+        "source": "https://lsmr.org/docs/cossette_phd_2014.pdf"
+      },
+      "entry": "B. E. Cossette and R. J. Walker, ``Seeking the ground truth: A retroactive study on the evolution and migration of software libraries,'' in Proceedings of the 20th ACM SIGSOFT Symposium on the Foundations of Software Engineering, 2012, Art. no. 55, 11 pp.",
+      "entry_sha256": "f51aaa8e9dc319cf5635f68f5885d7b484dc94611a2d7dd4113e970dba3b4577",
+      "key": "r20",
+      "manuscript_location": "paper/main.tex:93",
+      "scholarly_identifier": "DBLP:conf/sigsoft/CossetteW12",
+      "source_locator": "https://dblp.org/rec/conf/sigsoft/CossetteW12",
+      "support_sentence": "Migration studies identify gaps between documented replacement advice and replacements available in an evolved library \\cite{r20}.",
+      "support_sentence_sha256": "1b606f7ee003559c298a3217de1380fb76f70a43152605f6b324d81992d87a41",
+      "title": "Seeking the ground truth: A retroactive study on the evolution and migration of software libraries",
+      "verification": {
+        "action": "metadata and direct local support verified for the final manuscript",
+        "basis": "persistent DBLP/DOI records plus publisher, proceedings, author, or institutional evidence where accessible",
+        "date": "2026-09-24",
+        "local_support_verdict": "PASS",
+        "metadata_verdict": "PASS"
+      },
+      "verification_status": "MANUALLY_VERIFIED_EXACT_METADATA_AND_LOCAL_SUPPORT",
+      "verified_fields": [
+        "title",
+        "authors",
+        "venue",
+        "year",
+        "pages_or_article_number",
+        "nearby_support_sentence"
+      ],
+      "year": "2012"
+    },
+    {
+      "authors": "C. Bogart, C. Kastner, J. Herbsleb, and F. Thung",
+      "entry": "C. Bogart, C. K{\\\"a}stner, J. D. Herbsleb, and F. Thung, ``How to break an API: Cost negotiation and community values in three software ecosystems,'' in Proceedings of the 24th ACM SIGSOFT International Symposium on Foundations of Software Engineering, 2016, pp. 109--120.",
+      "entry_sha256": "904e7d70be94102723fcb7c9fcbc88b0f71d7a2d39d125be2e04ccfe717527fb",
+      "key": "r04",
+      "manuscript_location": "paper/main.tex:93",
+      "scholarly_identifier": "DBLP:conf/sigsoft/BogartKHT16",
+      "source_locator": "https://dblp.org/rec/conf/sigsoft/BogartKHT16",
+      "support_sentence": "Interface breakage reflects client cost, not syntax alone \\cite{r04}.",
+      "support_sentence_sha256": "f0822661b0877776f37e1803f5b6e8a8c3e31a36510d1b1bc14a5be1f24b6e83",
+      "title": "How to break an API: Cost negotiation and community values in three software ecosystems",
+      "verification": {
+        "action": "metadata and direct local support verified for the final manuscript",
+        "basis": "persistent DBLP/DOI records plus publisher, proceedings, author, or institutional evidence where accessible",
+        "date": "2026-09-24",
+        "local_support_verdict": "PASS",
+        "metadata_verdict": "PASS"
+      },
+      "verification_status": "MANUALLY_VERIFIED_EXACT_METADATA_AND_LOCAL_SUPPORT",
+      "verified_fields": [
+        "title",
+        "authors",
+        "venue",
+        "year",
+        "pages_or_article_number",
+        "nearby_support_sentence"
+      ],
+      "year": "2016"
+    },
+    {
+      "authors": "R. G. Kula, D. M. German, A. Ouni, T. Ishio, and K. Inoue",
+      "entry": "R. G. Kula, D. M. German, A. Ouni, T. Ishio, and K. Inoue, ``Do developers update their library dependencies?---An empirical study on the impact of security advisories on library migration,'' Empirical Software Engineering, vol. 23, no. 1, pp. 384--417, 2018.",
+      "entry_sha256": "009c19d7db7ea860ed4970a12b0918753a0b04a8ac10eb860dbeb771288dc9e8",
+      "key": "r38",
+      "manuscript_location": "paper/main.tex:93",
+      "scholarly_identifier": "DBLP:journals/ese/KulaGOII18",
+      "source_locator": "https://dblp.org/rec/journals/ese/KulaGOII18",
+      "support_sentence": "Developers often lag available releases \\cite{r38}.",
+      "support_sentence_sha256": "022b729f08f686e014b75ed55de8a55f03af2334d972d273b97f14f7edf5a200",
+      "title": "Do developers update their library dependencies?---An empirical study on the impact of security advisories on library migration",
+      "verification": {
+        "action": "metadata and direct local support verified for the final manuscript",
+        "basis": "persistent DBLP/DOI records plus publisher, proceedings, author, or institutional evidence where accessible",
+        "date": "2026-09-24",
+        "local_support_verdict": "PASS",
+        "metadata_verdict": "PASS"
+      },
+      "verification_status": "MANUALLY_VERIFIED_EXACT_METADATA_AND_LOCAL_SUPPORT",
+      "verified_fields": [
+        "title",
+        "authors",
+        "venue",
+        "year",
+        "pages_or_article_number",
+        "nearby_support_sentence"
+      ],
+      "year": "2018"
+    },
+    {
+      "authors": "A. Decan, T. Mens, and P. Grosjean",
+      "entry": "A. Decan, T. Mens, and P. Grosjean, ``An empirical comparison of dependency network evolution in seven software packaging ecosystems,'' Empirical Software Engineering, vol. 24, no. 1, pp. 381--416, 2019.",
+      "entry_sha256": "c1e34eef0fe76d90d4d99c3ea90d08fdda5e0e85faa75bf1235c670fea73740f",
+      "key": "r22",
+      "manuscript_location": "paper/main.tex:93",
+      "scholarly_identifier": "DBLP:journals/ese/DecanMG19",
+      "source_locator": "https://dblp.org/rec/journals/ese/DecanMG19",
+      "support_sentence": "Packaging ecosystems evolve differently \\cite{r22}.",
+      "support_sentence_sha256": "6c9bc7ffe05ab43a1a449168515de24657dd3731492ef81bcbc9e8d21bf76f49",
+      "title": "An empirical comparison of dependency network evolution in seven software packaging ecosystems",
+      "verification": {
+        "action": "metadata and direct local support verified for the final manuscript",
+        "basis": "persistent DBLP/DOI records plus publisher, proceedings, author, or institutional evidence where accessible",
+        "date": "2026-09-24",
+        "local_support_verdict": "PASS",
+        "metadata_verdict": "PASS"
+      },
+      "verification_status": "MANUALLY_VERIFIED_EXACT_METADATA_AND_LOCAL_SUPPORT",
+      "verified_fields": [
+        "title",
+        "authors",
+        "venue",
+        "year",
+        "pages_or_article_number",
+        "nearby_support_sentence"
+      ],
+      "year": "2019"
+    },
+    {
+      "authors": "G. Bavota, G. Canfora, M. D. Penta, R. Oliveto, and S. Panichella",
+      "entry": "G. Bavota, G. Canfora, M. Di Penta, R. Oliveto, and S. Panichella, ``How the Apache community upgrades dependencies: An evolutionary study,'' Empirical Software Engineering, vol. 20, no. 5, pp. 1275--1317, 2015.",
+      "entry_sha256": "caf70abf1e9855f0a742d503e532590935af48ce114e4743315e7bf89372fa2f",
+      "key": "r03",
+      "manuscript_location": "paper/main.tex:93",
+      "scholarly_identifier": "DBLP:journals/ese/BavotaCPOP15",
+      "source_locator": "https://dblp.org/rec/journals/ese/BavotaCPOP15",
+      "support_sentence": "Large projects therefore upgrade dependencies nonuniformly \\cite{r03}.",
+      "support_sentence_sha256": "2a7420f2bcbd6cc7cdcd1f4b2e8cdacfded8dd75165786de099e50f6642f3452",
+      "title": "How the Apache community upgrades dependencies: An evolutionary study",
+      "verification": {
+        "action": "metadata and direct local support verified for the final manuscript",
+        "basis": "persistent DBLP/DOI records plus publisher, proceedings, author, or institutional evidence where accessible",
+        "date": "2026-09-24",
+        "local_support_verdict": "PASS",
+        "metadata_verdict": "PASS"
+      },
+      "verification_status": "MANUALLY_VERIFIED_EXACT_METADATA_AND_LOCAL_SUPPORT",
+      "verified_fields": [
+        "title",
+        "authors",
+        "venue",
+        "year",
+        "pages_or_article_number",
+        "nearby_support_sentence"
+      ],
+      "year": "2015"
+    },
+    {
+      "authors": "S. Raemaekers, A. van Deursen, and J. Visser",
+      "entry": "S. Raemaekers, A. van Deursen, and J. Visser, ``Semantic versioning versus breaking changes: A study of the Maven repository,'' in Proceedings of the 14th IEEE International Working Conference on Source Code Analysis and Manipulation, 2014, pp. 215--224.",
+      "entry_sha256": "b6706cade5dd2e86f946f4e94ff02621fce3ed6c58721337d23e3e4294aa0363",
+      "key": "r62",
+      "manuscript_location": "paper/main.tex:93",
+      "scholarly_identifier": "DBLP:conf/scam/RaemaekersDV14",
+      "source_locator": "https://dblp.org/rec/conf/scam/RaemaekersDV14",
+      "support_sentence": "Version labels still permit breaking changes \\cite{r62}.",
+      "support_sentence_sha256": "7069a35b011ea90e892d7ae1bd8d04fb80dd96e7fc0cec14441c6e759b197c61",
+      "title": "Semantic versioning versus breaking changes: A study of the Maven repository",
+      "verification": {
+        "action": "metadata and direct local support verified for the final manuscript",
+        "basis": "persistent DBLP/DOI records plus publisher, proceedings, author, or institutional evidence where accessible",
+        "date": "2026-09-24",
+        "local_support_verdict": "PASS",
+        "metadata_verdict": "PASS"
+      },
+      "verification_status": "MANUALLY_VERIFIED_EXACT_METADATA_AND_LOCAL_SUPPORT",
+      "verified_fields": [
+        "title",
+        "authors",
+        "venue",
+        "year",
+        "pages_or_article_number",
+        "nearby_support_sentence"
+      ],
+      "year": "2014"
+    },
+    {
+      "authors": "N. Tsantalis, A. Ketkar, and D. Dig",
+      "entry": "N. Tsantalis, A. Ketkar, and D. Dig, ``RefactoringMiner 2.0,'' IEEE Transactions on Software Engineering, vol. 48, no. 3, pp. 930--950, 2022.",
+      "entry_sha256": "8e153ba6a2ec27cc9f8781bddfa84c92e9ae5a32db0403b24b2b26d7becc7133",
+      "key": "r72",
+      "manuscript_location": "paper/main.tex:93",
+      "scholarly_identifier": "DBLP:journals/tse/TsantalisKD22",
+      "source_locator": "https://dblp.org/rec/journals/tse/TsantalisKD22",
+      "support_sentence": "RefactoringMiner 2.0 provides fine-grained candidate correspondences, not release certificates \\cite{r72}.",
+      "support_sentence_sha256": "2b3fa2c9c9683e243310512a033f441e147a58c8b229d3fdb7a7de829d4d5fda",
+      "title": "RefactoringMiner 2.0",
+      "verification": {
+        "action": "metadata and direct local support verified for the final manuscript",
+        "basis": "persistent DBLP/DOI records plus publisher, proceedings, author, or institutional evidence where accessible",
+        "date": "2026-09-24",
+        "local_support_verdict": "PASS",
+        "metadata_verdict": "PASS"
+      },
+      "verification_status": "MANUALLY_VERIFIED_EXACT_METADATA_AND_LOCAL_SUPPORT",
+      "verified_fields": [
+        "title",
+        "authors",
+        "venue",
+        "year",
+        "pages_or_article_number",
+        "nearby_support_sentence"
+      ],
+      "year": "2022"
+    },
+    {
+      "authors": "S. Larsen, J.-R. Falleri, B. Baudry, and M. Monperrus",
+      "entry": "S. Lars{\\'e}n, J.-R. Falleri, B. Baudry, and M. Monperrus, ``Spork: Structured merge for Java with formatting preservation,'' IEEE Transactions on Software Engineering, vol. 49, no. 1, pp. 64--83, 2023.",
+      "entry_sha256": "8ded914934426e6cf6faa9cfd534cf82241722766bf4cb70ae72b00538e8ff5c",
+      "key": "r42",
+      "manuscript_location": "paper/main.tex:95",
+      "scholarly_identifier": "DBLP:journals/tse/LarsenFBM23",
+      "source_locator": "https://dblp.org/rec/journals/tse/LarsenFBM23",
+      "support_sentence": "Structured merge preserves program structure and formatting \\cite{r42}.",
+      "support_sentence_sha256": "5c65325df240d9f6fe17656dc3b6572249f8b947aa345ea586364273e5a3a412",
+      "title": "Spork: Structured merge for Java with formatting preservation",
+      "verification": {
+        "action": "metadata and direct local support verified for the final manuscript",
+        "basis": "persistent DBLP/DOI records plus publisher, proceedings, author, or institutional evidence where accessible",
+        "date": "2026-09-24",
+        "local_support_verdict": "PASS",
+        "metadata_verdict": "PASS"
+      },
+      "verification_status": "MANUALLY_VERIFIED_EXACT_METADATA_AND_LOCAL_SUPPORT",
+      "verified_fields": [
+        "title",
+        "authors",
+        "venue",
+        "year",
+        "pages_or_article_number",
+        "nearby_support_sentence"
+      ],
+      "year": "2023"
+    },
+    {
+      "authors": "J.-M. Horcas, D. Struber, A. Burdusel, J. Martinez, and S. Zschaler",
+      "entry": "J.-M. Horcas, D. Str{\\\"u}ber, A. Burdusel, J. Martinez, and S. Zschaler, ``We're not gonna break it! consistency-preserving operators for efficient product line configuration,'' IEEE Transactions on Software Engineering, vol. 49, no. 3, pp. 1102--1117, 2023.",
+      "entry_sha256": "c3e79e75c5b9e7889bdd5df1c434447d1ad79642aee7a80cec9a11c1b688defa",
+      "key": "r33",
+      "manuscript_location": "paper/main.tex:95",
+      "scholarly_identifier": "DBLP:journals/tse/HorcasSBMZ23",
+      "source_locator": "https://dblp.org/rec/journals/tse/HorcasSBMZ23",
+      "support_sentence": "Consistency-preserving operators maintain configuration validity \\cite{r33}.",
+      "support_sentence_sha256": "1e4b44100c3a74cf8dd0e82db43abe21e9d54da8c55e4658c77006e046c9baf3",
+      "title": "We're not gonna break it! consistency-preserving operators for efficient product line configuration",
+      "verification": {
+        "action": "metadata and direct local support verified for the final manuscript",
+        "basis": "persistent DBLP/DOI records plus publisher, proceedings, author, or institutional evidence where accessible",
+        "date": "2026-09-24",
+        "local_support_verdict": "PASS",
+        "metadata_verdict": "PASS"
+      },
+      "verification_status": "MANUALLY_VERIFIED_EXACT_METADATA_AND_LOCAL_SUPPORT",
+      "verified_fields": [
+        "title",
+        "authors",
+        "venue",
+        "year",
+        "pages_or_article_number",
+        "nearby_support_sentence"
+      ],
+      "year": "2023"
+    },
+    {
+      "authors": "R. A. van Engelen, D. B. Whalley, and X. Yuan",
+      "entry": "R. A. van Engelen, D. B. Whalley, and X. Yuan, ``Automatic validation of code-improving transformations on low-level program representations,'' Science of Computer Programming, vol. 52, no. 1--3, pp. 257--280, 2004.",
+      "entry_sha256": "6ee3b4492a54716ba22396e3c5e9f60351a4a9efa1a76c224172daae4287f09b",
+      "key": "r75",
+      "manuscript_location": "paper/main.tex:98",
+      "scholarly_identifier": "DBLP:journals/scp/EngelenWY04",
+      "source_locator": "https://dblp.org/rec/journals/scp/EngelenWY04",
+      "support_sentence": "Low-level validators check concrete code improvements \\cite{r75}.",
+      "support_sentence_sha256": "9475eec04f1cab52123d938dc61c6f89ae406a6b4be08e54b0b47a7d3bc1bfc5",
+      "title": "Automatic validation of code-improving transformations on low-level program representations",
+      "verification": {
+        "action": "metadata and direct local support verified for the final manuscript",
+        "basis": "persistent DBLP/DOI records plus publisher, proceedings, author, or institutional evidence where accessible",
+        "date": "2026-09-24",
+        "local_support_verdict": "PASS",
+        "metadata_verdict": "PASS"
+      },
+      "verification_status": "MANUALLY_VERIFIED_EXACT_METADATA_AND_LOCAL_SUPPORT",
+      "verified_fields": [
+        "title",
+        "authors",
+        "venue",
+        "year",
+        "pages_or_article_number",
+        "nearby_support_sentence"
+      ],
+      "year": "2004"
+    },
+    {
+      "authors": "N. P. Lopes, J. Lee, C.-K. Hur, Z. Liu, and J. Regehr",
+      "entry": "N. P. Lopes, J. Lee, C.-K. Hur, Z. Liu, and J. Regehr, ``Alive2: Bounded translation validation for LLVM,'' in Proceedings of the 42nd ACM SIGPLAN International Conference on Programming Language Design and Implementation, 2021, pp. 65--79.",
+      "entry_sha256": "f615b73190e435c520e902208d8b0a1db00e0ac1285e7442e46077f9d570926a",
+      "key": "r46",
+      "manuscript_location": "paper/main.tex:98",
+      "scholarly_identifier": "DBLP:conf/pldi/LopesLHLR21",
+      "source_locator": "https://dblp.org/rec/conf/pldi/LopesLHLR21",
+      "support_sentence": "Bounded translation validation states the checked domain \\cite{r46}.",
+      "support_sentence_sha256": "901cda3ab392f0ea19e0c1c6429d784c2872d3a991ec21b28f106cc2d9ec30bb",
+      "title": "Alive2: Bounded translation validation for LLVM",
+      "verification": {
+        "action": "metadata and direct local support verified for the final manuscript",
+        "basis": "persistent DBLP/DOI records plus publisher, proceedings, author, or institutional evidence where accessible",
+        "date": "2026-09-24",
+        "local_support_verdict": "PASS",
+        "metadata_verdict": "PASS"
+      },
+      "verification_status": "MANUALLY_VERIFIED_EXACT_METADATA_AND_LOCAL_SUPPORT",
+      "verified_fields": [
+        "title",
+        "authors",
+        "venue",
+        "year",
+        "pages_or_article_number",
+        "nearby_support_sentence"
+      ],
+      "year": "2021"
+    },
+    {
+      "authors": "J. Glock, J. Pichler, and M. Pinzger",
+      "entry": "J. Glock, J. Pichler, and M. Pinzger, ``PASDA: A partition-based semantic differencing approach with best effort classification of undecided cases,'' Journal of Systems and Software, vol. 213, Art. no. 112037, 2024.",
+      "entry_sha256": "51331c85082923fa6dff0b08b8457c1d85ca6ce49151dc4d0c1e97dccd7c764f",
+      "key": "r29",
+      "manuscript_location": "paper/main.tex:98",
+      "scholarly_identifier": "DBLP:journals/jss/GlockPP24",
+      "source_locator": "https://dblp.org/rec/journals/jss/GlockPP24",
+      "support_sentence": "PASDA reports undecided cases explicitly \\cite{r29}.",
+      "support_sentence_sha256": "a6d272c8cb6041e3e775464cb4688309f1ef6c7210e5348cd58a2e2340879857",
+      "title": "PASDA: A partition-based semantic differencing approach with best effort classification of undecided cases",
+      "verification": {
+        "action": "metadata and direct local support verified for the final manuscript",
+        "basis": "persistent DBLP/DOI records plus publisher, proceedings, author, or institutional evidence where accessible",
+        "date": "2026-09-24",
+        "local_support_verdict": "PASS",
+        "metadata_verdict": "PASS"
+      },
+      "verification_status": "MANUALLY_VERIFIED_EXACT_METADATA_AND_LOCAL_SUPPORT",
+      "verified_fields": [
+        "title",
+        "authors",
+        "venue",
+        "year",
+        "pages_or_article_number",
+        "nearby_support_sentence"
+      ],
+      "year": "2024"
+    },
+    {
+      "authors": "J. Kwon, B. Jang, J. Lee, and K. Heo",
+      "entry": "J. Kwon, B. Jang, J. Lee, and K. Heo, ``Optimization-directed compiler fuzzing for continuous translation validation,'' Proceedings of the ACM on Programming Languages, vol. 9, no. PLDI, Art. no. 172, pp. 627--650, 2025.",
+      "entry_sha256": "f0f7a5e5d92bf2470df17f7022dc9c7d6df23a94087c56041adb6b5cfde4c284",
+      "key": "r39",
+      "manuscript_location": "paper/main.tex:98",
+      "scholarly_identifier": "DBLP:journals/pacmpl/KwonJLH25",
+      "source_locator": "https://dblp.org/rec/journals/pacmpl/KwonJLH25",
+      "support_sentence": "Optimuzz targets recently changed compiler optimizations \\cite{r39}.",
+      "support_sentence_sha256": "9f461beff4e643f8f722832ea8f1f1e96569fe73ca9f607f6d25d8398132e35b",
+      "title": "Optimization-directed compiler fuzzing for continuous translation validation",
+      "verification": {
+        "action": "metadata and direct local support verified for the final manuscript",
+        "basis": "persistent DBLP/DOI records plus publisher, proceedings, author, or institutional evidence where accessible",
+        "date": "2026-09-24",
+        "local_support_verdict": "PASS",
+        "metadata_verdict": "PASS"
+      },
+      "verification_status": "MANUALLY_VERIFIED_EXACT_METADATA_AND_LOCAL_SUPPORT",
+      "verified_fields": [
+        "title",
+        "authors",
+        "venue",
+        "year",
+        "pages_or_article_number",
+        "nearby_support_sentence"
+      ],
+      "year": "2025"
+    },
+    {
+      "authors": "T. Sewell, M. O. Myreen, and G. Klein",
+      "entry": "T. Sewell, M. O. Myreen, and G. Klein, ``Translation validation for a verified OS kernel,'' in Proceedings of the ACM SIGPLAN Conference on Programming Language Design and Implementation, 2013, pp. 471--482.",
+      "entry_sha256": "ad9d6998658e9e65afdab04f562920a342afeccd12abc70c90691be791b0815c",
+      "key": "r67",
+      "manuscript_location": "paper/main.tex:98",
+      "scholarly_identifier": "DBLP:conf/pldi/SewellMK13",
+      "source_locator": "https://dblp.org/rec/conf/pldi/SewellMK13",
+      "support_sentence": "Verified-kernel work links a trusted model to compiled code \\cite{r67}.",
+      "support_sentence_sha256": "8289f2015c1bd84c39fe06612e13e551b1bab3e7755b9b1a8de5d37d5cb658fc",
+      "title": "Translation validation for a verified OS kernel",
+      "verification": {
+        "action": "metadata and direct local support verified for the final manuscript",
+        "basis": "persistent DBLP/DOI records plus publisher, proceedings, author, or institutional evidence where accessible",
+        "date": "2026-09-24",
+        "local_support_verdict": "PASS",
+        "metadata_verdict": "PASS"
+      },
+      "verification_status": "MANUALLY_VERIFIED_EXACT_METADATA_AND_LOCAL_SUPPORT",
+      "verified_fields": [
+        "title",
+        "authors",
+        "venue",
+        "year",
+        "pages_or_article_number",
+        "nearby_support_sentence"
+      ],
+      "year": "2013"
+    },
+    {
+      "authors": "D. Jackson and D. A. Ladd",
+      "entry": "D. Jackson and D. A. Ladd, ``Semantic diff: A tool for summarizing the effects of modifications,'' in Proceedings of the International Conference on Software Maintenance, 1994, pp. 243--252.",
+      "entry_sha256": "06223a89f09357bcc9ec19a446fafb4c3d24c3da3ba8732b310e67031ff27fcc",
+      "key": "r35",
+      "manuscript_location": "paper/main.tex:100",
+      "scholarly_identifier": "DBLP:conf/icsm/JacksonL94",
+      "source_locator": "https://dblp.org/rec/conf/icsm/JacksonL94",
+      "support_sentence": "General differencing summarizes modification effects \\cite{r35}.",
+      "support_sentence_sha256": "3aee01cc3fa4f815b018a57e07c0e88e3ec1489c40a1b5fcf7747c544bf89535",
+      "title": "Semantic diff: A tool for summarizing the effects of modifications",
+      "verification": {
+        "action": "metadata and direct local support verified for the final manuscript",
+        "basis": "persistent DBLP/DOI records plus publisher, proceedings, author, or institutional evidence where accessible",
+        "date": "2026-09-24",
+        "local_support_verdict": "PASS",
+        "metadata_verdict": "PASS"
+      },
+      "verification_status": "MANUALLY_VERIFIED_EXACT_METADATA_AND_LOCAL_SUPPORT",
+      "verified_fields": [
+        "title",
+        "authors",
+        "venue",
+        "year",
+        "pages_or_article_number",
+        "nearby_support_sentence"
+      ],
+      "year": "1994"
+    },
+    {
+      "authors": "S. Person, M. B. Dwyer, S. G. Elbaum, and C. S. Pasareanu",
+      "entry": "S. Person, M. B. Dwyer, S. G. Elbaum, and C. S. P{\\u{a}}s{\\u{a}}reanu, ``Differential symbolic execution,'' in Proceedings of the 16th ACM SIGSOFT International Symposium on Foundations of Software Engineering, 2008, pp. 226--237.",
+      "entry_sha256": "fd149f97a0ab1b2a1a153f05c7a94a5137ccd8374e8381b526bd35c9a88e5cd9",
+      "key": "r59",
+      "manuscript_location": "paper/main.tex:100",
+      "scholarly_identifier": "DBLP:conf/sigsoft/PersonDEP08",
+      "source_locator": "https://dblp.org/rec/conf/sigsoft/PersonDEP08",
+      "support_sentence": "Differential symbolic execution compares paths across versions \\cite{r59}.",
+      "support_sentence_sha256": "a0b039c6aa8f63686548eff77c000541b29bf81828727300ff55cb27e3899daf",
+      "title": "Differential symbolic execution",
+      "verification": {
+        "action": "metadata and direct local support verified for the final manuscript",
+        "basis": "persistent DBLP/DOI records plus publisher, proceedings, author, or institutional evidence where accessible",
+        "date": "2026-09-24",
+        "local_support_verdict": "PASS",
+        "metadata_verdict": "PASS"
+      },
+      "verification_status": "MANUALLY_VERIFIED_EXACT_METADATA_AND_LOCAL_SUPPORT",
+      "verified_fields": [
+        "title",
+        "authors",
+        "venue",
+        "year",
+        "pages_or_article_number",
+        "nearby_support_sentence"
+      ],
+      "year": "2008"
+    },
+    {
+      "authors": "B. Godlin and O. Strichman",
+      "entry": "B. Godlin and O. Strichman, ``Regression verification: Proving the equivalence of similar programs,'' Software Testing, Verification and Reliability, vol. 23, no. 3, pp. 241--258, 2013.",
+      "entry_sha256": "eb16e71f884aeb49c2383227a34f0bccd4f855d62629c3e3822ab921d3dbd318",
+      "key": "r30",
+      "manuscript_location": "paper/main.tex:100",
+      "scholarly_identifier": "DOI:10.1002/stvr.1472",
+      "source_locator": "https://doi.org/10.1002/stvr.1472",
+      "support_sentence": "Regression verification proves equivalence under assumptions \\cite{r30}.",
+      "support_sentence_sha256": "38afa699ae9fd707686f65151be0ee475db26262f6f220ffb1d9dcba805a48e9",
+      "title": "Regression verification: Proving the equivalence of similar programs",
+      "verification": {
+        "action": "metadata and direct local support verified for the final manuscript",
+        "basis": "persistent DBLP/DOI records plus publisher, proceedings, author, or institutional evidence where accessible",
+        "date": "2026-09-24",
+        "local_support_verdict": "PASS",
+        "metadata_verdict": "PASS"
+      },
+      "verification_status": "MANUALLY_VERIFIED_EXACT_METADATA_AND_LOCAL_SUPPORT",
+      "verified_fields": [
+        "title",
+        "authors",
+        "venue",
+        "year",
+        "pages_or_article_number",
+        "nearby_support_sentence"
+      ],
+      "year": "2013"
+    },
+    {
+      "authors": "S. K. Lahiri, C. Hawblitzel, M. Kawaguchi, and H. Rebelo",
+      "entry": "S. K. Lahiri, C. Hawblitzel, M. Kawaguchi, and H. Reb{\\^e}lo, ``SymDiff: A language-agnostic semantic diff tool for imperative programs,'' in Computer Aided Verification, 2012, pp. 712--717.",
+      "entry_sha256": "8be7e0b1000208dcb54693637b6a8a3cbb48932ed9c40a3b0ec5973938d20bd5",
+      "key": "r40",
+      "manuscript_location": "paper/main.tex:100",
+      "scholarly_identifier": "DBLP:conf/cav/LahiriHKR12",
+      "source_locator": "https://dblp.org/rec/conf/cav/LahiriHKR12",
+      "support_sentence": "Language-agnostic differencing reaches beyond one syntax \\cite{r40}.",
+      "support_sentence_sha256": "6894d3dc2b17b4320dbab97a7c389f5cde601e85e3160246099c761171c1ab7d",
+      "title": "SymDiff: A language-agnostic semantic diff tool for imperative programs",
+      "verification": {
+        "action": "metadata and direct local support verified for the final manuscript",
+        "basis": "persistent DBLP/DOI records plus publisher, proceedings, author, or institutional evidence where accessible",
+        "date": "2026-09-24",
+        "local_support_verdict": "PASS",
+        "metadata_verdict": "PASS"
+      },
+      "verification_status": "MANUALLY_VERIFIED_EXACT_METADATA_AND_LOCAL_SUPPORT",
+      "verified_fields": [
+        "title",
+        "authors",
+        "venue",
+        "year",
+        "pages_or_article_number",
+        "nearby_support_sentence"
+      ],
+      "year": "2012"
+    },
+    {
+      "authors": "N. Partush and E. Yahav",
+      "entry": "N. Partush and E. Yahav, ``Abstract semantic differencing for numerical programs,'' in Static Analysis, 2013, pp. 238--258.",
+      "entry_sha256": "748e46e2879a3f0894c14fe2087a3ee151549d4efbd877a4452638b675907279",
+      "key": "r58",
+      "manuscript_location": "paper/main.tex:100",
+      "scholarly_identifier": "DBLP:conf/sas/PartushY13",
+      "source_locator": "https://dblp.org/rec/conf/sas/PartushY13",
+      "support_sentence": "Abstract differencing reports changes at a selected abstraction \\cite{r58}.",
+      "support_sentence_sha256": "9e5077b26caa0f600dc4a4b3ae5e054afcfcd6eaf90b11df38db80924819af55",
+      "title": "Abstract semantic differencing for numerical programs",
+      "verification": {
+        "action": "metadata and direct local support verified for the final manuscript",
+        "basis": "persistent DBLP/DOI records plus publisher, proceedings, author, or institutional evidence where accessible",
+        "date": "2026-09-24",
+        "local_support_verdict": "PASS",
+        "metadata_verdict": "PASS"
+      },
+      "verification_status": "MANUALLY_VERIFIED_EXACT_METADATA_AND_LOCAL_SUPPORT",
+      "verified_fields": [
+        "title",
+        "authors",
+        "venue",
+        "year",
+        "pages_or_article_number",
+        "nearby_support_sentence"
+      ],
+      "year": "2013"
+    },
+    {
+      "authors": "D. A. Ramos and D. Engler",
+      "entry": "D. A. Ramos and D. Engler, ``Practical, low-effort equivalence verification of real code,'' in Computer Aided Verification, 2011, pp. 669--685.",
+      "entry_sha256": "6fd72cb8b331b6aeea5dd7056c124347c744f90c357227da68b4cfeb682a4570",
+      "key": "r63",
+      "manuscript_location": "paper/main.tex:100",
+      "scholarly_identifier": "DBLP:conf/cav/RamosE11",
+      "source_locator": "https://dblp.org/rec/conf/cav/RamosE11",
+      "support_sentence": "Low-effort equivalence verification exposes practical path bounds \\cite{r63}.",
+      "support_sentence_sha256": "bcd6e9f746f3a38c74cecdd0341c12446903a01aede2f34c62d16c9c2414e87e",
+      "title": "Practical, low-effort equivalence verification of real code",
+      "verification": {
+        "action": "metadata and direct local support verified for the final manuscript",
+        "basis": "persistent DBLP/DOI records plus publisher, proceedings, author, or institutional evidence where accessible",
+        "date": "2026-09-24",
+        "local_support_verdict": "PASS",
+        "metadata_verdict": "PASS"
+      },
+      "verification_status": "MANUALLY_VERIFIED_EXACT_METADATA_AND_LOCAL_SUPPORT",
+      "verified_fields": [
+        "title",
+        "authors",
+        "venue",
+        "year",
+        "pages_or_article_number",
+        "nearby_support_sentence"
+      ],
+      "year": "2011"
+    },
+    {
+      "authors": "X. Yang, Y. Chen, E. Eide, and J. Regehr",
+      "entry": "X. Yang, Y. Chen, E. Eide, and J. Regehr, ``Finding and understanding bugs in C compilers,'' in Proceedings of the 32nd ACM SIGPLAN Conference on Programming Language Design and Implementation, 2011, pp. 283--294.",
+      "entry_sha256": "a472969e52520445b24a199f5052a63cbda7b3ea8e24a0f08552cf75fd27c937",
+      "key": "r79",
+      "manuscript_location": "paper/main.tex:102",
+      "scholarly_identifier": "DBLP:conf/pldi/YangCER11",
+      "source_locator": "https://dblp.org/rec/conf/pldi/YangCER11",
+      "support_sentence": "Differential testing has exposed production compiler defects \\cite{r79}.",
+      "support_sentence_sha256": "40c1a7c72efeda0db175766f0cc21031df13963f99b975212f78671527cdf2fb",
+      "title": "Finding and understanding bugs in C compilers",
+      "verification": {
+        "action": "metadata and direct local support verified for the final manuscript",
+        "basis": "persistent DBLP/DOI records plus publisher, proceedings, author, or institutional evidence where accessible",
+        "date": "2026-09-24",
+        "local_support_verdict": "PASS",
+        "metadata_verdict": "PASS"
+      },
+      "verification_status": "MANUALLY_VERIFIED_EXACT_METADATA_AND_LOCAL_SUPPORT",
+      "verified_fields": [
+        "title",
+        "authors",
+        "venue",
+        "year",
+        "pages_or_article_number",
+        "nearby_support_sentence"
+      ],
+      "year": "2011"
+    },
+    {
+      "authors": "V. Le, M. Afshari, and Z. Su",
+      "entry": "V. Le, M. Afshari, and Z. Su, ``Compiler validation via equivalence modulo inputs,'' in Proceedings of the 35th ACM SIGPLAN Conference on Programming Language Design and Implementation, 2014, pp. 216--226.",
+      "entry_sha256": "7a4491283acb8c3ed0478330f789a66c20dd9ee6b5351c22c01c90e91e397157",
+      "key": "r43",
+      "manuscript_location": "paper/main.tex:102",
+      "scholarly_identifier": "DBLP:conf/pldi/LeAS14",
+      "source_locator": "https://dblp.org/rec/conf/pldi/LeAS14",
+      "support_sentence": "Equivalence modulo inputs broadens valid compiler tests \\cite{r43}.",
+      "support_sentence_sha256": "1c290b73c46f245886cc55989e27f78fbddb7a619f2951d5d982ee62e36e70d0",
+      "title": "Compiler validation via equivalence modulo inputs",
+      "verification": {
+        "action": "metadata and direct local support verified for the final manuscript",
+        "basis": "persistent DBLP/DOI records plus publisher, proceedings, author, or institutional evidence where accessible",
+        "date": "2026-09-24",
+        "local_support_verdict": "PASS",
+        "metadata_verdict": "PASS"
+      },
+      "verification_status": "MANUALLY_VERIFIED_EXACT_METADATA_AND_LOCAL_SUPPORT",
+      "verified_fields": [
+        "title",
+        "authors",
+        "venue",
+        "year",
+        "pages_or_article_number",
+        "nearby_support_sentence"
+      ],
+      "year": "2014"
+    },
+    {
+      "authors": "C. Sun, V. Le, and Z. Su",
+      "entry": "C. Sun, V. Le, and Z. Su, ``Finding compiler bugs via live code mutation,'' in Proceedings of the ACM SIGPLAN International Conference on Object-Oriented Programming, Systems, Languages, and Applications, 2016, pp. 849--863.",
+      "entry_sha256": "0289e7b54e37a8bbf173815b88b5d7b95836ff6464f168f802477c9e0ad3f8e7",
+      "key": "r69",
+      "manuscript_location": "paper/main.tex:102",
+      "scholarly_identifier": "DBLP:conf/oopsla/SunLS16",
+      "source_locator": "https://dblp.org/rec/conf/oopsla/SunLS16",
+      "support_sentence": "Live-code mutation targets optimization-relevant programs \\cite{r69}.",
+      "support_sentence_sha256": "b7ec52575c7cb2c92f1779bfa0813981d146e8c2383106c0e6cefe274e75aa73",
+      "title": "Finding compiler bugs via live code mutation",
+      "verification": {
+        "action": "metadata and direct local support verified for the final manuscript",
+        "basis": "persistent DBLP/DOI records plus publisher, proceedings, author, or institutional evidence where accessible",
+        "date": "2026-09-24",
+        "local_support_verdict": "PASS",
+        "metadata_verdict": "PASS"
+      },
+      "verification_status": "MANUALLY_VERIFIED_EXACT_METADATA_AND_LOCAL_SUPPORT",
+      "verified_fields": [
+        "title",
+        "authors",
+        "venue",
+        "year",
+        "pages_or_article_number",
+        "nearby_support_sentence"
+      ],
+      "year": "2016"
+    },
+    {
+      "authors": "J. Regehr, Y. Chen, P. Cuoq, E. Eide, C. Ellison, and X. Yang",
+      "entry": "J. Regehr, Y. Chen, P. Cuoq, E. Eide, C. Ellison, and X. Yang, ``Test-case reduction for C compiler bugs,'' in Proceedings of the 33rd ACM SIGPLAN Conference on Programming Language Design and Implementation, 2012, pp. 335--346.",
+      "entry_sha256": "040077d89cd06a713543df60daef01c1963430d7744521acc6f62ffbfde913c9",
+      "key": "r64",
+      "manuscript_location": "paper/main.tex:102",
+      "scholarly_identifier": "DBLP:conf/pldi/RegehrCCEEY12",
+      "source_locator": "https://dblp.org/rec/conf/pldi/RegehrCCEEY12",
+      "support_sentence": "Test-case reduction yields inspectable witnesses \\cite{r64}.",
+      "support_sentence_sha256": "2f00b791954895e7bbfe7ee99f30112ef63694e746f554fee2fe0e3c6daa5c18",
+      "title": "Test-case reduction for C compiler bugs",
+      "verification": {
+        "action": "metadata and direct local support verified for the final manuscript",
+        "basis": "persistent DBLP/DOI records plus publisher, proceedings, author, or institutional evidence where accessible",
+        "date": "2026-09-24",
+        "local_support_verdict": "PASS",
+        "metadata_verdict": "PASS"
+      },
+      "verification_status": "MANUALLY_VERIFIED_EXACT_METADATA_AND_LOCAL_SUPPORT",
+      "verified_fields": [
+        "title",
+        "authors",
+        "venue",
+        "year",
+        "pages_or_article_number",
+        "nearby_support_sentence"
+      ],
+      "year": "2012"
+    },
+    {
+      "authors": "X. Leroy",
+      "entry": "X. Leroy, ``Formal verification of a realistic compiler,'' Communications of the ACM, vol. 52, no. 7, pp. 107--115, 2009.",
+      "entry_sha256": "eec2ba8190a0c4384d8a90fa4338e0497019ed6b1f7400af6ae63db8d5dfbdf8",
+      "key": "r45",
+      "manuscript_location": "paper/main.tex:102",
+      "scholarly_identifier": "DBLP:journals/cacm/Leroy09",
+      "source_locator": "https://dblp.org/rec/journals/cacm/Leroy09",
+      "support_sentence": "CompCert proves semantic preservation for a specified source, target, and proof environment \\cite{r45}.",
+      "support_sentence_sha256": "c57204d0b32510fd9487172fe86b10cce60a368d3dc2ecc24cc793fec208538e",
+      "title": "Formal verification of a realistic compiler",
+      "verification": {
+        "action": "metadata and direct local support verified for the final manuscript",
+        "basis": "persistent DBLP/DOI records plus publisher, proceedings, author, or institutional evidence where accessible",
+        "date": "2026-09-24",
+        "local_support_verdict": "PASS",
+        "metadata_verdict": "PASS"
+      },
+      "verification_status": "MANUALLY_VERIFIED_EXACT_METADATA_AND_LOCAL_SUPPORT",
+      "verified_fields": [
+        "title",
+        "authors",
+        "venue",
+        "year",
+        "pages_or_article_number",
+        "nearby_support_sentence"
+      ],
+      "year": "2009"
+    },
+    {
+      "authors": "K. Thompson",
+      "entry": "K. Thompson, ``Reflections on trusting trust,'' Communications of the ACM, vol. 27, no. 8, pp. 761--763, 1984.",
+      "entry_sha256": "0f5c9387d688f32e22eec218216104bb336cbbebd7aac33d34a3515769b70000",
+      "key": "r70",
+      "manuscript_location": "paper/main.tex:102",
+      "scholarly_identifier": "DOI:10.1145/358198.358210",
+      "source_locator": "https://doi.org/10.1145/358198.358210",
+      "support_sentence": "An unconstrained compiler can subvert source reasoning \\cite{r70}.",
+      "support_sentence_sha256": "2ec26d7d2aecab456d128bf635a0307bbfd573e452d3e9d9279e5c7be45e794b",
+      "title": "Reflections on trusting trust",
+      "verification": {
+        "action": "metadata and direct local support verified for the final manuscript",
+        "basis": "persistent DBLP/DOI records plus publisher, proceedings, author, or institutional evidence where accessible",
+        "date": "2026-09-24",
+        "local_support_verdict": "PASS",
+        "metadata_verdict": "PASS"
+      },
+      "verification_status": "MANUALLY_VERIFIED_EXACT_METADATA_AND_LOCAL_SUPPORT",
+      "verified_fields": [
+        "title",
+        "authors",
+        "venue",
+        "year",
+        "pages_or_article_number",
+        "nearby_support_sentence"
+      ],
+      "year": "1984"
+    },
+    {
+      "authors": "D. A. Wheeler",
+      "entry": "D. A. Wheeler, ``Countering trusting trust through diverse double-compiling,'' in Proceedings of the 21st Annual Computer Security Applications Conference, 2005, pp. 33--48.",
+      "entry_sha256": "d64b797e4bbd94f9a6da40c2009a2370ad61146b27ad6eccd239ba656f1f0cb7",
+      "key": "r78",
+      "manuscript_location": "paper/main.tex:102",
+      "scholarly_identifier": "DBLP:conf/acsac/Wheeler05",
+      "source_locator": "https://dblp.org/rec/conf/acsac/Wheeler05",
+      "support_sentence": "Diverse double compilation checks source--executable correspondence under stated assumptions \\cite{r78}.",
+      "support_sentence_sha256": "1b2f578195a3187a036e94f4dafec7b8df18f7184b05af3a4e9a1afd426e6860",
+      "title": "Countering trusting trust through diverse double-compiling",
+      "verification": {
+        "action": "metadata and direct local support verified for the final manuscript",
+        "basis": "persistent DBLP/DOI records plus publisher, proceedings, author, or institutional evidence where accessible",
+        "date": "2026-09-24",
+        "local_support_verdict": "PASS",
+        "metadata_verdict": "PASS"
+      },
+      "verification_status": "MANUALLY_VERIFIED_EXACT_METADATA_AND_LOCAL_SUPPORT",
+      "verified_fields": [
+        "title",
+        "authors",
+        "venue",
+        "year",
+        "pages_or_article_number",
+        "nearby_support_sentence"
+      ],
+      "year": "2005"
+    },
+    {
+      "authors": "J. Cappos, J. Samuel, S. M. Baker, and J. H. Hartman",
+      "entry": "J. Cappos, J. Samuel, S. M. Baker, and J. H. Hartman, ``A look in the mirror: Attacks on package managers,'' in Proceedings of the 15th ACM Conference on Computer and Communications Security, 2008, pp. 565--574.",
+      "entry_sha256": "c81be78e3881c1efa758830988b0ab986a6014aa14f2e3d01f7c0542a1493319",
+      "key": "r06",
+      "manuscript_location": "paper/main.tex:104",
+      "scholarly_identifier": "DBLP:conf/ccs/CapposSBH08",
+      "source_locator": "https://dblp.org/rec/conf/ccs/CapposSBH08",
+      "support_sentence": "Package-manager studies show that metadata and update paths are security-critical \\cite{r06}.",
+      "support_sentence_sha256": "a78af3358b92f1212781a67d171631b31f86e9c5e1921df6c9546d6549d98926",
+      "title": "A look in the mirror: Attacks on package managers",
+      "verification": {
+        "action": "metadata and direct local support verified for the final manuscript",
+        "basis": "persistent DBLP/DOI records plus publisher, proceedings, author, or institutional evidence where accessible",
+        "date": "2026-09-24",
+        "local_support_verdict": "PASS",
+        "metadata_verdict": "PASS"
+      },
+      "verification_status": "MANUALLY_VERIFIED_EXACT_METADATA_AND_LOCAL_SUPPORT",
+      "verified_fields": [
+        "title",
+        "authors",
+        "venue",
+        "year",
+        "pages_or_article_number",
+        "nearby_support_sentence"
+      ],
+      "year": "2008"
+    },
+    {
+      "authors": "J. Samuel, N. Mathewson, J. Cappos, and R. Dingledine",
+      "entry": "J. Samuel, N. Mathewson, J. Cappos, and R. Dingledine, ``Survivable key compromise in software update systems,'' in Proceedings of the 17th ACM Conference on Computer and Communications Security, 2010, pp. 61--72.",
+      "entry_sha256": "c680b818d5327d25df2606bef2f2ab046a5620b318cea99cf914d40882ef0afc",
+      "key": "r65",
+      "manuscript_location": "paper/main.tex:104",
+      "scholarly_identifier": "DBLP:conf/ccs/SamuelMCD10",
+      "source_locator": "https://dblp.org/rec/conf/ccs/SamuelMCD10",
+      "support_sentence": "TUF separates and delegates update roles \\cite{r65}.",
+      "support_sentence_sha256": "75a47c3c96cef857105c7cfc6272c6886c62b1f38f927264a7b4c062afbca843",
+      "title": "Survivable key compromise in software update systems",
+      "verification": {
+        "action": "metadata and direct local support verified for the final manuscript",
+        "basis": "persistent DBLP/DOI records plus publisher, proceedings, author, or institutional evidence where accessible",
+        "date": "2026-09-24",
+        "local_support_verdict": "PASS",
+        "metadata_verdict": "PASS"
+      },
+      "verification_status": "MANUALLY_VERIFIED_EXACT_METADATA_AND_LOCAL_SUPPORT",
+      "verified_fields": [
+        "title",
+        "authors",
+        "venue",
+        "year",
+        "pages_or_article_number",
+        "nearby_support_sentence"
+      ],
+      "year": "2010"
+    },
+    {
+      "authors": "E. Dolstra, M. de Jonge, and E. Visser",
+      "entry": "E. Dolstra, M. de Jonge, and E. Visser, ``Nix: A safe and policy-free system for software deployment,'' in Proceedings of the 18th Large Installation System Administration Conference, 2004, pp. 79--92.",
+      "entry_sha256": "90dbfd74669dbb64ab7bf08d477c3dad86e2515de112b1bc897e17370e0e2213",
+      "key": "r26",
+      "manuscript_location": "paper/main.tex:104",
+      "scholarly_identifier": "DBLP:conf/lisa/DolstraJV04",
+      "source_locator": "https://dblp.org/rec/conf/lisa/DolstraJV04",
+      "support_sentence": "Functional package construction makes build inputs explicit \\cite{r26}.",
+      "support_sentence_sha256": "c4ce529a29e6e72c9171851a9a8e40e78528ed2834523508dcd1aa7e0683b94f",
+      "title": "Nix: A safe and policy-free system for software deployment",
+      "verification": {
+        "action": "metadata and direct local support verified for the final manuscript",
+        "basis": "persistent DBLP/DOI records plus publisher, proceedings, author, or institutional evidence where accessible",
+        "date": "2026-09-24",
+        "local_support_verdict": "PASS",
+        "metadata_verdict": "PASS"
+      },
+      "verification_status": "MANUALLY_VERIFIED_EXACT_METADATA_AND_LOCAL_SUPPORT",
+      "verified_fields": [
+        "title",
+        "authors",
+        "venue",
+        "year",
+        "pages_or_article_number",
+        "nearby_support_sentence"
+      ],
+      "year": "2004"
+    },
+    {
+      "authors": "M. Fourn{\\'e}, D. Wermke, W. Enck, S. Fahl, and Y. Acar",
+      "entry": "M. Fourn{\\'e}, D. Wermke, W. Enck, S. Fahl, and Y. Acar, ``It's like flossing your teeth: On the importance and challenges of reproducible builds for software supply chain security,'' in Proceedings of the 44th IEEE Symposium on Security and Privacy, 2023, pp. 1527--1544.",
+      "entry_sha256": "4b1d7fcdba435aa468b1a445cf2ebcd8cd901c176e09a78862eb22eb0ebc732a",
+      "key": "r27",
+      "manuscript_location": "paper/main.tex:104",
+      "scholarly_identifier": "DBLP:conf/sp/FourneWEFA23",
+      "source_locator": "https://dblp.org/rec/conf/sp/FourneWEFA23",
+      "support_sentence": "Reproducible-build studies document value and adoption obstacles \\cite{r27}.",
+      "support_sentence_sha256": "23a087690af9b195ea464d04b7e8a2712f2b74bd9b18e4317aaad6d8efe18e92",
+      "title": "It's like flossing your teeth: On the importance and challenges of reproducible builds for software supply chain security",
+      "verification": {
+        "action": "metadata and direct local support verified for the final manuscript",
+        "basis": "persistent DBLP/DOI records plus publisher, proceedings, author, or institutional evidence where accessible",
+        "date": "2026-09-24",
+        "local_support_verdict": "PASS",
+        "metadata_verdict": "PASS"
+      },
+      "verification_status": "MANUALLY_VERIFIED_EXACT_METADATA_AND_LOCAL_SUPPORT",
+      "verified_fields": [
+        "title",
+        "authors",
+        "venue",
+        "year",
+        "pages_or_article_number",
+        "nearby_support_sentence"
+      ],
+      "year": "2023"
+    },
+    {
+      "authors": "C. Collberg and T. A. Proebsting",
+      "current_primary_support_review": {
+        "actual_read_scope": "Actual2016two-author original abstract",
+        "current_role": "Recommendation for repeatability engineering and sharing incentives,not an empirical availability result.",
+        "prior_support_sentence": "Artifact studies show that repeatability cannot be assumed \\cite{r13}.",
+        "reading_scope": "selected actual original passage,not whole-source certification",
+        "source": "https://experts.azregents.edu/en/publications/repeatability-in-computer-systems-research/"
+      },
+      "entry": "C. Collberg and T. A. Proebsting, ``Repeatability in computer systems research,'' Communications of the ACM, vol. 59, no. 3, pp. 62--69, 2016.",
+      "entry_sha256": "8185b9f8b5751ff060f2b4f8577c275d823fdfb33cb66f7681d5d87cfb8408b1",
+      "key": "r13",
+      "manuscript_location": "paper/main.tex:104",
+      "scholarly_identifier": "DBLP:journals/cacm/CollbergP16",
+      "source_locator": "https://dblp.org/rec/journals/cacm/CollbergP16",
+      "support_sentence": "Collberg and Proebsting recommend funding repeatability engineering and rewarding artifact sharing \\cite{r13}.",
+      "support_sentence_sha256": "96bd559955cd3201f8b82bf50254276aed9e033b6e6033d9ac40d3a3dc82169e",
+      "title": "Repeatability in computer systems research",
+      "verification": {
+        "action": "metadata and direct local support verified for the final manuscript",
+        "basis": "persistent DBLP/DOI records plus publisher, proceedings, author, or institutional evidence where accessible",
+        "date": "2026-09-24",
+        "local_support_verdict": "PASS",
+        "metadata_verdict": "PASS"
+      },
+      "verification_status": "MANUALLY_VERIFIED_EXACT_METADATA_AND_LOCAL_SUPPORT",
+      "verified_fields": [
+        "title",
+        "authors",
+        "venue",
+        "year",
+        "pages_or_article_number",
+        "nearby_support_sentence"
+      ],
+      "year": "2016"
+    },
+    {
+      "authors": "P. Buneman, S. Khanna, and W. C. Tan",
+      "entry": "P. Buneman, S. Khanna, and W. C. Tan, ``Why and where: A characterization of data provenance,'' in Database Theory---ICDT 2001, 2001, pp. 316--330.",
+      "entry_sha256": "57412fc086c2c3e7df910e0d95c36a97eee2b9f02dc384c6e8aedea4656c5e92",
+      "key": "r05",
+      "manuscript_location": "paper/main.tex:106",
+      "scholarly_identifier": "DBLP:conf/icdt/BunemanKT01",
+      "source_locator": "https://dblp.org/rec/conf/icdt/BunemanKT01",
+      "support_sentence": "Origin and derivation are different questions \\cite{r05}.",
+      "support_sentence_sha256": "ba084407ca49d33e55e720ca60b2fd9fb0a5cbbb45a642fa3a85a796b01ff4a3",
+      "title": "Why and where: A characterization of data provenance",
+      "verification": {
+        "action": "metadata and direct local support verified for the final manuscript",
+        "basis": "persistent DBLP/DOI records plus publisher, proceedings, author, or institutional evidence where accessible",
+        "date": "2026-09-24",
+        "local_support_verdict": "PASS",
+        "metadata_verdict": "PASS"
+      },
+      "verification_status": "MANUALLY_VERIFIED_EXACT_METADATA_AND_LOCAL_SUPPORT",
+      "verified_fields": [
+        "title",
+        "authors",
+        "venue",
+        "year",
+        "pages_or_article_number",
+        "nearby_support_sentence"
+      ],
+      "year": "2001"
+    },
+    {
+      "authors": "K.-K. Muniswamy-Reddy, D. A. Holland, U. Braun, and M. I. Seltzer",
+      "entry": "K.-K. Muniswamy-Reddy, D. A. Holland, U. Braun, and M. I. Seltzer, ``Provenance-aware storage systems,'' in Proceedings of the USENIX Annual Technical Conference, 2006, pp. 43--56.",
+      "entry_sha256": "18d40beb9f7391c40e1b02aa107c8d857a513799e81077e3c85664255de71c38",
+      "key": "r50",
+      "manuscript_location": "paper/main.tex:106",
+      "scholarly_identifier": "DBLP:conf/usenix/Muniswamy-ReddyHBS06",
+      "source_locator": "https://dblp.org/rec/conf/usenix/Muniswamy-ReddyHBS06",
+      "support_sentence": "Provenance-aware storage records dependencies and transformations \\cite{r50}.",
+      "support_sentence_sha256": "2f351da5f645649450c35fe4f99cbbc382c550b6679d83ea0113409be9f49dc6",
+      "title": "Provenance-aware storage systems",
+      "verification": {
+        "action": "metadata and direct local support verified for the final manuscript",
+        "basis": "persistent DBLP/DOI records plus publisher, proceedings, author, or institutional evidence where accessible",
+        "date": "2026-09-24",
+        "local_support_verdict": "PASS",
+        "metadata_verdict": "PASS"
+      },
+      "verification_status": "MANUALLY_VERIFIED_EXACT_METADATA_AND_LOCAL_SUPPORT",
+      "verified_fields": [
+        "title",
+        "authors",
+        "venue",
+        "year",
+        "pages_or_article_number",
+        "nearby_support_sentence"
+      ],
+      "year": "2006"
+    },
+    {
+      "authors": "L. Moreau, B. Clifford, J. Freire, J. Futrelle, Y. Gil, P. Groth, N. Kwasnikowska, S. Miles, P. Missier, J. Myers, B. Plale, Y. Simmhan, E. Stephan, and J. Van den Bussche",
+      "entry": "L. Moreau, B. Clifford, J. Freire, J. Futrelle, Y. Gil, P. Groth, N. Kwasnikowska, S. Miles, P. Missier, J. Myers, B. Plale, Y. Simmhan, E. Stephan, and J. Van den Bussche, ``The Open Provenance Model core specification (v1.1),'' Future Generation Computer Systems, vol. 27, no. 6, pp. 743--756, 2011.",
+      "entry_sha256": "2a173edeeba4a66d20d1dd3258193a0bdee071f7e4762757f3845b39d5d62842",
+      "key": "r49",
+      "manuscript_location": "paper/main.tex:106",
+      "scholarly_identifier": "DBLP:journals/fgcs/MoreauCFFGGKMMMPSSB11",
+      "source_locator": "https://dblp.org/rec/journals/fgcs/MoreauCFFGGKMMMPSSB11",
+      "support_sentence": "The Open Provenance Model provides an interoperable representation \\cite{r49}.",
+      "support_sentence_sha256": "0f12849fb6c570d3a1750355931da162cbf6c80819799d5f2867a48b6e74efc5",
+      "title": "The Open Provenance Model core specification (v1.1)",
+      "verification": {
+        "action": "metadata and direct local support verified for the final manuscript",
+        "basis": "persistent DBLP/DOI records plus publisher, proceedings, author, or institutional evidence where accessible",
+        "date": "2026-09-24",
+        "local_support_verdict": "PASS",
+        "metadata_verdict": "PASS"
+      },
+      "verification_status": "MANUALLY_VERIFIED_EXACT_METADATA_AND_LOCAL_SUPPORT",
+      "verified_fields": [
+        "title",
+        "authors",
+        "venue",
+        "year",
+        "pages_or_article_number",
+        "nearby_support_sentence"
+      ],
+      "year": "2011"
+    },
+    {
+      "authors": "F. Chirigati, D. Shasha, and J. Freire",
+      "entry": "F. Chirigati, D. Shasha, and J. Freire, ``ReproZip: Using provenance to support computational reproducibility,'' in Proceedings of the 5th USENIX Workshop on the Theory and Practice of Provenance, 2013.",
+      "entry_sha256": "891715b84cd4c4a02fbb781b6071b5cb16f0992e486089ec92a88533f4752de9",
+      "key": "r11",
+      "manuscript_location": "paper/main.tex:106",
+      "scholarly_identifier": "DBLP:conf/tapp/ChirigatiSF13",
+      "source_locator": "https://dblp.org/rec/conf/tapp/ChirigatiSF13",
+      "support_sentence": "Reproduction packages preserve executable environments \\cite{r11}.",
+      "support_sentence_sha256": "fa9fa7a70ce5dc9069e72aba2444a5632c2fdaff6118261daab26802056dba23",
+      "title": "ReproZip: Using provenance to support computational reproducibility",
+      "verification": {
+        "action": "metadata and direct local support verified for the final manuscript",
+        "basis": "persistent DBLP/DOI records plus publisher, proceedings, author, or institutional evidence where accessible",
+        "date": "2026-09-24",
+        "local_support_verdict": "PASS",
+        "metadata_verdict": "PASS"
+      },
+      "verification_status": "MANUALLY_VERIFIED_EXACT_METADATA_AND_LOCAL_SUPPORT",
+      "verified_fields": [
+        "title",
+        "authors",
+        "venue",
+        "year",
+        "pages_or_article_number",
+        "nearby_support_sentence"
+      ],
+      "year": "2013"
+    },
+    {
+      "authors": "R. Di Cosmo, M. Gruenpeter, and S. Zacchiroli",
+      "entry": "R. Di Cosmo, M. Gruenpeter, and S. Zacchiroli, ``Referencing source code artifacts: A separate concern in software citation,'' Computing in Science \\& Engineering, vol. 22, no. 2, pp. 33--43, 2020.",
+      "entry_sha256": "107eb21ee8aac6689ddecd0295d96407e37d11903c9fc0438d7f855a5ae710a9",
+      "key": "r19",
+      "manuscript_location": "paper/main.tex:106",
+      "scholarly_identifier": "DBLP:journals/cse/CosmoGZ20",
+      "source_locator": "https://dblp.org/rec/journals/cse/CosmoGZ20",
+      "support_sentence": "Content-addressed citation gives source artifacts stable identities \\cite{r19}.",
+      "support_sentence_sha256": "ab8b8ff0aea678e234bfcaf598153a2dcf97b454a6b58d56cc5eb5b368ef54a9",
+      "title": "Referencing source code artifacts: A separate concern in software citation",
+      "verification": {
+        "action": "metadata and direct local support verified for the final manuscript",
+        "basis": "persistent DBLP/DOI records plus publisher, proceedings, author, or institutional evidence where accessible",
+        "date": "2026-09-24",
+        "local_support_verdict": "PASS",
+        "metadata_verdict": "PASS"
+      },
+      "verification_status": "MANUALLY_VERIFIED_EXACT_METADATA_AND_LOCAL_SUPPORT",
+      "verified_fields": [
+        "title",
+        "authors",
+        "venue",
+        "year",
+        "pages_or_article_number",
+        "nearby_support_sentence"
+      ],
+      "year": "2020"
+    },
+    {
+      "authors": "R. A. DeMillo, R. J. Lipton, and F. G. Sayward",
+      "entry": "R. A. DeMillo, R. J. Lipton, and F. G. Sayward, ``Hints on test data selection: Help for the practicing programmer,'' Computer, vol. 11, no. 4, pp. 34--41, 1978.",
+      "entry_sha256": "e54ad7d8823e91df71b62e7c19e4405b39c62b46ee9af0ad7c2ce4958f34a5d0",
+      "key": "r23",
+      "manuscript_location": "paper/main.tex:108",
+      "scholarly_identifier": "DBLP:journals/computer/DeMilloLS78",
+      "source_locator": "https://dblp.org/rec/journals/computer/DeMilloLS78",
+      "support_sentence": "Mutation analysis began as a test-data adequacy method \\cite{r23}.",
+      "support_sentence_sha256": "808034b711e227b52979f47e9e7e50f12e277d35000c45954d4c17aef6c2d6b9",
+      "title": "Hints on test data selection: Help for the practicing programmer",
+      "verification": {
+        "action": "metadata and direct local support verified for the final manuscript",
+        "basis": "persistent DBLP/DOI records plus publisher, proceedings, author, or institutional evidence where accessible",
+        "date": "2026-09-24",
+        "local_support_verdict": "PASS",
+        "metadata_verdict": "PASS"
+      },
+      "verification_status": "MANUALLY_VERIFIED_EXACT_METADATA_AND_LOCAL_SUPPORT",
+      "verified_fields": [
+        "title",
+        "authors",
+        "venue",
+        "year",
+        "pages_or_article_number",
+        "nearby_support_sentence"
+      ],
+      "year": "1978"
+    },
+    {
+      "authors": "Y. Jia and M. Harman",
+      "entry": "Y. Jia and M. Harman, ``An analysis and survey of the development of mutation testing,'' IEEE Transactions on Software Engineering, vol. 37, no. 5, pp. 649--678, 2011.",
+      "entry_sha256": "2aa42f106b5de1869af601d1e0413a26cbc549871807a3a37a7e3e0ddf595ecb",
+      "key": "r36",
+      "manuscript_location": "paper/main.tex:108",
+      "scholarly_identifier": "DBLP:journals/tse/JiaH11",
+      "source_locator": "https://dblp.org/rec/journals/tse/JiaH11",
+      "support_sentence": "Later surveys document its development and cost \\cite{r36}.",
+      "support_sentence_sha256": "f1830f0a8f2cdedc3daecfefd6ea7fc6e417f7cb5dfc928d016bfa1e814accca",
+      "title": "An analysis and survey of the development of mutation testing",
+      "verification": {
+        "action": "metadata and direct local support verified for the final manuscript",
+        "basis": "persistent DBLP/DOI records plus publisher, proceedings, author, or institutional evidence where accessible",
+        "date": "2026-09-24",
+        "local_support_verdict": "PASS",
+        "metadata_verdict": "PASS"
+      },
+      "verification_status": "MANUALLY_VERIFIED_EXACT_METADATA_AND_LOCAL_SUPPORT",
+      "verified_fields": [
+        "title",
+        "authors",
+        "venue",
+        "year",
+        "pages_or_article_number",
+        "nearby_support_sentence"
+      ],
+      "year": "2011"
+    },
+    {
+      "authors": "J. H. Andrews, L. C. Briand, and Y. Labiche",
+      "entry": "J. H. Andrews, L. C. Briand, and Y. Labiche, ``Is mutation an appropriate tool for testing experiments?'' in Proceedings of the 27th International Conference on Software Engineering, 2005, pp. 402--411.",
+      "entry_sha256": "29dc442f22686af0ec5a28ab7f2e63fa6bdd293f5597d4488ecc87fae55415c0",
+      "key": "r01",
+      "manuscript_location": "paper/main.tex:108",
+      "scholarly_identifier": "DBLP:conf/icse/AndrewsBL05",
+      "source_locator": "https://dblp.org/rec/conf/icse/AndrewsBL05",
+      "support_sentence": "Controlled studies require justification for mutants as instruments \\cite{r01}.",
+      "support_sentence_sha256": "52d09afaeb36b17d2d043f9102ae9ce89b104089fa590b75ba0a5afc1e505375",
+      "title": "Is mutation an appropriate tool for testing experiments?",
+      "verification": {
+        "action": "metadata and direct local support verified for the final manuscript",
+        "basis": "persistent DBLP/DOI records plus publisher, proceedings, author, or institutional evidence where accessible",
+        "date": "2026-09-24",
+        "local_support_verdict": "PASS",
+        "metadata_verdict": "PASS"
+      },
+      "verification_status": "MANUALLY_VERIFIED_EXACT_METADATA_AND_LOCAL_SUPPORT",
+      "verified_fields": [
+        "title",
+        "authors",
+        "venue",
+        "year",
+        "pages_or_article_number",
+        "nearby_support_sentence"
+      ],
+      "year": "2005"
+    },
+    {
+      "authors": "E. T. Barr, M. Harman, P. McMinn, M. Shahbaz, and S. Yoo",
+      "current_support_review": {
+        "date": "2026-10-15",
+        "decision": "Supported: explicit outputs form a subset of observable responses; execution profiles are also observations.",
+        "pinpoint": "Section 2.1, Definition 2.1 and Figure 1, printed page 508",
+        "read_physical_pages": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "scope": "Selected original sections read; not a fresh full-survey or all-reference review.",
+        "source": "https://discovery.ucl.ac.uk/id/eprint/1471263/1/06963470.pdf",
+        "source_sha256": "0572def3bfd4baaadb2041a098f12a0bac261427962e46cef084efff60fd3a36"
+      },
+      "entry": "E. T. Barr, M. Harman, P. McMinn, M. Shahbaz, and S. Yoo, ``The oracle problem in software testing: A survey,'' IEEE Transactions on Software Engineering, vol. 41, no. 5, pp. 507--525, 2015.",
+      "entry_sha256": "5fd35e3d24fe24043ecac1d8b4802c25436fd9b03033ca88c08a840f5bca0522",
+      "key": "r02",
+      "manuscript_location": "paper/main.tex:108",
+      "scholarly_identifier": "DOI:10.1109/TSE.2014.2372785",
+      "source_locator": "https://doi.org/10.1109/TSE.2014.2372785",
+      "support_sentence": "Oracle definitions distinguish explicit outputs from other observable responses \\cite{r02}.",
+      "support_sentence_sha256": "0dd1685422f3842a8de98d25b4eda203ae03b4bf67357b2bb92eedd78447f27c",
+      "title": "The oracle problem in software testing: A survey",
+      "verification": {
+        "action": "metadata and direct local support verified for the final manuscript",
+        "basis": "persistent DBLP/DOI records plus publisher, proceedings, author, or institutional evidence where accessible",
+        "date": "2026-09-24",
+        "local_support_verdict": "PASS",
+        "metadata_verdict": "PASS"
+      },
+      "verification_status": "MANUALLY_VERIFIED_EXACT_METADATA_AND_LOCAL_SUPPORT",
+      "verified_fields": [
+        "title",
+        "authors",
+        "venue",
+        "year",
+        "pages_or_article_number",
+        "nearby_support_sentence"
+      ],
+      "year": "2015"
+    },
+    {
+      "authors": "E. J. Weyuker",
+      "entry": "E. J. Weyuker, ``On testing non-testable programs,'' The Computer Journal, vol. 25, no. 4, pp. 465--470, 1982.",
+      "entry_sha256": "c9a75e432c065e456c73df74ee1ec572af39ed465573828a431eccecc7e5caf7",
+      "key": "r77",
+      "manuscript_location": "paper/main.tex:108",
+      "scholarly_identifier": "DBLP:journals/cj/Weyuker82",
+      "source_locator": "https://dblp.org/rec/journals/cj/Weyuker82",
+      "support_sentence": "Some programs resist direct checking \\cite{r77}.",
+      "support_sentence_sha256": "f50c62cd86d6aa4a74b64024dbc8886559979fcf88cf2f3f60c40a874b0deb71",
+      "title": "On testing non-testable programs",
+      "verification": {
+        "action": "metadata and direct local support verified for the final manuscript",
+        "basis": "persistent DBLP/DOI records plus publisher, proceedings, author, or institutional evidence where accessible",
+        "date": "2026-09-24",
+        "local_support_verdict": "PASS",
+        "metadata_verdict": "PASS"
+      },
+      "verification_status": "MANUALLY_VERIFIED_EXACT_METADATA_AND_LOCAL_SUPPORT",
+      "verified_fields": [
+        "title",
+        "authors",
+        "venue",
+        "year",
+        "pages_or_article_number",
+        "nearby_support_sentence"
+      ],
+      "year": "1982"
+    },
+    {
+      "authors": "S. Segura, G. Fraser, A. B. Sanchez, and A. Ruiz-Cortes",
+      "entry": "S. Segura, G. Fraser, A. B. S{\\'a}nchez, and A. Ruiz-Cort{\\'e}s, ``A survey on metamorphic testing,'' IEEE Transactions on Software Engineering, vol. 42, no. 9, pp. 805--824, 2016.",
+      "entry_sha256": "4974a5c824bcf3b95996b1b6e605d8dfbb03788411d6b590e0b932aab0dfeda4",
+      "key": "r66",
+      "manuscript_location": "paper/main.tex:108",
+      "scholarly_identifier": "DBLP:journals/tse/SeguraFSC16",
+      "source_locator": "https://dblp.org/rec/journals/tse/SeguraFSC16",
+      "support_sentence": "Metamorphic relations help when exact outputs are unavailable \\cite{r66}.",
+      "support_sentence_sha256": "a252dc601a11679505a42df40c5f5ccf5c5cb0553d44f38c8573f797e4821f53",
+      "title": "A survey on metamorphic testing",
+      "verification": {
+        "action": "metadata and direct local support verified for the final manuscript",
+        "basis": "persistent DBLP/DOI records plus publisher, proceedings, author, or institutional evidence where accessible",
+        "date": "2026-09-24",
+        "local_support_verdict": "PASS",
+        "metadata_verdict": "PASS"
+      },
+      "verification_status": "MANUALLY_VERIFIED_EXACT_METADATA_AND_LOCAL_SUPPORT",
+      "verified_fields": [
+        "title",
+        "authors",
+        "venue",
+        "year",
+        "pages_or_article_number",
+        "nearby_support_sentence"
+      ],
+      "year": "2016"
+    },
+    {
+      "authors": "M. Papadakis, M. Kintis, J. Zhang, Y. Jia, Y. Le Traon, and M. Harman",
+      "entry": "M. Papadakis, M. Kintis, J. Zhang, Y. Jia, Y. Le Traon, and M. Harman, ``Chapter six---Mutation testing advances: An analysis and survey,'' Advances in Computers, vol. 112, pp. 275--378, 2019.",
+      "entry_sha256": "952cd63ceb05d316e300407cf7d741a909ba8cdf1610e57cdd4106b0eda90670",
+      "key": "r57",
+      "manuscript_location": "paper/main.tex:108",
+      "scholarly_identifier": "DOI:10.1016/bs.adcom.2018.03.015",
+      "source_locator": "https://doi.org/10.1016/bs.adcom.2018.03.015",
+      "support_sentence": "Mutation-testing surveys identify operator selection and equivalent mutants as validity threats \\cite{r57}.",
+      "support_sentence_sha256": "9b6a1be3a814faaa60dcf51b5ea21152143841dfd06785914cac836a634318c1",
+      "title": "Chapter six---Mutation testing advances: An analysis and survey",
+      "verification": {
+        "action": "metadata and direct local support verified for the final manuscript",
+        "basis": "persistent DBLP/DOI records plus publisher, proceedings, author, or institutional evidence where accessible",
+        "date": "2026-09-24",
+        "local_support_verdict": "PASS",
+        "metadata_verdict": "PASS"
+      },
+      "verification_status": "MANUALLY_VERIFIED_EXACT_METADATA_AND_LOCAL_SUPPORT",
+      "verified_fields": [
+        "title",
+        "authors",
+        "venue",
+        "year",
+        "pages_or_article_number",
+        "nearby_support_sentence"
+      ],
+      "year": "2019"
+    },
+    {
+      "authors": "E. Iannone, R. Guadagni, F. Ferrucci, A. D. Lucia, and F. Palomba",
+      "entry": "E. Iannone, R. Guadagni, F. Ferrucci, A. De Lucia, and F. Palomba, ``The secret life of software vulnerabilities: A large-scale empirical study,'' IEEE Transactions on Software Engineering, vol. 49, no. 1, pp. 44--63, 2023.",
+      "entry_sha256": "8e52bbd48a76a604bcd2e3c02057123caf87de7a902c02cef8e678d2a5284666",
+      "key": "r34",
+      "manuscript_location": "paper/main.tex:108",
+      "scholarly_identifier": "DBLP:journals/tse/IannoneGFLP23",
+      "source_locator": "https://dblp.org/rec/journals/tse/IannoneGFLP23",
+      "support_sentence": "A large-scale vulnerability study defines its claims over an explicit project-and-patch corpus \\cite{r34}.",
+      "support_sentence_sha256": "86ac307a842b5dd60cca2db549693bfe7ec21a708e9faf2ef1bfc447599d7ce0",
+      "title": "The secret life of software vulnerabilities: A large-scale empirical study",
+      "verification": {
+        "action": "metadata and direct local support verified for the final manuscript",
+        "basis": "persistent DBLP/DOI records plus publisher, proceedings, author, or institutional evidence where accessible",
+        "date": "2026-09-24",
+        "local_support_verdict": "PASS",
+        "metadata_verdict": "PASS"
+      },
+      "verification_status": "MANUALLY_VERIFIED_EXACT_METADATA_AND_LOCAL_SUPPORT",
+      "verified_fields": [
+        "title",
+        "authors",
+        "venue",
+        "year",
+        "pages_or_article_number",
+        "nearby_support_sentence"
+      ],
+      "year": "2023"
+    },
+    {
+      "authors": "S. Haber and W. S. Stornetta",
+      "entry": "S. Haber and W. S. Stornetta, ``How to time-stamp a digital document,'' Journal of Cryptology, vol. 3, no. 2, pp. 99--111, 1991.",
+      "entry_sha256": "7284560539358ecf2e7a8747180c4ef74765713e295ed7fc7b5d9522b8673c4f",
+      "key": "r83",
+      "manuscript_location": "paper/main.tex:636",
+      "scholarly_identifier": "DOI:10.1007/BF00196791",
+      "source_locator": "https://doi.org/10.1007/BF00196791",
+      "support_sentence": "Timestamped records can make later rewriting detectable \\cite{r83}.",
+      "support_sentence_sha256": "7c6f72ea304e1b4ee2d6728846821eed1f7f1ac083faa64bfc6543185785eed9",
+      "title": "How to time-stamp a digital document",
+      "verification": {
+        "action": "metadata and direct local support verified for the final manuscript",
+        "basis": "persistent DBLP/DOI records plus publisher, proceedings, author, or institutional evidence where accessible",
+        "date": "2026-09-24",
+        "local_support_verdict": "PASS",
+        "metadata_verdict": "PASS"
+      },
+      "verification_status": "MANUALLY_VERIFIED_EXACT_METADATA_AND_LOCAL_SUPPORT",
+      "verified_fields": [
+        "title",
+        "authors",
+        "venue",
+        "year",
+        "pages_or_article_number",
+        "nearby_support_sentence"
+      ],
+      "year": "1991"
+    },
+    {
+      "authors": "P. Maniatis and M. Baker",
+      "entry": "P. Maniatis and M. Baker, ``Secure history preservation through timeline entanglement,'' in Proceedings of the 11th USENIX Security Symposium, 2002, pp. 297--312.",
+      "entry_sha256": "d7b796f48f18f20fd7aec9a1db663a24289e68bdfbe6ba34fd5b72278efcf9e5",
+      "key": "r84",
+      "manuscript_location": "paper/main.tex:636",
+      "scholarly_identifier": "DBLP:conf/uss/ManiatisB02",
+      "source_locator": "https://dblp.org/rec/conf/uss/ManiatisB02",
+      "support_sentence": "Timeline entanglement shows how independent services can strengthen history preservation \\cite{r84}.",
+      "support_sentence_sha256": "6c1ce1fbfa4490579c313488b6e7095fbb9d5489519e5a93b2462ad8c0863339",
+      "title": "Secure history preservation through timeline entanglement",
+      "verification": {
+        "action": "metadata and direct local support verified for the final manuscript",
+        "basis": "persistent DBLP/DOI records plus publisher, proceedings, author, or institutional evidence where accessible",
+        "date": "2026-09-24",
+        "local_support_verdict": "PASS",
+        "metadata_verdict": "PASS"
+      },
+      "verification_status": "MANUALLY_VERIFIED_EXACT_METADATA_AND_LOCAL_SUPPORT",
+      "verified_fields": [
+        "title",
+        "authors",
+        "venue",
+        "year",
+        "pages_or_article_number",
+        "nearby_support_sentence"
+      ],
+      "year": "2002"
+    },
+    {
+      "authors": "S. A. Crosby and D. S. Wallach",
+      "entry": "S. A. Crosby and D. S. Wallach, ``Efficient data structures for tamper-evident logging,'' in Proceedings of the 18th USENIX Security Symposium, 2009, pp. 317--334.",
+      "entry_sha256": "d2f347e1849d22a2ff7592b9c7630673e67cd88d305da1c03ae02ccd64664484",
+      "key": "r85",
+      "manuscript_location": "paper/main.tex:636",
+      "scholarly_identifier": "DBLP:conf/uss/CrosbyW09",
+      "source_locator": "https://dblp.org/rec/conf/uss/CrosbyW09",
+      "support_sentence": "Tamper-evident logs provide compact proofs of event presence and append-only consistency \\cite{r85}.",
+      "support_sentence_sha256": "ad6dd4a3d8fd474d3dc745f690c635dacbee58dbd9e4b77aabe2d503263e2dfe",
+      "title": "Efficient data structures for tamper-evident logging",
+      "verification": {
+        "action": "metadata and direct local support verified for the final manuscript",
+        "basis": "persistent DBLP/DOI records plus publisher, proceedings, author, or institutional evidence where accessible",
+        "date": "2026-09-24",
+        "local_support_verdict": "PASS",
+        "metadata_verdict": "PASS"
+      },
+      "verification_status": "MANUALLY_VERIFIED_EXACT_METADATA_AND_LOCAL_SUPPORT",
+      "verified_fields": [
+        "title",
+        "authors",
+        "venue",
+        "year",
+        "pages_or_article_number",
+        "nearby_support_sentence"
+      ],
+      "year": "2009"
+    },
+    {
+      "authors": "A. A. Yavuz and P. Ning",
+      "entry": "A. A. Yavuz and P. Ning, ``BAF: An efficient publicly verifiable secure audit logging scheme for distributed systems,'' in Proceedings of the 25th Annual Computer Security Applications Conference, 2009, pp. 219--228.",
+      "entry_sha256": "d846600948556db8f8da9105959cf8904baeb1776d98851f4589a4864dc025b4",
+      "key": "r86",
+      "manuscript_location": "paper/main.tex:639",
+      "scholarly_identifier": "DOI:10.1109/ACSAC.2009.28",
+      "source_locator": "https://doi.org/10.1109/ACSAC.2009.28",
+      "support_sentence": "BAF provides publicly verifiable, forward-secure distributed logging \\cite{r86}.",
+      "support_sentence_sha256": "4ccef409e605638190f450c75802bbd90ca9676739f597075c6954ef3d664fd8",
+      "title": "BAF: An Efficient Publicly Verifiable Secure Audit Logging Scheme for Distributed Systems",
+      "verification": {
+        "action": "metadata and direct local support verified for the final manuscript",
+        "basis": "persistent DBLP/DOI records plus publisher, proceedings, author, or institutional evidence where accessible",
+        "date": "2026-09-24",
+        "local_support_verdict": "PASS",
+        "metadata_verdict": "PASS"
+      },
+      "verification_status": "MANUALLY_VERIFIED_EXACT_METADATA_AND_LOCAL_SUPPORT",
+      "verified_fields": [
+        "title",
+        "authors",
+        "venue",
+        "year",
+        "pages_or_article_number",
+        "doi",
+        "nearby_support_sentence"
+      ],
+      "year": "2009"
+    }
+  ],
+  "records_set_sha256": "b092d2fb8f7bb420c12fca9e1dcdc6a44ca54cc17b5b58b4c29634c830f833a9",
+  "reference_count": 79,
+  "schema": "tse01.reference-verification-lock.v2",
+  "selected_current_primary_passage_review_count": 2,
+  "verification_date": "2026-09-24",
+  "verification_policy": "Each record was checked against a public scholarly registry or publisher record; the bibliography contains only scholarly publications. Each record is also bound to exactly one nearby manuscript support sentence. The release generator may consume this lock but may not create or upgrade verification status.",
+  "verification_scope": "All 79 bibliography records, persistent scholarly identifiers, and sentence-level support bindings",
+  "verification_verdict": "PASS"
+}

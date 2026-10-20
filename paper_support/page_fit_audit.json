@@ -1,0 +1,36 @@
+{
+  "LIMIT_KIND": "TOTAL_PAGES",
+  "binding_refresh_date": "2026-10-18",
+  "column_balance_is_release_requirement": false,
+  "counted_matter": [
+    "abstract",
+    "normal sections",
+    "references",
+    "all article matter present"
+  ],
+  "inline_scientific_appendix": false,
+  "last_page_column_baseline_difference_pixels": 1470,
+  "last_page_column_last_ink_y": [
+    2076,
+    606
+  ],
+  "last_page_image_pixels": [
+    1700,
+    2200
+  ],
+  "last_page_number": 15,
+  "layout_rule": "ordinary bibliography continuation may occupy one column; no clipping or overlap, and no overfull boxes",
+  "manual_visual_inspection_current": true,
+  "ordinary_line_tolerance_pixels": 25,
+  "overflow": 0,
+  "page_budget_kind": "INTERNAL_BASELINE_MAXIMUM_NOT_OFFICIAL_VENUE_LIMIT",
+  "pdf_sha256": "aab4013d6dc3ce9585d286d437b1df4b611f998016f90d1fc3a094496a0a2d0c",
+  "project_total_page_budget": 15,
+  "schema": "tse01.page-fit-audit.v2",
+  "separate_supplement_used": false,
+  "template_class_sha256": "c972aca108fda004c3514d63658e02816da2e54d9a1451e870b9bd970e003f55",
+  "total_pages": 15,
+  "verdict": "PASS",
+  "visual_inspection_record": "paper/visual_inspection.json",
+  "within_internal_page_budget": true
+}
