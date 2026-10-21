@@ -64,6 +64,13 @@
   "schema": "tse01.compile-audit.v2",
   "underfull_boxes": 0,
   "unresolved_references_or_controls": 0,
-  "vector_figure_source_sha256": "d4069377ecf79d9b00ae4718dc5752d7957ff01bd740a30440645cbeb0f27e8e",
+  "vector_figure_source_sha256": "a5cddf53858a19909e24d12b0784a4cfb88b330928747aec9b54a270bd54c38e",
+  "plot_consumer_refresh": {
+    "date": "2026-10-21",
+    "scope": "Editable Python now consumes the retained sensitivity sweep; neutral redraw is pixel-identical to the included vector figure. PDF and historical native-compile bindings above remain unchanged, not reissued.",
+    "prior_vector_figure_source_sha256": "d4069377ecf79d9b00ae4718dc5752d7957ff01bd740a30440645cbeb0f27e8e",
+    "retained_sweep": "artifact/commit-replay/results/summary.json",
+    "new_scientific_execution": false
+  },
   "verdict": "PASS"
 }

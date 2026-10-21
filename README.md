@@ -122,6 +122,32 @@ whole-repository boundary.
 
 ## Decision accounting
 
+New finite recheck receipts distinguish planned certificate/cell/case slots from
+`operation_counts` attempted and completed work in the primary inventory pass.
+Validation completion includes diagnostic rejection; cell completion means its
+retained output checks were reached, not acceptance. Compilation completion
+means a subprocess returned (even nonzero); `compiler_outputs` additionally
+requires zero exit and a produced file. Execution completion means a subprocess
+returned, not necessarily successfully. Case attempts count reference-domain
+slots requested when an actual output read or replay invocation starts; they do
+not infer internal program progress. Completed cases are observed one-byte outputs
+capped at the reference-domain size, not a claim that every comparison ran after
+the first mismatch. Truncated stdout contributes only its received bytes;
+timeouts without a returned result contribute none. Hash completion requires an
+actual digest return. Auxiliary fixtures and compiler-version preflight are
+excluded from these primary-pass counters. Propagating I/O errors remain errors,
+not synthetic receipts or HOLDs. Full successful passes retain the existing
+totals; historical executed receipts are not rewritten by this accounting change.
+
+From a disposable complete project root, the owned process-double regression is
+`python3 -B -S -m unittest discover -s artifact/src -p 'test_recheck_accounting.py' -v`.
+It checks missing entries, partial failures, ordinary success and hash read errors
+without a compiler or subject execution. The JSON-only plot-consumer suite is
+`python3 -B -m unittest discover -s paper/figures -p 'test_sensitivity_data.py' -v`;
+it requires ReportLab and the sibling paper, but invokes no font or experiment
+process. `paper/compile.sh` now redraws that plot from retained sweep rows before
+TeX. These checks do not add compiler cells, cases, timings or model results.
+
 The gate-model checker rejects five aggregate mutations. The finite checker
 has eleven refreshed-outer-binding checks and three direct source-interpretation
 probes; the commit-derived checker has ten refreshed-binding checks. Together

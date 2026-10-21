@@ -466,16 +466,25 @@ def decode_u16(obs: Sequence[int | None]) -> dict[str, Any]:
     }
 
 
-def expected_payload(kernel: str) -> int:
-    return int.from_bytes(hashlib.sha256(("TSE-01:" + kernel).encode()).digest()[:2], "big")
+def seed_digest(data: bytes, work_counts: dict[str, dict[str, int]] | None = None) -> bytes:
+    if work_counts is not None:
+        work_counts["hashes"]["attempted"] += 1
+    digest = hashlib.sha256(data).digest()
+    if work_counts is not None:
+        work_counts["hashes"]["completed"] += 1
+    return digest
 
 
-def expected_constants(kernel: str, reseed: bool) -> list[int]:
+def expected_payload(kernel: str, work_counts: dict[str, dict[str, int]] | None = None) -> int:
+    return int.from_bytes(seed_digest(("TSE-01:" + kernel).encode(), work_counts)[:2], "big")
+
+
+def expected_constants(kernel: str, reseed: bool, work_counts: dict[str, dict[str, int]] | None = None) -> list[int]:
     label = "reseed" if reseed else "baseline"
     values: list[int] = []
     counter = 0
     while len(values) < 28:
-        digest = hashlib.sha256(f"TSE-01:{kernel}:{label}:{counter}".encode()).digest()
+        digest = seed_digest(f"TSE-01:{kernel}:{label}:{counter}".encode(), work_counts)
         value = (int.from_bytes(digest[:4], "big") | 0x01010101) & 0xFFFFFFFF
         if value not in values and value not in (0, 0xFFFFFFFF):
             values.append(value)
@@ -483,7 +492,8 @@ def expected_constants(kernel: str, reseed: bool) -> list[int]:
     return values
 
 
-def validate_manifest(manifest: dict[str, Any], kernel: str, variant: str) -> list[str]:
+def validate_manifest(manifest: dict[str, Any], kernel: str, variant: str,
+                      work_counts: dict[str, dict[str, int]] | None = None) -> list[str]:
     errors: list[str] = []
     if manifest.get("schema") != "tracecert.watermark-manifest.v1":
         errors.append("manifest schema mismatch")
@@ -493,7 +503,7 @@ def validate_manifest(manifest: dict[str, Any], kernel: str, variant: str) -> li
         errors.append("manifest code mismatch")
     if manifest.get("minimum_distance") != 3:
         errors.append("manifest minimum distance mismatch")
-    payload = expected_payload(kernel)
+    payload = expected_payload(kernel, work_counts)
     if manifest.get("payload_hex") != f"{payload:04x}":
         errors.append("manifest payload mismatch")
     carriers = manifest.get("carriers")
@@ -503,7 +513,7 @@ def validate_manifest(manifest: dict[str, Any], kernel: str, variant: str) -> li
     expected_bits = encode_u16(payload)
     reseed = variant == "reseed"
     expected_ids = [f"{kernel}:{'R' if reseed else 'B'}:{i:02d}" for i in range(28)]
-    expected_keys = expected_constants(kernel, reseed)
+    expected_keys = expected_constants(kernel, reseed, work_counts)
     positions: list[int] = []
     ids: list[str] = []
     constants: list[int] = []
@@ -897,6 +907,44 @@ def recompute_assembly_retention(
 # ---------------------------------------------------------------------------
 # Certificate validation.
 # ---------------------------------------------------------------------------
+def new_work_counts() -> dict[str, dict[str, int]]:
+    """Per-call counters: never inferred from the expected inventory."""
+    return {name: {"attempted": 0, "completed": 0} for name in (
+        "validations", "cells", "compilations", "compiler_outputs", "executions",
+        "retained_cases", "replay_cases", "hashes", "manifest_file_hashes",
+        "manifest_canonical_hashes", "retained_binary_hashes", "assembly_hashes",
+        "assembly_scans", "provenance_mappings", "parent_decisions",
+        "multi_parent_validations", "policy_reconstructions", "reference_tables",
+    )}
+
+
+def tracked_work(counts: dict[str, dict[str, int]], name: str, function: Any,
+                 *args: Any, **kwargs: Any) -> Any:
+    counts[name]["attempted"] += 1
+    result = function(*args, **kwargs)
+    counts[name]["completed"] += 1
+    return result
+
+
+def work_receipt_fields(counts: dict[str, dict[str, int]]) -> dict[str, int]:
+    """Legacy totals are actual work; full successful campaigns keep their totals."""
+    aliases = {
+        "certificate_count": "validations", "compiler_cells_rechecked": "cells",
+        "input_evaluations_rechecked": "retained_cases",
+        "compiler_cells_recompiled": "compiler_outputs",
+        "executables_reexecuted": "executions", "input_evaluations_reexecuted": "replay_cases",
+        "reference_tables_recomputed": "reference_tables",
+        "provenance_mappings_recomputed": "provenance_mappings",
+        "parent_decisions_independently_reconstructed": "parent_decisions",
+        "multi_parent_releases_rechecked": "multi_parent_validations",
+        "manifest_files_rehashed": "manifest_file_hashes",
+        "manifest_canonical_forms_rehashed": "manifest_canonical_hashes",
+        "executables_rehashed": "retained_binary_hashes",
+        "assembly_files_rehashed_and_rescanned": "assembly_scans",
+    }
+    return {field: counts[name]["completed"] for field, name in aliases.items()}
+
+
 def compare_decode(stored: Any, actual: dict[str, Any]) -> bool:
     if not isinstance(stored, dict):
         return False
@@ -931,7 +979,17 @@ def validate_certificate(
     replay_root: Path | None = None,
     parent_validations: dict[str, dict[str, Any]] | None = None,
     reconstruction_sink: dict[str, Any] | None = None,
+    work_counts: dict[str, dict[str, int]] | None = None,
 ) -> list[str]:
+    work = new_work_counts() if work_counts is None else work_counts
+    work["validations"]["attempted"] += 1
+    multi_parent = False
+
+    def hashed(function: Any, *args: Any, category: str = "hashes") -> str:
+        if category == "hashes":
+            return tracked_work(work, "hashes", function, *args)
+        return tracked_work(work, "hashes", tracked_work, work, category, function, *args)
+
     errors: list[str] = []
     integrity_errors: list[str] = []
     claim_integrity_errors: list[str] = []
@@ -967,6 +1025,9 @@ def validate_certificate(
             })
         if owned_replay is not None:
             owned_replay.cleanup()
+        work["validations"]["completed"] += 1
+        if multi_parent:
+            work["multi_parent_validations"]["completed"] += 1
         return errors
 
     def closed_failure(reason: str, *, lineage_false: bool = False) -> list[str]:
@@ -990,6 +1051,9 @@ def validate_certificate(
         return closed_failure("unknown variant")
     key = (kernel, variant)
     parent_variants = list(VARIANT_PARENTS[variant])
+    multi_parent = len(parent_variants) > 1
+    if multi_parent:
+        work["multi_parent_validations"]["attempted"] += 1
     sole_parent = parent_variants[0] if len(parent_variants) == 1 else None
     if cert.get("parent_variants") != parent_variants:
         errors.append("parent variant set mismatch")
@@ -998,13 +1062,13 @@ def validate_certificate(
 
     unsigned = copy.deepcopy(cert)
     stored_self_hash = unsigned.pop("certificate_sha256", None)
-    if not isinstance(stored_self_hash, str) or stored_self_hash != canonical_hash(unsigned):
+    if not isinstance(stored_self_hash, str) or stored_self_hash != hashed(canonical_hash, unsigned):
         record_integrity_error("certificate self-hash mismatch")
 
     expected_policy_rel = f"artifact/policies/finite/{kernel}.json"
     policy_ref = cert.get("policy", {})
-    expected_policy = expected_finite_policy(kernel, environment)
-    expected_policy_hash = canonical_hash(expected_policy)
+    expected_policy = tracked_work(work, "policy_reconstructions", expected_finite_policy, kernel, environment)
+    expected_policy_hash = hashed(canonical_hash, expected_policy)
     if not isinstance(policy_ref, dict) or set(policy_ref) != {"path", "policy_id", "file_sha256", "canonical_sha256"}:
         record_integrity_error("policy binding fields mismatch")
         policy_ref = {}
@@ -1022,9 +1086,9 @@ def validate_certificate(
         except (OSError, json.JSONDecodeError):
             actual_policy = None
             record_integrity_error("policy file is not valid JSON")
-        if policy_ref.get("file_sha256") != sha_file(policy_path):
+        if policy_ref.get("file_sha256") != hashed(sha_file, policy_path):
             record_integrity_error("policy file hash mismatch")
-        if actual_policy is not None and policy_ref.get("canonical_sha256") != canonical_hash(actual_policy):
+        if actual_policy is not None and policy_ref.get("canonical_sha256") != hashed(canonical_hash, actual_policy):
             record_integrity_error("policy canonical hash mismatch")
         if actual_policy != expected_policy:
             record_integrity_error("policy content mismatch")
@@ -1054,7 +1118,7 @@ def validate_certificate(
     if not reference_path.is_file():
         return closed_failure("reference file missing")
 
-    actual_source_hash = sha_file(source_path)
+    actual_source_hash = hashed(sha_file, source_path)
     if source.get("sha256") != actual_source_hash:
         record_integrity_error("source hash mismatch")
     parent_certs = [certs.get((kernel, parent)) for parent in parent_variants]
@@ -1072,20 +1136,20 @@ def validate_certificate(
         record_lineage_error("parent source hash set mismatch")
 
     manifest = manifests[key]
-    for message in validate_manifest(manifest, kernel, variant):
+    for message in validate_manifest(manifest, kernel, variant, work):
         record_integrity_error(message)
     if set(manifest_ref) != {"path", "file_sha256", "canonical_sha256"}:
         record_integrity_error("manifest binding fields mismatch")
-    if manifest_ref.get("file_sha256") != sha_file(manifest_path):
+    if manifest_ref.get("file_sha256") != hashed(sha_file, manifest_path, category="manifest_file_hashes"):
         record_integrity_error("manifest file hash mismatch")
-    if manifest_ref.get("canonical_sha256") != canonical_hash(manifest):
+    if manifest_ref.get("canonical_sha256") != hashed(canonical_hash, manifest, category="manifest_canonical_hashes"):
         record_integrity_error("manifest canonical hash mismatch")
 
     reference = references[kernel]
     packaged_reference = reference_path.read_bytes()
     if packaged_reference != reference:
         record_integrity_error("independent reference table mismatch")
-    reference_hash = sha_bytes(reference)
+    reference_hash = hashed(sha_bytes, reference)
     if behavior.get("reference_sha256") != reference_hash:
         record_integrity_error("reference hash mismatch")
     if behavior.get("contract") != "all x,y in {0,...,255}; one output byte":
@@ -1115,7 +1179,7 @@ def validate_certificate(
         if parent_manifest is None:
             record_lineage_error(f"parent manifest missing: {parent_variant}")
             continue
-        edge = compute_provenance(parent_manifest, manifest, observation)
+        edge = tracked_work(work, "provenance_mappings", compute_provenance, parent_manifest, manifest, observation)
         provenance_by_parent.append({"parent_variant": parent_variant, **edge})
     if not provenance_by_parent:
         provenance = {
@@ -1169,6 +1233,7 @@ def validate_certificate(
             fresh_behavior_matches.append(None)
             executable_matches.append(False)
             continue
+        work["cells"]["attempted"] += 1
         cell_reproduced = False
         fresh_behavior_result: bool | None = None
         tag = f"{compiler}_{optimization[1:].lower()}"
@@ -1207,15 +1272,17 @@ def validate_certificate(
         assembly_path = root / expected_assembly_rel
         if not binary_path.is_file():
             record_integrity_error(f"binary file missing: {compiler} {optimization}")
-        elif tc.get("binary_sha256") != sha_file(binary_path):
+        elif tc.get("binary_sha256") != hashed(sha_file, binary_path, category="retained_binary_hashes"):
             record_integrity_error(f"binary hash mismatch: {compiler} {optimization}")
         if not output_path.is_file():
             record_integrity_error(f"output file missing: {compiler} {optimization}")
             fresh_behavior_matches.append(None)
             executable_matches.append(False)
             continue
+        work["retained_cases"]["attempted"] += len(reference)
         actual = output_path.read_bytes()
-        actual_hash = sha_bytes(actual)
+        work["retained_cases"]["completed"] += min(len(actual), len(reference))
+        actual_hash = hashed(sha_bytes, actual)
         mismatch = first_mismatch(reference, actual)
         match = mismatch is None
         if len(actual) != 65536 or tc.get("output_size") != len(actual):
@@ -1229,15 +1296,16 @@ def validate_certificate(
         if not assembly_path.is_file():
             record_integrity_error(f"assembly file missing: {compiler} {optimization}")
         else:
-            if tc.get("assembly_sha256") != sha_file(assembly_path):
+            if tc.get("assembly_sha256") != hashed(sha_file, assembly_path, category="assembly_hashes"):
                 record_integrity_error(f"assembly hash mismatch: {compiler} {optimization}")
-            retention = recompute_assembly_retention(
+            retention = tracked_work(work, "assembly_scans", recompute_assembly_retention,
                 assembly_path.read_text(encoding="utf-8", errors="replace"), manifest, observed_ids
             )
             if tc.get("assembly_retention") != retention:
                 record_claim_error(f"assembly retention mismatch: {compiler} {optimization}")
         if not isinstance(tc.get("binary_sha256"), str) or not HEX64.fullmatch(tc["binary_sha256"]):
             record_integrity_error(f"malformed binary hash record: {compiler} {optimization}")
+        work["cells"]["completed"] += 1
 
         # Bind source -> compiler realization -> executable -> fresh output.
         # Merely rehashing a retained executable and comparing a stored output
@@ -1256,8 +1324,9 @@ def validate_certificate(
                 compiler, "-std=c11", "-Wall", "-Wextra", "-Werror",
                 optimization, expected_source_rel, "-o", str(replay_binary),
             ]
+            work["compiler_outputs"]["attempted"] += 1
             try:
-                replay_compile = subprocess.run(
+                replay_compile = tracked_work(work, "compilations", subprocess.run,
                     replay_compile_command,
                     cwd=root,
                     stdout=subprocess.PIPE,
@@ -1272,16 +1341,19 @@ def validate_certificate(
                     errors.append(
                         f"independent recompilation status mismatch: {compiler} {optimization}"
                     )
-                elif binary_path.is_file():
-                    cell_reproduced = sha_file(replay_binary) == sha_file(binary_path)
-                    if not cell_reproduced:
-                        errors.append(
-                            f"independent recompilation binary mismatch: {compiler} {optimization}"
-                        )
+                else:
+                    work["compiler_outputs"]["completed"] += 1
+                    if binary_path.is_file():
+                        cell_reproduced = hashed(sha_file, replay_binary) == hashed(sha_file, binary_path)
+                        if not cell_reproduced:
+                            errors.append(
+                                f"independent recompilation binary mismatch: {compiler} {optimization}"
+                            )
 
             if replay_binary.is_file():
+                work["replay_cases"]["attempted"] += len(reference)
                 try:
-                    replay_execution = subprocess.run(
+                    replay_execution = tracked_work(work, "executions", subprocess.run,
                         [str(replay_binary)],
                         cwd=root,
                         stdout=subprocess.PIPE,
@@ -1292,6 +1364,7 @@ def validate_certificate(
                     errors.append(f"independent executable replay failed: {compiler} {optimization}: {exc}")
                     replay_execution = None
                 if replay_execution is not None:
+                    work["replay_cases"]["completed"] += min(len(replay_execution.stdout), len(reference))
                     replay_ok = replay_execution.returncode == 0
                     if not replay_ok:
                         errors.append(
@@ -1334,12 +1407,15 @@ def validate_certificate(
         if parent_cert is None:
             continue
         parent_validation = parent_validations.get(parent_variant)
+        work["parent_decisions"]["attempted"] += 1
         if parent_validation is None:
             expected_parent_decision = None
             parent_accepted = False
             record_lineage_error(f"independent parent reconstruction missing: {parent_variant}")
         else:
             expected_parent_decision = parent_validation.get("verdict")
+            if expected_parent_decision in ("PASS", "HOLD", "REJECT"):
+                work["parent_decisions"]["completed"] += 1
             parent_accepted = bool(
                 parent_validation.get("valid") is True
                 and expected_parent_decision == "PASS"
@@ -2287,7 +2363,8 @@ def main() -> int:
 
     environment = json.loads((root / "artifact/environment.json").read_text(encoding="utf-8"))
     environment_errors = validate_locked_environment(environment)
-    references = {kernel: reference_table(kernel) for kernel in KERNELS}
+    work = new_work_counts()
+    references = {kernel: tracked_work(work, "reference_tables", reference_table, kernel) for kernel in KERNELS}
     certs: dict[tuple[str, str], dict[str, Any]] = {}
     manifests: dict[tuple[str, str], dict[str, Any]] = {}
 
@@ -2313,15 +2390,19 @@ def main() -> int:
 
     findings: list[dict[str, Any]] = []
     reconstructed_results: dict[tuple[str, str], dict[str, Any]] = {}
+    subject_work: dict[tuple[str, str], dict[str, dict[str, int]]] = {}
     with tempfile.TemporaryDirectory(prefix="tse01-independent-replay-") as replay_tmp:
         replay_root = Path(replay_tmp)
 
-        def validate_kernel(kernel: str) -> tuple[list[dict[str, Any]], dict[tuple[str, str], dict[str, Any]]]:
+        def validate_kernel(kernel: str) -> tuple[list[dict[str, Any]], dict[tuple[str, str], dict[str, Any]], dict[tuple[str, str], dict[str, dict[str, int]]]]:
             rows: list[dict[str, Any]] = []
             local_results: dict[tuple[str, str], dict[str, Any]] = {}
+            local_work: dict[tuple[str, str], dict[str, dict[str, int]]] = {}
             for variant in VARIANT_PARENTS:
                 key = (kernel, variant)
                 cert = certs.get(key)
+                counts = new_work_counts()
+                local_work[key] = counts
                 if cert is None or key not in manifests:
                     sink = {"errors": ["certificate or manifest missing"], "relations": None,
                             "verdict": None, "valid": False}
@@ -2336,6 +2417,7 @@ def main() -> int:
                         replay_root=replay_root,
                         parent_validations=parent_validations,
                         reconstruction_sink=sink,
+                        work_counts=counts,
                     )
                 local_results[key] = sink
                 rows.append({
@@ -2345,12 +2427,18 @@ def main() -> int:
                     "verdict": sink.get("verdict"),
                     "errors": sink.get("errors", ["reconstruction result missing"]),
                 })
-            return rows, local_results
+            return rows, local_results, local_work
 
         with concurrent.futures.ThreadPoolExecutor(max_workers=REPLAY_WORKERS) as executor:
-            for rows, local_results in executor.map(validate_kernel, KERNELS):
+            for rows, local_results, local_work in executor.map(validate_kernel, KERNELS):
                 findings.extend(rows)
                 reconstructed_results.update(local_results)
+                subject_work.update(local_work)
+
+    for counts in subject_work.values():
+        for name, totals in counts.items():
+            for phase, value in totals.items():
+                work[name][phase] += value
 
     tampered_path = root / "artifact/results/raw/tampered_certificate.json"
     tamper_errors: list[str]
@@ -2412,27 +2500,13 @@ def main() -> int:
     receipt = {
         "schema": "tracecert.independent-recheck.v12",
         "checker_independence": "standard-library implementation; imports neither generator nor primary checker",
+        "work_accounting": "primary certificate inventory only; auxiliary fixtures and environment preflight excluded",
+        "operation_counts": work,
+        "certificate_slots_planned": len(expected_cert_paths),
+        "compiler_cells_planned": len(expected_cert_paths) * len(EXPECTED_TOOLCHAINS),
+        "input_evaluations_planned": len(expected_cert_paths) * len(EXPECTED_TOOLCHAINS) * 65536,
         "locked_environment_rechecked": not environment_errors,
-        "certificate_count": len(findings),
-        "compiler_cells_rechecked": len(findings) * len(EXPECTED_TOOLCHAINS),
-        "input_evaluations_rechecked": len(findings) * len(EXPECTED_TOOLCHAINS) * 65536,
-        "compiler_cells_recompiled": len(findings) * len(EXPECTED_TOOLCHAINS),
-        "executables_reexecuted": len(findings) * len(EXPECTED_TOOLCHAINS),
-        "input_evaluations_reexecuted": len(findings) * len(EXPECTED_TOOLCHAINS) * 65536,
-        "reference_tables_recomputed": len(references),
-        "provenance_mappings_recomputed": sum(
-            len(VARIANT_PARENTS[row["variant"]]) for row in findings
-        ),
-        "parent_decisions_independently_reconstructed": sum(
-            len(VARIANT_PARENTS[row["variant"]]) for row in findings
-        ),
-        "multi_parent_releases_rechecked": sum(
-            1 for row in findings if len(VARIANT_PARENTS[row["variant"]]) > 1
-        ),
-        "manifest_files_rehashed": len(findings),
-        "manifest_canonical_forms_rehashed": len(findings),
-        "executables_rehashed": len(findings) * len(EXPECTED_TOOLCHAINS),
-        "assembly_files_rehashed_and_rescanned": len(findings) * len(EXPECTED_TOOLCHAINS),
+        **work_receipt_fields(work),
         "all_valid": all_valid,
         "tamper_rejected": tamper_rejected,
         "tamper_errors": tamper_errors,
@@ -2445,7 +2519,8 @@ def main() -> int:
         "relation_decision_boundary_test_count": len(boundary_tests["relation_first_cases"]),
         "availability_fixture_count": len(boundary_tests["availability_cases"]),
         "relation_decision_boundaries_path": "artifact/results/relation_decision_boundaries.json",
-        "policy_files_reconstructed": len(KERNELS),
+        "policy_files_reconstructed": len({key[0] for key, counts in subject_work.items()
+                                           if counts["policy_reconstructions"]["completed"]}),
         "hamming_edge_cases_pass": hamming_edge_cases_pass,
         "hamming_edge_case_errors": hamming_edge_case_errors,
         "policy_bridge_fixture_pass": policy_bridge_fixture_pass,
