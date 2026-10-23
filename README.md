@@ -43,6 +43,31 @@ it requires the actual sibling paper sources and packaging dependencies.
 
 ## Complete project bundle
 
+### Named finite-release decision
+
+From a workspace containing `artifact/`, reconstruct one finite release and its
+ancestor closure without reissuing any certificate:
+
+```sh
+python3 -B artifact/src/check_release.py --root "$PWD" --kernel fnv_step --variant merge_tolerable
+```
+
+The command writes a JSON report to standard output. Exit codes are 0 for PASS,
+1 for REJECT and 2 for HOLD. An unavailable locked host/compiler or timed-out
+fresh build leaves its dependent relations unresolved. A completed failed build,
+known recovery/continuity failure, corrupt retained binding, or missing mandatory
+retained source/parent record still rejects. Fresh parent HOLD propagates to
+lineage; a rejected parent never becomes HOLD. Stored issued claims are checked
+separately from current unknowns. The command uses disposable build directories
+and does not modify retained inputs. It is a finite-release operation, not a new
+availability-aware interface for the commit-derived or whole-campaign checker.
+
+`python3 -B -m unittest discover -s artifact/src -p 'test_release_availability.py' -v`
+runs eleven owned regression methods. They use retained source and object bytes;
+restoration/build-failure controls use explicit compiler/executable doubles.
+The CLI control actually invokes the command and checks unchanged inputs.
+These tests add no native C compiler cells or releases to the historical counts.
+
 The complete pipeline requires a project root containing sibling `artifact/`
 and `paper/` directories. Use a disposable copy: the pipeline regenerates model
 and compiler outputs, certificates, reports and packaging bindings, and removes
@@ -153,8 +178,9 @@ has eleven refreshed-outer-binding checks and three direct source-interpretation
 probes; the commit-derived checker has ten refreshed-binding checks. Together
 these are 24 checks, not 24 fully rebound-package tests. Retained software runs
 have 129 passes, zero unresolved holds, and 43 diagnostic or adverse rejections.
-Separate relation-vector fixtures exercise abstract hold behavior, not the real
-reconstruction entrypoints with unavailable tools or files. In the model a false
+Separate relation-vector fixtures exercise abstract hold behavior. The named
+finite-release command additionally handles unavailable fresh compilers and
+parent HOLDs; missing mandatory retained files still reject. A false
 relation dominates an unrelated unknown. The JSON-only gate-record regression
 now rejects 19 individually inconsistent model records while accepting a fresh
 valid model. This bounded check does not rerun the historical compiler campaigns

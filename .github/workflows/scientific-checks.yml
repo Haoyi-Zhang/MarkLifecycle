@@ -39,6 +39,12 @@ jobs:
           cp -a "$GITHUB_WORKSPACE/." "$evidence/flat-root/artifact/"
           cd "$evidence/flat-root/artifact"
           timeout --signal=TERM --kill-after=5s 30s python -B -m unittest discover \
+            -s src -p 'test_release_availability.py' -v \
+            > "$evidence/logs/availability.stdout.txt" 2> "$evidence/logs/availability.stderr.txt"
+          timeout --signal=TERM --kill-after=5s 30s python -B -O -m unittest discover \
+            -s src -p 'test_release_availability.py' -v \
+            > "$evidence/logs/availability-optimized.stdout.txt" 2> "$evidence/logs/availability-optimized.stderr.txt"
+          timeout --signal=TERM --kill-after=5s 30s python -B -m unittest discover \
             -s src -p 'test_source_profile.py' -v \
             > "$evidence/logs/source-profile.stdout.txt" 2> "$evidence/logs/source-profile.stderr.txt"
           timeout --signal=TERM --kill-after=5s 30s python -B -m unittest discover \

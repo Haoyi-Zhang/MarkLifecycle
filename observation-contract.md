@@ -63,8 +63,14 @@ the existing repair rather than claiming a new macro-admission defect.
 
 ## Lifecycle and measurement boundaries
 
-The current reconstruction entrypoints still may reject or raise on unavailable
-inputs; relation-vector availability projections are not end-to-end HOLD runs.
+The strict campaign and commit-derived reconstruction entrypoints may reject or
+raise on unavailable inputs; relation-vector availability projections are not
+end-to-end HOLD runs. The separate `src/check_release.py` finite-release command
+now handles unavailable fresh compilers and held parent reconstructions, while
+retaining REJECT for missing/corrupt mandatory retained objects. Its eleven
+owned regression methods exercise real parsing and traversal with explicit
+compiler/executable doubles where restoration is required. They are not native
+C campaign replays and do not change the earlier observation denominators.
 The threshold-26-to-25 record recomputes continuity only, not all target-policy
 relations, and is not an accepted dual-policy release. Source-module exact-input
 memoization (56/28 calls) remains a test harness, not full-certificate incremental

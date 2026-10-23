@@ -208,7 +208,7 @@ def expected_finite_policy(kernel: str, environment: dict[str, Any], required_co
 def command_version(exe: str) -> str:
     completed = subprocess.run(
         [exe, "--version"], text=True, stdout=subprocess.PIPE,
-        stderr=subprocess.STDOUT, check=True,
+        stderr=subprocess.STDOUT, check=True, timeout=RUN_TIMEOUT_SECONDS,
     )
     return completed.stdout.splitlines()[0].strip()
 
@@ -980,6 +980,7 @@ def validate_certificate(
     parent_validations: dict[str, dict[str, Any]] | None = None,
     reconstruction_sink: dict[str, Any] | None = None,
     work_counts: dict[str, dict[str, int]] | None = None,
+    availability_aware: bool = False,
 ) -> list[str]:
     work = new_work_counts() if work_counts is None else work_counts
     work["validations"]["attempted"] += 1
@@ -994,6 +995,7 @@ def validate_certificate(
     integrity_errors: list[str] = []
     claim_integrity_errors: list[str] = []
     lineage_errors: list[str] = []
+    unavailable: list[str] = []
     owned_replay: tempfile.TemporaryDirectory[str] | None = None
     if replay_root is None:
         owned_replay = tempfile.TemporaryDirectory(prefix="tse01-independent-single-")
@@ -1023,6 +1025,8 @@ def validate_certificate(
                 "verdict": verdict,
                 "valid": not errors,
             })
+            if availability_aware:
+                reconstruction_sink["unavailable"] = list(unavailable)
         if owned_replay is not None:
             owned_replay.cleanup()
         work["validations"]["completed"] += 1
@@ -1225,7 +1229,23 @@ def validate_certificate(
         record_integrity_error("certificate does not contain exactly the four locked compiler cells")
     tc_map = {(tc.get("compiler"), tc.get("optimization")): tc for tc in toolchains if isinstance(tc, dict)}
     fresh_behavior_matches: list[bool | None] = []
-    executable_matches: list[bool] = []
+    executable_matches: list[bool | None] = []
+    unavailable_compilers: dict[str, str] = {}
+    if availability_aware:
+        for field, expected in {"system": LOCKED_SYSTEM, "machine": LOCKED_MACHINE,
+                                **LOCKED_COMPILER_VERSIONS}.items():
+            if environment.get(field) != expected:
+                record_integrity_error(f"recorded environment mismatch: {field}")
+        host_matches = platform.system() == LOCKED_SYSTEM and platform.machine() == LOCKED_MACHINE
+        for compiler, expected in LOCKED_COMPILER_VERSIONS.items():
+            if not host_matches:
+                unavailable_compilers[compiler] = "locked host unavailable"
+                continue
+            try:
+                if command_version(compiler) != expected:
+                    unavailable_compilers[compiler] = "locked compiler version unavailable"
+            except (OSError, subprocess.SubprocessError):
+                unavailable_compilers[compiler] = "locked compiler unavailable"
     observed_ids = {c["carrier_id"] for c in observation["carriers"] if c["observed_bit"] is not None}
     for compiler, optimization in EXPECTED_TOOLCHAINS:
         tc = tc_map.get((compiler, optimization))
@@ -1234,7 +1254,7 @@ def validate_certificate(
             executable_matches.append(False)
             continue
         work["cells"]["attempted"] += 1
-        cell_reproduced = False
+        cell_reproduced: bool | None = False
         fresh_behavior_result: bool | None = None
         tag = f"{compiler}_{optimization[1:].lower()}"
         expected_output_rel = f"artifact/results/raw/{kernel}/{variant}/{tag}.out"
@@ -1307,6 +1327,14 @@ def validate_certificate(
             record_integrity_error(f"malformed binary hash record: {compiler} {optimization}")
         work["cells"]["completed"] += 1
 
+        # Retained bindings are checked even when fresh execution is unavailable.
+        # A missing mandatory file remains a closed-inventory violation.
+        if compiler in unavailable_compilers:
+            unavailable.append(f"{compiler} {optimization}: {unavailable_compilers[compiler]}")
+            fresh_behavior_matches.append(None)
+            executable_matches.append(None)
+            continue
+
         # Bind source -> compiler realization -> executable -> fresh output.
         # Merely rehashing a retained executable and comparing a stored output
         # does not establish that the executable was produced by the named
@@ -1334,7 +1362,11 @@ def validate_certificate(
                     timeout=COMPILE_TIMEOUT_SECONDS,
                 )
             except (OSError, subprocess.SubprocessError) as exc:
-                errors.append(f"independent recompilation failed: {compiler} {optimization}: {exc}")
+                if availability_aware:
+                    unavailable.append(f"independent recompilation unavailable: {compiler} {optimization}: {type(exc).__name__}")
+                    cell_reproduced = None
+                else:
+                    errors.append(f"independent recompilation failed: {compiler} {optimization}: {exc}")
                 replay_compile = None
             if replay_compile is not None:
                 if replay_compile.returncode != 0 or not replay_binary.is_file():
@@ -1361,7 +1393,10 @@ def validate_certificate(
                         timeout=RUN_TIMEOUT_SECONDS,
                     )
                 except (OSError, subprocess.SubprocessError) as exc:
-                    errors.append(f"independent executable replay failed: {compiler} {optimization}: {exc}")
+                    if availability_aware:
+                        unavailable.append(f"independent executable replay unavailable: {compiler} {optimization}: {type(exc).__name__}")
+                    else:
+                        errors.append(f"independent executable replay failed: {compiler} {optimization}: {exc}")
                     replay_execution = None
                 if replay_execution is not None:
                     work["replay_cases"]["completed"] += min(len(replay_execution.stdout), len(reference))
@@ -1394,15 +1429,16 @@ def validate_certificate(
         executable_matches.append(cell_reproduced)
 
     behavior_pass = aggregate_relation(fresh_behavior_matches)
-    if behavior.get("exact_finite_equivalence") is not behavior_pass:
+    if (not availability_aware or behavior_pass is not None) and behavior.get("exact_finite_equivalence") is not behavior_pass:
         record_claim_error("exact finite equivalence flag mismatch")
     expected_maturity = "VERIFIED" if behavior_pass is True else ("COUNTEREXAMPLE_FOUND" if behavior_pass is False else "UNRESOLVED")
-    if behavior.get("maturity") != expected_maturity:
+    if (not availability_aware or behavior_pass is not None) and behavior.get("maturity") != expected_maturity:
         record_claim_error("behavior maturity mismatch")
 
     chain = cert.get("chain", {})
     parent_validations = parent_validations or {}
     expected_edges: list[dict[str, Any]] = []
+    current_parent_states: list[bool | None] = []
     for parent_variant, parent_cert in zip(parent_variants, parent_certs):
         if parent_cert is None:
             continue
@@ -1411,7 +1447,8 @@ def validate_certificate(
         if parent_validation is None:
             expected_parent_decision = None
             parent_accepted = False
-            record_lineage_error(f"independent parent reconstruction missing: {parent_variant}")
+            if not availability_aware:
+                record_lineage_error(f"independent parent reconstruction missing: {parent_variant}")
         else:
             expected_parent_decision = parent_validation.get("verdict")
             if expected_parent_decision in ("PASS", "HOLD", "REJECT"):
@@ -1420,6 +1457,18 @@ def validate_certificate(
                 parent_validation.get("valid") is True
                 and expected_parent_decision == "PASS"
             )
+        if availability_aware:
+            if parent_validation is None or (
+                parent_validation.get("valid") is True and expected_parent_decision == "HOLD"
+            ):
+                current_parent_states.append(None)
+                unavailable.append(f"parent reconstruction unresolved: {parent_variant}")
+            else:
+                current_parent_states.append(parent_accepted)
+            # Check the issued edge against the issued parent, separately from
+            # its current reconstruction. A current HOLD is not a forged edge.
+            expected_parent_decision = parent_cert.get("verdict")
+            parent_accepted = expected_parent_decision == "PASS"
         parent_policy_hash = parent_cert.get("policy", {}).get("canonical_sha256")
         policy_compatible = policy_ref.get("canonical_sha256") == parent_policy_hash
         expected_edges.append({
@@ -1471,6 +1520,8 @@ def validate_certificate(
         and expected_all_parents_accepted
         and not lineage_errors
     )
+    if availability_aware and lineage_pass:
+        lineage_pass = aggregate_relation(current_parent_states)
     # Integrity is a reconstructed relation, not a hidden validation channel.
     # Every mismatch in the certificate self-binding, policy binding, frozen
     # object paths, compiler-cell inventory, or retained object hashes records
@@ -1540,6 +1591,12 @@ def validate_certificate(
         if not isinstance(stored, dict):
             record_claim_error(f"missing stored relation: {relation}")
             continue
+        if availability_aware and actual["passed"] is None:
+            # Unknown fresh evidence neither confirms nor contradicts an issued
+            # outcome. Schema and canonical byte checks above still apply.
+            if type(stored.get("passed")) is not bool or stored.get("state") != relation_state(stored.get("passed")):
+                record_claim_error(f"malformed stored relation: {relation}")
+            continue
         if stored.get("passed") is not actual["passed"]:
             record_claim_error(f"stored relation outcome mismatch: {relation}")
         if stored.get("state") != actual["state"]:
@@ -1548,10 +1605,21 @@ def validate_certificate(
             if stored.get(field) != actual[field]:
                 record_claim_error(f"stored relation detail mismatch: {relation}.{field}")
 
+    if availability_aware:
+        issued_values = [stored_relations.get(name, {}).get("passed")
+                         if isinstance(stored_relations.get(name), dict) else None
+                         for name in RELATION_NAMES]
+        if cert.get("verdict") != typed_decision(issued_values):
+            record_claim_error("issued verdict contradicts issued relation vector")
+        issued_behavior = stored_relations.get("behavior", {})
+        issued_behavior_value = issued_behavior.get("passed") if isinstance(issued_behavior, dict) else None
+        if behavior.get("exact_finite_equivalence") is not issued_behavior_value:
+            record_claim_error("issued behavior fields contradict each other")
+
     preliminary_verdict = typed_decision(
         [reconstructed_relations[name]["passed"] for name in RELATION_NAMES]
     )
-    if cert.get("verdict") != preliminary_verdict:
+    if (not availability_aware or preliminary_verdict != "HOLD") and cert.get("verdict") != preliminary_verdict:
         record_claim_error("typed verdict predicate mismatch")
     if claim_integrity_errors:
         reconstructed_relations["integrity"] = {
@@ -1562,7 +1630,7 @@ def validate_certificate(
     expected_verdict = typed_decision(
         [reconstructed_relations[name]["passed"] for name in RELATION_NAMES]
     )
-    if errors and expected_verdict == "PASS":
+    if errors and expected_verdict != "REJECT":
         fallback = "unmapped validation contradiction"
         integrity_errors.append(fallback)
         reconstructed_relations["integrity"] = {
@@ -1571,10 +1639,10 @@ def validate_certificate(
             "claim_contradictions": sorted(set([*claim_integrity_errors, fallback])),
         }
         expected_verdict = "REJECT"
-    if cert.get("verdict") != expected_verdict and "typed verdict predicate mismatch" not in claim_integrity_errors:
+    if (not availability_aware or expected_verdict != "HOLD") and cert.get("verdict") != expected_verdict and "typed verdict predicate mismatch" not in claim_integrity_errors:
         record_claim_error("typed verdict predicate mismatch")
     locked_verdict = "PASS" if variant in PASS_VARIANTS else "REJECT"
-    if expected_verdict != locked_verdict:
+    if not availability_aware and expected_verdict != locked_verdict:
         errors.append("locked variant outcome mismatch")
 
     # Clause-separating controls are checked at their exact boundary values.
@@ -1582,7 +1650,7 @@ def validate_certificate(
         blocks = observation["decode"].get("blocks", [])
         first = blocks[0] if blocks else {}
         if (
-            not behavior_pass
+            behavior_pass is False
             or payload_pass
             or provenance["mapped_count"] != 27
             or first.get("status") != "AMBIGUOUS"
@@ -1592,7 +1660,7 @@ def validate_certificate(
         ):
             errors.append("recovery_break control semantics mismatch")
     elif variant == "reseed":
-        if not behavior_pass or not payload_pass or provenance["mapped_count"] != 0:
+        if behavior_pass is False or not payload_pass or provenance["mapped_count"] != 0:
             errors.append("reseed control semantics mismatch")
     elif variant == "behavior_drift":
         if behavior_pass or not payload_pass or provenance["mapped_count"] != 28:
