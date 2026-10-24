@@ -1,11 +1,11 @@
 {
   "bibliography_sha256": "9ba2e1685119f890c0e725a8b2eb6126b961a7ce63621887b4771d5f5ab3e08e",
-  "binding_refresh_date": "2026-10-18",
+  "binding_refresh_date": "2026-10-24",
   "checked_date": "2026-09-24",
   "errors": [],
   "fresh_primary_fulltext_review_count": 0,
-  "lock_sha256": "5b2f622713e8dd7285b0624826dccad69acc2429d5ab61ee8cf532d7f4b1e4c1",
-  "manuscript_sha256": "409af04240eb7b3619ead518d466ce490d6d83974c965b79d95900f4ae12f477",
+  "lock_sha256": "2f614720ffff4472fd65cf1f1ad3a9c887844ada75f0d6b04a297ef2cdd1bb47",
+  "manuscript_sha256": "504e0518d3c2c8bae96d19df9d436bb0d96d8e9fe05c55d70443518fceb72559",
   "reference_count": 79,
   "rows": [
     {

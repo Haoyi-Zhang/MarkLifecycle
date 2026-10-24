@@ -1,7 +1,7 @@
 {
   "bibliography_sha256": "9ba2e1685119f890c0e725a8b2eb6126b961a7ce63621887b4771d5f5ab3e08e",
   "binding_note": "The final scholarly metadata and identifiers are preserved; this operation updates only current manuscript, entry, location, and support-sentence byte bindings.",
-  "binding_refresh_date": "2026-10-18",
+  "binding_refresh_date": "2026-10-24",
   "binding_scope": "local byte and citation-position refresh only; inherited review provenance preserved",
   "citation_order": [
     "r44",
@@ -86,7 +86,7 @@
   ],
   "fresh_primary_fulltext_review_count": 0,
   "frozen_at": "2026-09-24T00:00:00-07:00",
-  "manuscript_sha256": "409af04240eb7b3619ead518d466ce490d6d83974c965b79d95900f4ae12f477",
+  "manuscript_sha256": "504e0518d3c2c8bae96d19df9d436bb0d96d8e9fe05c55d70443518fceb72559",
   "records": [
     {
       "authors": "M. M. Lehman",
@@ -985,7 +985,7 @@
     {
       "authors": "B. E. Cossette and R. J. Walker",
       "current_primary_support_review": {
-        "actual_read_scope": "Author-authorized minor revision of FSE2012 in2014thesis, physical23publication relationship and107–111(print94–98)§5.1.2; explicit code-comment/release-document versus available replacement comparisons.",
+        "actual_read_scope": "Author-authorized minor revision of FSE2012 in2014thesis, physical23publication relationship and107\u2013111(print94\u201398)\u00a75.1.2; explicit code-comment/release-document versus available replacement comparisons.",
         "current_role": "Documented replacement advice can disagree with available evolved-library replacements; not an observed client-edit corpus.",
         "prior_support_sentence": "Migration studies find differences between documented and actual client changes \\cite{r20}.",
         "source": "https://lsmr.org/docs/cossette_phd_2014.pdf"
@@ -2319,7 +2319,7 @@
       "entry": "S. Haber and W. S. Stornetta, ``How to time-stamp a digital document,'' Journal of Cryptology, vol. 3, no. 2, pp. 99--111, 1991.",
       "entry_sha256": "7284560539358ecf2e7a8747180c4ef74765713e295ed7fc7b5d9522b8673c4f",
       "key": "r83",
-      "manuscript_location": "paper/main.tex:636",
+      "manuscript_location": "paper/main.tex:679",
       "scholarly_identifier": "DOI:10.1007/BF00196791",
       "source_locator": "https://doi.org/10.1007/BF00196791",
       "support_sentence": "Timestamped records can make later rewriting detectable \\cite{r83}.",
@@ -2348,7 +2348,7 @@
       "entry": "P. Maniatis and M. Baker, ``Secure history preservation through timeline entanglement,'' in Proceedings of the 11th USENIX Security Symposium, 2002, pp. 297--312.",
       "entry_sha256": "d7b796f48f18f20fd7aec9a1db663a24289e68bdfbe6ba34fd5b72278efcf9e5",
       "key": "r84",
-      "manuscript_location": "paper/main.tex:636",
+      "manuscript_location": "paper/main.tex:679",
       "scholarly_identifier": "DBLP:conf/uss/ManiatisB02",
       "source_locator": "https://dblp.org/rec/conf/uss/ManiatisB02",
       "support_sentence": "Timeline entanglement shows how independent services can strengthen history preservation \\cite{r84}.",
@@ -2377,7 +2377,7 @@
       "entry": "S. A. Crosby and D. S. Wallach, ``Efficient data structures for tamper-evident logging,'' in Proceedings of the 18th USENIX Security Symposium, 2009, pp. 317--334.",
       "entry_sha256": "d2f347e1849d22a2ff7592b9c7630673e67cd88d305da1c03ae02ccd64664484",
       "key": "r85",
-      "manuscript_location": "paper/main.tex:636",
+      "manuscript_location": "paper/main.tex:679",
       "scholarly_identifier": "DBLP:conf/uss/CrosbyW09",
       "source_locator": "https://dblp.org/rec/conf/uss/CrosbyW09",
       "support_sentence": "Tamper-evident logs provide compact proofs of event presence and append-only consistency \\cite{r85}.",
@@ -2406,7 +2406,7 @@
       "entry": "A. A. Yavuz and P. Ning, ``BAF: An efficient publicly verifiable secure audit logging scheme for distributed systems,'' in Proceedings of the 25th Annual Computer Security Applications Conference, 2009, pp. 219--228.",
       "entry_sha256": "d846600948556db8f8da9105959cf8904baeb1776d98851f4589a4864dc025b4",
       "key": "r86",
-      "manuscript_location": "paper/main.tex:639",
+      "manuscript_location": "paper/main.tex:682",
       "scholarly_identifier": "DOI:10.1109/ACSAC.2009.28",
       "source_locator": "https://doi.org/10.1109/ACSAC.2009.28",
       "support_sentence": "BAF provides publicly verifiable, forward-secure distributed logging \\cite{r86}.",
@@ -2432,7 +2432,7 @@
       "year": "2009"
     }
   ],
-  "records_set_sha256": "b092d2fb8f7bb420c12fca9e1dcdc6a44ca54cc17b5b58b4c29634c830f833a9",
+  "records_set_sha256": "754d0d473e31d1a98f58e46aaf11d202aa8ef5f3c0011e48c77e9ae0fb254317",
   "reference_count": 79,
   "schema": "tse01.reference-verification-lock.v2",
   "selected_current_primary_passage_review_count": 2,

@@ -43,6 +43,15 @@ it requires the actual sibling paper sources and packaging dependencies.
 
 ## Complete project bundle
 
+### Configured full-module pilot
+
+`configured-pilot/` adds a separate reviewed CPython graphlib history and a
+controlled branch/merge via `plan.json`. Its `README.md` gives the fresh-output
+command, source/license provenance, issuer-versus-reconstructed fields,
+same-information composed baseline and raw timing/storage interpretation.
+It executes current-interpreter bytecode, not the locked C toolchains, and is
+not pooled with historical release counts.
+
 ### Named finite-release decision
 
 From a workspace containing `artifact/`, reconstruct one finite release and its
