@@ -1,0 +1,2 @@
+# Preserve the exact measured-source preimage consumed by historical tests.
+measured-source.py -text

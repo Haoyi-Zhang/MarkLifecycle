@@ -6,7 +6,7 @@
   "errors": [],
   "fresh_primary_fulltext_review_count": 0,
   "frozen_floor": 78,
-  "manuscript_sha256": "504e0518d3c2c8bae96d19df9d436bb0d96d8e9fe05c55d70443518fceb72559",
+  "manuscript_sha256": "adb10b49420d0fc491d2048790cdd321d924528dbb90e7e1848e8e0eb2904812",
   "multi_citation_sentences": 0,
   "reference_count": 79,
   "schema": "tse01.reference-lock-audit.v1",

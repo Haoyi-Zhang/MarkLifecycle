@@ -1,0 +1,19 @@
+{
+  "schema": 1,
+  "record_status": "historical_not_current_verifier_timing",
+  "association": "Pre-followup work-tree entrypoint and inherited measurement record retained together; this explicit binding was added during the integration repair, not recorded by the original timing harness.",
+  "pre_followup_published_head_reported_by_coordinator": "bedc0a17734fc84e98ca1b98fd28086cbaaeb3f9",
+  "original_entrypoint": "configured-pilot/run.py",
+  "measured_entrypoint_preimage": "configured-pilot/measured-source.py",
+  "raw_record": "configured-pilot/results/report.json",
+  "sample_count": 9,
+  "median_full_merge_recheck_ms": 124.95570001192391,
+  "retained_four_node_evidence_bytes": 108837,
+  "files": [
+    {"path": "configured-pilot/measured-source.py", "sha256": "69f93b7ed1ac2e614f32b26aa5713edadd1cb17e73d86c0f4b20ea178e65d265"},
+    {"path": "configured-pilot/results/report.json", "sha256": "7396849f360bafb41583ecb37029b175ea86265d9723aaad7a3eb7494a500e08"},
+    {"path": "src/tracecert.py", "sha256": "936eff39721619b1c0e1863f60386b9284c7a7f217acf93dab7aa71ceb2f288f"},
+    {"path": "src/independent_recheck.py", "sha256": "f307c8960fa15a8542b8a5bbe326ef8250a74fd411a8506b771aaa417f7a6110"}
+  ],
+  "consumer": "run.py validates this record when emitting current measurements; test_pilot.py loads the exact preimage to reproduce the two old integration failures and distinguish them from repaired behavior."
+}
