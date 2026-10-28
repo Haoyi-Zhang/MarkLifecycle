@@ -1,15 +1,15 @@
 {
-  "generated_at": "2026-07-24T00:00:00Z",
+  "generated_at": "2026-10-28T00:00:00Z",
   "rows": [
     {
       "anonymity": "single-anonymous; author-visible",
       "channel": "future IEEE journal submission interface; main manuscript file first; live route recheck required",
-      "current_status": "CURRENT_PDF_15_PAGES_WITHIN_INTERNAL_MAXIMUM; FIVE_VISIBLE_AUTHORS_AND_FOUR_INSTITUTIONS; LIVE_TSE_RULES_AND_AUTHOR_DECLARATIONS_UNRESOLVED",
+      "current_status": "CURRENT_COLLABORATOR_PDF_16_PAGES; FIVE_VISIBLE_AUTHORS_AND_FOUR_INSTITUTIONS; LIVE_SUBMISSION_LIMIT_NOT_CERTIFIED",
       "destination": "main manuscript",
       "format": "LaTeX manuscript source accepted by the portal and converted to PDF; frozen review PDF retained for internal verification",
       "freeze": "immutable review-packet snapshot",
       "material": "main PDF",
-      "page_treatment": "at most 15 total formatted pages under the internal baseline budget; references and all article matter count; not an official TSE cap",
+      "page_treatment": "16 total pages in the current collaborator copy, including references; confirm the target article-type limit before submission",
       "publication_route": "article if later eligible",
       "required_or_allowed": "REQUIRED_FOR_INTERNAL_HANDOFF",
       "reviewer_duty": "primary review surface"
@@ -19,7 +19,7 @@
       "channel": "future portal entry",
       "current_status": "FIVE_VISIBLE_NAMES_AND_FOUR_INSTITUTIONS_MATCH_CURRENT_SOURCE; AUTHOR_IDENTITY_CONSENT_CONTRIBUTIONS_ORCID_CONFLICTS_DISCLOSURE_AND_LIVE_PORTAL_FIELDS_REQUIRE_AUTHOR_VALIDATION",
       "destination": "future submission interface",
-      "format": "Current source/PDF byline: Haoyi Zhang; Huaijin Ran; Xunzhu Tang; Kisub Kim; Tegawendé F. Bissyandé (corresponding). Current affiliation institutions: Xi'an Jiaotong-Liverpool University; Nanyang Technological University; University of Luxembourg; Daegu Gyeongbuk Institute of Science and Technology. This inventory does not certify identities, consent or ORCID/account metadata.",
+      "format": "Current source/PDF byline: Huaijin Ran; Haoyi Zhang; Xunzhu Tang; Kisub Kim; Tegawendé F. Bissyandé (corresponding). Current affiliation institutions: Xi'an Jiaotong-Liverpool University; Nanyang Technological University; University of Luxembourg; Daegu Gyeongbuk Institute of Science and Technology. This inventory does not certify identities, consent or ORCID/account metadata.",
       "freeze": "submission-time metadata freeze",
       "material": "author and submission metadata",
       "page_treatment": "not a substitute for the manuscript author block",
@@ -35,7 +35,7 @@
       "format": "IEEE numbered bibliography",
       "freeze": "with manuscript",
       "material": "references",
-      "page_treatment": "included in the internal maximum of 15 total pages",
+      "page_treatment": "included in the current 16-page PDF",
       "publication_route": "article",
       "required_or_allowed": "REQUIRED_IN_MAIN_PDF",
       "reviewer_duty": "reviewed"
@@ -82,10 +82,10 @@
     {
       "anonymity": "single-anonymous",
       "channel": "external repository",
-      "current_status": "NOT_CREATED; EXTERNAL ACTION FORBIDDEN",
-      "destination": "public archival repository if user later elects submission",
-      "format": "versioned source",
-      "freeze": "tag/commit",
+      "current_status": "AVAILABLE; CURRENT PUBLIC SOURCE REPOSITORY",
+      "destination": "https://github.com/Haoyi-Zhang/MarkLifecycle",
+      "format": "source and retained reproducibility records",
+      "freeze": "current repository commit; historical execution records retain their original bindings",
       "material": "repository",
       "page_treatment": "separate",
       "publication_route": "linked artifact",
@@ -121,5 +121,5 @@
   ],
   "schema": "tse01.submission-materials-map.v1",
   "submission_policy_status": "SUBMISSION_POLICY_HOLD",
-  "packaging_binding_date": "2026-10-12"
+  "packaging_binding_date": "2026-10-28"
 }
